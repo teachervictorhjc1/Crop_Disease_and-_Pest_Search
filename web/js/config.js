@@ -9,5 +9,5 @@
 // 千萬不要把 service_role / secret key 放在這裡！
 export const CONFIG = {
   SUPABASE_URL: 'https://ocnawzdzsvufvkwvwqlu.supabase.co',
-  SUPABASE_ANON_KEY: '',
+  SUPABASE_ANON_KEY: 'sb_publishable_HCKAQdJbt_s-JrGHHIRrvw_804ntCql',
 };
