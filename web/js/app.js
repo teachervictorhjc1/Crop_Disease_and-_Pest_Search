@@ -1,6 +1,7 @@
 // 作物病蟲害檢索 主程式
 import { loadAll } from './data.js';
 import { renderIllus } from './illus.js';
+import { aiAvailable, shrinkImage, aiDiagnose, errorMessage } from './photo.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const view = $('#view');
@@ -13,7 +14,8 @@ const state = {
   data: null,
   idx: { crop: new Map(), type: new Map(), part: new Map(), tag: new Map(), issue: new Map() },
   browse: { q: '', type: '', crop: '', part: '' },
-  wizard: { crop: '', part: '', tags: new Set() },
+  // ai：拍照診斷狀態 { status: 'loading'|'done'|'error', preview, result, error }
+  wizard: { crop: '', part: '', tags: new Set(), ai: null },
 };
 
 /* ------------------------------------------------------------------ */
@@ -324,6 +326,107 @@ function diagnose({ crop, part, tags }) {
     .slice(0, 12);
 }
 
+/** AI 拍照診斷的結果區塊 */
+function aiResultHTML(ai) {
+  if (!ai) return '';
+  const preview = ai.preview ? `<img class="ai-preview" src="${esc(ai.preview)}" alt="上傳的照片">` : '';
+  if (ai.status === 'loading') {
+    return `<div class="ai-result">${preview}<p class="ai-status"><span class="spinner"></span>AI 分析中，約需 5～20 秒…</p></div>`;
+  }
+  if (ai.status === 'error') {
+    return `<div class="ai-result">${preview}<p class="ai-status error">⚠️ ${esc(ai.error)}</p></div>`;
+  }
+  const r = ai.result;
+  const cands = r.candidates
+    .map((c) => ({ ...c, it: state.idx.issue.get(c.id) }))
+    .filter((c) => c.it);
+  const quality = r.photo_quality === 'poor' ? `<p class="ai-status warn">照片不太清楚，結果可能不準確。</p>` : '';
+  const advice = r.advice ? `<p class="ai-advice">💡 ${esc(r.advice)}</p>` : '';
+  if (!r.is_plant || !cands.length) {
+    return `<div class="ai-result">${preview}
+      <p class="ai-status warn">${r.is_plant ? 'AI 無法從這張照片判斷出清單中的問題。' : '這張照片看起來不是作物。'}</p>
+      ${r.observation ? `<p class="ai-obs">${esc(r.observation)}</p>` : ''}${advice}</div>`;
+  }
+  return `<div class="ai-result">${preview}
+    ${quality}
+    ${r.observation ? `<p class="ai-obs"><b>AI 看到：</b>${esc(r.observation)}</p>` : ''}
+    <div class="ai-cands">
+      ${cands.map(({ it, confidence, reason }) => {
+        const pct = Math.round(confidence * 100);
+        return `<a class="diag" href="#/issue/${encodeURIComponent(it.id)}">
+          <div class="diag-illus">${renderIllus(it.illus?.[0], it.id)}</div>
+          <div class="diag-body">
+            <div class="diag-top"><span class="ai-badge">AI 推薦</span>${typeBadge(it.type)}<strong>${esc(it.name)}</strong></div>
+            <div class="bar" aria-label="AI 把握度 ${pct}%"><span style="width:${pct}%"></span></div>
+            <p class="diag-hit">${esc(reason)}</p>
+          </div>
+          <span class="pct">${pct}%</span>
+        </a>`;
+      }).join('')}
+    </div>
+    ${advice}
+    <p class="hint">已依照片自動勾選下方的作物、部位與特徵，可以再調整；請點進條目對照特徵圖確認。</p>
+  </div>`;
+}
+
+function aiPanelHTML(w) {
+  if (!aiAvailable()) return '';
+  return `<div class="ai-card" id="ai-card">
+    <div class="ai-head">
+      <strong>📷 拍照診斷（AI）</strong>
+      <span class="hint">拍下受害部位，AI 會推薦可能原因並幫你勾選特徵。若先選好下方的作物，AI 會一併參考。</span>
+    </div>
+    <div class="ai-actions">
+      <label class="btn">📸 拍照<input type="file" accept="image/*" capture="environment" data-ai-file hidden></label>
+      <label class="btn ghost">🖼️ 選擇照片<input type="file" accept="image/*" data-ai-file hidden></label>
+    </div>
+    <details class="ai-tips">
+      <summary>拍照技巧</summary>
+      <ul>
+        <li>對焦清楚、光線充足，避免逆光與強烈反光。</li>
+        <li>拍「健康與受害交界」的部位，一張只拍一種症狀。</li>
+        <li>葉片問題請正面、背面各拍一張；懷疑蟲害時靠近拍蟲體。</li>
+        <li>萎凋或矮化時，加拍整株與根部。</li>
+      </ul>
+    </details>
+    ${aiResultHTML(w.ai)}
+    <p class="hint">照片會傳送到 Google Gemini 分析，本 App 不會儲存照片。AI 判斷僅供參考，需要連網。</p>
+  </div>`;
+}
+
+/** 執行 AI 拍照診斷，完成後把結果帶入勾選條件 */
+async function runAiDiagnose(file) {
+  const w = state.wizard;
+  const rerender = () => {
+    if (state.wizard === w && location.hash.startsWith('#/wizard')) {
+      renderWizard();
+      $('#ai-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+  let img;
+  try {
+    img = await shrinkImage(file);
+  } catch {
+    w.ai = { status: 'error', error: errorMessage('bad_image') };
+    return rerender();
+  }
+  w.ai = { status: 'loading', preview: img.dataUrl };
+  rerender();
+  try {
+    const r = await aiDiagnose({ base64: img.base64, mime: img.mime, crop: w.crop });
+    w.ai = { status: 'done', preview: img.dataUrl, result: r };
+    if (r.is_plant) {
+      if (!w.crop && r.crop && state.idx.crop.has(r.crop)) w.crop = r.crop;
+      if (r.part) w.part = r.part;
+      if (r.tags.length) w.tags = new Set(r.tags.filter((t) => state.idx.tag.has(t)));
+    }
+  } catch (err) {
+    console.warn('AI 診斷失敗：', err);
+    w.ai = { status: 'error', preview: img.dataUrl, error: errorMessage(err.code) };
+  }
+  rerender();
+}
+
 function renderWizard() {
   const w = state.wizard;
   const { meta, crops } = state.data;
@@ -332,6 +435,7 @@ function renderWizard() {
   view.innerHTML = `
     <section class="wizard">
       <h2>🩺 症狀診斷</h2>
+      ${aiPanelHTML(w)}
       <p class="lead">依序選擇作物、發生部位，再勾選田間觀察到的特徵，系統會列出最可能的病害、蟲害或營養缺乏。</p>
 
       <h3><span class="step">1</span> 作物</h3>
@@ -398,8 +502,12 @@ function renderWizard() {
     }
     update();
   });
+  view.querySelector('.wizard').addEventListener('change', (e) => {
+    const input = e.target.closest('[data-ai-file]');
+    if (input?.files?.[0]) runAiDiagnose(input.files[0]);
+  });
   $('#wz-reset').addEventListener('click', () => {
-    state.wizard = { crop: '', part: '', tags: new Set() };
+    state.wizard = { crop: '', part: '', tags: new Set(), ai: null };
     renderWizard();
   });
   update();
@@ -431,6 +539,9 @@ function renderAbout() {
         <li><b>iPhone／iPad（Safari）</b>：點下方「分享」按鈕 →「加入主畫面」。</li>
         <li>安裝後可像 App 一樣全螢幕開啟，<b>瀏覽過的內容在沒有網路時也能查詢</b>。</li>
       </ul>
+
+      <h3>📷 AI 拍照診斷</h3>
+      <p>在「症狀診斷」頁可以拍照或選擇照片，由 Google Gemini 判讀並從本 App 的條目中推薦可能原因。照片只用於當次分析，<b>本 App 不會儲存照片</b>；Gemini 免費方案的資料可能被 Google 用於改進服務。AI 可能判斷錯誤，請務必對照特徵圖與說明確認。</p>
 
       <h3>🖼️ 關於圖片</h3>
       <p>每個條目的特徵圖都是程式繪製的<b>示意圖</b>，用來凸顯辨識重點。條目頁面可另外載入 Wikimedia Commons 的實拍照片（依各照片授權標示作者）。</p>

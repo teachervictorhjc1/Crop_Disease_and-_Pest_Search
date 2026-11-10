@@ -13,3 +13,7 @@ Thumbs.db
 *.local.js
 .env
 .env.*
+
+# 金鑰與測試照片（不進版控）
+API-Key*.txt
+test_photo/
