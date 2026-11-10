@@ -1,0 +1,15 @@
+# Python / uv（本機環境，不進版控）
+.venv/
+__pycache__/
+*.pyc
+
+# 編輯器與系統檔
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 本機機密設定（若另外建立）
+*.local.js
+.env
+.env.*

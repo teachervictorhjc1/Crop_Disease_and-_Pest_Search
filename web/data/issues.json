@@ -1,0 +1,1558 @@
+[
+  {
+    "id": "rice-blast",
+    "name": "稻熱病",
+    "en": "Rice blast",
+    "sci": "Pyricularia oryzae（= Magnaporthe oryzae）",
+    "type": "disease",
+    "crops": ["rice"],
+    "parts": ["leaf", "stem", "flower"],
+    "tags": ["spots", "stunting"],
+    "summary": "水稻最重要的真菌病害之一，可危害葉片、稻節及穗頸，穗稻熱會造成白穗與嚴重減產。",
+    "symptoms": [
+      "葉稻熱：葉片出現紡錘形（菱形）病斑，中央灰白色、外緣褐色，外圍常有黃色暈環。",
+      "嚴重時病斑融合使葉片枯死，植株矮化、分蘗受阻（俗稱「坐蔸」）。",
+      "穗稻熱：穗頸部變褐至黑褐色，養分無法輸送，造成白穗或稔實不良。",
+      "節稻熱：稻稈節部變黑褐色，容易折斷。"
+    ],
+    "conditions": "氣溫約 20–28°C、相對濕度高、連續陰雨或葉面長時間濕潤時容易發生；氮肥施用過量、植株過密的田區較嚴重。台灣一期作較常發生。",
+    "prevention": [
+      "選用抗病品種，並使用健康種子（播種前進行種子消毒）。",
+      "合理施用氮肥，避免過量及生育後期追施氮肥。",
+      "插秧密度適中，保持田間通風。",
+      "清除罹病稻草、田間及田埂雜草，減少初次感染源。"
+    ],
+    "control": [
+      "發病初期（葉片出現典型紡錘形病斑）即開始防治，並注意天氣預報，雨前雨後加強巡田。",
+      "孕穗末期至齊穗期是防治穗稻熱的關鍵時期。",
+      "依《植物保護手冊》選用登記藥劑，並輪替不同作用機制（FRAC 代碼）的藥劑，以延緩抗藥性。"
+    ],
+    "illus": [
+      { "k": "leaf", "shape": "grass", "p": "spindle", "cap": "葉片紡錘形病斑：中央灰白、外緣褐色、外圍黃暈" },
+      { "k": "plant", "state": "panicle", "cap": "穗頸變黑褐，形成白穗" }
+    ],
+    "photoQuery": "Magnaporthe oryzae",
+    "related": ["rice-sheath-blight", "rice-bacterial-blight"]
+  },
+  {
+    "id": "rice-sheath-blight",
+    "name": "紋枯病",
+    "en": "Rice sheath blight",
+    "sci": "Rhizoctonia solani AG1-IA",
+    "type": "disease",
+    "crops": ["rice"],
+    "parts": ["stem", "leaf"],
+    "tags": ["spots", "rot"],
+    "summary": "危害水稻葉鞘與葉片的土壤傳播性真菌病害，高溫多濕、密植田區容易大發生並造成倒伏。",
+    "symptoms": [
+      "近水面處的葉鞘先出現橢圓形、灰綠色水浸狀病斑。",
+      "病斑擴大後中央灰白色、邊緣褐色，數個病斑相連呈雲紋狀。",
+      "病斑由下往上蔓延到葉片，嚴重時全株枯死、倒伏。",
+      "高濕時病斑表面可見白色菌絲及褐色、像油菜籽的菌核。"
+    ],
+    "conditions": "高溫多濕（約 28–32°C），分蘗盛期至孕穗期最容易擴展；密植、氮肥過多、田間長期積水時嚴重。菌核可在土壤中存活多年。",
+    "prevention": [
+      "合理密植，保持行株間通風。",
+      "避免偏施氮肥，適量增施鉀肥。",
+      "分蘗末期適時曬田，降低田間濕度。",
+      "整地灌水後撈除浮在水面的菌核及殘體。"
+    ],
+    "control": [
+      "分蘗末期起定期檢查稻叢基部，罹病叢率明顯上升時即施藥。",
+      "施藥時藥液必須噴到植株基部的葉鞘。",
+      "可評估使用已登記的微生物製劑（例如枯草桿菌類），並依《植物保護手冊》輪用藥劑。"
+    ],
+    "illus": [
+      { "k": "stem", "p": "sheath", "cap": "近水面葉鞘的雲紋狀病斑" }
+    ],
+    "photoQuery": "rice sheath blight Rhizoctonia",
+    "related": ["rice-blast", "brown-planthopper"]
+  },
+  {
+    "id": "rice-bacterial-blight",
+    "name": "白葉枯病",
+    "en": "Rice bacterial leaf blight",
+    "sci": "Xanthomonas oryzae pv. oryzae",
+    "type": "disease",
+    "crops": ["rice"],
+    "parts": ["leaf", "whole"],
+    "tags": ["yellowing", "scorch", "wilting"],
+    "summary": "細菌性病害，颱風、豪雨造成葉片傷口後容易大發生，葉片由葉尖、葉緣開始枯白。",
+    "symptoms": [
+      "葉尖或葉緣先出現黃綠色水浸狀條斑。",
+      "病斑沿葉緣向下擴展，形成邊緣呈波浪狀的黃白色至灰白色枯斑。",
+      "清晨在病斑上可見黃色露珠狀菌泥，乾後成為小顆粒。",
+      "幼苗期感染可造成整株急性萎凋（Kresek 型）。"
+    ],
+    "conditions": "颱風、豪雨過後葉片傷口多時最容易發生；溫度約 25–30°C、田間淹水、偏施氮肥時嚴重。台灣二期作颱風季較常見。",
+    "prevention": [
+      "選用抗病品種。",
+      "颱風前後避免施用氮肥。",
+      "做好田區排水，避免灌溉水在病田與健田之間串流傳播。",
+      "清除田埂上的寄主雜草（例如李氏禾）及罹病殘株。"
+    ],
+    "control": [
+      "颱風或豪雨過後、發病初期，施用已登記的細菌性病害藥劑（例如銅劑等）。",
+      "葉片潮濕時避免進入田間操作，以免傳播病菌。"
+    ],
+    "illus": [
+      { "k": "leaf", "shape": "grass", "p": "margin-blight", "cap": "由葉尖、葉緣向下擴展的波浪狀黃白色枯斑" }
+    ],
+    "photoQuery": "Xanthomonas oryzae",
+    "related": ["rice-blast"]
+  },
+  {
+    "id": "late-blight",
+    "name": "晚疫病",
+    "en": "Late blight",
+    "sci": "Phytophthora infestans",
+    "type": "disease",
+    "crops": ["tomato", "potato"],
+    "parts": ["leaf", "stem", "fruit"],
+    "tags": ["spots", "rot", "powder"],
+    "summary": "冷涼高濕時爆發性很強的卵菌病害，條件適合時數天內就能讓整片田枯萎。",
+    "symptoms": [
+      "葉片出現不規則形、暗綠色水浸狀大斑，很快擴大並轉為褐黑色。",
+      "潮濕時，病斑周緣的葉背長出一圈白色黴狀物。",
+      "莖及葉柄出現黑褐色病斑，容易折斷。",
+      "番茄果實出現油漬狀、表面粗糙的褐色硬斑，通常不軟腐。"
+    ],
+    "conditions": "冷涼高濕：日夜溫約 15–22°C、相對濕度 90% 以上，有霧、露或連續降雨時最容易爆發。台灣多發生在冬、春季。",
+    "prevention": [
+      "避免番茄與馬鈴薯連作或鄰近種植。",
+      "使用健康種薯與種苗。",
+      "加強通風，避免傍晚灑水使葉面整夜潮濕。",
+      "設施栽培時注意通風除濕，發現病株立即清除。"
+    ],
+    "control": [
+      "低溫多雨期提前進行預防性施藥。",
+      "發現病斑時立即施藥，並依天候縮短施藥間隔。",
+      "輪用不同作用機制的登記藥劑（疫病菌容易產生抗藥性）。"
+    ],
+    "illus": [
+      { "k": "leaf", "p": "blight", "cap": "葉片水浸狀暗褐色大斑，周緣有白色黴" },
+      { "k": "fruit", "fruit": "tomato", "p": "greasy", "cap": "果實油漬狀褐色硬斑" }
+    ],
+    "photoQuery": "Phytophthora infestans tomato",
+    "related": ["early-blight", "phytophthora-blight"]
+  },
+  {
+    "id": "early-blight",
+    "name": "早疫病",
+    "en": "Early blight",
+    "sci": "Alternaria solani",
+    "type": "disease",
+    "crops": ["tomato", "potato", "eggplant"],
+    "parts": ["leaf", "stem", "fruit"],
+    "tags": ["spots", "yellowing"],
+    "summary": "茄科常見的真菌病害，病斑具有明顯的同心輪紋（靶心狀），由下位老葉往上蔓延。",
+    "symptoms": [
+      "下位老葉先出現褐色圓形至不規則形病斑，具明顯的同心輪紋。",
+      "病斑周圍黃化，嚴重時葉片由下往上枯黃、脫落。",
+      "莖部出現橢圓形褐色輪紋斑。",
+      "果實靠近果蒂處出現凹陷的黑褐色輪紋斑。"
+    ],
+    "conditions": "溫暖（約 24–29°C）多濕、露水重時容易發生；植株生長勢弱、肥料不足或結果負擔重時較嚴重。",
+    "prevention": [
+      "與非茄科作物輪作 2–3 年。",
+      "平衡施肥，維持植株生長勢。",
+      "摘除下位病葉並帶出田區。",
+      "畦面敷蓋，減少雨水把土壤中的病菌濺到葉片上。"
+    ],
+    "control": [
+      "發病初期施用登記藥劑，注意噴到葉背及下位葉。",
+      "輪替不同作用機制的藥劑。"
+    ],
+    "illus": [
+      { "k": "leaf", "p": "spots", "rings": true, "halo": true, "color": "#6b4423", "n": 6, "r": 8, "cap": "同心輪紋（靶心狀）褐斑，周圍黃化" },
+      { "k": "plant", "state": "old", "color": "#c9b84a", "cap": "由下位老葉開始往上蔓延" }
+    ],
+    "photoQuery": "Alternaria solani",
+    "related": ["late-blight", "def-k"]
+  },
+  {
+    "id": "bacterial-wilt",
+    "name": "青枯病",
+    "en": "Bacterial wilt",
+    "sci": "Ralstonia solanacearum",
+    "type": "disease",
+    "crops": ["tomato", "pepper", "eggplant", "potato"],
+    "parts": ["whole", "stem", "root"],
+    "tags": ["wilting"],
+    "summary": "土壤傳播的細菌性維管束病害，植株會在葉片仍保持綠色時突然萎凋死亡。",
+    "symptoms": [
+      "初期植株頂端葉片在中午萎凋、傍晚恢復，數天後全株萎凋死亡。",
+      "萎凋時葉片仍保持綠色，所以叫「青枯」。",
+      "莖基部的維管束變褐色。",
+      "簡易診斷：剪一段病莖插在清水中，數分鐘內可見乳白色菌泥從切口流出。"
+    ],
+    "conditions": "高溫（約 30–35°C）多濕、土壤含水量高時最嚴重；連作田、根部被線蟲危害或中耕傷根時更容易感染。",
+    "prevention": [
+      "嫁接抗病砧木（例如番茄嫁接於抗病茄子或番茄砧木）。",
+      "與水稻輪作（水旱輪作）可大幅降低土中病菌。",
+      "選擇排水良好的田區，採用高畦栽培。",
+      "避免中耕傷根，田間工具使用後消毒。"
+    ],
+    "control": [
+      "目前沒有有效的化學治療藥劑。",
+      "發現病株應立即連根拔除並帶離田區銷毀，病穴可撒施石灰。",
+      "可評估太陽能消毒、浸水處理或已登記的生物製劑來處理土壤。"
+    ],
+    "illus": [
+      { "k": "plant", "state": "wilt", "cap": "全株萎凋，葉片仍呈綠色" },
+      { "k": "stem", "p": "ooze", "cap": "病莖切段插入清水，流出乳白色菌泥" }
+    ],
+    "photoQuery": "Ralstonia solanacearum",
+    "related": ["root-knot-nematode", "phytophthora-blight"]
+  },
+  {
+    "id": "tylcv",
+    "name": "番茄黃化捲葉病",
+    "en": "Tomato yellow leaf curl disease",
+    "sci": "Tomato yellow leaf curl virus（TYLCV）等雙生病毒",
+    "type": "disease",
+    "crops": ["tomato"],
+    "parts": ["leaf", "whole", "flower"],
+    "tags": ["yellowing", "curling", "stunting", "drop"],
+    "summary": "由銀葉粉蝨傳播的病毒病，早期感染幾乎不結果，損失可達 100%。",
+    "symptoms": [
+      "新葉變小，葉緣黃化並向上捲曲，呈杯狀。",
+      "植株嚴重矮化，節間縮短。",
+      "開花後大量落花，幾乎不結果。",
+      "愈早感染損失愈大，後期感染則上部葉片出現症狀。"
+    ],
+    "conditions": "由銀葉粉蝨（菸草粉蝨）以持續性方式傳播；夏秋季高溫乾燥、粉蝨族群高時最嚴重。",
+    "prevention": [
+      "選用抗（耐）病品種。",
+      "在防蟲網室內育苗，使用健康種苗。",
+      "設施使用 50 目以上防蟲網。",
+      "清除田間及周邊雜草與罹病殘株，避免與茄科、瓜類等粉蝨寄主連作或鄰作。"
+    ],
+    "control": [
+      "病毒病沒有藥劑可以治療，發現病株立即拔除，裝袋帶離田區銷毀。",
+      "防治重點在媒介昆蟲銀葉粉蝨：黃色黏紙監測，並輪用登記殺蟲劑（見「銀葉粉蝨」）。"
+    ],
+    "illus": [
+      { "k": "leaf", "p": "curl", "cap": "新葉變小、葉緣黃化並向上捲曲" },
+      { "k": "plant", "state": "stunt", "cap": "植株矮化、節間縮短（右為健康株）" }
+    ],
+    "photoQuery": "tomato yellow leaf curl plant",
+    "related": ["silverleaf-whitefly"]
+  },
+  {
+    "id": "cucurbit-downy-mildew",
+    "name": "瓜類露菌病",
+    "en": "Cucurbit downy mildew",
+    "sci": "Pseudoperonospora cubensis",
+    "type": "disease",
+    "crops": ["cucurbit"],
+    "parts": ["leaf"],
+    "tags": ["spots", "yellowing", "powder"],
+    "summary": "瓜類最常見的葉部病害之一，病斑受葉脈限制呈多角形，葉背有黴狀物。",
+    "symptoms": [
+      "葉表出現受葉脈限制的多角形黃色病斑。",
+      "潮濕時，葉背對應位置長出灰紫色至黑色黴狀物。",
+      "病斑後期轉為褐色乾枯，嚴重時整片葉枯死。",
+      "通常由下位葉往上蔓延。"
+    ],
+    "conditions": "高濕、葉面有水膜、日夜溫差大、氣溫約 15–25°C 時容易發生；春、秋雨季及露水重時嚴重。",
+    "prevention": [
+      "選用耐病品種。",
+      "適當株距，立支架並整枝，以利通風。",
+      "採用滴灌，避免葉面長時間潮濕。",
+      "摘除罹病老葉，帶出田區。"
+    ],
+    "control": [
+      "發病初期施用登記藥劑，預防性與治療性藥劑輪替使用。",
+      "噴藥時一定要噴到葉背。"
+    ],
+    "illus": [
+      { "k": "leaf", "shape": "lobed", "p": "angular", "cap": "受葉脈限制的多角形黃斑" }
+    ],
+    "photoQuery": "Pseudoperonospora cubensis",
+    "related": ["powdery-mildew", "grape-downy-mildew"]
+  },
+  {
+    "id": "powdery-mildew",
+    "name": "白粉病",
+    "en": "Powdery mildew",
+    "sci": "Podosphaera spp.、Erysiphe spp.、Leveillula taurica 等",
+    "type": "disease",
+    "crops": ["cucurbit", "strawberry", "grape", "mango", "pepper", "tomato"],
+    "parts": ["leaf", "stem", "fruit", "flower"],
+    "tags": ["powder", "yellowing", "curling", "drop"],
+    "summary": "葉面像撒了一層麵粉的真菌病害，不需下雨也能發生，乾季及設施栽培很常見。",
+    "symptoms": [
+      "葉面、葉背及嫩莖出現白色粉狀斑點，逐漸擴大覆蓋整片葉。",
+      "葉片黃化、捲曲，提早枯落。",
+      "果實受害時表面粗糙、著色不良或裂果。",
+      "芒果、葡萄花穗受害會造成落花、結果不良。"
+    ],
+    "conditions": "不需要葉面水膜就能發病；約 20–30°C、空氣濕度高但葉面乾燥、日照不足、通風差、植株過密時嚴重。",
+    "prevention": [
+      "選用抗病品種。",
+      "整枝修剪、合理密植，維持通風與日照。",
+      "避免氮肥過量。",
+      "摘除病葉，減少病原。"
+    ],
+    "control": [
+      "發病初期施用登記藥劑，例如硫磺劑等，並輪替不同作用機制。",
+      "可評估使用已登記的礦物油、碳酸氫鉀或微生物製劑（例如枯草桿菌）等資材。",
+      "高溫期使用硫磺劑要注意藥害。"
+    ],
+    "illus": [
+      { "k": "leaf", "shape": "lobed", "p": "powdery", "cap": "葉面白色粉狀黴斑" }
+    ],
+    "photoQuery": "powdery mildew cucurbit leaf",
+    "related": ["cucurbit-downy-mildew", "anthracnose"]
+  },
+  {
+    "id": "anthracnose",
+    "name": "炭疽病",
+    "en": "Anthracnose",
+    "sci": "Colletotrichum spp.",
+    "type": "disease",
+    "crops": ["mango", "pepper", "strawberry", "banana", "papaya", "guava", "grape"],
+    "parts": ["fruit", "leaf", "flower"],
+    "tags": ["spots", "rot", "drop"],
+    "summary": "高溫多雨時危害多種果實的真菌病害，常有潛伏感染，採收後才出現病斑。",
+    "symptoms": [
+      "葉片出現褐色至黑色不規則病斑，嫩葉扭曲變形。",
+      "芒果花穗受害變黑枯死，造成落花。",
+      "果實出現圓形、凹陷的黑褐色病斑，常有同心輪紋。",
+      "潮濕時病斑上產生橙紅色（鮭肉色）黏稠孢子團。",
+      "潛伏感染：果實採收後在後熟期才出現病斑。"
+    ],
+    "conditions": "高溫多雨（約 25–30°C）時嚴重，病菌孢子靠雨水飛濺傳播，並由傷口侵入。",
+    "prevention": [
+      "清園：剪除病枝病葉，清除落果。",
+      "果實套袋（芒果、番石榴等）。",
+      "辣椒、草莓可採設施避雨栽培。",
+      "芒果可依品種條件進行採後熱水處理。"
+    ],
+    "control": [
+      "開花期、幼果期及降雨前後是防治關鍵期，施用登記藥劑並輪替。",
+      "草莓育苗期加強防治，避免帶病苗定植到本田。"
+    ],
+    "illus": [
+      { "k": "fruit", "fruit": "mango", "p": "rot", "spores": true, "cap": "果實凹陷黑褐斑，潮濕時有橙紅色孢子團" },
+      { "k": "leaf", "p": "spots", "color": "#3b2a1a", "n": 5, "r": 9, "irregular": true, "cap": "葉片不規則黑褐色病斑" }
+    ],
+    "photoQuery": "mango anthracnose",
+    "related": ["gray-mold", "powdery-mildew"]
+  },
+  {
+    "id": "citrus-hlb",
+    "name": "柑橘黃龍病",
+    "en": "Citrus greening (Huanglongbing, HLB)",
+    "sci": "Candidatus Liberibacter asiaticus",
+    "type": "disease",
+    "crops": ["citrus"],
+    "parts": ["leaf", "fruit", "whole"],
+    "tags": ["yellowing", "mosaic", "stunting", "drop"],
+    "summary": "由柑橘木蝨傳播的韌皮部細菌病害，目前無藥可治，是柑橘產業最嚴重的威脅。",
+    "symptoms": [
+      "葉片出現左右不對稱的黃綠斑駁（缺素症通常左右對稱，可藉此區別）。",
+      "部分枝條新梢黃化（黃梢）。",
+      "葉片變小、直立，類似缺鋅症狀。",
+      "果實小、畸形，果蒂端先著色而果頂仍綠（倒吊色、紅鼻果），種子發育不良，果汁味苦。",
+      "樹勢逐年衰退，最後死亡。"
+    ],
+    "conditions": "由柑橘木蝨傳播，也可經由帶病苗木或接穗傳播；新梢期木蝨族群高時傳播最快。",
+    "prevention": [
+      "種植經檢定的無病健康苗。",
+      "新梢期加強防治柑橘木蝨。",
+      "移除果園周邊的七里香（月橘），它是木蝨的重要寄主。",
+      "定期巡園，疑似病株送農業改良場或植物醫師檢測確診。"
+    ],
+    "control": [
+      "沒有藥劑可以治療。確診植株應挖除，以免成為傳染源。",
+      "全區共同防治柑橘木蝨（見「柑橘木蝨」）。"
+    ],
+    "illus": [
+      { "k": "leaf", "p": "blotchy", "cap": "葉片左右不對稱的黃綠斑駁" },
+      { "k": "fruit", "fruit": "citrus", "p": "hlb", "cap": "果蒂端轉色、果頂仍綠（倒吊色）" }
+    ],
+    "photoQuery": "citrus greening huanglongbing",
+    "related": ["asian-citrus-psyllid", "def-zn", "citrus-canker"]
+  },
+  {
+    "id": "citrus-canker",
+    "name": "柑橘潰瘍病",
+    "en": "Citrus canker",
+    "sci": "Xanthomonas citri subsp. citri",
+    "type": "disease",
+    "crops": ["citrus"],
+    "parts": ["leaf", "fruit", "stem"],
+    "tags": ["spots", "cracking", "drop"],
+    "summary": "細菌性病害，在葉、枝、果上形成隆起粗糙的木栓化病斑，影響果實外觀與商品價值。",
+    "symptoms": [
+      "葉、枝、果先出現黃色小點，後變成隆起、木栓化、表面粗糙的褐色病斑。",
+      "病斑周圍有黃色暈環，葉片正反兩面都會突起。",
+      "果實病斑只在果皮，但嚴重影響外觀。",
+      "嚴重時落葉、落果。"
+    ],
+    "conditions": "高溫多雨、颱風後傷口多時容易發生；柑橘潛葉蛾的危害會增加傷口而加重病情。檸檬、葡萄柚、文旦較感病。",
+    "prevention": [
+      "設置防風林或防風網，減少風傷。",
+      "新梢期防治柑橘潛葉蛾。",
+      "剪除病枝病葉並清園，修剪工具使用後消毒。"
+    ],
+    "control": [
+      "新梢萌發期及颱風、豪雨前後施用登記藥劑（例如銅劑）。",
+      "高溫期使用銅劑要注意藥害。"
+    ],
+    "illus": [
+      { "k": "leaf", "p": "spots", "raised": true, "halo": true, "color": "#9c7442", "n": 8, "r": 5, "cap": "隆起木栓化病斑，周圍黃暈" },
+      { "k": "fruit", "fruit": "citrus", "p": "canker", "cap": "果皮上粗糙突起的褐斑" }
+    ],
+    "photoQuery": "citrus canker",
+    "related": ["citrus-hlb"]
+  },
+  {
+    "id": "banana-fusarium-wilt",
+    "name": "香蕉黃葉病",
+    "en": "Fusarium wilt of banana (Panama disease)",
+    "sci": "Fusarium oxysporum f. sp. cubense（熱帶第四生理小種 TR4）",
+    "type": "disease",
+    "crops": ["banana"],
+    "parts": ["leaf", "stem", "root", "whole"],
+    "tags": ["yellowing", "wilting", "cracking"],
+    "summary": "土壤傳播的維管束病害，病菌可在土中存活數十年，是香蕉產業的毀滅性病害。",
+    "symptoms": [
+      "下位老葉由葉緣開始黃化，逐漸往上位葉發展。",
+      "葉柄基部折斷，枯葉下垂包圍假莖，呈裙狀。",
+      "假莖基部縱向裂開。",
+      "縱切或橫切假莖、球莖，可見維管束呈紅褐色至黑褐色。"
+    ],
+    "conditions": "經由帶菌吸芽、土壤、農機具、灌溉水傳播；病菌的厚膜孢子可在土中存活數十年。酸性、排水不良的土壤較嚴重。",
+    "prevention": [
+      "使用組織培養的健康種苗。",
+      "選用抗（耐）病品種，例如台灣香蕉研究所選育的「寶島蕉」等。",
+      "可與水稻輪作。",
+      "農機具、鞋靴進出田區前清洗消毒，避免帶土跨區。",
+      "調整土壤 pH、增施有機質。"
+    ],
+    "control": [
+      "沒有藥劑可以治療。",
+      "病株就地處理（例如注射除草劑殺株或挖除），避免移動病土。",
+      "病區不要再種植感病品種。"
+    ],
+    "illus": [
+      { "k": "plant", "state": "skirt", "cap": "老葉由葉緣黃化，葉柄折斷下垂成裙狀" },
+      { "k": "stem", "p": "vascular", "cap": "假莖橫切面，維管束呈紅褐色" }
+    ],
+    "photoQuery": "Fusarium oxysporum cubense banana",
+    "related": ["bacterial-wilt"]
+  },
+  {
+    "id": "gray-mold",
+    "name": "灰黴病",
+    "en": "Gray mold",
+    "sci": "Botrytis cinerea",
+    "type": "disease",
+    "crops": ["strawberry", "tomato", "grape"],
+    "parts": ["fruit", "flower", "leaf"],
+    "tags": ["rot", "powder"],
+    "summary": "低溫高濕時危害花與果實的真菌病害，果實軟腐並長出灰色毛絨狀黴層。",
+    "symptoms": [
+      "花瓣、花萼先受害變褐。",
+      "果實出現淡褐色水浸狀病斑，很快軟腐。",
+      "病部表面長出灰色毛絨狀黴層，一碰就飛散出孢子。",
+      "番茄果實可見白色小環狀的「鬼斑」。"
+    ],
+    "conditions": "低溫（約 15–23°C）高濕、連續陰雨、設施通風不良時嚴重；多發生於冬、春季。",
+    "prevention": [
+      "適當密植，摘除老葉、病果。",
+      "敷蓋塑膠布，避免果實接觸土壤。",
+      "設施加強通風除濕。",
+      "採收及管理時避免果實受傷。"
+    ],
+    "control": [
+      "開花期起預防性施用登記藥劑，並輪替不同作用機制（灰黴病菌很容易產生抗藥性）。",
+      "病果裝袋帶離田區。"
+    ],
+    "illus": [
+      { "k": "fruit", "fruit": "strawberry", "p": "mold", "cap": "果實軟腐並長出灰色黴層" }
+    ],
+    "photoQuery": "Botrytis cinerea strawberry",
+    "related": ["anthracnose"]
+  },
+  {
+    "id": "crucifer-black-rot",
+    "name": "十字花科黑腐病",
+    "en": "Black rot of crucifers",
+    "sci": "Xanthomonas campestris pv. campestris",
+    "type": "disease",
+    "crops": ["crucifer"],
+    "parts": ["leaf", "stem"],
+    "tags": ["yellowing", "spots", "rot"],
+    "summary": "種子可帶菌的細菌性病害，典型症狀是葉緣的 V 字形黃化病斑。",
+    "symptoms": [
+      "葉緣出現 V 字形黃化病斑，尖端指向中肋。",
+      "病斑內的葉脈變黑。",
+      "病斑擴大後葉片乾枯。",
+      "莖部維管束變黑，嚴重時結球腐爛。"
+    ],
+    "conditions": "種子帶菌，病菌由葉緣水孔及傷口侵入；高溫多濕（約 25–30°C）、颱風豪雨後嚴重。",
+    "prevention": [
+      "使用無病種子，或進行溫湯浸種（例如約 50°C 熱水浸 25–30 分鐘，依作物種類調整）。",
+      "與非十字花科作物輪作 2–3 年。",
+      "清除罹病殘株。",
+      "避免噴灌。"
+    ],
+    "control": [
+      "發病初期施用登記藥劑（例如銅劑）。",
+      "雨後及颱風後加強防治。"
+    ],
+    "illus": [
+      { "k": "leaf", "p": "v-lesion", "cap": "葉緣 V 字形黃化病斑，葉脈變黑" }
+    ],
+    "photoQuery": "Xanthomonas campestris black rot cabbage",
+    "related": ["clubroot", "diamondback-moth"]
+  },
+  {
+    "id": "clubroot",
+    "name": "根瘤病",
+    "en": "Clubroot",
+    "sci": "Plasmodiophora brassicae",
+    "type": "disease",
+    "crops": ["crucifer"],
+    "parts": ["root", "whole"],
+    "tags": ["wilting", "galls", "stunting", "yellowing"],
+    "summary": "十字花科在酸性土壤中常見的根部病害，根部長出大型腫瘤，休眠孢子可在土中存活 10 年以上。",
+    "symptoms": [
+      "白天萎凋，早晚恢復。",
+      "生長遲緩，葉片黃化。",
+      "拔起植株可見根部長出大小不一的紡錘形或塊狀腫瘤。",
+      "後期腫瘤腐爛。"
+    ],
+    "conditions": "酸性土壤（pH 低於 6.5）、排水不良、土溫約 20–25°C 時容易發生；休眠孢子可在土中存活 10 年以上。",
+    "prevention": [
+      "施用石灰資材，將土壤 pH 調整到約 7.2。",
+      "選用抗病品種。",
+      "與非十字花科作物長期輪作。",
+      "使用無病苗床土，並維持田區排水良好。",
+      "病根不要留在田間。"
+    ],
+    "control": [
+      "定植前依《植物保護手冊》以登記藥劑進行土壤處理。",
+      "病株連根拔除並帶離田區。"
+    ],
+    "illus": [
+      { "k": "roots", "type": "club", "cap": "根部紡錘形或塊狀腫瘤" },
+      { "k": "plant", "state": "wilt", "cap": "白天萎凋、生長遲緩" }
+    ],
+    "photoQuery": "Plasmodiophora brassicae clubroot",
+    "related": ["root-knot-nematode", "crucifer-black-rot"]
+  },
+  {
+    "id": "papaya-ringspot",
+    "name": "木瓜輪點病",
+    "en": "Papaya ringspot",
+    "sci": "Papaya ringspot virus（PRSV）",
+    "type": "disease",
+    "crops": ["papaya", "cucurbit"],
+    "parts": ["leaf", "fruit", "stem"],
+    "tags": ["mosaic", "spots", "curling", "stunting"],
+    "summary": "由蚜蟲傳播的病毒病，造成木瓜葉片嵌紋、果實輪點，是木瓜栽培最主要的限制因子。",
+    "symptoms": [
+      "新葉出現黃綠嵌紋，皺縮變形，嚴重時葉片呈絲狀。",
+      "葉柄與莖幹出現水浸狀、油漬狀條斑。",
+      "果實表面出現同心圓狀的輪點。",
+      "植株生長衰弱，產量與品質大幅下降。"
+    ],
+    "conditions": "由蚜蟲以非持續性方式傳播（蚜蟲短時間試吸就能傳毒）；鄰近罹病株或瓜類作物時容易感染。",
+    "prevention": [
+      "網室栽培，隔絕蚜蟲。",
+      "使用健康種苗。",
+      "早期發現病株立即剷除。",
+      "與瓜類田保持距離，並可種植耐病品種。"
+    ],
+    "control": [
+      "沒有藥劑可以治療，以網室栽培與剷除病株為主。",
+      "蚜蟲是以非持續性方式傳毒，噴殺蟲劑防止傳毒的效果有限。"
+    ],
+    "illus": [
+      { "k": "leaf", "shape": "lobed", "p": "mosaic", "cap": "新葉黃綠嵌紋、皺縮" },
+      { "k": "fruit", "fruit": "papaya", "p": "ringspot", "cap": "果實表面同心輪點" }
+    ],
+    "photoQuery": "papaya ringspot virus",
+    "related": ["aphids"]
+  },
+  {
+    "id": "phytophthora-blight",
+    "name": "疫病（辣椒、瓜類）",
+    "en": "Phytophthora blight",
+    "sci": "Phytophthora capsici",
+    "type": "disease",
+    "crops": ["pepper", "cucurbit", "eggplant"],
+    "parts": ["stem", "root", "fruit", "leaf"],
+    "tags": ["wilting", "rot", "powder"],
+    "summary": "雨季常見的卵菌病害，病菌隨水傳播，莖基部受害造成全株萎凋，果實軟腐長白黴。",
+    "symptoms": [
+      "莖基部出現暗褐色至黑色水浸狀病斑，環繞莖部後全株萎凋死亡。",
+      "果實出現水浸狀軟腐，表面長出白色黴狀物。",
+      "葉片出現暗綠色水浸狀大斑。"
+    ],
+    "conditions": "高溫多雨、土壤積水時嚴重；病菌的游走子隨水傳播。連作田較嚴重。",
+    "prevention": [
+      "高畦栽培並加強排水。",
+      "敷蓋塑膠布，減少泥水濺起。",
+      "與非寄主作物輪作，避免淹灌。"
+    ],
+    "control": [
+      "雨季前預防性施用登記藥劑（可灌注莖基部及噴施植株）。",
+      "病株拔除並帶離田區。"
+    ],
+    "illus": [
+      { "k": "stem", "p": "collar", "cap": "莖基部黑褐色病斑，全株萎凋" },
+      { "k": "fruit", "fruit": "pepper", "p": "whitemold", "cap": "果實水浸狀軟腐並長白黴" }
+    ],
+    "photoQuery": "Phytophthora capsici",
+    "related": ["late-blight", "bacterial-wilt"]
+  },
+  {
+    "id": "corn-southern-rust",
+    "name": "玉米南方銹病",
+    "en": "Southern rust of corn",
+    "sci": "Puccinia polysora",
+    "type": "disease",
+    "crops": ["corn"],
+    "parts": ["leaf"],
+    "tags": ["spots", "yellowing"],
+    "summary": "高溫高濕時發生的真菌病害，葉片上密布橙色粉狀孢子堆。",
+    "symptoms": [
+      "葉片表面出現密集、圓形至橢圓形、橙黃色至橙紅色的小型突起孢子堆。",
+      "表皮破裂後散出鐵銹色粉末。",
+      "嚴重時葉片提早乾枯，籽粒不飽滿。"
+    ],
+    "conditions": "高溫（約 27°C）高濕時容易發生，多見於夏秋作；孢子可隨風遠距離傳播。",
+    "prevention": [
+      "選用抗病品種。",
+      "適期種植。",
+      "清除罹病殘株。"
+    ],
+    "control": [
+      "發病初期施用登記藥劑。"
+    ],
+    "illus": [
+      { "k": "leaf", "shape": "grass", "p": "rust", "cap": "密集的橙色突起孢子堆" }
+    ],
+    "photoQuery": "Puccinia polysora",
+    "related": ["fall-armyworm"]
+  },
+  {
+    "id": "grape-downy-mildew",
+    "name": "葡萄露菌病",
+    "en": "Grape downy mildew",
+    "sci": "Plasmopara viticola",
+    "type": "disease",
+    "crops": ["grape"],
+    "parts": ["leaf", "fruit", "flower"],
+    "tags": ["spots", "yellowing", "powder", "rot"],
+    "summary": "多雨時危害葡萄葉片、花穗與幼果的卵菌病害，葉表出現油斑、葉背長白色霜黴。",
+    "symptoms": [
+      "葉表出現淡黃色、半透明的油漬狀斑（油斑）。",
+      "葉背對應位置長出白色霜狀黴層。",
+      "花穗、幼果受害變褐萎縮，並長出白黴。",
+      "較大的果粒變褐皺縮；嚴重時落葉。"
+    ],
+    "conditions": "多雨潮濕、葉面濕潤時間長時容易發生；春季開花至幼果期及秋季較嚴重。",
+    "prevention": [
+      "設施避雨栽培。",
+      "修剪改善通風。",
+      "清除落葉及病枝。"
+    ],
+    "control": [
+      "開花前後及雨季預防性施藥，輪用不同作用機制的登記藥劑。"
+    ],
+    "illus": [
+      { "k": "leaf", "shape": "lobed", "p": "oilspot", "cap": "葉表黃色油斑，葉背白色霜黴" },
+      { "k": "fruit", "fruit": "grape", "p": "downy", "cap": "幼果變褐皺縮並長白黴" }
+    ],
+    "photoQuery": "Plasmopara viticola",
+    "related": ["cucurbit-downy-mildew", "powdery-mildew"]
+  },
+  {
+    "id": "spodoptera-litura",
+    "name": "斜紋夜蛾（斜紋夜盜蟲）",
+    "en": "Tobacco cutworm",
+    "sci": "Spodoptera litura",
+    "type": "pest",
+    "crops": ["crucifer", "tomato", "pepper", "eggplant", "cucurbit", "strawberry", "corn", "potato"],
+    "parts": ["leaf", "fruit"],
+    "tags": ["holes", "insects"],
+    "summary": "寄主範圍極廣的夜蛾類害蟲，幼蟲夜間大量取食葉片與果實。",
+    "symptoms": [
+      "幼蟲體色變化大（灰綠色至黑褐色），各節背側有一對黑色半月形斑紋。",
+      "初齡幼蟲群聚在葉背啃食葉肉，留下透明的表皮（窗狀）。",
+      "三齡後分散，夜間取食，造成葉片大缺刻，嚴重時只剩葉脈。",
+      "也會蛀食果實。卵成塊產下，表面覆蓋黃褐色鱗毛。"
+    ],
+    "conditions": "全年都會發生，夏秋高溫期族群最高；寄主範圍極廣。",
+    "prevention": [
+      "利用性費洛蒙誘蟲盒監測，並大量誘殺雄蛾。",
+      "摘除卵塊及群聚初齡幼蟲的葉片。",
+      "清除田間雜草，設施可使用防蟲網。"
+    ],
+    "control": [
+      "幼蟲初齡時防治效果最好。",
+      "生物製劑：蘇力菌（Bt）、斜紋夜蛾核多角體病毒（SlNPV）。",
+      "化學藥劑輪替不同作用機制（IRAC 代碼）以避免抗藥性；幼蟲夜間活動，傍晚施藥效果較好。"
+    ],
+    "illus": [
+      { "k": "bug", "t": "caterpillar", "color": "#5b5a3c", "marks": true, "cap": "幼蟲各節背側有黑色半月紋" },
+      { "k": "leaf", "p": "holes", "style": "chew", "cap": "葉片大缺刻，嚴重時只剩葉脈" }
+    ],
+    "photoQuery": "Spodoptera litura larva",
+    "related": ["fall-armyworm", "diamondback-moth"]
+  },
+  {
+    "id": "diamondback-moth",
+    "name": "小菜蛾",
+    "en": "Diamondback moth",
+    "sci": "Plutella xylostella",
+    "type": "pest",
+    "crops": ["crucifer"],
+    "parts": ["leaf"],
+    "tags": ["holes", "insects"],
+    "summary": "十字花科蔬菜最重要的害蟲之一，對許多藥劑很容易產生抗藥性。",
+    "symptoms": [
+      "幼蟲淡綠色、紡錘形，受驚擾時劇烈扭動並吐絲下垂。",
+      "幼蟲啃食葉肉，留下透明表皮形成「天窗」，長大後咬成孔洞。",
+      "危害心葉時會影響結球。",
+      "成蟲停棲時，背部可見淡色菱形紋。"
+    ],
+    "conditions": "冷涼乾燥的秋冬至春季族群較多；對多種藥劑容易產生抗藥性。",
+    "prevention": [
+      "利用性費洛蒙誘殺雄蛾。",
+      "與非十字花科作物輪作，收穫後清除殘株。",
+      "網室栽培。",
+      "噴灌（灑水）可干擾成蟲並沖落幼蟲。"
+    ],
+    "control": [
+      "輪用不同作用機制（IRAC 代碼）的登記藥劑。",
+      "使用蘇力菌（Bt）等生物製劑。",
+      "保護天敵，例如小菜蛾絨繭蜂。"
+    ],
+    "illus": [
+      { "k": "bug", "t": "caterpillar", "color": "#7dbb4a", "spindle": true, "cap": "幼蟲淡綠色、紡錘形" },
+      { "k": "leaf", "p": "holes", "style": "window", "cap": "啃食葉肉留下透明「天窗」" },
+      { "k": "bug", "t": "moth", "cap": "成蟲停棲時背部菱形紋" }
+    ],
+    "photoQuery": "Plutella xylostella",
+    "related": ["spodoptera-litura", "flea-beetle"]
+  },
+  {
+    "id": "aphids",
+    "name": "蚜蟲",
+    "en": "Aphids",
+    "sci": "Aphis gossypii、Myzus persicae 等",
+    "type": "pest",
+    "crops": ["cucurbit", "pepper", "eggplant", "tomato", "crucifer", "citrus", "papaya", "strawberry", "potato"],
+    "parts": ["leaf", "stem", "flower"],
+    "tags": ["curling", "honeydew", "insects", "stunting"],
+    "summary": "群聚在嫩芽刺吸汁液的小型害蟲，繁殖極快，並會傳播多種病毒病。",
+    "symptoms": [
+      "群聚在嫩葉、嫩梢及葉背，體長約 1–2 mm，有綠、黃、黑等顏色；腹部末端有一對腹管。",
+      "新葉捲曲皺縮，生長停滯。",
+      "分泌蜜露，誘發煤煙病，葉面變黑。",
+      "傳播多種病毒病，例如木瓜輪點病毒、胡瓜嵌紋病毒。"
+    ],
+    "conditions": "冷涼乾燥季節（秋至春）族群增加很快；以孤雌胎生方式繁殖，速度驚人。氮肥過多時嚴重。",
+    "prevention": [
+      "黃色黏紙監測有翅蚜。",
+      "銀色塑膠布敷蓋可驅避有翅蚜。",
+      "使用防蟲網。",
+      "保護天敵（瓢蟲、草蛉、寄生蜂），並避免偏施氮肥。"
+    ],
+    "control": [
+      "少量發生時，可用水柱沖洗，或使用已登記的窄域油、皂類資材。",
+      "族群高時輪用登記藥劑，並噴到葉背與心葉。"
+    ],
+    "illus": [
+      { "k": "bug", "t": "aphid", "color": "#86b84a", "cap": "群聚嫩葉葉背；腹部末端有一對腹管" },
+      { "k": "leaf", "p": "sooty", "cap": "蜜露誘發煤煙病，葉面變黑" }
+    ],
+    "photoQuery": "Aphis gossypii",
+    "related": ["papaya-ringspot", "silverleaf-whitefly", "scale-insects"]
+  },
+  {
+    "id": "silverleaf-whitefly",
+    "name": "銀葉粉蝨",
+    "en": "Silverleaf whitefly",
+    "sci": "Bemisia tabaci（= B. argentifolii）",
+    "type": "pest",
+    "crops": ["tomato", "cucurbit", "pepper", "eggplant", "crucifer"],
+    "parts": ["leaf"],
+    "tags": ["yellowing", "honeydew", "insects", "silvering"],
+    "summary": "設施及夏秋季極常見的刺吸式害蟲，除了吸汁外，還會傳播番茄黃化捲葉病毒等病毒病。",
+    "symptoms": [
+      "成蟲約 1 mm，白色翅、淡黃色身體，停棲時翅呈屋脊狀；輕碰葉片就成群飛起。",
+      "若蟲扁平橢圓，固定在葉背。",
+      "刺吸造成葉片黃化；瓜類（如南瓜）葉片出現銀白化（銀葉症）。",
+      "番茄果實轉色不均；分泌蜜露引起煤煙病。",
+      "傳播番茄黃化捲葉病毒等病毒。"
+    ],
+    "conditions": "高溫乾燥的夏秋季族群最高，設施內全年都會發生；寄主範圍很廣。",
+    "prevention": [
+      "使用 50 目以上防蟲網。",
+      "黃色黏紙大量誘殺成蟲。",
+      "清除雜草及前作殘株，育苗場與生產田隔離。",
+      "銀色反光敷蓋可降低成蟲停棲。"
+    ],
+    "control": [
+      "輪用不同作用機制的登記藥劑，重點噴葉背。",
+      "可評估已登記的白殭菌等微生物製劑。",
+      "保護天敵，例如小黑瓢蟲及寄生蜂。"
+    ],
+    "illus": [
+      { "k": "bug", "t": "whitefly", "cap": "成蟲白色翅，停棲時呈屋脊狀" },
+      { "k": "leaf", "shape": "lobed", "p": "silverleaf", "cap": "瓜類葉片銀白化（銀葉症）" }
+    ],
+    "photoQuery": "Bemisia tabaci",
+    "related": ["tylcv", "aphids", "thrips"]
+  },
+  {
+    "id": "thrips",
+    "name": "薊馬",
+    "en": "Thrips",
+    "sci": "Thrips palmi、Scirtothrips dorsalis、Frankliniella occidentalis 等",
+    "type": "pest",
+    "crops": ["cucurbit", "pepper", "eggplant", "mango", "grape", "citrus", "strawberry"],
+    "parts": ["leaf", "flower", "fruit"],
+    "tags": ["silvering", "curling", "cracking", "insects"],
+    "summary": "體型極小、藏在花與嫩芽中的銼吸式害蟲，造成葉片與果皮擦傷，部分種類會傳播病毒。",
+    "symptoms": [
+      "體長約 1 mm，身體細長，黃色或黑褐色，翅緣有長緣毛。",
+      "銼吸葉片與果實表皮，造成銀白色或褐色擦傷痕（銀化、褐化）。",
+      "新葉皺縮捲曲。",
+      "果實表面粗糙、木栓化、畸形（例如芒果、葡萄果皮褐化，茄子果皮擦痕）。",
+      "部分種類會傳播番茄斑點萎凋病毒屬（Orthotospovirus）的病毒。"
+    ],
+    "conditions": "高溫乾燥時嚴重；蟲體藏在花內、新芽及葉背，不容易防治，繁殖又快。",
+    "prevention": [
+      "藍色黏紙監測（薊馬偏好藍色）。",
+      "清除雜草，使用防蟲網及銀色敷蓋。",
+      "保護天敵，例如捕植蟎、小黑花椿象。"
+    ],
+    "control": [
+      "輪用登記藥劑，施藥要噴到花與心芽。",
+      "依族群狀況間隔數天連續防治，以打斷世代。"
+    ],
+    "illus": [
+      { "k": "bug", "t": "thrips", "cap": "身體細長，翅緣有長緣毛" },
+      { "k": "leaf", "p": "silver", "cap": "葉片銀白色或褐色擦痕" },
+      { "k": "fruit", "fruit": "mango", "p": "scar", "cap": "果皮褐色木栓化擦痕" }
+    ],
+    "photoQuery": "Thrips palmi",
+    "related": ["spider-mites", "silverleaf-whitefly"]
+  },
+  {
+    "id": "spider-mites",
+    "name": "葉蟎（紅蜘蛛）",
+    "en": "Spider mites",
+    "sci": "Tetranychus urticae、Tetranychus kanzawai 等",
+    "type": "pest",
+    "crops": ["strawberry", "cucurbit", "papaya", "eggplant", "pepper", "tomato", "citrus"],
+    "parts": ["leaf"],
+    "tags": ["webbing", "yellowing", "spots", "insects"],
+    "summary": "高溫乾燥時爆發的微小蟎類，群聚葉背吸汁，葉面出現密集褪色小點並結細絲網。",
+    "symptoms": [
+      "體長約 0.5 mm，肉眼看像小點；二點葉蟎身體兩側各有一個深色斑。",
+      "群聚在葉背刺吸，葉面出現密集的黃白色細小斑點（褪色斑）。",
+      "嚴重時葉片黃褐乾枯、落葉。",
+      "族群高時，葉背及葉片之間有細絲網。"
+    ],
+    "conditions": "高溫乾燥時嚴重，設施及乾季常見；濫用殺蟲劑殺死天敵後容易爆發。繁殖快，容易產生抗藥性。",
+    "prevention": [
+      "釋放天敵，例如法拉斯捕植蟎、基徵草蛉。",
+      "清除下位老葉及雜草。",
+      "維持適當濕度，避免過度乾燥。",
+      "避免濫用廣效性殺蟲劑。"
+    ],
+    "control": [
+      "使用登記的殺蟎劑，並輪替作用機制（殺蟎劑的抗藥性問題很嚴重）。",
+      "施藥要噴到葉背，並注意藥劑對天敵的影響。"
+    ],
+    "illus": [
+      { "k": "bug", "t": "mite", "cap": "身體兩側各有一個深色斑（二點）" },
+      { "k": "leaf", "p": "stipple", "cap": "葉面密集黃白小點與細絲" }
+    ],
+    "photoQuery": "Tetranychus urticae",
+    "related": ["thrips"]
+  },
+  {
+    "id": "oriental-fruit-fly",
+    "name": "東方果實蠅",
+    "en": "Oriental fruit fly",
+    "sci": "Bactrocera dorsalis",
+    "type": "pest",
+    "crops": ["mango", "guava", "citrus", "papaya", "banana"],
+    "parts": ["fruit"],
+    "tags": ["rot", "drop", "insects"],
+    "summary": "台灣果樹最重要的害蟲之一，雌蟲在果實內產卵，幼蟲（蛆）在果肉內取食造成腐爛落果。",
+    "symptoms": [
+      "成蟲體長約 7–8 mm，胸背黑色並有一對黃色縱紋，腹部有黑色 T 字形紋。",
+      "雌蟲以產卵管刺入果皮產卵，果面留下小孔（叮痕），周圍變色。",
+      "幼蟲在果肉內取食，造成果實腐爛、提早落果。"
+    ],
+    "conditions": "全年都會發生，夏季（約 5–10 月）為高峰；寄主多達數百種水果。",
+    "prevention": [
+      "果實套袋。",
+      "清除落果及爛果（深埋，或裝袋曝曬悶殺），不要任意丟棄。",
+      "全區共同防治效果最好。"
+    ],
+    "control": [
+      "使用甲基丁香油（含殺蟲劑）誘殺雄蟲。",
+      "使用蛋白質水解物誘餌（雌雄蟲都能誘殺）。",
+      "依《植物保護手冊》以登記藥劑點噴或誘餌噴灑。"
+    ],
+    "illus": [
+      { "k": "bug", "t": "fruitfly", "cap": "胸背有黃色縱紋，腹部有黑色 T 字紋" },
+      { "k": "fruit", "fruit": "mango", "p": "sting", "cap": "果面叮痕與腐爛" }
+    ],
+    "photoQuery": "Bactrocera dorsalis",
+    "related": ["melon-fly"]
+  },
+  {
+    "id": "melon-fly",
+    "name": "瓜實蠅",
+    "en": "Melon fly",
+    "sci": "Zeugodacus cucurbitae（= Bactrocera cucurbitae）",
+    "type": "pest",
+    "crops": ["cucurbit"],
+    "parts": ["fruit", "flower"],
+    "tags": ["rot", "drop", "insects", "curling"],
+    "summary": "瓜類最主要的果實害蟲，在幼果產卵，幼蟲蛀食果肉造成腐爛畸形。",
+    "symptoms": [
+      "成蟲黃褐色，翅上有褐色帶紋，翅端有褐斑。",
+      "雌蟲在幼果上產卵，果面出現叮痕與流膠。",
+      "幼蟲蛀食果肉，造成腐爛、畸形及落果。"
+    ],
+    "conditions": "溫暖季節族群高，瓜類開花及結果期最容易受害。",
+    "prevention": [
+      "幼果套袋。",
+      "清除被害果。",
+      "網室栽培。"
+    ],
+    "control": [
+      "使用克蠅（Cue-lure）誘殺雄蟲。",
+      "使用蛋白質誘餌。",
+      "依《植物保護手冊》施用登記藥劑。"
+    ],
+    "illus": [
+      { "k": "bug", "t": "melonfly", "cap": "翅具褐色帶紋與翅端褐斑" },
+      { "k": "fruit", "fruit": "cucurbit", "p": "sting", "cap": "幼果產卵叮痕與腐爛" }
+    ],
+    "photoQuery": "Bactrocera cucurbitae",
+    "related": ["oriental-fruit-fly"]
+  },
+  {
+    "id": "fall-armyworm",
+    "name": "秋行軍蟲",
+    "en": "Fall armyworm",
+    "sci": "Spodoptera frugiperda",
+    "type": "pest",
+    "crops": ["corn"],
+    "parts": ["leaf", "fruit"],
+    "tags": ["holes", "insects"],
+    "summary": "2019 年入侵台灣的重要害蟲，主要危害玉米心葉與雌穗。",
+    "symptoms": [
+      "幼蟲頭部有明顯的白色倒 Y 字紋。",
+      "腹部末端（第 8 腹節）背面有四個黑點排成正方形。",
+      "危害玉米心葉，留下大量不規則孔洞及濕潤、像鋸木屑的糞便。",
+      "也會鑽蛀雌穗。"
+    ],
+    "conditions": "高溫期世代短、繁殖快；成蟲遷飛能力強。",
+    "prevention": [
+      "苗期起定期巡查心葉，早期發現。",
+      "同一地區適期集中播種。",
+      "利用性費洛蒙監測，並清除田間雜草與殘株。"
+    ],
+    "control": [
+      "幼蟲低齡期（心葉期）防治效果最好，藥液要灌入心葉。",
+      "輪用政府公告的登記藥劑，也可使用蘇力菌等生物製劑。"
+    ],
+    "illus": [
+      { "k": "bug", "t": "caterpillar", "color": "#6b5a44", "y": true, "dots": true, "cap": "頭部白色倒 Y 字紋，尾端四個黑點" },
+      { "k": "leaf", "shape": "grass", "p": "holes", "style": "chew", "cap": "心葉大量不規則孔洞與糞便" }
+    ],
+    "photoQuery": "Spodoptera frugiperda larva",
+    "related": ["spodoptera-litura", "corn-southern-rust"]
+  },
+  {
+    "id": "brown-planthopper",
+    "name": "褐飛蝨",
+    "en": "Brown planthopper",
+    "sci": "Nilaparvata lugens",
+    "type": "pest",
+    "crops": ["rice"],
+    "parts": ["stem", "whole"],
+    "tags": ["yellowing", "wilting", "insects", "honeydew"],
+    "summary": "群聚在稻株基部吸汁的害蟲，族群高時造成田間成片枯死（蝨燒）。",
+    "symptoms": [
+      "體長約 3–4 mm，褐色，群聚在稻株基部刺吸。",
+      "族群高時，稻株由下往上黃化枯萎。",
+      "田間出現圓形的倒伏枯死區塊（蝨燒、hopperburn）。",
+      "會傳播草狀矮化病、皺縮矮化病。"
+    ],
+    "conditions": "高溫多濕時族群高；主要從境外隨氣流遷入。氮肥過多、密植時嚴重。",
+    "prevention": [
+      "合理施肥，避免氮肥過多。",
+      "適當密植，保持通風。",
+      "選用抗蟲品種。",
+      "巡田時撥開稻叢檢查基部。"
+    ],
+    "control": [
+      "族群增加時施藥，藥液必須噴到稻株基部。",
+      "輪用登記藥劑。"
+    ],
+    "illus": [
+      { "k": "bug", "t": "planthopper", "cap": "群聚在稻株基部" },
+      { "k": "plant", "state": "hopperburn", "cap": "田間圓形枯死區（蝨燒）" }
+    ],
+    "photoQuery": "Nilaparvata lugens",
+    "related": ["rice-sheath-blight", "rice-leaffolder"]
+  },
+  {
+    "id": "rice-leaffolder",
+    "name": "稻縱捲葉蟲",
+    "en": "Rice leaffolder",
+    "sci": "Cnaphalocrocis medinalis",
+    "type": "pest",
+    "crops": ["rice"],
+    "parts": ["leaf"],
+    "tags": ["curling", "holes", "insects"],
+    "summary": "幼蟲吐絲把稻葉縱向捲成筒狀，躲在裡面啃食葉肉。",
+    "symptoms": [
+      "幼蟲吐絲把葉片縱向捲成筒狀，在裡面啃食葉肉。",
+      "被害葉留下白色條狀表皮，田間可見許多白色捲葉。",
+      "劍葉受害會影響產量。"
+    ],
+    "conditions": "氮肥過多、葉色濃綠的田區較嚴重，多發生在夏秋季。",
+    "prevention": [
+      "合理施用氮肥。",
+      "保護天敵，例如寄生蜂、蜘蛛。"
+    ],
+    "control": [
+      "初齡幼蟲期施藥。",
+      "可使用蘇力菌（Bt）等生物製劑。"
+    ],
+    "illus": [
+      { "k": "leaf", "shape": "grass", "p": "rolled", "cap": "葉片縱捲成筒，留下白色條斑" }
+    ],
+    "photoQuery": "Cnaphalocrocis medinalis",
+    "related": ["brown-planthopper"]
+  },
+  {
+    "id": "asian-citrus-psyllid",
+    "name": "柑橘木蝨",
+    "en": "Asian citrus psyllid",
+    "sci": "Diaphorina citri",
+    "type": "pest",
+    "crops": ["citrus"],
+    "parts": ["leaf", "stem"],
+    "tags": ["curling", "honeydew", "insects"],
+    "summary": "柑橘黃龍病的傳播媒介，新梢期是防治關鍵。",
+    "symptoms": [
+      "成蟲約 3 mm，停棲時頭低尾高，身體與枝葉約呈 45 度斜角。",
+      "若蟲黃橙色、扁平，群聚在嫩梢，分泌白色蠟絲。",
+      "新梢捲曲畸形。",
+      "最大的危害是傳播柑橘黃龍病。"
+    ],
+    "conditions": "新梢抽發期族群激增；七里香（月橘）是重要寄主。",
+    "prevention": [
+      "統一修剪，讓新梢整齊抽發，方便集中防治。",
+      "移除果園周邊的七里香。",
+      "黃色黏紙監測。"
+    ],
+    "control": [
+      "新梢萌發期（嫩芽剛長出時）施用登記藥劑。",
+      "全區共同防治效果最好。"
+    ],
+    "illus": [
+      { "k": "bug", "t": "psyllid", "cap": "成蟲停棲呈 45 度斜角；若蟲有白色蠟絲" }
+    ],
+    "photoQuery": "Diaphorina citri",
+    "related": ["citrus-hlb"]
+  },
+  {
+    "id": "leafminer",
+    "name": "斑潛蠅",
+    "en": "Leafminers",
+    "sci": "Liriomyza sativae、Liriomyza trifolii 等",
+    "type": "pest",
+    "crops": ["tomato", "cucurbit", "crucifer", "pepper", "eggplant"],
+    "parts": ["leaf"],
+    "tags": ["mines", "insects"],
+    "summary": "幼蟲在葉片內潛食，形成白色蛇行隧道。",
+    "symptoms": [
+      "葉片出現白色彎曲的蛇行隧道，隧道內有黑色蟲糞線。",
+      "雌成蟲產卵或取食時，在葉面留下白色小點。",
+      "嚴重時葉片乾枯。"
+    ],
+    "conditions": "溫暖乾燥時族群高，設施栽培常見。",
+    "prevention": [
+      "黃色黏紙誘殺成蟲。",
+      "摘除受害葉。",
+      "清除雜草，使用防蟲網。"
+    ],
+    "control": [
+      "輪用登記藥劑。",
+      "保護寄生蜂等天敵。"
+    ],
+    "illus": [
+      { "k": "leaf", "p": "mines", "cap": "白色蛇行隧道，內有黑色蟲糞線" }
+    ],
+    "photoQuery": "Liriomyza leaf mine",
+    "related": ["silverleaf-whitefly"]
+  },
+  {
+    "id": "golden-apple-snail",
+    "name": "福壽螺",
+    "en": "Golden apple snail",
+    "sci": "Pomacea canaliculata",
+    "type": "pest",
+    "crops": ["rice"],
+    "parts": ["leaf", "stem"],
+    "tags": ["holes", "insects"],
+    "summary": "外來入侵種，啃食剛插秧的秧苗，造成缺株。",
+    "symptoms": [
+      "螺殼黃褐色至黑褐色。",
+      "在田埂、稻株或水生植物的莖上產下鮮粉紅色卵塊。",
+      "啃食秧苗基部，造成缺株。"
+    ],
+    "conditions": "田間積水時活動旺盛；插秧後至分蘗初期秧苗幼嫩，最容易受害。",
+    "prevention": [
+      "插秧後保持淺水或適度排水（淺水時螺的移動與取食受限）。",
+      "進水口設置網罩。",
+      "撿拾螺體並刮除卵塊。",
+      "田中設置集螺溝，並使用較大的秧苗。"
+    ],
+    "control": [
+      "使用已登記的防治資材（例如苦茶粕），並注意對魚類等水生生物的影響。"
+    ],
+    "illus": [
+      { "k": "bug", "t": "snail", "cap": "螺體與鮮粉紅色卵塊" }
+    ],
+    "photoQuery": "Pomacea canaliculata eggs",
+    "related": ["rice-blast"]
+  },
+  {
+    "id": "flea-beetle",
+    "name": "黃條葉蚤",
+    "en": "Striped flea beetle",
+    "sci": "Phyllotreta striolata",
+    "type": "pest",
+    "crops": ["crucifer"],
+    "parts": ["leaf", "root"],
+    "tags": ["holes", "insects"],
+    "summary": "十字花科常見的小型甲蟲，成蟲把葉片咬出密集小孔，幼蟲在土中危害根部。",
+    "symptoms": [
+      "成蟲體長約 2 mm，黑色有光澤，翅鞘上各有一條黃色彎曲縱紋；受驚擾就跳走。",
+      "成蟲取食葉片，造成密集的小圓孔（像被散彈打過）。",
+      "幼蟲在土中危害根部，蘿蔔表面出現蟲道與黑斑。"
+    ],
+    "conditions": "連作十字花科、高溫乾燥時嚴重。",
+    "prevention": [
+      "與非十字花科作物輪作。",
+      "整地時浸水，淹死土中的幼蟲與蛹。",
+      "網室栽培，使用黃色黏紙。"
+    ],
+    "control": [
+      "依《植物保護手冊》於播種前進行土壤處理，並在苗期施藥。"
+    ],
+    "illus": [
+      { "k": "bug", "t": "flea", "cap": "黑色翅鞘各有一條黃色彎曲縱紋" },
+      { "k": "leaf", "p": "holes", "style": "shot", "cap": "葉片密集小圓孔" }
+    ],
+    "photoQuery": "Phyllotreta striolata",
+    "related": ["diamondback-moth"]
+  },
+  {
+    "id": "root-knot-nematode",
+    "name": "根瘤線蟲",
+    "en": "Root-knot nematodes",
+    "sci": "Meloidogyne spp.",
+    "type": "pest",
+    "crops": ["tomato", "cucurbit", "pepper", "eggplant", "banana", "papaya", "guava"],
+    "parts": ["root", "whole"],
+    "tags": ["galls", "wilting", "stunting", "yellowing"],
+    "summary": "寄生在根部的微小線蟲，根部形成串珠狀瘤腫，地上部生長不良。",
+    "symptoms": [
+      "地上部生長不良、矮化、葉片黃化，高溫時中午萎凋。",
+      "根部形成大小不一的瘤狀腫大，常像串珠。",
+      "與根瘤病不同，線蟲的瘤是根組織本身腫大。",
+      "根系減少，容易引發青枯病、萎凋病等二次感染。"
+    ],
+    "conditions": "砂質土壤、連作、高溫時嚴重。",
+    "prevention": [
+      "水旱輪作（淹水）。",
+      "輪作非寄主作物，例如萬壽菊、太陽麻綠肥。",
+      "使用無病苗。",
+      "夏季覆蓋塑膠布進行太陽能消毒，並增施有機質。"
+    ],
+    "control": [
+      "定植前使用登記的土壤處理藥劑或生物製劑。"
+    ],
+    "illus": [
+      { "k": "roots", "type": "knot", "cap": "根部串珠狀瘤腫" },
+      { "k": "bug", "t": "nematode", "cap": "線蟲（顯微放大示意）" }
+    ],
+    "photoQuery": "Meloidogyne root knot galls",
+    "related": ["clubroot", "bacterial-wilt"]
+  },
+  {
+    "id": "scale-insects",
+    "name": "介殼蟲",
+    "en": "Scale insects and mealybugs",
+    "sci": "盾介殼蟲科、介殼蟲科、粉介殼蟲科等",
+    "type": "pest",
+    "crops": ["citrus", "mango", "papaya", "guava"],
+    "parts": ["leaf", "stem", "fruit"],
+    "tags": ["honeydew", "yellowing", "insects"],
+    "summary": "固著在枝葉及果實上刺吸的害蟲，外有蠟殼保護，分泌蜜露誘發煤煙病。",
+    "symptoms": [
+      "蟲體固著在枝條、葉片、果實表面，外覆蠟質介殼，或有白色粉狀蠟（粉介殼蟲）。",
+      "刺吸使枝葉黃化、樹勢衰弱。",
+      "分泌蜜露誘發煤煙病，果實外觀受損。"
+    ],
+    "conditions": "通風不良、樹冠過密時嚴重；螞蟻會搬運並保護介殼蟲。",
+    "prevention": [
+      "修剪，保持通風。",
+      "剪除嚴重被害枝。",
+      "防治螞蟻。",
+      "保護天敵（瓢蟲、寄生蜂）。"
+    ],
+    "control": [
+      "若蟲孵化期（還沒形成蠟殼前）施藥效果最好。",
+      "可使用已登記的礦物油（窄域油）。"
+    ],
+    "illus": [
+      { "k": "bug", "t": "scale", "cap": "枝條上的介殼與白色粉介殼蟲" },
+      { "k": "leaf", "p": "sooty", "cap": "蜜露誘發煤煙病" }
+    ],
+    "photoQuery": "mealybug citrus",
+    "related": ["aphids"]
+  },
+  {
+    "id": "def-n",
+    "name": "缺氮（N）",
+    "en": "Nitrogen deficiency",
+    "sci": "N",
+    "type": "nutrient",
+    "crops": ["*"],
+    "parts": ["leaf", "whole"],
+    "tags": ["yellowing", "stunting"],
+    "summary": "最常見的營養缺乏。氮在植物體內容易移動，會由老葉轉移到新葉，所以老葉先均勻黃化。",
+    "symptoms": [
+      "下位老葉先均勻黃化（連葉脈也黃），再逐漸往上發展。",
+      "植株矮小，分蘗或分枝少。",
+      "葉片小而薄。",
+      "提早成熟，產量降低。"
+    ],
+    "conditions": "砂質土、有機質低、多雨淋洗時容易缺氮；大量施用未腐熟、碳氮比高的有機物（如稻殼、木屑）會造成氮飢餓。",
+    "prevention": [
+      "依土壤分析及作物需求，分次施肥。",
+      "增施腐熟的有機質。",
+      "種植豆科綠肥。"
+    ],
+    "control": [
+      "追施速效氮肥（例如尿素、硫酸銨）。",
+      "或葉面噴施低濃度尿素（約 0.3–0.5%）。",
+      "不要過量施用：氮過多會徒長，也容易招來病蟲害。"
+    ],
+    "illus": [
+      { "k": "leaf", "p": "chlorosis", "color": "#d9d06a", "tag": "老葉", "cap": "老葉均勻黃化（連葉脈也黃）" },
+      { "k": "plant", "state": "old", "color": "#d9d06a", "cap": "症狀由下位老葉開始" }
+    ],
+    "photoQuery": "nitrogen deficiency leaves",
+    "related": ["def-s", "def-mg"]
+  },
+  {
+    "id": "def-p",
+    "name": "缺磷（P）",
+    "en": "Phosphorus deficiency",
+    "sci": "P",
+    "type": "nutrient",
+    "crops": ["*"],
+    "parts": ["leaf", "whole", "root"],
+    "tags": ["purple", "stunting"],
+    "summary": "植株矮小、葉色暗綠並帶紫紅色，玉米、番茄的幼苗期特別明顯。",
+    "symptoms": [
+      "植株矮小，生長緩慢。",
+      "葉色暗綠，老葉、莖或葉背呈紫紅色（花青素累積，玉米特別明顯）。",
+      "根系發育差。",
+      "開花、結果延遲。"
+    ],
+    "conditions": "酸性土壤（磷被鐵、鋁固定）或鹼性土壤（磷被鈣固定）容易缺磷；低溫期根部吸收能力差。",
+    "prevention": [
+      "基肥施用磷肥（例如過磷酸鈣），並施在靠近根群處。",
+      "把土壤 pH 調整到約 6–7。",
+      "增施有機質。"
+    ],
+    "control": [
+      "追施水溶性磷肥，或葉面噴施磷酸二氫鉀。",
+      "低溫期設法提高地溫（例如敷蓋）。"
+    ],
+    "illus": [
+      { "k": "leaf", "p": "purple", "tag": "老葉", "cap": "葉色暗綠，葉緣與葉背帶紫紅色" },
+      { "k": "plant", "state": "old", "color": "#7b4a8c", "cap": "下位葉先出現" }
+    ],
+    "photoQuery": "phosphorus deficiency corn purple",
+    "related": ["def-n", "def-k"]
+  },
+  {
+    "id": "def-k",
+    "name": "缺鉀（K）",
+    "en": "Potassium deficiency",
+    "sci": "K",
+    "type": "nutrient",
+    "crops": ["*"],
+    "parts": ["leaf", "fruit", "stem"],
+    "tags": ["scorch", "yellowing", "spots"],
+    "summary": "老葉的葉緣、葉尖先黃化再焦枯，果實品質變差，莖稈也容易倒伏。",
+    "symptoms": [
+      "下位老葉的葉緣與葉尖先黃化，再變成褐色焦枯，葉片中央仍保持綠色。",
+      "葉片可能出現褐色小斑點。",
+      "莖稈細弱，容易倒伏。",
+      "果實小，著色與糖度差（例如番茄轉色不均）。"
+    ],
+    "conditions": "砂質土、多雨淋洗時容易缺鉀；收穫量大會帶走大量鉀；過量施用鈣、鎂會產生拮抗作用。",
+    "prevention": [
+      "依土壤分析施用鉀肥（例如氯化鉀、硫酸鉀）。",
+      "結果期增加施用量。"
+    ],
+    "control": [
+      "追施鉀肥，或葉面噴施硫酸鉀、磷酸二氫鉀。"
+    ],
+    "illus": [
+      { "k": "leaf", "p": "scorch", "tag": "老葉", "cap": "葉緣、葉尖黃化後焦枯" },
+      { "k": "plant", "state": "old", "color": "#b98a3a", "cap": "下位老葉先發生" }
+    ],
+    "photoQuery": "potassium deficiency leaf",
+    "related": ["def-mg", "def-ca", "early-blight"]
+  },
+  {
+    "id": "def-mg",
+    "name": "缺鎂（Mg）",
+    "en": "Magnesium deficiency",
+    "sci": "Mg",
+    "type": "nutrient",
+    "crops": ["*"],
+    "parts": ["leaf"],
+    "tags": ["yellowing"],
+    "summary": "老葉葉脈間黃化，葉脈保持綠色，形成明顯的綠色網紋。結果量大時常見。",
+    "symptoms": [
+      "下位老葉的葉脈之間黃化，葉脈保持綠色，形成明顯的綠色網紋（魚骨狀）。",
+      "嚴重時黃化部位轉為紅褐色或壞死。",
+      "柑橘葉片基部常留下倒 V 字形的綠色區域。"
+    ],
+    "conditions": "酸性砂質土容易缺鎂；大量施用鉀肥或銨態氮會產生拮抗；結果量大時養分被果實大量消耗。",
+    "prevention": [
+      "酸性土壤施用苦土石灰（白雲石粉）。",
+      "平衡施用鉀肥，避免過量。"
+    ],
+    "control": [
+      "葉面噴施硫酸鎂（約 1–2%），連續數次。",
+      "土壤施用硫酸鎂。"
+    ],
+    "illus": [
+      { "k": "leaf", "p": "interveinal", "wide": true, "tag": "老葉", "cap": "葉脈間黃化，葉脈保持綠色" },
+      { "k": "plant", "state": "old", "color": "#d6cf55", "cap": "下位老葉先發生" }
+    ],
+    "photoQuery": "magnesium deficiency leaf",
+    "related": ["def-fe", "def-mn", "def-k", "def-n"]
+  },
+  {
+    "id": "def-ca",
+    "name": "缺鈣（Ca）",
+    "en": "Calcium deficiency",
+    "sci": "Ca",
+    "type": "nutrient",
+    "crops": ["*"],
+    "parts": ["fruit", "leaf"],
+    "tags": ["rot", "scorch", "curling"],
+    "summary": "鈣在植物體內不易移動，症狀出現在果實與新葉，例如番茄尾腐病、甘藍心腐。",
+    "symptoms": [
+      "新生組織先受害（鈣不易移動）。",
+      "番茄、甜椒果實臍部（花蒂端）先出現水浸狀，再變黑褐色凹陷（尾腐病）。",
+      "甘藍、白菜、萵苣心葉的葉緣褐變焦枯（心腐、緣腐）。",
+      "生長點萎縮。"
+    ],
+    "conditions": "土壤缺鈣常常不是主因，多半是水分供應不均（乾濕變化大）、高溫蒸散太快，或銨態氮、鉀過多產生拮抗，使鈣無法送到果實與心葉；根系受損也會造成。",
+    "prevention": [
+      "保持土壤水分穩定（敷蓋、滴灌）。",
+      "酸性土壤施用石灰。",
+      "避免過量施用銨態氮與鉀肥。",
+      "設施注意通風，調節溫濕度。"
+    ],
+    "control": [
+      "果實肥大初期葉面噴施鈣劑（例如氯化鈣、硝酸鈣），並噴到果實；注意濃度，避免藥害。",
+      "摘除受害果。"
+    ],
+    "illus": [
+      { "k": "fruit", "fruit": "tomato", "p": "blossom-end", "cap": "番茄果實臍部黑褐凹陷（尾腐）" },
+      { "k": "leaf", "p": "scorch", "tag": "新葉", "cap": "心葉葉緣焦枯（緣腐）" }
+    ],
+    "photoQuery": "blossom end rot tomato",
+    "related": ["def-b", "def-k"]
+  },
+  {
+    "id": "def-fe",
+    "name": "缺鐵（Fe）",
+    "en": "Iron deficiency",
+    "sci": "Fe",
+    "type": "nutrient",
+    "crops": ["*"],
+    "parts": ["leaf"],
+    "tags": ["yellowing"],
+    "summary": "鹼性土壤常見，新葉葉脈間黃白化，葉脈保持綠色呈細網狀。",
+    "symptoms": [
+      "新葉先在葉脈之間黃化，葉脈保持綠色，呈細網狀。",
+      "嚴重時整片新葉變成黃白色。",
+      "老葉通常正常。"
+    ],
+    "conditions": "鹼性或石灰質土壤（pH 約 7.5 以上）中鐵的溶解度低；排水不良、磷肥過量、錳過多時也會發生。柑橘、藍莓等常見。",
+    "prevention": [
+      "改良土壤酸鹼值（例如施用硫磺粉、酸性有機質）。",
+      "改善排水。",
+      "選用耐鹼砧木。"
+    ],
+    "control": [
+      "葉面噴施螯合鐵（例如 Fe-EDTA），連續數次。",
+      "鹼性土壤的土施宜選用 Fe-EDDHA。"
+    ],
+    "illus": [
+      { "k": "leaf", "p": "interveinal", "pale": true, "tag": "新葉", "cap": "新葉葉脈間黃白化，葉脈呈細綠網紋" },
+      { "k": "plant", "state": "young", "color": "#ece79a", "cap": "上位新葉先發生" }
+    ],
+    "photoQuery": "iron chlorosis leaf",
+    "related": ["def-mn", "def-mg", "def-zn"]
+  },
+  {
+    "id": "def-b",
+    "name": "缺硼（B）",
+    "en": "Boron deficiency",
+    "sci": "B",
+    "type": "nutrient",
+    "crops": ["*"],
+    "parts": ["leaf", "fruit", "stem", "flower"],
+    "tags": ["cracking", "curling", "rot", "stunting", "drop"],
+    "summary": "生長點與生殖器官最先受害，造成莖中空、落花、裂果與畸形果。",
+    "symptoms": [
+      "生長點萎縮壞死，新葉畸形、變厚變脆。",
+      "花椰菜、甘藍的莖部中空褐變（空心莖）；蘿蔔褐心。",
+      "落花、結果不良。",
+      "果實龜裂、畸形（例如木瓜凹凸果、柑橘果皮硬化）。"
+    ],
+    "conditions": "砂質土、多雨淋洗或乾旱時容易缺硼；大量施用石灰使 pH 升高也會造成。",
+    "prevention": [
+      "基肥適量施用硼砂或硼酸鹽。",
+      "注意：硼的適量範圍很窄，過量容易中毒。"
+    ],
+    "control": [
+      "開花前後葉面噴施硼酸或硼砂（約 0.1–0.2%）。",
+      "千萬不要過量。"
+    ],
+    "illus": [
+      { "k": "plant", "state": "tipdie", "cap": "生長點萎縮壞死" },
+      { "k": "fruit", "fruit": "tomato", "p": "crack", "cap": "果實龜裂、畸形" }
+    ],
+    "photoQuery": "boron deficiency",
+    "related": ["def-ca", "def-zn"]
+  },
+  {
+    "id": "def-zn",
+    "name": "缺鋅（Zn）",
+    "en": "Zinc deficiency",
+    "sci": "Zn",
+    "type": "nutrient",
+    "crops": ["*"],
+    "parts": ["leaf", "whole"],
+    "tags": ["yellowing", "stunting", "mosaic", "curling"],
+    "summary": "新葉小而窄、節間縮短呈簇生（小葉病），葉脈間黃化斑駁。",
+    "symptoms": [
+      "新葉小而窄，節間縮短，呈簇生狀（小葉病、簇葉病）。",
+      "葉脈間黃化斑駁。",
+      "玉米新葉基部出現白色寬帶狀條紋（白芽病）。",
+      "柑橘葉片黃綠斑駁；缺鋅斑駁左右對稱，與黃龍病的不對稱斑駁不同。"
+    ],
+    "conditions": "鹼性土、大量施用磷肥（磷與鋅拮抗）、表土流失、低溫時容易發生。",
+    "prevention": [
+      "避免過量施用磷肥。",
+      "基肥施用硫酸鋅。"
+    ],
+    "control": [
+      "葉面噴施硫酸鋅（約 0.2–0.5%）或螯合鋅。"
+    ],
+    "illus": [
+      { "k": "plant", "state": "rosette", "cap": "新葉小、節間短，呈簇生狀" },
+      { "k": "leaf", "p": "interveinal", "mottled": true, "tag": "新葉", "cap": "葉脈間黃化斑駁（左右對稱）" }
+    ],
+    "photoQuery": "zinc deficiency leaf",
+    "related": ["citrus-hlb", "def-fe", "def-mn"]
+  },
+  {
+    "id": "def-mn",
+    "name": "缺錳（Mn）",
+    "en": "Manganese deficiency",
+    "sci": "Mn",
+    "type": "nutrient",
+    "crops": ["*"],
+    "parts": ["leaf"],
+    "tags": ["yellowing", "spots"],
+    "summary": "新葉或中位葉葉脈間淡黃化，葉脈兩旁保留綠帶，界線較模糊。",
+    "symptoms": [
+      "新葉或中位葉出現葉脈間淡黃化，葉脈及葉脈兩旁保留綠色帶。",
+      "斑駁的界線比缺鐵模糊。",
+      "有時出現細小的褐色壞死斑點。"
+    ],
+    "conditions": "鹼性土、有機質過多、過量施用石灰時容易發生。",
+    "prevention": [
+      "避免過量施用石灰。",
+      "維持適當的土壤酸鹼值。"
+    ],
+    "control": [
+      "葉面噴施硫酸錳（約 0.2–0.3%）。"
+    ],
+    "illus": [
+      { "k": "leaf", "p": "interveinal", "soft": true, "tag": "新葉", "cap": "葉脈間淡黃化，葉脈兩旁保留綠帶" }
+    ],
+    "photoQuery": "manganese deficiency leaf",
+    "related": ["def-fe", "def-mg", "def-zn"]
+  },
+  {
+    "id": "def-s",
+    "name": "缺硫（S）",
+    "en": "Sulfur deficiency",
+    "sci": "S",
+    "type": "nutrient",
+    "crops": ["*"],
+    "parts": ["leaf", "whole"],
+    "tags": ["yellowing", "stunting"],
+    "summary": "新葉均勻黃化，外觀類似缺氮，但缺氮從老葉開始，缺硫從新葉開始。",
+    "symptoms": [
+      "新葉先均勻黃化（包括葉脈）。",
+      "與缺氮相似，但缺氮先出現在老葉。",
+      "植株矮小。",
+      "十字花科、蔥蒜類需硫量高，較容易出現。"
+    ],
+    "conditions": "砂質土、有機質少時容易缺硫；長期只施用不含硫的高濃度化學肥料也會造成。",
+    "prevention": [
+      "施用含硫肥料，例如硫酸銨、硫酸鉀、石膏。",
+      "增施有機質。"
+    ],
+    "control": [
+      "追施硫酸銨或硫酸鉀。"
+    ],
+    "illus": [
+      { "k": "leaf", "p": "chlorosis", "color": "#e0d97a", "tag": "新葉", "cap": "新葉均勻黃化" },
+      { "k": "plant", "state": "young", "color": "#e0d97a", "cap": "上位新葉先發生" }
+    ],
+    "photoQuery": "sulfur deficiency plant",
+    "related": ["def-n"]
+  }
+]

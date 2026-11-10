@@ -1,0 +1,15 @@
+[project]
+name = "crop-disease-pest-search"
+version = "0.1.0"
+description = "作物病蟲害檢索 PWA 的開發工具（本機伺服器、資料驗證、Supabase 種子資料產生）"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pillow>=10.0",
+]
+
+[tool.uv]
+package = false

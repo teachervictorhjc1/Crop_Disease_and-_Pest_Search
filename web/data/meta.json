@@ -1,0 +1,36 @@
+{
+  "types": [
+    { "id": "disease", "name": "病害", "icon": "🦠", "color": "#c0392b" },
+    { "id": "pest", "name": "蟲害", "icon": "🐛", "color": "#d35400" },
+    { "id": "nutrient", "name": "營養缺乏", "icon": "🧪", "color": "#2471a3" }
+  ],
+  "parts": [
+    { "id": "leaf", "name": "葉片", "icon": "🍃" },
+    { "id": "stem", "name": "莖／枝／葉鞘", "icon": "🌿" },
+    { "id": "fruit", "name": "果實", "icon": "🍎" },
+    { "id": "flower", "name": "花／穗", "icon": "🌼" },
+    { "id": "root", "name": "根部", "icon": "🥕" },
+    { "id": "whole", "name": "全株", "icon": "🌱" }
+  ],
+  "tags": [
+    { "id": "yellowing", "name": "黃化／褪色", "icon": "🟡" },
+    { "id": "spots", "name": "斑點／病斑", "icon": "🟤" },
+    { "id": "mosaic", "name": "嵌紋／斑駁", "icon": "🧩" },
+    { "id": "curling", "name": "捲曲／皺縮／畸形", "icon": "🌀" },
+    { "id": "wilting", "name": "萎凋", "icon": "🥀" },
+    { "id": "scorch", "name": "葉緣／葉尖焦枯", "icon": "🔥" },
+    { "id": "purple", "name": "紫紅色", "icon": "🟣" },
+    { "id": "powder", "name": "白粉／黴狀物", "icon": "☁️" },
+    { "id": "rot", "name": "腐爛／軟腐", "icon": "🫠" },
+    { "id": "holes", "name": "孔洞／缺刻／食痕", "icon": "🕳️" },
+    { "id": "mines", "name": "蛇行隧道", "icon": "〰️" },
+    { "id": "silvering", "name": "銀白／褐色擦痕", "icon": "✨" },
+    { "id": "webbing", "name": "細絲網", "icon": "🕸️" },
+    { "id": "honeydew", "name": "蜜露／黑色煤煙", "icon": "⚫" },
+    { "id": "galls", "name": "根部腫瘤", "icon": "🧄" },
+    { "id": "stunting", "name": "矮化／生長停滯", "icon": "📉" },
+    { "id": "drop", "name": "落花／落果", "icon": "⬇️" },
+    { "id": "cracking", "name": "龜裂／裂果／隆起", "icon": "💥" },
+    { "id": "insects", "name": "可見蟲體／卵／螺", "icon": "🔍" }
+  ]
+}

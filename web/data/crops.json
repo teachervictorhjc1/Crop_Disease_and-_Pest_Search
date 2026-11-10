@@ -1,0 +1,17 @@
+[
+  { "id": "rice", "name": "水稻", "en": "Rice", "group": "糧食作物", "emoji": "🌾", "sort": 1 },
+  { "id": "corn", "name": "玉米", "en": "Corn", "group": "糧食作物", "emoji": "🌽", "sort": 2 },
+  { "id": "potato", "name": "馬鈴薯", "en": "Potato", "group": "糧食作物", "emoji": "🥔", "sort": 3 },
+  { "id": "tomato", "name": "番茄", "en": "Tomato", "group": "蔬菜", "emoji": "🍅", "sort": 10 },
+  { "id": "pepper", "name": "辣椒／甜椒", "en": "Pepper", "group": "蔬菜", "emoji": "🌶️", "sort": 11 },
+  { "id": "eggplant", "name": "茄子", "en": "Eggplant", "group": "蔬菜", "emoji": "🍆", "sort": 12 },
+  { "id": "crucifer", "name": "十字花科（甘藍、白菜、花椰菜、蘿蔔）", "en": "Crucifers", "group": "蔬菜", "emoji": "🥬", "sort": 13 },
+  { "id": "cucurbit", "name": "瓜類（胡瓜、苦瓜、西瓜、甜瓜）", "en": "Cucurbits", "group": "蔬菜", "emoji": "🥒", "sort": 14 },
+  { "id": "strawberry", "name": "草莓", "en": "Strawberry", "group": "果樹與果品", "emoji": "🍓", "sort": 20 },
+  { "id": "citrus", "name": "柑橘類", "en": "Citrus", "group": "果樹與果品", "emoji": "🍊", "sort": 21 },
+  { "id": "banana", "name": "香蕉", "en": "Banana", "group": "果樹與果品", "emoji": "🍌", "sort": 22 },
+  { "id": "mango", "name": "芒果", "en": "Mango", "group": "果樹與果品", "emoji": "🥭", "sort": 23 },
+  { "id": "grape", "name": "葡萄", "en": "Grape", "group": "果樹與果品", "emoji": "🍇", "sort": 24 },
+  { "id": "papaya", "name": "木瓜", "en": "Papaya", "group": "果樹與果品", "emoji": "🍈", "sort": 25 },
+  { "id": "guava", "name": "番石榴", "en": "Guava", "group": "果樹與果品", "emoji": "🍐", "sort": 26 }
+]
