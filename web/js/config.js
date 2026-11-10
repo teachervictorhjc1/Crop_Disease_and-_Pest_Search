@@ -8,6 +8,6 @@
 // 兩者留空時，App 會直接讀取 web/data/*.json（離線也能使用）。
 // 千萬不要把 service_role / secret key 放在這裡！
 export const CONFIG = {
-  SUPABASE_URL: '',
+  SUPABASE_URL: 'https://ocnawzdzsvufvkwvwqlu.supabase.co',
   SUPABASE_ANON_KEY: '',
 };
