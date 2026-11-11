@@ -1,6 +1,6 @@
 // Service Worker：離線快取
 // 更新 App 檔案後請把 VERSION 加 1，讓使用者取得新版。
-const VERSION = 'v4';
+const VERSION = 'v5';
 const SHELL = `shell-${VERSION}`;
 const RUNTIME = `runtime-${VERSION}`;
 const PHOTOS = 'photos-v1';

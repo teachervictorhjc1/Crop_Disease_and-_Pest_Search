@@ -258,7 +258,8 @@ function bindForm(profile) {
       if (r.tags?.length) F.tags = new Set(r.tags.filter((t) => ctx.idx.tag.has(t)));
       const top = r.candidates?.find((c) => ctx.idx.issue.has(c.id));
       if (top) F.issue = top.id;
-      if (r.observation && !F.note) F.note = `（AI 觀察，請修改）${r.observation}`;
+      // 備註直接預填 AI 觀察內容（不加前綴，避免未修改就被存進資料庫）
+      if (r.observation && !F.note) F.note = r.observation;
       renderForm(profile);
       msg(top ? `AI 預填完成：${esc(ctx.idx.issue.get(top.id).name)}（把握度 ${Math.round(top.confidence * 100)}%）。請確認後再儲存。` : 'AI 無法判斷，請自行填寫。', 'warn');
     } catch (err) {
@@ -289,7 +290,7 @@ function bindForm(profile) {
         custom_tags: customTags,
         issue_id: F.issue === '__custom' ? null : F.issue,
         diagnosis_custom: F.issue === '__custom' ? F.diagCustom.trim() : null,
-        note: F.note.trim() || null,
+        note: F.note.replace(/^（AI 觀察，請修改）/, '').trim() || null,
       }, (text) => msg(`<span class="spinner"></span>${esc(text)}`));
       // 保留作物、部位與授權勾選，方便連續建檔
       F = blankForm({ crop: F.crop, cropCustom: F.cropCustom, part: F.part, agree: F.agree });
