@@ -63,6 +63,18 @@ def main() -> int:
                 errors.append(f"[{iid}] 相關條目不存在：{r}")
             if r == iid:
                 errors.append(f"[{iid}] 相關條目不可指向自己")
+        # cropNotes：作物專屬說明，作物必須存在且此條目適用該作物
+        notes = it.get("cropNotes", {})
+        if not isinstance(notes, dict):
+            errors.append(f"[{iid}] cropNotes 必須是物件 {{作物id: 說明}}")
+            notes = {}
+        for c, text in notes.items():
+            if c not in crop_ids or c == "*":
+                errors.append(f"[{iid}] cropNotes 未知作物：{c}")
+            elif "*" not in it.get("crops", []) and c not in it.get("crops", []):
+                errors.append(f"[{iid}] cropNotes 的作物 {c} 不在此條目的 crops 中")
+            if not isinstance(text, str) or not text.strip():
+                errors.append(f"[{iid}] cropNotes.{c} 不可為空")
         for n, g in enumerate(it.get("illus", [])):
             if g.get("k") not in ILLUS_KINDS:
                 errors.append(f"[{iid}] 第 {n + 1} 張示意圖類型錯誤：{g.get('k')}")

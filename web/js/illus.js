@@ -104,7 +104,86 @@ const LEAF = {
     margin: (x, y) => ((x - 100) / 64) ** 2 + ((y - 74) / 54) ** 2 > 0.5,
     box: [24, 18, 176, 128],
   },
+  // 披針形（芒果）
+  lance: {
+    d: 'M100 8 C126 28 134 66 128 98 C123 118 110 130 100 134 C90 130 77 118 72 98 C66 66 74 28 100 8 Z',
+    veins() {
+      let s = 'M100 134 L100 14';
+      for (let i = 0; i < 9; i++) {
+        const y = 124 - i * 12, w = 26 - Math.abs(i - 4) * 2.6 - (i > 6 ? 6 : 0);
+        s += ` M100 ${y} Q${f(100 - w * 0.5)} ${y - 6} ${f(100 - w)} ${y - 14} M100 ${y} Q${f(100 + w * 0.5)} ${y - 6} ${f(100 + w)} ${y - 14}`;
+      }
+      return s;
+    },
+    stalk: `<path d="M100 133 L100 146" stroke="${C.stalk}" stroke-width="3" stroke-linecap="round"/>`,
+    inside: (x, y) => ((x - 100) / 30) ** 2 + ((y - 72) / 60) ** 2 < 0.8,
+    margin: (x, y) => ((x - 100) / 30) ** 2 + ((y - 72) / 60) ** 2 > 0.45,
+    box: [72, 14, 128, 130],
+  },
+  // 長橢圓大葉、羽狀平行側脈（香蕉）
+  banana: {
+    d: 'M14 75 C14 48 34 40 100 40 C166 40 190 50 190 75 C190 100 166 110 100 110 C34 110 14 102 14 75 Z',
+    veins() {
+      let s = 'M14 75 L190 75';
+      for (let x = 22; x < 184; x += 8) s += ` M${x} 75 Q${x + 4} 58 ${x + 10} 42 M${x} 75 Q${x + 4} 92 ${x + 10} 108`;
+      return s;
+    },
+    stalk: `<path d="M16 75 L2 75" stroke="${C.stalk}" stroke-width="6" stroke-linecap="round"/>`,
+    inside: (x, y) => ((x - 102) / 88) ** 4 + ((y - 75) / 35) ** 4 < 0.8,
+    margin: (x, y) => ((x - 102) / 88) ** 4 + ((y - 75) / 35) ** 4 > 0.3,
+    box: [16, 42, 188, 108],
+  },
 };
+
+/** 由數片小葉組成的複葉（草莓三出複葉），小葉邊緣有鋸齒 */
+function compoundLeaf(leaflets, stalk) {
+  const local = (lf, x, y) => {
+    const a = (-lf.rot * Math.PI) / 180, dx = x - lf.cx, dy = y - lf.cy;
+    return [dx * Math.cos(a) - dy * Math.sin(a), dx * Math.sin(a) + dy * Math.cos(a)];
+  };
+  const world = (lf, u, v) => {
+    const a = (lf.rot * Math.PI) / 180;
+    return [lf.cx + u * Math.cos(a) - v * Math.sin(a), lf.cy + u * Math.sin(a) + v * Math.cos(a)];
+  };
+  const norm = (lf, x, y) => { const [u, v] = local(lf, x, y); return (u / lf.rx) ** 2 + (v / lf.ry) ** 2; };
+  const d = leaflets.map((lf) => {
+    let s = '';
+    for (let i = 0; i < 48; i++) {
+      const t = (i / 48) * Math.PI * 2;
+      const k = i % 2 ? 0.94 : 1.03; // 鋸齒
+      const [x, y] = world(lf, Math.cos(t) * lf.rx * k, Math.sin(t) * lf.ry * k);
+      s += `${i ? 'L' : 'M'}${f(x)} ${f(y)} `;
+    }
+    return s + 'Z';
+  }).join(' ');
+  return {
+    d,
+    veins() {
+      return leaflets.map((lf) => {
+        const p = (u, v) => world(lf, u, v).map(f).join(' ');
+        let s = `M${p(0, lf.ry)} L${p(0, -lf.ry * 0.92)}`;
+        for (let i = 0; i < 5; i++) {
+          const v = lf.ry * (0.6 - i * 0.3);
+          s += ` M${p(0, v)} L${p(-lf.rx * 0.85, v - lf.ry * 0.28)} M${p(0, v)} L${p(lf.rx * 0.85, v - lf.ry * 0.28)}`;
+        }
+        return s;
+      }).join(' ');
+    },
+    stalk,
+    inside: (x, y) => leaflets.some((lf) => norm(lf, x, y) < 0.78),
+    margin: (x, y) => leaflets.some((lf) => { const n = norm(lf, x, y); return n < 0.78 && n > 0.45; }),
+    box: [24, 8, 176, 132],
+  };
+}
+
+LEAF.trifoliate = compoundLeaf(
+  [
+    { cx: 100, cy: 44, rx: 27, ry: 34, rot: 0 },
+    { cx: 60, cy: 94, rx: 25, ry: 31, rot: -58 },
+    { cx: 140, cy: 94, rx: 25, ry: 31, rot: 58 },
+  ],
+  `<path d="M100 146 L100 92 M100 92 L100 78 M100 92 L86 108 M100 92 L114 108" stroke="${C.stalk}" stroke-width="3.2" stroke-linecap="round" fill="none"/>`,
+);
 
 /** 在葉片內隨機取點（可設定最小間距） */
 function pts(L, r, n, pad = 0, filter) {
@@ -424,6 +503,9 @@ const FRUIT = {
   papaya: { d: ell(100, 82, 40, 56), color: '#a9c24a', hi: '#e8cb52', top: 'stem', ty: 26 },
   pepper: { d: 'M78 40 C68 70 80 112 100 138 C120 112 132 70 122 40 C112 33 88 33 78 40Z', color: '#c8231e', hi: '#ee5a48', top: 'pstem', ty: 36 },
   cucurbit: { d: ell(100, 80, 80, 30), color: '#4c8c3a', hi: '#8fc06a', top: 'side', stripes: true },
+  eggplant: { d: 'M86 36 C64 50 56 94 72 122 C86 144 126 142 138 118 C150 92 130 54 114 40 C106 33 94 32 86 36Z', color: '#4e2160', hi: '#9361ad', top: 'calyx', ty: 38, tx: 100 },
+  guava: { d: 'M100 32 C126 32 150 54 150 86 C150 116 128 134 100 134 C72 134 50 116 50 86 C50 54 74 32 100 32Z', color: '#9cc04e', hi: '#e2eea0', top: 'stem', ty: 32 },
+  banana: { d: 'M34 58 C62 98 132 106 174 66 C180 62 186 66 182 74 C146 124 62 122 28 68 C25 62 30 55 34 58Z', color: '#e2c43a', hi: '#f6ea94', top: 'bstem' },
 };
 
 const FRUIT_LESIONS = {
@@ -517,6 +599,7 @@ function fruitTop(F, name) {
   }
   if (F.top === 'pstem') return `<path d="M100 38 C100 26 106 18 116 14" stroke="#3f8a2a" stroke-width="5" fill="none" stroke-linecap="round"/><ellipse cx="100" cy="38" rx="20" ry="6" fill="#4f9a38"/>`;
   if (F.top === 'side') return `<path d="M20 78 L6 72" stroke="#3f8a2a" stroke-width="5" stroke-linecap="round"/>`;
+  if (F.top === 'bstem') return `<path d="M32 60 L18 46" stroke="#7a6a2a" stroke-width="7" stroke-linecap="round"/><path d="M180 70 l6 2" stroke="#3b2a1a" stroke-width="4" stroke-linecap="round"/>`;
   return `<path d="M${x} ${y + 2} L${x + 3} ${y - 10}" stroke="#6b4a2a" stroke-width="3.5" stroke-linecap="round"/><path d="M${x + 3} ${y - 8} C${x + 16} ${y - 18} ${x + 30} ${y - 12} ${x + 34} ${y - 4} C${x + 20} ${y - 2} ${x + 10} ${y - 4} ${x + 3} ${y - 8}Z" fill="#4f9a38"/>`;
 }
 
@@ -528,11 +611,18 @@ function grapeSVG(o, seed) {
   rows.forEach((n, ri) => {
     for (let i = 0; i < n; i++) {
       const x = 100 + (i - (n - 1) / 2) * 19 + (r() - 0.5) * 3, y = 40 + ri * 13;
-      const bad = o.p === 'downy' && r() < 0.42;
-      s += `<circle cx="${f(x)}" cy="${f(y)}" r="10.5" fill="${bad ? '#8a6a42' : `url(#${gid})`}" stroke="${bad ? '#5d4326' : '#6e8f3a'}"/>`;
-      if (bad) {
+      const bad = o.p && r() < 0.42;
+      const scar = o.p === 'scar' || o.p === 'sting';
+      const fill = !bad || scar ? `url(#${gid})` : o.p === 'rot' ? '#5a3a22' : '#8a6a42';
+      s += `<circle cx="${f(x)}" cy="${f(y)}" r="10.5" fill="${fill}" stroke="${bad && !scar ? '#5d4326' : '#6e8f3a'}"/>`;
+      if (bad && o.p === 'downy') {
         s += `<path d="M${f(x - 5)} ${f(y - 2)} q5 4 10 0" stroke="#5d4326" fill="none"/>`;
         for (let k = 0; k < 6; k++) s += `<circle cx="${f(x + (r() - 0.5) * 12)}" cy="${f(y + (r() - 0.5) * 12)}" r="1.3" fill="#fbfbf6"/>`;
+      } else if (bad && scar) {
+        s += `<path d="M${f(x - 6)} ${f(y + 1)} q4 -5 9 -2 t4 3" stroke="#8a6234" stroke-width="2.2" fill="none" stroke-linecap="round"/>`;
+      } else if (bad && (o.p === 'mold' || o.p === 'whitemold' || o.p === 'rot')) {
+        const dot = o.p === 'rot' ? (o.spores ? '#f2875a' : '#2a1a0e') : o.p === 'mold' ? '#b4b4aa' : '#fbfbf6';
+        for (let k = 0; k < 7; k++) s += `<circle cx="${f(x + (r() - 0.5) * 13)}" cy="${f(y + (r() - 0.5) * 13)}" r="1.4" fill="${dot}"/>`;
       }
     }
   });
@@ -571,7 +661,22 @@ const leafAt = (x, y, ang, len, fill, stroke = '#00000030') =>
   `<path d="${leafPath(len)}" transform="translate(${f(x)} ${f(y)}) rotate(${f(ang)})" fill="${fill}" stroke="${stroke}"/>`;
 const ground = `<rect x="0" y="128" width="200" height="22" fill="${C.soil}"/><path d="M0 128 H200" stroke="${C.soilDark}" stroke-width="2"/>`;
 
-function basicPlant(cx, scale, colorAt, droop = 0) {
+/** 禾本科植株（水稻、玉米）：由外而內、由老到新的弧形長葉；colorAt(0) 為最老的葉 */
+function grassPlant(cx, scale, colorAt) {
+  let s = `<path d="M${cx} 130 L${cx} ${f(130 - 70 * scale)}" stroke="#4d8a2e" stroke-width="${f(6 * scale + 1)}" stroke-linecap="round"/>`;
+  [[66, 50], [56, 72], [44, 92], [28, 106], [10, 114]].forEach(([sx, h], i) => {
+    const col = colorAt(i);
+    for (const side of [-1, 1]) {
+      const dx = sx * scale * side, hh = h * scale;
+      const tipY = 130 - hh * (i < 2 ? 0.5 : 0.9);
+      s += `<path d="M${cx} 128 Q${f(cx + dx * 0.3)} ${f(130 - hh)} ${f(cx + dx)} ${f(tipY)}" stroke="${col}" stroke-width="${f(5 * scale + 1.5)}" fill="none" stroke-linecap="round"/>`;
+    }
+  });
+  return s;
+}
+
+function basicPlant(cx, scale, colorAt, droop = 0, form = '') {
+  if (form === 'grass') return grassPlant(cx, scale, colorAt);
   const levels = [118, 98, 78, 58, 40];
   let s = `<path d="M${cx} 130 L${cx} ${f(130 - 100 * scale)}" stroke="#4d8a2e" stroke-width="${f(4 * scale + 1)}" stroke-linecap="round"/>`;
   levels.forEach((y0, i) => {
@@ -586,12 +691,12 @@ function basicPlant(cx, scale, colorAt, droop = 0) {
 const PLANT_STATES = {
   old(o) {
     const c = o.color || C.yellow;
-    return basicPlant(100, 1, (i) => (i < 2 ? c : i === 2 ? '#9fbf52' : C.leaf)) +
+    return basicPlant(100, 1, (i) => (i < 2 ? c : i === 2 ? '#9fbf52' : C.leaf), 0, o.form) +
       `<path d="M150 124 L150 92" stroke="currentColor" stroke-width="1.5" marker-end="url(#arr)" opacity=".7"/><text x="156" y="112" font-size="11" fill="currentColor">老葉</text>`;
   },
   young(o) {
     const c = o.color || '#ece79a';
-    return basicPlant(100, 1, (i) => (i > 2 ? c : i === 2 ? '#9fbf52' : C.leaf)) +
+    return basicPlant(100, 1, (i) => (i > 2 ? c : i === 2 ? '#9fbf52' : C.leaf), 0, o.form) +
       `<text x="150" y="40" font-size="11" fill="currentColor">新葉</text>`;
   },
   wilt() {
@@ -601,14 +706,14 @@ const PLANT_STATES = {
     });
     return s;
   },
-  stunt() {
-    let s = basicPlant(150, 1, () => C.leaf);
-    s += `<g opacity=".95">${basicPlant(62, 0.5, (i) => (i > 2 ? '#d8cf4a' : '#6aa646'))}</g>`;
+  stunt(o) {
+    let s = basicPlant(150, 1, () => C.leaf, 0, o.form);
+    s += `<g opacity=".95">${basicPlant(62, 0.5, (i) => (i > 2 ? '#d8cf4a' : '#6aa646'), 0, o.form)}</g>`;
     s += `<text x="62" y="146" font-size="10" text-anchor="middle" fill="#fff">罹病株</text><text x="150" y="146" font-size="10" text-anchor="middle" fill="#fff">健康株</text>`;
     return s;
   },
-  tipdie() {
-    return basicPlant(100, 1, (i) => (i === 4 ? '#7a5a2a' : i === 3 ? '#a5b04a' : C.leaf)) +
+  tipdie(o) {
+    return basicPlant(100, 1, (i) => (i === 4 ? '#7a5a2a' : i === 3 ? '#a5b04a' : C.leaf), 0, o.form) +
       `<circle cx="100" cy="30" r="6" fill="#4a2e18"/><text x="114" y="26" font-size="11" fill="currentColor">生長點壞死</text>`;
   },
   rosette() {
@@ -919,6 +1024,62 @@ function bugSVG(o, seed) {
 /* ------------------------------------------------------------------ */
 
 const KINDS = { leaf: leafSVG, fruit: fruitSVG, plant: plantSVG, stem: stemSVG, roots: rootsSVG, bug: bugSVG };
+
+/* ------------------------------------------------------------------ */
+/* 依作物調整示意圖                                                    */
+/* ------------------------------------------------------------------ */
+
+/** 各作物的葉形、果實與植株型態 */
+const CROP_STYLE = {
+  rice: { leaf: 'grass', plant: 'grass' },
+  corn: { leaf: 'grass', plant: 'grass' },
+  potato: { leaf: 'broad' },
+  tomato: { leaf: 'broad', fruit: 'tomato' },
+  pepper: { leaf: 'broad', fruit: 'pepper' },
+  eggplant: { leaf: 'broad', fruit: 'eggplant' },
+  crucifer: { leaf: 'broad' },
+  cucurbit: { leaf: 'lobed', fruit: 'cucurbit' },
+  strawberry: { leaf: 'trifoliate', fruit: 'strawberry' },
+  citrus: { leaf: 'broad', fruit: 'citrus' },
+  banana: { leaf: 'banana', fruit: 'banana' },
+  mango: { leaf: 'lance', fruit: 'mango' },
+  grape: { leaf: 'lobed', fruit: 'grape' },
+  papaya: { leaf: 'lobed', fruit: 'papaya' },
+  guava: { leaf: 'broad', fruit: 'guava' },
+};
+// 這些葉片圖樣的位置是針對特定葉形設計的，不換葉形
+const SHAPE_FIXED = new Set(['curl', 'margin-blight', 'v-lesion', 'rolled', 'spindle', 'oilspot', 'blotchy']);
+// 這些果實病徵只在特定作物上出現，其他作物不換果實（改為「以○○為例」）
+const FRUIT_LESION_CROPS = {
+  'blossom-end': new Set(['tomato', 'pepper', 'eggplant', 'cucurbit']),
+  crack: new Set(['tomato', 'citrus']),
+  hlb: new Set(['citrus']),
+};
+// 這些植株狀態是特定作物專用，不換成禾本科型態
+const PLANT_FORM_STATES = new Set(['old', 'young', 'stunt', 'tipdie']);
+
+/**
+ * 把示意圖規格換成指定作物的葉形／果實／植株型態。
+ * @returns {{spec: object, example: string}} example：無法換成該作物時，圖中實際畫的作物（例如 'tomato'），否則為空字串
+ */
+export function adaptIllus(spec, crop) {
+  const st = CROP_STYLE[crop];
+  if (!spec || !st) return { spec, example: '' };
+  if (spec.k === 'leaf' && !SHAPE_FIXED.has(spec.p)) {
+    return { spec: { ...spec, shape: st.leaf || 'broad' }, example: '' };
+  }
+  if (spec.k === 'fruit') {
+    const fruit = spec.fruit || 'tomato';
+    if (fruit === st.fruit) return { spec, example: '' };
+    const limited = FRUIT_LESION_CROPS[spec.p];
+    const ok = st.fruit && (!limited || limited.has(crop));
+    return ok ? { spec: { ...spec, fruit: st.fruit }, example: '' } : { spec, example: fruit };
+  }
+  if (spec.k === 'plant' && st.plant && PLANT_FORM_STATES.has(spec.state)) {
+    return { spec: { ...spec, form: st.plant }, example: '' };
+  }
+  return { spec, example: '' };
+}
 
 /** 依規格產生 SVG 字串；seed 用來讓同一條目的圖保持一致 */
 export function renderIllus(spec, seed = '') {

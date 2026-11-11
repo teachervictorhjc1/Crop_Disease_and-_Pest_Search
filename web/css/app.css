@@ -115,6 +115,24 @@ img, svg { max-width: 100%; }
 .summary { margin: 6px 0; font-size: .92rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .crop-mini { margin: 0; font-size: 1.05rem; letter-spacing: 2px; }
 
+/* 依作物顯示 */
+.grid-head { grid-column: 1 / -1; margin-top: 6px; }
+.grid-head h3 { margin: 6px 0 2px; font-size: 1.1rem; }
+.grid-head .hint { margin: 0; }
+.crop-note {
+  margin: 6px 0; font-size: .88rem; line-height: 1.45; color: var(--text);
+  background: var(--surface-2); border-left: 3px solid var(--brand); border-radius: 6px; padding: 4px 8px;
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+}
+.crop-focus {
+  margin: 12px 0; padding: 12px 14px; border-radius: var(--radius);
+  background: var(--surface-2); border-left: 5px solid var(--brand);
+}
+.crop-focus strong { font-size: 1.05rem; }
+.crop-focus p { margin: 6px 0; }
+.crop-focus a { font-size: .88rem; color: var(--brand); }
+figcaption .example { color: var(--muted); font-size: .85em; margin-left: 4px; }
+
 .badge { display: inline-block; font-size: .78rem; font-weight: 600; padding: 2px 9px; border-radius: 999px; border: 1px solid currentColor; }
 .type-disease { color: var(--disease); }
 .type-pest { color: var(--pest); }
@@ -250,6 +268,7 @@ img, svg { max-width: 100%; }
   .card h3 { font-size: 1rem; line-height: 1.35; }
   .card .sci { font-size: .72rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .card .summary { display: none; }
+  .card .crop-note { font-size: .78rem; -webkit-line-clamp: 3; padding: 3px 6px; }
   .crop-mini { font-size: .9rem; letter-spacing: 1px; margin-top: 4px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
   .badge { font-size: .72rem; padding: 1px 7px; }
 }

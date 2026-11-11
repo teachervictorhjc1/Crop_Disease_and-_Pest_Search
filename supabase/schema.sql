@@ -29,6 +29,7 @@ create table if not exists public.issues (
   illus       jsonb not null default '[]',    -- 示意圖規格（前端程式繪製）
   photo_query text,                           -- Wikimedia Commons 搜尋關鍵字
   related     text[] not null default '{}',
+  crop_notes  jsonb  not null default '{}',   -- 作物專屬說明 {作物id: 說明}
   updated_at  timestamptz not null default now()
 );
 

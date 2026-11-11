@@ -20,8 +20,19 @@ async function fromSupabase(table, order) {
 
 /** 資料庫欄位（snake_case）轉成前端使用的欄位名稱 */
 function normalizeIssue(row) {
-  const { photo_query, updated_at, sort, ...rest } = row;
-  return { ...rest, photoQuery: photo_query ?? row.photoQuery ?? '' };
+  const { photo_query, crop_notes, updated_at, sort, ...rest } = row;
+  return { ...rest, photoQuery: photo_query ?? row.photoQuery ?? '', cropNotes: crop_notes ?? row.cropNotes ?? {} };
+}
+
+/** 資料庫尚未新增 crop_notes 欄位時，用內建 JSON 補上作物專屬說明 */
+async function fillCropNotes(issues) {
+  try {
+    const local = await fetchJSON('./data/issues.json');
+    const map = new Map(local.map((i) => [i.id, i.cropNotes || {}]));
+    for (const it of issues) it.cropNotes = map.get(it.id) || {};
+  } catch (err) {
+    console.warn('無法補上作物說明：', err);
+  }
 }
 
 /**
@@ -38,7 +49,9 @@ export async function loadAll() {
         fromSupabase('issues', 'sort.asc'),
       ]);
       if (Array.isArray(issues) && issues.length) {
-        return { meta, crops, issues: issues.map(normalizeIssue), source: 'supabase' };
+        const list = issues.map(normalizeIssue);
+        if (!('crop_notes' in issues[0])) await fillCropNotes(list);
+        return { meta, crops, issues: list, source: 'supabase' };
       }
     } catch (err) {
       console.warn('Supabase 讀取失敗，改用內建資料：', err);
@@ -46,5 +59,5 @@ export async function loadAll() {
   }
 
   const [crops, issues] = await Promise.all([fetchJSON('./data/crops.json'), fetchJSON('./data/issues.json')]);
-  return { meta, crops, issues, source: 'local' };
+  return { meta, crops, issues: issues.map((it) => ({ ...it, cropNotes: it.cropNotes || {} })), source: 'local' };
 }

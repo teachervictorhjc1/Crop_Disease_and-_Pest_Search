@@ -43,6 +43,9 @@ def main() -> None:
         "-- 請先執行 supabase/schema.sql 建立資料表",
         "begin;",
         "",
+        "-- 舊資料庫沒有 crop_notes 欄位時自動補上（可重複執行）",
+        "alter table public.issues add column if not exists crop_notes jsonb not null default '{}'::jsonb;",
+        "",
     ]
 
     for c in crops:
@@ -57,16 +60,17 @@ def main() -> None:
     for n, it in enumerate(issues, start=1):
         lines.append(
             "insert into public.issues (id, sort, name, en, sci, type, crops, parts, tags, summary, symptoms,"
-            " conditions, prevention, control, illus, photo_query, related) values ("
+            " conditions, prevention, control, illus, photo_query, related, crop_notes) values ("
             f"{q(it['id'])}, {n}, {q(it['name'])}, {q(it.get('en'))}, {q(it.get('sci'))}, {q(it['type'])}, "
             f"{arr(it['crops'])}, {arr(it['parts'])}, {arr(it['tags'])}, {q(it['summary'])}, {js(it['symptoms'])}, "
             f"{q(it['conditions'])}, {js(it['prevention'])}, {js(it['control'])}, {js(it['illus'])}, "
-            f"{q(it.get('photoQuery'))}, {arr(it.get('related', []))})"
+            f"{q(it.get('photoQuery'))}, {arr(it.get('related', []))}, {js(it.get('cropNotes', {}))})"
             " on conflict (id) do update set sort = excluded.sort, name = excluded.name, en = excluded.en,"
             " sci = excluded.sci, type = excluded.type, crops = excluded.crops, parts = excluded.parts,"
             " tags = excluded.tags, summary = excluded.summary, symptoms = excluded.symptoms,"
             " conditions = excluded.conditions, prevention = excluded.prevention, control = excluded.control,"
             " illus = excluded.illus, photo_query = excluded.photo_query, related = excluded.related,"
+            " crop_notes = excluded.crop_notes,"
             " updated_at = now();"
         )
 

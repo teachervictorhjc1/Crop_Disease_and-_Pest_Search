@@ -1,6 +1,6 @@
 // 作物病蟲害檢索 主程式
 import { loadAll } from './data.js';
-import { renderIllus } from './illus.js';
+import { renderIllus, adaptIllus } from './illus.js';
 import { aiAvailable, shrinkImage, aiDiagnose, errorMessage } from './photo.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -38,15 +38,45 @@ function cropEmojis(issue) {
   return issue.crops.map((id) => state.idx.crop.get(id)?.emoji || '').join(' ');
 }
 
-function card(issue) {
-  const illus = issue.illus?.[0];
-  return `<a class="card" href="#/issue/${encodeURIComponent(issue.id)}">
-    <div class="card-illus">${illus ? renderIllus(illus, issue.id) : ''}</div>
+/* ---------- 依作物顯示 ---------- */
+
+/** 條目是否適用此作物（含「多數作物」通用條目） */
+const appliesTo = (it, crop) => Boolean(crop) && (it.crops.includes(crop) || it.crops.includes('*'));
+/** 作物簡稱（去掉括號說明），例如「十字花科」 */
+const cropShort = (id) => (state.idx.crop.get(id)?.name || id).replace(/（.*）/, '');
+/** 條目在此作物上的專屬說明 */
+const cropNoteOf = (it, crop) => (crop && it.cropNotes?.[crop]) || '';
+/** 條目連結；有作物情境時帶上 ?crop= */
+const issueHref = (it, crop) =>
+  `#/issue/${encodeURIComponent(it.id)}${appliesTo(it, crop) ? `?crop=${encodeURIComponent(crop)}` : ''}`;
+
+/**
+ * 依作物調整條目的示意圖；無法換成該作物的果實圖移到最後，並註明以哪種作物為例。
+ * @returns {{spec: object, example: string, i: number}[]}
+ */
+function cropIllus(it, crop) {
+  const list = (it.illus || []).map((spec, i) => ({ ...(appliesTo(it, crop) ? adaptIllus(spec, crop) : { spec, example: '' }), i }));
+  return [...list.filter((x) => !x.example), ...list.filter((x) => x.example)];
+}
+
+/** 診斷結果用的單張示意圖（依作物調整） */
+function diagIllus(it, crop) {
+  const first = cropIllus(it, crop)[0];
+  return first ? renderIllus(first.spec, it.id + first.i) : '';
+}
+
+function card(issue, crop = '') {
+  const first = cropIllus(issue, crop)[0];
+  const note = cropNoteOf(issue, crop);
+  return `<a class="card" href="${issueHref(issue, crop)}">
+    <div class="card-illus">${first ? renderIllus(first.spec, issue.id + first.i) : ''}</div>
     <div class="card-body">
       ${typeBadge(issue.type)}
       <h3>${esc(issue.name)}</h3>
       <p class="sci">${esc(issue.sci)}</p>
-      <p class="summary">${esc(issue.summary)}</p>
+      ${note
+        ? `<p class="crop-note">${state.idx.crop.get(crop)?.emoji || ''} ${esc(note)}</p>`
+        : `<p class="summary">${esc(issue.summary)}</p>`}
       <p class="crop-mini" title="適用作物">${cropEmojis(issue)}</p>
     </div>
   </a>`;
@@ -66,7 +96,8 @@ function searchText(issue) {
   if (!issue._text) {
     const crops = issue.crops.map((c) => (c === '*' ? '多數作物' : state.idx.crop.get(c)?.name || c));
     const tags = issue.tags.map((t) => state.idx.tag.get(t)?.name || t);
-    issue._text = [issue.name, issue.en, issue.sci, issue.summary, ...issue.symptoms, issue.conditions, ...crops, ...tags]
+    issue._text = [issue.name, issue.en, issue.sci, issue.summary, ...issue.symptoms, issue.conditions, ...crops, ...tags,
+      ...Object.values(issue.cropNotes || {})]
       .join(' ')
       .toLowerCase();
   }
@@ -116,9 +147,27 @@ function renderBrowse(params) {
   const update = () => {
     const list = filterIssues(b);
     $('#count').textContent = `共 ${list.length} 筆${b.q ? `（關鍵字：「${b.q}」）` : ''}`;
-    $('#results').innerHTML = list.length
-      ? list.map(card).join('')
-      : `<div class="empty">找不到符合的項目。<br>試試看減少篩選條件，或改用「症狀診斷」。</div>`;
+    if (!list.length) {
+      $('#results').innerHTML = `<div class="empty">找不到符合的項目。<br>試試看減少篩選條件，或改用「症狀診斷」。</div>`;
+      return;
+    }
+    if (!b.crop) {
+      $('#results').innerHTML = list.map((it) => card(it)).join('');
+      return;
+    }
+    // 選了作物：先列該作物專屬的條目，再列有此作物說明的通用條目，最後是其他共通條目
+    const c = state.idx.crop.get(b.crop);
+    const name = cropShort(b.crop);
+    const own = list.filter((it) => it.crops.includes(b.crop));
+    const noted = list.filter((it) => !own.includes(it) && cropNoteOf(it, b.crop));
+    const general = list.filter((it) => !own.includes(it) && !noted.includes(it));
+    const main = [...own, ...noted];
+    const head = (title, sub) => `<div class="grid-head"><h3>${title}</h3>${sub ? `<p class="hint">${sub}</p>` : ''}</div>`;
+    $('#results').innerHTML =
+      (main.length ? head(`${c?.emoji || ''} ${esc(name)}（${main.length}）`, `以下說明與示意圖都以${esc(name)}為主。`) + main.map((it) => card(it, b.crop)).join('') : '') +
+      (general.length
+        ? head(`🌱 多數作物共通（${general.length}）`, `這些條目目前只有共通說明；示意圖已盡量換成${esc(name)}的葉形與果實。`) + general.map((it) => card(it, b.crop)).join('')
+        : '');
   };
 
   view.querySelector('.seg').addEventListener('click', (e) => {
@@ -160,16 +209,32 @@ function list(items) {
   return `<ul>${(items || []).map((s) => `<li>${esc(s)}</li>`).join('')}</ul>`;
 }
 
-function renderDetail(id) {
+/** 詳細頁上方的「在某作物上的特徵」區塊 */
+function cropFocusHTML(it, crop) {
+  if (!crop) return '';
+  const c = state.idx.crop.get(crop);
+  const name = esc(cropShort(crop));
+  const note = cropNoteOf(it, crop);
+  const generic = it.crops.includes('*') || it.crops.length > 1;
+  if (!note && !generic) return '';
+  return `<div class="crop-focus">
+    <strong>${c?.emoji || ''} 在${name}上的特徵</strong>
+    <p>${note ? esc(note) : `此條目適用多種作物，下方為共通說明；示意圖已換成${name}的樣子。`}</p>
+    <a href="#/issue/${encodeURIComponent(it.id)}">查看不分作物的完整說明 →</a>
+  </div>`;
+}
+
+function renderDetail(id, cropParam = '') {
   const it = state.idx.issue.get(id);
   if (!it) {
     view.innerHTML = `<div class="empty">找不到這個條目。<br><a href="#/">回到首頁</a></div>`;
     return;
   }
+  const crop = appliesTo(it, cropParam) ? cropParam : '';
   const isNutrient = it.type === 'nutrient';
   const parts = it.parts.map((p) => state.idx.part.get(p)).filter(Boolean);
   const related = (it.related || []).map((r) => state.idx.issue.get(r)).filter(Boolean);
-  document.title = `${it.name}｜作物病蟲害檢索`;
+  document.title = `${it.name}${crop ? `（${cropShort(crop)}）` : ''}｜作物病蟲害檢索`;
 
   view.innerHTML = `
     <article class="detail">
@@ -179,9 +244,10 @@ function renderDetail(id) {
         <h2>${esc(it.name)}</h2>
         <p class="sci">${esc(it.en)}${it.sci && it.sci !== it.en && !isNutrient ? ` ・ <i>${esc(it.sci)}</i>` : ''}</p>
         <p class="lead">${esc(it.summary)}</p>
+        ${cropFocusHTML(it, crop)}
         <div class="meta-row">
           <span class="meta-label">作物</span>
-          ${it.crops.map((c) => `<a class="chip small" href="#/?crop=${encodeURIComponent(c === '*' ? '' : c)}">${cropLabel(c)}</a>`).join('')}
+          ${it.crops.map((c) => `<a class="chip small${c === crop ? ' active' : ''}" href="#/?crop=${encodeURIComponent(c === '*' ? '' : c)}">${cropLabel(c)}</a>`).join('')}
         </div>
         <div class="meta-row">
           <span class="meta-label">部位</span>
@@ -190,7 +256,8 @@ function renderDetail(id) {
       </header>
 
       <section class="gallery" aria-label="特徵示意圖">
-        ${(it.illus || []).map((g, i) => `<figure>${renderIllus(g, it.id + i)}<figcaption>${esc(g.cap || '')}</figcaption></figure>`).join('')}
+        ${cropIllus(it, crop).map(({ spec, example, i }) => `<figure>${renderIllus(spec, it.id + i)}<figcaption>${esc(spec.cap || '')}${
+          example ? `<span class="example">（以${esc(cropShort(example))}為例）</span>` : ''}</figcaption></figure>`).join('')}
       </section>
 
       <section class="block">
@@ -221,7 +288,7 @@ function renderDetail(id) {
         <div class="photo-grid" id="photo-grid"></div>
       </section>
 
-      ${related.length ? `<section class="block"><h3>🔗 相關條目</h3><div class="related">${related.map((r) => `<a class="rel" href="#/issue/${encodeURIComponent(r.id)}">${typeBadge(r.type)} ${esc(r.name)}</a>`).join('')}</div></section>` : ''}
+      ${related.length ? `<section class="block"><h3>🔗 相關條目</h3><div class="related">${related.map((r) => `<a class="rel" href="${issueHref(r, crop)}">${typeBadge(r.type)} ${esc(r.name)}</a>`).join('')}</div></section>` : ''}
 
       <aside class="notice">
         <strong>⚠️ 用藥安全提醒：</strong>本 App 只提供診斷參考，不取代專業鑑定。施用農藥前，請先查詢
@@ -234,7 +301,7 @@ function renderDetail(id) {
     if (history.length > 1 && state.navigated) history.back();
     else location.hash = '#/';
   });
-  $('#load-photos').addEventListener('click', () => loadPhotos(it));
+  $('#load-photos').addEventListener('click', () => loadPhotos(it, crop));
   window.scrollTo(0, 0);
 }
 
@@ -275,14 +342,17 @@ async function commonsSearch(query, limit = 8) {
     .filter(Boolean);
 }
 
-async function loadPhotos(it) {
+async function loadPhotos(it, crop = '') {
   const btn = $('#load-photos');
   const grid = $('#photo-grid');
   btn.disabled = true;
   btn.textContent = '載入中…';
   try {
     let photos = [];
-    for (const q of [it.photoQuery, it.en].filter(Boolean)) {
+    // 有作物情境時，先搜尋「病名 + 作物英文名」，找不到再用一般關鍵字
+    const cropEn = crop ? state.idx.crop.get(crop)?.en : '';
+    const queries = [cropEn && `${it.en} ${cropEn}`, it.photoQuery, it.en].filter(Boolean);
+    for (const q of queries) {
       photos = await commonsSearch(q);
       if (photos.length) break;
     }
@@ -353,8 +423,8 @@ function aiResultHTML(ai) {
     <div class="ai-cands">
       ${cands.map(({ it, confidence, reason }) => {
         const pct = Math.round(confidence * 100);
-        return `<a class="diag" href="#/issue/${encodeURIComponent(it.id)}">
-          <div class="diag-illus">${renderIllus(it.illus?.[0], it.id)}</div>
+        return `<a class="diag" href="${issueHref(it, state.wizard.crop)}">
+          <div class="diag-illus">${diagIllus(it, state.wizard.crop)}</div>
           <div class="diag-body">
             <div class="diag-top"><span class="ai-badge">AI 推薦</span>${typeBadge(it.type)}<strong>${esc(it.name)}</strong></div>
             <div class="bar" aria-label="AI 把握度 ${pct}%"><span style="width:${pct}%"></span></div>
@@ -472,8 +542,8 @@ function renderWizard() {
       return;
     }
     box.innerHTML = res
-      .map(({ it, hit, partHit, pct }) => `<a class="diag" href="#/issue/${encodeURIComponent(it.id)}">
-        <div class="diag-illus">${renderIllus(it.illus?.[0], it.id)}</div>
+      .map(({ it, hit, partHit, pct }) => `<a class="diag" href="${issueHref(it, w.crop)}">
+        <div class="diag-illus">${diagIllus(it, w.crop)}</div>
         <div class="diag-body">
           <div class="diag-top">${typeBadge(it.type)}<strong>${esc(it.name)}</strong></div>
           <div class="bar" aria-label="符合度 ${pct}%"><span style="width:${pct}%"></span></div>
@@ -578,7 +648,7 @@ function route() {
 
   if (path.startsWith('/issue/')) {
     searchWrap.hidden = true;
-    renderDetail(decodeURIComponent(path.slice('/issue/'.length)));
+    renderDetail(decodeURIComponent(path.slice('/issue/'.length)), params.get('crop') || '');
   } else if (path === '/wizard') {
     searchWrap.hidden = true;
     renderWizard();

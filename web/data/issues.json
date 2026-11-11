@@ -168,7 +168,12 @@
       { "k": "plant", "state": "old", "color": "#c9b84a", "cap": "由下位老葉開始往上蔓延" }
     ],
     "photoQuery": "Alternaria solani",
-    "related": ["late-blight", "def-k"]
+    "related": ["late-blight", "def-k"],
+    "cropNotes": {
+      "tomato": "葉片同心輪紋斑；莖基部也會出現輪紋病斑（領腐），果實蒂部凹陷黑斑。",
+      "potato": "葉片出現有稜角的同心輪紋斑；薯塊表面形成凹陷暗褐色斑。",
+      "eggplant": "葉片出現褐色同心輪紋斑，多從下位葉開始。"
+    }
   },
   {
     "id": "bacterial-wilt",
@@ -203,7 +208,13 @@
       { "k": "stem", "p": "ooze", "cap": "病莖切段插入清水，流出乳白色菌泥" }
     ],
     "photoQuery": "Ralstonia solanacearum",
-    "related": ["root-knot-nematode", "phytophthora-blight"]
+    "related": ["root-knot-nematode", "phytophthora-blight"],
+    "cropNotes": {
+      "tomato": "白天整株急速萎凋、夜間稍恢復，數日後枯死但葉片仍保持綠色。",
+      "potato": "薯塊維管束環褐變，擠壓時芽眼或切面會流出乳白色菌泥。",
+      "pepper": "植株突然萎凋，莖基部維管束褐變；高溫多濕季節最嚴重。",
+      "eggplant": "植株從部分枝條開始萎凋，切開莖部可見褐變並溢出菌泥。"
+    }
   },
   {
     "id": "tylcv",
@@ -304,7 +315,15 @@
       { "k": "leaf", "shape": "lobed", "p": "powdery", "cap": "葉面白色粉狀黴斑" }
     ],
     "photoQuery": "powdery mildew cucurbit leaf",
-    "related": ["cucurbit-downy-mildew", "anthracnose"]
+    "related": ["cucurbit-downy-mildew", "anthracnose"],
+    "cropNotes": {
+      "cucurbit": "葉片兩面布滿白粉，從下位葉開始向上蔓延，乾燥季節最嚴重。",
+      "strawberry": "葉緣向上捲曲，葉背有白粉；果實表面長白粉、失去光澤。",
+      "grape": "葉、新梢及果粒覆白粉，果粒表面形成網狀褐斑，容易裂果。",
+      "mango": "花穗及幼果覆白粉，造成大量落花、落果。",
+      "pepper": "葉背出現白粉、葉面相對位置黃化，嚴重時大量落葉。",
+      "tomato": "葉面出現淡黃色斑，葉背或葉面長白粉，老葉先發生。"
+    }
   },
   {
     "id": "anthracnose",
@@ -339,7 +358,16 @@
       { "k": "leaf", "p": "spots", "color": "#3b2a1a", "n": 5, "r": 9, "irregular": true, "cap": "葉片不規則黑褐色病斑" }
     ],
     "photoQuery": "mango anthracnose",
-    "related": ["gray-mold", "powdery-mildew"]
+    "related": ["gray-mold", "powdery-mildew"],
+    "cropNotes": {
+      "mango": "果實成熟後出現黑色凹陷斑並擴大腐爛；花穗變黑枯死，雨季開花期最嚴重。",
+      "pepper": "果實上出現水浸狀凹陷圓斑，上有同心輪紋排列的黑點或橙紅色孢子堆。",
+      "strawberry": "走蔓及葉柄出現黑褐色凹陷病斑，侵入冠部時整株萎凋（炭疽冠腐），育苗期最常見。",
+      "banana": "成熟果皮出現黑褐色凹陷斑，催熟後迅速擴大，果柄也會腐爛。",
+      "papaya": "成熟果實出現水浸狀圓形凹陷斑，中央有橙紅色孢子堆。",
+      "guava": "果實出現黑褐色凹陷斑並腐爛，嫩梢可能枯死。",
+      "grape": "成熟果粒出現褐色凹陷斑，上有橙紅色孢子堆（晚腐病），果粒乾縮。"
+    }
   },
   {
     "id": "citrus-hlb",
@@ -476,7 +504,12 @@
       { "k": "fruit", "fruit": "strawberry", "p": "mold", "cap": "果實軟腐並長出灰色黴層" }
     ],
     "photoQuery": "Botrytis cinerea strawberry",
-    "related": ["anthracnose"]
+    "related": ["anthracnose"],
+    "cropNotes": {
+      "strawberry": "果實出現褐色軟腐並覆灰色黴層，多從花萼端或接觸土面處開始。",
+      "tomato": "果實長灰黴，或出現白色小圈的「鬼斑」；莖部病斑環繞時，上方枝葉萎凋。",
+      "grape": "果房內果粒褐腐並覆灰黴，成熟期遇雨最嚴重。"
+    }
   },
   {
     "id": "crucifer-black-rot",
@@ -610,7 +643,12 @@
       { "k": "fruit", "fruit": "pepper", "p": "whitemold", "cap": "果實水浸狀軟腐並長白黴" }
     ],
     "photoQuery": "Phytophthora capsici",
-    "related": ["late-blight", "bacterial-wilt"]
+    "related": ["late-blight", "bacterial-wilt"],
+    "cropNotes": {
+      "pepper": "莖基部黑褐色縊縮、全株萎凋；果實出現水浸狀軟腐並長白黴。",
+      "cucurbit": "莖蔓基部水浸狀縊縮；接觸地面的果實軟腐並長白黴。",
+      "eggplant": "果實出現水浸狀褐色病斑並長白黴，莖基部褐變。"
+    }
   },
   {
     "id": "corn-southern-rust",
@@ -706,7 +744,12 @@
       { "k": "leaf", "p": "holes", "style": "chew", "cap": "葉片大缺刻，嚴重時只剩葉脈" }
     ],
     "photoQuery": "Spodoptera litura larva",
-    "related": ["fall-armyworm", "diamondback-moth"]
+    "related": ["fall-armyworm", "diamondback-moth"],
+    "cropNotes": {
+      "crucifer": "幼蟲群聚葉背啃食成薄膜狀，長大後分散，把葉片吃成大缺刻。",
+      "strawberry": "幼蟲夜間取食葉片與果實，果實表面出現不規則食痕。",
+      "corn": "幼蟲鑽食心葉與果穗，心葉展開後可見成排孔洞與蟲糞。"
+    }
   },
   {
     "id": "diamondback-moth",
@@ -776,7 +819,15 @@
       { "k": "leaf", "p": "sooty", "cap": "蜜露誘發煤煙病，葉面變黑" }
     ],
     "photoQuery": "Aphis gossypii",
-    "related": ["papaya-ringspot", "silverleaf-whitefly", "scale-insects"]
+    "related": ["papaya-ringspot", "silverleaf-whitefly", "scale-insects"],
+    "cropNotes": {
+      "crucifer": "群聚葉背與心葉，葉片捲曲皺縮，並分泌蜜露引發煤煙病。",
+      "cucurbit": "群聚嫩葉與生長點，葉片捲曲；會傳播多種瓜類嵌紋病毒。",
+      "citrus": "危害嫩梢使新葉捲曲，並傳播柑橘病毒病害。",
+      "papaya": "直接危害較輕，主要危害是傳播木瓜輪點病毒。",
+      "potato": "群聚葉背與嫩梢，主要危害是傳播馬鈴薯病毒病害。",
+      "strawberry": "群聚新葉與花序，造成新葉捲縮，並傳播草莓病毒。"
+    }
   },
   {
     "id": "silverleaf-whitefly",
@@ -812,7 +863,12 @@
       { "k": "leaf", "shape": "lobed", "p": "silverleaf", "cap": "瓜類葉片銀白化（銀葉症）" }
     ],
     "photoQuery": "Bemisia tabaci",
-    "related": ["tylcv", "aphids", "thrips"]
+    "related": ["tylcv", "aphids", "thrips"],
+    "cropNotes": {
+      "tomato": "主要危害是傳播番茄黃化捲葉病毒，少量成蟲就可能造成嚴重損失。",
+      "cucurbit": "南瓜等瓜類葉片呈銀白色（銀葉症），果實色淡；也會傳播病毒。",
+      "crucifer": "群聚葉背吸食，葉片褪色，並分泌蜜露引發煤煙病。"
+    }
   },
   {
     "id": "thrips",
@@ -847,7 +903,16 @@
       { "k": "fruit", "fruit": "mango", "p": "scar", "cap": "果皮褐色木栓化擦痕" }
     ],
     "photoQuery": "Thrips palmi",
-    "related": ["spider-mites", "silverleaf-whitefly"]
+    "related": ["spider-mites", "silverleaf-whitefly"],
+    "cropNotes": {
+      "cucurbit": "危害生長點與嫩葉，造成心葉萎縮、葉片皺縮，並會傳播病毒。",
+      "pepper": "新葉向上捲曲、畸形，果實表面出現褐色擦痕與疤痕。",
+      "eggplant": "果實表面出現褐色擦痕，蒂下最明顯，嚴重時果面粗糙。",
+      "mango": "危害花穗與幼果，果實表面出現褐色木栓化擦痕。",
+      "grape": "果粒表面出現褐色擦痕，新梢葉片皺縮。",
+      "citrus": "幼果果蒂周圍出現環狀銀白至褐色疤痕，影響外觀。",
+      "strawberry": "危害花與果實，果面種子周圍褐化、失去光澤。"
+    }
   },
   {
     "id": "spider-mites",
@@ -881,7 +946,16 @@
       { "k": "leaf", "p": "stipple", "cap": "葉面密集黃白小點與細絲" }
     ],
     "photoQuery": "Tetranychus urticae",
-    "related": ["thrips"]
+    "related": ["thrips"],
+    "cropNotes": {
+      "strawberry": "聚集葉背吸食，葉面先出現白色小點，再轉青銅褐色；高溫乾燥時數量暴增。",
+      "cucurbit": "葉面出現黃白色小點，嚴重時葉片枯黃並結網。",
+      "papaya": "葉片褪色黃化，提早落葉，影響果實發育。",
+      "eggplant": "葉片褪色呈灰白，葉背可見蟎體與細絲。",
+      "pepper": "葉片褪色、捲曲，嚴重時落葉。",
+      "tomato": "葉片褪色黃化，嚴重時植株結網、葉片乾枯。",
+      "citrus": "葉面出現灰白小點並失去光澤，果實表面變灰暗。"
+    }
   },
   {
     "id": "oriental-fruit-fly",
@@ -914,7 +988,14 @@
       { "k": "fruit", "fruit": "mango", "p": "sting", "cap": "果面叮痕與腐爛" }
     ],
     "photoQuery": "Bactrocera dorsalis",
-    "related": ["melon-fly"]
+    "related": ["melon-fly"],
+    "cropNotes": {
+      "mango": "果實轉色期起受害最嚴重，產卵孔周圍腐爛、提早落果；建議套袋。",
+      "guava": "果實全年都可能受害，套袋是最有效的防護方法。",
+      "citrus": "產卵孔周圍果皮提早轉色、軟化，造成落果。",
+      "papaya": "主要危害成熟果實，產卵孔流出乳汁，果肉腐爛。",
+      "banana": "主要危害過熟果實，青果較少受害；及早採收可降低損失。"
+    }
   },
   {
     "id": "melon-fly",
@@ -1202,7 +1283,14 @@
       { "k": "bug", "t": "nematode", "cap": "線蟲（顯微放大示意）" }
     ],
     "photoQuery": "Meloidogyne root knot galls",
-    "related": ["clubroot", "bacterial-wilt"]
+    "related": ["clubroot", "bacterial-wilt"],
+    "cropNotes": {
+      "tomato": "根部形成串珠狀大小腫瘤，植株白天萎凋、生長不良。",
+      "cucurbit": "根部腫瘤明顯，植株黃化矮小、果實小。",
+      "banana": "根部腫大變形，植株生長慢、易倒伏，果串小。",
+      "papaya": "根部腫瘤造成植株生長停滯、葉片黃化。",
+      "guava": "根部腫瘤並伴隨根腐，植株衰弱、葉片黃化提早落葉。"
+    }
   },
   {
     "id": "scale-insects",
@@ -1235,7 +1323,11 @@
       { "k": "leaf", "p": "sooty", "cap": "蜜露誘發煤煙病" }
     ],
     "photoQuery": "mealybug citrus",
-    "related": ["aphids"]
+    "related": ["aphids"],
+    "cropNotes": {
+      "citrus": "固著在葉、枝及果實上吸食，果面留下斑點，並引發煤煙病。",
+      "mango": "葉片與枝條布滿介殼，樹勢衰弱，並引發煤煙病。"
+    }
   },
   {
     "id": "def-n",
@@ -1269,7 +1361,17 @@
       { "k": "plant", "state": "old", "color": "#d9d06a", "cap": "症狀由下位老葉開始" }
     ],
     "photoQuery": "nitrogen deficiency leaves",
-    "related": ["def-s", "def-mg"]
+    "related": ["def-s", "def-mg"],
+    "cropNotes": {
+      "rice": "全田葉色淡黃綠，下位葉先黃；分蘗少、植株矮小，穗數與每穗粒數減少。",
+      "corn": "下位葉由葉尖沿中肋呈 V 字形黃化，再向葉基擴展，最後整葉枯黃。",
+      "tomato": "下位葉均勻黃化、莖細硬，葉背葉脈可能帶紫色；開花少、果實小。",
+      "crucifer": "外葉黃化提早脫落，植株小，結球小而鬆散。",
+      "cucurbit": "老葉黃化、蔓細弱，雌花少，果實小且色淡。",
+      "strawberry": "老葉黃化並轉紅褐色，匍匐莖少、植株小，果實小。",
+      "citrus": "葉片均勻淡黃，新梢短弱、落葉增加，著果少。",
+      "banana": "葉色淡綠，葉柄與葉鞘略帶粉紅色，新葉抽出慢、葉片間距縮短。"
+    }
   },
   {
     "id": "def-p",
@@ -1302,7 +1404,14 @@
       { "k": "plant", "state": "old", "color": "#7b4a8c", "cap": "下位葉先出現" }
     ],
     "photoQuery": "phosphorus deficiency corn purple",
-    "related": ["def-n", "def-k"]
+    "related": ["def-n", "def-k"],
+    "cropNotes": {
+      "rice": "葉色暗綠、葉片直立而狹小，分蘗少，抽穗與成熟延遲。",
+      "corn": "幼株葉尖與葉緣呈紫紅色最明顯，生長緩慢；氣溫低時更常見。",
+      "tomato": "葉背及葉脈呈紫色，植株矮小，開花結果延遲。",
+      "strawberry": "老葉暗綠帶紫紅色，植株生長緩慢、花少。",
+      "citrus": "果皮粗厚、果心大，果汁少、酸度偏高。"
+    }
   },
   {
     "id": "def-k",
@@ -1333,7 +1442,18 @@
       { "k": "plant", "state": "old", "color": "#b98a3a", "cap": "下位老葉先發生" }
     ],
     "photoQuery": "potassium deficiency leaf",
-    "related": ["def-mg", "def-ca", "early-blight"]
+    "related": ["def-mg", "def-ca", "early-blight"],
+    "cropNotes": {
+      "rice": "下位葉葉尖及葉緣出現褐色小斑點並焦枯（赤枯），易倒伏，病害增加。",
+      "corn": "下位葉葉緣焦枯，莖稈軟弱易倒伏，果穗末端結實不良。",
+      "potato": "老葉暗綠帶青銅色光澤，葉緣焦枯，薯塊小、品質差。",
+      "tomato": "老葉葉緣焦枯；果實著色不均（綠肩、斑駁著色），風味淡。",
+      "cucurbit": "老葉葉緣黃化焦枯，果實膨大不良，常出現尾部細小的畸形瓜。",
+      "strawberry": "老葉葉緣焦枯，果實偏軟、甜度與風味不足。",
+      "citrus": "果實小、果皮薄容易裂果，葉片捲曲皺縮。",
+      "banana": "老葉葉尖迅速黃化轉橙褐色並向下彎折，果串小、果指短。",
+      "grape": "夏季老葉葉緣焦枯，葉面變暗紫褐色，果粒著色差、糖度低。"
+    }
   },
   {
     "id": "def-mg",
@@ -1364,7 +1484,15 @@
       { "k": "plant", "state": "old", "color": "#d6cf55", "cap": "下位老葉先發生" }
     ],
     "photoQuery": "magnesium deficiency leaf",
-    "related": ["def-fe", "def-mn", "def-k", "def-n"]
+    "related": ["def-fe", "def-mn", "def-k", "def-n"],
+    "cropNotes": {
+      "corn": "下位葉葉脈間呈黃白色條紋，葉脈保持綠色。",
+      "tomato": "下位葉葉脈間黃化，結果多、果實膨大期最常出現。",
+      "cucurbit": "老葉葉脈間黃化，從葉緣向內擴展，結果多的植株最明顯。",
+      "citrus": "結果枝的老葉自中肋兩側黃化，葉基殘留倒 V 字形綠色區塊；結果多的枝條最嚴重。",
+      "banana": "老葉葉緣向中肋方向黃化，中肋兩側保持綠色，葉柄可能出現紫色斑駁。",
+      "grape": "老葉葉脈間黃化（白色品種）或轉紅紫色（紅、黑色品種），葉脈保持綠色。"
+    }
   },
   {
     "id": "def-ca",
@@ -1398,7 +1526,16 @@
       { "k": "leaf", "p": "scorch", "tag": "新葉", "cap": "心葉葉緣焦枯（緣腐）" }
     ],
     "photoQuery": "blossom end rot tomato",
-    "related": ["def-b", "def-k"]
+    "related": ["def-b", "def-k"],
+    "cropNotes": {
+      "tomato": "果實尻腐病：果頂（花落處）出現水浸狀褐黑色凹陷，乾旱或灌水不均時多發。",
+      "pepper": "果實下半部或側面出現灰白至褐色凹陷乾斑（尻腐），高溫乾旱期常見。",
+      "crucifer": "結球白菜、甘藍內部葉緣褐變焦枯（心腐、緣腐），外觀正常，切開才看得到。",
+      "cucurbit": "西瓜等果實尾部凹陷黑腐（尻腐），新葉邊緣枯捲。",
+      "potato": "薯塊內部出現褐斑或空心，頂芽壞死。",
+      "strawberry": "新葉葉尖焦枯、皺縮（葉燒），花萼尖端褐變；高溫、蒸散旺盛或濕度過高時常見。",
+      "mango": "果頂果肉提早軟化、呈水浸狀（軟鼻），與果實鈣含量偏低有關。"
+    }
   },
   {
     "id": "def-fe",
@@ -1430,7 +1567,14 @@
       { "k": "plant", "state": "young", "color": "#ece79a", "cap": "上位新葉先發生" }
     ],
     "photoQuery": "iron chlorosis leaf",
-    "related": ["def-mn", "def-mg", "def-zn"]
+    "related": ["def-mn", "def-mg", "def-zn"],
+    "cropNotes": {
+      "rice": "旱田或鹼性土的秧苗，新葉黃白化並呈條紋，生長停滯。",
+      "strawberry": "新葉黃白化、葉脈保持綠色；土壤偏鹼、過濕或排水不良時常見。",
+      "citrus": "新葉葉脈間黃白化、葉脈呈綠色網紋，鹼性或石灰質土壤最常見。",
+      "grape": "石灰質土壤上新梢葉片黃白化，嚴重時葉緣焦枯、果房發育不良。",
+      "mango": "新梢葉片黃白化，鹼性土或根部受損時較常見。"
+    }
   },
   {
     "id": "def-b",
@@ -1462,7 +1606,16 @@
       { "k": "fruit", "fruit": "tomato", "p": "crack", "cap": "果實龜裂、畸形" }
     ],
     "photoQuery": "boron deficiency",
-    "related": ["def-ca", "def-zn"]
+    "related": ["def-ca", "def-zn"],
+    "cropNotes": {
+      "corn": "果穗結實不完整，穗軸上出現空粒或不規則排列。",
+      "tomato": "生長點壞死、莖節縮短，果實表面龜裂或木栓化。",
+      "crucifer": "花椰菜花球褐變、莖中空（空心莖），蘿蔔根部內部褐心。",
+      "strawberry": "新葉皺縮畸形、葉尖焦枯，果實小而畸形、種子少。",
+      "citrus": "果皮增厚硬化、果實畸形，果皮與果心有膠狀褐斑。",
+      "grape": "結實不良，同一串果粒大小不一（大小粒），新梢節間短。",
+      "papaya": "果實表面凹凸不平、呈瘤狀畸形，果肉中常有乳汁凝結的硬塊，容易落果。"
+    }
   },
   {
     "id": "def-zn",
@@ -1493,7 +1646,13 @@
       { "k": "leaf", "p": "interveinal", "mottled": true, "tag": "新葉", "cap": "葉脈間黃化斑駁（左右對稱）" }
     ],
     "photoQuery": "zinc deficiency leaf",
-    "related": ["citrus-hlb", "def-fe", "def-mn"]
+    "related": ["citrus-hlb", "def-fe", "def-mn"],
+    "cropNotes": {
+      "rice": "插秧後 2～4 週下位葉出現褐色斑點，植株矮化、分蘗停滯（俗稱稻縮葉）。",
+      "corn": "幼株新葉基部兩側出現白至淡黃色寬條紋（白芽病），節間短。",
+      "citrus": "新梢葉片小而尖、葉脈間黃化呈斑葉（小葉病），節間縮短、枝條叢生。",
+      "mango": "新梢小葉叢生、節間縮短，葉片小而厚。"
+    }
   },
   {
     "id": "def-mn",
@@ -1522,7 +1681,10 @@
       { "k": "leaf", "p": "interveinal", "soft": true, "tag": "新葉", "cap": "葉脈間淡黃化，葉脈兩旁保留綠帶" }
     ],
     "photoQuery": "manganese deficiency leaf",
-    "related": ["def-fe", "def-mg", "def-zn"]
+    "related": ["def-fe", "def-mg", "def-zn"],
+    "cropNotes": {
+      "citrus": "新葉葉脈間淡綠，葉脈兩側保留較寬的深綠帶；黃化程度比缺鐵輕。"
+    }
   },
   {
     "id": "def-s",
@@ -1553,6 +1715,11 @@
       { "k": "plant", "state": "young", "color": "#e0d97a", "cap": "上位新葉先發生" }
     ],
     "photoQuery": "sulfur deficiency plant",
-    "related": ["def-n"]
+    "related": ["def-n"],
+    "cropNotes": {
+      "rice": "全株淡黃，新葉黃化較明顯，與缺氮相似但新葉先黃。",
+      "crucifer": "十字花科需硫量高，缺乏時新葉黃化、葉片變小，葉背可能帶紫紅色。",
+      "corn": "新葉淡黃並出現條紋，植株生長遲緩。"
+    }
   }
 ]
