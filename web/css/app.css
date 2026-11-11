@@ -207,6 +207,35 @@ figcaption .example { color: var(--muted); font-size: .85em; margin-left: 4px; }
 .bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--brand-2), var(--accent)); }
 .pct { font-weight: 700; color: var(--brand); }
 
+/* 專家建檔 */
+.expert { max-width: 760px; margin: 0 auto; }
+.expert.narrow { max-width: 460px; }
+.expert h3 { margin: 22px 0 10px; display: flex; align-items: center; gap: 8px; font-size: 1.05rem; }
+.expert-head h2 { margin: 4px 0; }
+.form { display: grid; gap: 10px; }
+.form h3 { margin-bottom: 0; }
+.field { display: grid; gap: 4px; font-size: .9rem; color: var(--muted); }
+.input, .field input, .field textarea {
+  font: inherit; color: var(--text); background: var(--surface); width: 100%; box-sizing: border-box;
+  border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; min-height: 44px;
+}
+.input:focus, .field input:focus, .field textarea:focus { outline: 3px solid var(--accent); outline-offset: 1px; }
+.form .sel select { width: 100%; }
+.check { display: flex; gap: 10px; align-items: flex-start; font-size: .92rem; margin-top: 8px; }
+.check input { width: 22px; height: 22px; margin-top: 1px; flex: none; accent-color: var(--brand); }
+.linkbtn { font: inherit; background: none; border: 0; padding: 0 4px; color: var(--brand); text-decoration: underline; cursor: pointer; }
+.linkbtn.danger { color: var(--disease); font-size: .85rem; }
+.ex-preview { margin: 0; }
+.ex-preview img { max-width: 100%; max-height: 320px; border-radius: 10px; display: block; }
+.ex-preview figcaption { font-size: .8rem; color: var(--muted); margin-top: 4px; }
+.ex-ai { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.ex-ai .btn { margin: 0; }
+.ai-status.ok { color: var(--brand); }
+.ex-badge { font-size: .7rem; font-weight: 700; padding: 1px 6px; border-radius: 99px; background: var(--brand); color: #fff; }
+@media (prefers-color-scheme: dark) { .ex-badge { color: #10200b; } }
+.expert-photo figcaption { font-size: .78rem; line-height: 1.45; color: var(--text); }
+.ex-note { color: var(--muted); }
+
 /* AI 拍照診斷 */
 .ai-card {
   margin: 14px 0 6px; padding: 14px; border-radius: var(--radius);

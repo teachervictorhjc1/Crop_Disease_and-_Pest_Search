@@ -1,6 +1,6 @@
 // Service Worker：離線快取
 // 更新 App 檔案後請把 VERSION 加 1，讓使用者取得新版。
-const VERSION = 'v3';
+const VERSION = 'v4';
 const SHELL = `shell-${VERSION}`;
 const RUNTIME = `runtime-${VERSION}`;
 const PHOTOS = 'photos-v1';
@@ -13,6 +13,8 @@ const SHELL_FILES = [
   './js/data.js',
   './js/illus.js',
   './js/photo.js',
+  './js/expert-api.js',
+  './js/expert.js',
   './js/config.js',
   './data/meta.json',
   './data/crops.json',
@@ -80,7 +82,11 @@ self.addEventListener('fetch', (event) => {
 
   if (url.origin === self.location.origin) {
     event.respondWith(staleWhileRevalidate(request, SHELL));
-  } else if (url.hostname.endsWith('.supabase.co')) {
+  } else if (url.hostname.endsWith('.supabase.co') && url.pathname.startsWith('/storage/v1/object/public/')) {
+    // 專家照片：檔名不會重複，快取優先並限制數量
+    event.respondWith(cacheFirstLimited(request, PHOTOS));
+  } else if (url.hostname.endsWith('.supabase.co') && url.pathname.startsWith('/rest/v1/') && !request.headers.has('Authorization')) {
+    // 公開資料（條目、專家照片清單）：網路優先，離線用快取；登入後的個人資料不快取
     event.respondWith(networkFirst(request, RUNTIME));
   } else if (url.hostname === 'upload.wikimedia.org') {
     event.respondWith(cacheFirstLimited(request, PHOTOS));

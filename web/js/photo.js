@@ -10,6 +10,40 @@ export const aiAvailable = () => Boolean(CONFIG.SUPABASE_URL && CONFIG.SUPABASE_
  * @returns {Promise<{dataUrl: string, base64: string, mime: string}>}
  */
 export async function shrinkImage(file, maxSide = 1024, quality = 0.85) {
+  const src = await decodeImage(file);
+  const out = toJpeg(src, maxSide, quality);
+  if (src.close) src.close();
+  return out;
+}
+
+/**
+ * 專家建檔用：同時產生 1024px 原圖與 360px 縮圖（JPEG Blob）
+ * @returns {Promise<{full: Blob, thumb: Blob, dataUrl: string, base64: string, width: number, height: number}>}
+ */
+export async function makeUploadImages(file) {
+  const src = await decodeImage(file);
+  const full = toJpeg(src, 1024, 0.85);
+  const thumb = toJpeg(src, 360, 0.8);
+  if (src.close) src.close();
+  const blob = async (dataUrl) => (await fetch(dataUrl)).blob();
+  return { full: await blob(full.dataUrl), thumb: await blob(thumb.dataUrl), dataUrl: full.dataUrl, base64: full.base64, width: full.width, height: full.height };
+}
+
+/** 縮放並轉成 JPEG data URL */
+function toJpeg(src, maxSide, quality) {
+  const w = src.width || src.naturalWidth;
+  const h = src.height || src.naturalHeight;
+  const scale = Math.min(1, maxSide / Math.max(w, h));
+  const canvas = document.createElement('canvas');
+  canvas.width = Math.round(w * scale);
+  canvas.height = Math.round(h * scale);
+  canvas.getContext('2d').drawImage(src, 0, 0, canvas.width, canvas.height);
+  const dataUrl = canvas.toDataURL('image/jpeg', quality);
+  return { dataUrl, base64: dataUrl.split(',')[1], mime: 'image/jpeg', width: canvas.width, height: canvas.height };
+}
+
+/** 解碼圖片檔，並依 EXIF 方向轉正 */
+async function decodeImage(file) {
   let src;
   try {
     src = await createImageBitmap(file, { imageOrientation: 'from-image' });
@@ -22,16 +56,7 @@ export async function shrinkImage(file, maxSide = 1024, quality = 0.85) {
       img.src = URL.createObjectURL(file);
     });
   }
-  const w = src.width || src.naturalWidth;
-  const h = src.height || src.naturalHeight;
-  const scale = Math.min(1, maxSide / Math.max(w, h));
-  const canvas = document.createElement('canvas');
-  canvas.width = Math.round(w * scale);
-  canvas.height = Math.round(h * scale);
-  canvas.getContext('2d').drawImage(src, 0, 0, canvas.width, canvas.height);
-  if (src.close) src.close();
-  const dataUrl = canvas.toDataURL('image/jpeg', quality);
-  return { dataUrl, base64: dataUrl.split(',')[1], mime: 'image/jpeg' };
+  return src;
 }
 
 /** 錯誤代碼 → 給農友看的訊息 */

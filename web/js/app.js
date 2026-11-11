@@ -2,6 +2,8 @@
 import { loadAll } from './data.js';
 import { renderIllus, adaptIllus } from './illus.js';
 import { aiAvailable, shrinkImage, aiDiagnose, errorMessage } from './photo.js';
+import { fetchIssuePhotos, photoUrl } from './expert-api.js';
+import { renderExpert } from './expert.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const view = $('#view');
@@ -283,9 +285,12 @@ function renderDetail(id, cropParam = '') {
 
       <section class="block photos">
         <h3>📷 實拍照片</h3>
-        <p class="hint">以下照片從 Wikimedia Commons 即時搜尋，授權與作者標示於每張照片下方。搜尋結果可能包含不相關的影像，請以示意圖與文字描述為準。</p>
-        <button type="button" class="btn" id="load-photos">載入實拍照片</button>
-        <div class="photo-grid" id="photo-grid"></div>
+        <div id="expert-photos"><p class="hint">讀取專家照片中…</p></div>
+        <div id="commons-photos" hidden>
+          <p class="hint">目前還沒有專家提供的照片。以下照片從 Wikimedia Commons 即時搜尋，授權與作者標示於每張照片下方。搜尋結果可能包含不相關的影像，請以示意圖與文字描述為準。</p>
+          <button type="button" class="btn" id="load-photos">載入網路照片</button>
+          <div class="photo-grid" id="photo-grid"></div>
+        </div>
       </section>
 
       ${related.length ? `<section class="block"><h3>🔗 相關條目</h3><div class="related">${related.map((r) => `<a class="rel" href="${issueHref(r, crop)}">${typeBadge(r.type)} ${esc(r.name)}</a>`).join('')}</div></section>` : ''}
@@ -302,6 +307,7 @@ function renderDetail(id, cropParam = '') {
     else location.hash = '#/';
   });
   $('#load-photos').addEventListener('click', () => loadPhotos(it, crop));
+  loadExpertPhotos(it, crop);
   window.scrollTo(0, 0);
 }
 
@@ -340,6 +346,37 @@ async function commonsSearch(query, limit = 8) {
       };
     })
     .filter(Boolean);
+}
+
+/** 先從資料庫找專家照片；沒有才顯示 Wikimedia Commons 的搜尋按鈕 */
+async function loadExpertPhotos(it, crop) {
+  const box = $('#expert-photos');
+  const rows = await fetchIssuePhotos(it.id);
+  if (!document.body.contains(box)) return; // 已離開此頁
+  if (!rows.length) {
+    box.innerHTML = '';
+    $('#commons-photos').hidden = false;
+    return;
+  }
+  // 選定作物時，該作物的照片排前面
+  const sorted = crop ? [...rows.filter((r) => r.crop === crop), ...rows.filter((r) => r.crop !== crop)] : rows;
+  const sameCrop = crop ? rows.filter((r) => r.crop === crop).length : 0;
+  box.innerHTML = `<p class="hint">以下 ${rows.length} 張照片由農業專家拍攝並診斷為「${esc(it.name)}」${
+    crop ? (sameCrop ? `，${esc(cropShort(crop))}的照片（${sameCrop} 張）排在前面` : `；目前還沒有${esc(cropShort(crop))}的照片`) : ''}。點照片可看大圖。</p>
+    <div class="photo-grid">${sorted.map((r) => {
+      const cropName = r.crop ? `${state.idx.crop.get(r.crop)?.emoji || ''} ${esc(cropShort(r.crop))}` : esc(r.crop_custom || '');
+      const part = r.part ? esc(state.idx.part.get(r.part)?.name || r.part) : '';
+      const tags = [...(r.tags || []).map((t) => state.idx.tag.get(t)?.name || t), ...(r.custom_tags || [])];
+      return `<figure class="photo expert-photo">
+        <a href="${esc(photoUrl(r.image_path))}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(photoUrl(r.thumb_path))}" alt="${esc(it.name)}：${cropName}"></a>
+        <figcaption>
+          <span class="ex-badge">專家診斷</span> ${cropName}${part ? ` ・ ${part}` : ''}
+          ${tags.length ? `<br>${tags.map(esc).join('、')}` : ''}
+          ${r.note ? `<br><span class="ex-note">${esc(r.note)}</span>` : ''}
+          <br>📷 ${esc(r.author)} ・ ${esc(r.license)}
+        </figcaption>
+      </figure>`;
+    }).join('')}</div>`;
 }
 
 async function loadPhotos(it, crop = '') {
@@ -613,6 +650,10 @@ function renderAbout() {
       <h3>📷 AI 拍照診斷</h3>
       <p>在「症狀診斷」頁可以拍照或選擇照片，由 Google Gemini 判讀並從本 App 的條目中推薦可能原因。照片只用於當次分析，<b>本 App 不會儲存照片</b>；Gemini 免費方案的資料可能被 Google 用於改進服務。AI 可能判斷錯誤，請務必對照特徵圖與說明確認。</p>
 
+      <h3>🧑‍🔬 專家專區</h3>
+      <p>農業專家可登入建立「實拍照片 ＋ 診斷」資料，建立後會優先顯示在各條目的實拍照片中。帳號由管理者開通。</p>
+      <p><a class="btn ghost" href="#/expert">前往專家建檔</a></p>
+
       <h3>🖼️ 關於圖片</h3>
       <p>每個條目的特徵圖都是程式繪製的<b>示意圖</b>，用來凸顯辨識重點。條目頁面可另外載入 Wikimedia Commons 的實拍照片（依各照片授權標示作者）。</p>
 
@@ -655,6 +696,9 @@ function route() {
   } else if (path === '/about') {
     searchWrap.hidden = true;
     renderAbout();
+  } else if (path === '/expert') {
+    searchWrap.hidden = true;
+    renderExpert(view, { data: state.data, idx: state.idx });
   } else {
     searchWrap.hidden = false;
     document.title = '作物病蟲害檢索';

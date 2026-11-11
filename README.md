@@ -14,7 +14,8 @@
 | 症狀診斷 | 選擇作物 → 部位 → 觀察到的特徵（可複選），依符合度列出可能原因。 |
 | AI 拍照診斷 | 拍照或選擇照片，由 Google Gemini 從本 App 條目中推薦可能原因，並自動勾選特徵（需連網、需部署 Edge Function）。 |
 | 條目詳情 | 特徵示意圖、症狀、好發條件、預防與栽培管理、防治方法、相關條目。 |
-| 實拍照片 | 一鍵從 Wikimedia Commons 搜尋實拍照片，並標示作者與授權。 |
+| 實拍照片 | 優先顯示專家建檔的照片（資料庫）；沒有時才從 Wikimedia Commons 搜尋，並標示作者與授權。 |
+| 專家建檔 | 專家登入後拍照／上傳（縮到 1024px），填寫作物、部位、症狀特徵（既有或自訂）與診斷（既有條目或自訂），照片以 CC BY 4.0 公開。網址：`#/expert`（關於頁有連結）。 |
 | 離線使用 | Service Worker 快取 App 與資料。 |
 
 目前收錄：**20 種病害、17 種蟲害、10 種營養缺乏**，涵蓋 15 類作物（水稻、玉米、馬鈴薯、番茄、辣椒、茄子、十字花科、瓜類、草莓、柑橘、香蕉、芒果、葡萄、木瓜、番石榴）。
@@ -41,6 +42,7 @@ supabase/
   schema.sql              資料表 + RLS（唯讀）
   seed.sql                由 JSON 產生的種子資料
   diagnose.sql            AI 診斷的每日次數限制
+  expert.sql              專家白名單、專家照片資料表與儲存空間
   functions/diagnose/     AI 拍照診斷 Edge Function（Gemini）
 scripts/                  開發工具（以 uv 執行）
   serve.py                本機伺服器
@@ -117,6 +119,25 @@ Gemini API key 只存在 Supabase Secrets，不會出現在前端或 git。
 
 > Gemini 免費方案的額度與可用模型常有變動；遇到額度用完，函式會自動改用下一個模型，全部用完時前端會提示稍後再試。
 
+### 4. 專家診斷資料建置（可選）
+
+照片存在 Supabase Storage（`expert-photos`，公開讀取），資料存在 `expert_photos` 資料表。
+只有列在 `experts` 白名單中的帳號可以寫入，且只能刪改自己的資料；即使有人自行註冊帳號也無法寫入。
+
+1. SQL Editor 執行 `supabase/expert.sql`（建立白名單、資料表、儲存空間與權限，可重複執行）。
+2. 建立專家帳號：**Authentication → Users → Add user → Create new user**，填 Email、密碼並勾選 **Auto Confirm User**。
+3. 把帳號加入白名單（SQL Editor）：
+   ```sql
+   insert into public.experts (user_id, name, org)
+     select id, '王大明', '○○區農業改良場' from auth.users where email = 'expert@example.com'
+     on conflict (user_id) do update set name = excluded.name, org = excluded.org;
+   ```
+4. 專家到網站「關於 → 前往專家建檔」（`#/expert`）登入即可建檔。
+5. 停權：`delete from public.experts where user_id = (select id from auth.users where email = '...');`（已建立的資料保留）。
+
+> 建議：Supabase → Authentication → Sign In / Providers 關閉「Allow new users to sign up」，帳號只由管理者建立。
+> 自訂診斷（不屬於現有 47 筆條目）的資料不會出現在條目頁，可在 Table Editor 查看，作為日後新增條目的依據。
+
 ## 新增或修改資料
 
 1. 編輯 `web/data/issues.json`（欄位說明見下方）。
@@ -150,4 +171,4 @@ Gemini API key 只存在 Supabase Secrets，不會出現在前端或 git。
 ## 後續可擴充
 
 - 上架 Google Play／App Store：可用 [Capacitor](https://capacitorjs.com/) 把 `web/` 包成原生 App（需要時再建置，不影響目前環境）。
-- 農友回報：用 Supabase Auth + Storage 讓使用者上傳田間照片。
+- 農友回報：開放一般使用者上傳田間照片，由專家審核後公開。
