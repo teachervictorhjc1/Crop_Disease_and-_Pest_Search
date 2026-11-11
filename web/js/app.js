@@ -106,15 +106,46 @@ function searchText(issue) {
   return issue._text;
 }
 
+/** 作物名稱對照（含括號內的別名，例如「白菜」→ crucifer），只做完全比對 */
+function cropAliases() {
+  if (!state.cropAlias) {
+    state.cropAlias = new Map();
+    for (const c of state.data.crops) {
+      const names = [c.name, c.en, ...c.name.split(/[／（）、,\s]+/)];
+      for (const n of names) {
+        const k = (n || '').trim().toLowerCase();
+        if (!k) continue;
+        state.cropAlias.set(k, c.id);
+        if (k.length > 2 && k.endsWith('類')) state.cropAlias.set(k.slice(0, -1), c.id); // 柑橘類 → 柑橘
+      }
+    }
+  }
+  return state.cropAlias;
+}
+
+/**
+ * 篩選條目。搜尋關鍵字若是作物名稱（例如「木瓜」），視同選擇該作物，
+ * 結果與從作物選單選擇一致（包含適用多數作物的條目）。
+ * @returns {{list: object[], crop: string}} crop 為實際使用的作物
+ */
 function filterIssues({ q, type, crop, part }) {
-  const tokens = q.toLowerCase().split(/\s+/).filter(Boolean);
-  return state.data.issues.filter(
+  const alias = cropAliases();
+  let tokens = q.toLowerCase().split(/\s+/).filter(Boolean);
+  let useCrop = crop;
+  tokens = tokens.filter((t) => {
+    const id = alias.get(t);
+    if (!id) return true;
+    if (!useCrop) useCrop = id;
+    return id !== useCrop; // 與已選作物相同的關鍵字不必再做文字比對
+  });
+  const list = state.data.issues.filter(
     (it) =>
       (!type || it.type === type) &&
-      matchesCrop(it, crop) &&
+      matchesCrop(it, useCrop) &&
       (!part || it.parts.includes(part)) &&
       tokens.every((t) => searchText(it).includes(t)),
   );
+  return { list, crop: useCrop };
 }
 
 function renderBrowse(params) {
@@ -147,28 +178,28 @@ function renderBrowse(params) {
     <section class="grid" id="results"></section>`;
 
   const update = () => {
-    const list = filterIssues(b);
+    const { list, crop } = filterIssues(b);
     $('#count').textContent = `共 ${list.length} 筆${b.q ? `（關鍵字：「${b.q}」）` : ''}`;
     if (!list.length) {
       $('#results').innerHTML = `<div class="empty">找不到符合的項目。<br>試試看減少篩選條件，或改用「症狀診斷」。</div>`;
       return;
     }
-    if (!b.crop) {
+    if (!crop) {
       $('#results').innerHTML = list.map((it) => card(it)).join('');
       return;
     }
-    // 選了作物：先列該作物專屬的條目，再列有此作物說明的通用條目，最後是其他共通條目
-    const c = state.idx.crop.get(b.crop);
-    const name = cropShort(b.crop);
-    const own = list.filter((it) => it.crops.includes(b.crop));
-    const noted = list.filter((it) => !own.includes(it) && cropNoteOf(it, b.crop));
+    // 選了作物（選單或搜尋關鍵字）：先列該作物專屬的條目，再列有此作物說明的通用條目，最後是其他共通條目
+    const c = state.idx.crop.get(crop);
+    const name = cropShort(crop);
+    const own = list.filter((it) => it.crops.includes(crop));
+    const noted = list.filter((it) => !own.includes(it) && cropNoteOf(it, crop));
     const general = list.filter((it) => !own.includes(it) && !noted.includes(it));
     const main = [...own, ...noted];
     const head = (title, sub) => `<div class="grid-head"><h3>${title}</h3>${sub ? `<p class="hint">${sub}</p>` : ''}</div>`;
     $('#results').innerHTML =
-      (main.length ? head(`${c?.emoji || ''} ${esc(name)}（${main.length}）`, `以下說明與示意圖都以${esc(name)}為主。`) + main.map((it) => card(it, b.crop)).join('') : '') +
+      (main.length ? head(`${c?.emoji || ''} ${esc(name)}（${main.length}）`, `以下說明與示意圖都以${esc(name)}為主。`) + main.map((it) => card(it, crop)).join('') : '') +
       (general.length
-        ? head(`🌱 多數作物共通（${general.length}）`, `這些條目目前只有共通說明；示意圖已盡量換成${esc(name)}的葉形與果實。`) + general.map((it) => card(it, b.crop)).join('')
+        ? head(`🌱 多數作物共通（${general.length}）`, `這些條目目前只有共通說明；示意圖已盡量換成${esc(name)}的葉形與果實。`) + general.map((it) => card(it, crop)).join('')
         : '');
   };
 
@@ -287,7 +318,7 @@ function renderDetail(id, cropParam = '') {
         <h3>📷 實拍照片</h3>
         <div id="expert-photos"><p class="hint">讀取專家照片中…</p></div>
         <div id="commons-photos" hidden>
-          <p class="hint">目前還沒有專家提供的照片。以下照片從 Wikimedia Commons 即時搜尋，授權與作者標示於每張照片下方。搜尋結果可能包含不相關的影像，請以示意圖與文字描述為準。</p>
+          <p class="hint">以下照片從 Wikimedia Commons 即時搜尋，授權與作者標示於每張照片下方。搜尋結果可能包含不相關的影像，請以示意圖與文字描述為準。</p>
           <button type="button" class="btn" id="load-photos">載入網路照片</button>
           <div class="photo-grid" id="photo-grid"></div>
         </div>
@@ -348,22 +379,36 @@ async function commonsSearch(query, limit = 8) {
     .filter(Boolean);
 }
 
-/** 先從資料庫找專家照片；沒有才顯示 Wikimedia Commons 的搜尋按鈕 */
+/**
+ * 先從資料庫找專家照片；沒有才顯示 Wikimedia Commons 的搜尋按鈕。
+ * 選定作物時只顯示該作物的照片；該作物沒有照片時改用 Wikimedia，並可展開其他作物的專家照片。
+ */
 async function loadExpertPhotos(it, crop) {
   const box = $('#expert-photos');
   const rows = await fetchIssuePhotos(it.id);
   if (!document.body.contains(box)) return; // 已離開此頁
-  if (!rows.length) {
-    box.innerHTML = '';
-    $('#commons-photos').hidden = false;
+  const mine = crop ? rows.filter((r) => r.crop === crop) : rows;
+  if (mine.length) {
+    box.innerHTML = `<p class="hint">以下 ${mine.length} 張${crop ? `${esc(cropShort(crop))}的` : ''}照片由農業專家拍攝並診斷為「${esc(it.name)}」。點照片可看大圖。</p>
+      ${expertGrid(it, mine)}`;
     return;
   }
-  // 選定作物時，該作物的照片排前面
-  const sorted = crop ? [...rows.filter((r) => r.crop === crop), ...rows.filter((r) => r.crop !== crop)] : rows;
-  const sameCrop = crop ? rows.filter((r) => r.crop === crop).length : 0;
-  box.innerHTML = `<p class="hint">以下 ${rows.length} 張照片由農業專家拍攝並診斷為「${esc(it.name)}」${
-    crop ? (sameCrop ? `，${esc(cropShort(crop))}的照片（${sameCrop} 張）排在前面` : `；目前還沒有${esc(cropShort(crop))}的照片`) : ''}。點照片可看大圖。</p>
-    <div class="photo-grid">${sorted.map((r) => {
+  // 此作物（或全部）沒有專家照片 → 顯示 Wikimedia
+  $('#commons-photos').hidden = false;
+  const others = rows.length;
+  box.innerHTML = `<p class="hint">目前還沒有${crop ? esc(cropShort(crop)) + '的' : ''}專家照片。</p>${others
+    ? `<button type="button" class="linkbtn" id="show-other-expert">查看其他作物的專家照片（${others} 張）</button>
+       <div id="other-expert"></div>`
+    : ''}`;
+  $('#show-other-expert')?.addEventListener('click', (e) => {
+    e.target.remove();
+    $('#other-expert').innerHTML = expertGrid(it, rows);
+  });
+}
+
+/** 專家照片格狀列表 */
+function expertGrid(it, rows) {
+  return `<div class="photo-grid">${rows.map((r) => {
       const cropName = r.crop ? `${state.idx.crop.get(r.crop)?.emoji || ''} ${esc(cropShort(r.crop))}` : esc(r.crop_custom || '');
       const part = r.part ? esc(state.idx.part.get(r.part)?.name || r.part) : '';
       const tags = [...(r.tags || []).map((t) => state.idx.tag.get(t)?.name || t), ...(r.custom_tags || [])];
