@@ -5,6 +5,8 @@
 //   { "k": "fruit", "fruit": "mango", "p": "rot", "spores": true }
 //   { "k": "bug", "t": "aphid" }
 
+import { t as tr } from './i18n.js';
+
 const BG = 'var(--illus-bg, #eef5e6)';
 const C = {
   leaf: '#5ea842', edge: '#3f7d2b', vein: '#3c7a2a', stalk: '#4d7d2c',
@@ -48,12 +50,12 @@ function blob(cx, cy, rad, r, k = 9, jitter = 0.4, sx = 1, sy = 1) {
 /** 外框：背景、角落標籤、「示意圖」浮水印 */
 function frame(inner, defs = '', tag = '') {
   const t = tag
-    ? `<rect x="8" y="8" width="${tag.length * 12 + 14}" height="20" rx="10" fill="#ffffffd9" stroke="#0000001f"/>` +
+    ? `<rect x="8" y="8" width="${Math.round([...tag].reduce((w, ch) => w + (/[⺀-￿]/.test(ch) ? 12 : 6.8), 0) + 14)}" height="20" rx="10" fill="#ffffffd9" stroke="#0000001f"/>` +
       `<text x="15" y="22" font-size="12" fill="#2d3a24" font-weight="600">${tag}</text>`
     : '';
   return `<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" class="illus-svg" aria-hidden="true">` +
     `<defs>${defs}</defs><rect width="200" height="150" rx="12" fill="${BG}"/>${inner}${t}` +
-    `<text x="193" y="145" font-size="8" text-anchor="end" fill="currentColor" opacity=".45">示意圖</text></svg>`;
+    `<text x="193" y="145" font-size="8" text-anchor="end" fill="currentColor" opacity=".45">${tr('示意圖')}</text></svg>`;
 }
 
 /* ------------------------------------------------------------------ */
@@ -348,7 +350,7 @@ const LEAF_PATTERNS = {
     return {
       defs: `<filter id="${fid}"><feGaussianBlur stdDeviation="1.6"/></filter>`,
       over,
-      outside: `<circle cx="172" cy="120" r="19" fill="#93bf73" stroke="#3f7d2b"/>${fuzz}<text x="172" y="146" font-size="9" text-anchor="middle" fill="currentColor">葉背</text>`,
+      outside: `<circle cx="172" cy="120" r="19" fill="#93bf73" stroke="#3f7d2b"/>${fuzz}<text x="172" y="146" font-size="9" text-anchor="middle" fill="currentColor">${tr('葉背')}</text>`,
     };
   },
   // 食痕：chew 大缺刻、window 天窗、shot 小圓孔
@@ -692,12 +694,12 @@ const PLANT_STATES = {
   old(o) {
     const c = o.color || C.yellow;
     return basicPlant(100, 1, (i) => (i < 2 ? c : i === 2 ? '#9fbf52' : C.leaf), 0, o.form) +
-      `<path d="M150 124 L150 92" stroke="currentColor" stroke-width="1.5" marker-end="url(#arr)" opacity=".7"/><text x="156" y="112" font-size="11" fill="currentColor">老葉</text>`;
+      `<path d="M150 124 L150 92" stroke="currentColor" stroke-width="1.5" marker-end="url(#arr)" opacity=".7"/><text x="156" y="112" font-size="11" fill="currentColor">${tr('老葉')}</text>`;
   },
   young(o) {
     const c = o.color || '#ece79a';
     return basicPlant(100, 1, (i) => (i > 2 ? c : i === 2 ? '#9fbf52' : C.leaf), 0, o.form) +
-      `<text x="150" y="40" font-size="11" fill="currentColor">新葉</text>`;
+      `<text x="150" y="40" font-size="11" fill="currentColor">${tr('新葉')}</text>`;
   },
   wilt() {
     let s = `<path d="M100 130 C100 90 104 60 120 48 C128 44 132 52 128 62" stroke="#5d8a33" stroke-width="5" fill="none" stroke-linecap="round"/>`;
@@ -709,18 +711,18 @@ const PLANT_STATES = {
   stunt(o) {
     let s = basicPlant(150, 1, () => C.leaf, 0, o.form);
     s += `<g opacity=".95">${basicPlant(62, 0.5, (i) => (i > 2 ? '#d8cf4a' : '#6aa646'), 0, o.form)}</g>`;
-    s += `<text x="62" y="146" font-size="10" text-anchor="middle" fill="#fff">罹病株</text><text x="150" y="146" font-size="10" text-anchor="middle" fill="#fff">健康株</text>`;
+    s += `<text x="62" y="146" font-size="10" text-anchor="middle" fill="#fff">${tr('罹病株')}</text><text x="150" y="146" font-size="10" text-anchor="middle" fill="#fff">${tr('健康株')}</text>`;
     return s;
   },
   tipdie(o) {
     return basicPlant(100, 1, (i) => (i === 4 ? '#7a5a2a' : i === 3 ? '#a5b04a' : C.leaf), 0, o.form) +
-      `<circle cx="100" cy="30" r="6" fill="#4a2e18"/><text x="114" y="26" font-size="11" fill="currentColor">生長點壞死</text>`;
+      `<circle cx="100" cy="30" r="6" fill="#4a2e18"/><text x="114" y="26" font-size="11" fill="currentColor">${tr('生長點壞死')}</text>`;
   },
   rosette() {
     let s = `<path d="M100 130 L100 52" stroke="#4d8a2e" stroke-width="5" stroke-linecap="round"/>`;
     s += leafAt(101, 112, -22, 38, C.leaf) + leafAt(99, 106, 202, 38, C.leaf) + leafAt(101, 88, -24, 32, '#76b04f') + leafAt(99, 82, 204, 32, '#76b04f');
     for (let i = 0; i < 10; i++) s += leafAt(100, 54 + (i % 3), -90 + (i - 4.5) * 22, 13, i % 2 ? '#d6d066' : '#b8cc5c');
-    return s + `<text x="128" y="44" font-size="11" fill="currentColor">小葉簇生</text>`;
+    return s + `<text x="128" y="44" font-size="11" fill="currentColor">${tr('小葉簇生')}</text>`;
   },
   skirt() {
     let s = `<rect x="91" y="44" width="18" height="86" rx="6" fill="#7c9a4a" stroke="#5a7434"/>`;
@@ -755,7 +757,7 @@ const PLANT_STATES = {
     s += branch([[109, 42], [120, 36], [132, 38], [142, 46], [150, 58], [155, 72], [158, 86]]);
     s += branch([[112, 44], [118, 54], [124, 66], [128, 80], [130, 94]]);
     s += branch([[126, 38], [138, 54], [144, 70], [146, 84]]);
-    return s + `<text x="50" y="36" font-size="11" fill="currentColor">穗頸變黑</text><path d="M78 40 L102 46" stroke="currentColor" stroke-width="1" opacity=".7"/>`;
+    return s + `<text x="50" y="36" font-size="11" fill="currentColor">${tr('穗頸變黑')}</text><path d="M78 40 L102 46" stroke="currentColor" stroke-width="1" opacity=".7"/>`;
   },
 };
 
@@ -783,7 +785,7 @@ const STEM = {
       s += `<ellipse cx="${x}" cy="${y}" rx="2.4" ry="7" fill="#d6d0b4"/>`;
     }
     for (let i = 0; i < 6; i++) s += `<circle cx="${f(68 + r() * 64)}" cy="${f(64 + r() * 36)}" r="1.6" fill="#6b4a2a"/>`;
-    return s + `<text x="150" y="122" font-size="10" fill="#2a5a7a">水面</text>`;
+    return s + `<text x="150" y="122" font-size="10" fill="#2a5a7a">${tr('水面')}</text>`;
   },
   ooze() {
     return `<rect x="58" y="38" width="84" height="100" rx="8" fill="#d8ecf5" opacity=".6" stroke="#7aa6b8" stroke-width="2"/>` +
@@ -791,7 +793,7 @@ const STEM = {
       `<rect x="94" y="14" width="12" height="80" rx="3" fill="#6e9a3e" stroke="#4d7a2a"/>` +
       `<g stroke="#fbfbf3" stroke-width="2.6" fill="none" stroke-linecap="round" opacity=".95">` +
       `<path d="M97 94 C95 104 99 112 94 124"/><path d="M100 94 C102 106 98 116 102 130"/><path d="M103 94 C106 102 104 110 108 122"/></g>` +
-      `<text x="146" y="70" font-size="10" fill="currentColor">清水</text><text x="112" y="140" font-size="10" fill="currentColor">乳白色菌泥</text>`;
+      `<text x="146" y="70" font-size="10" fill="currentColor">${tr('清水')}</text><text x="112" y="140" font-size="10" fill="currentColor">${tr('乳白色菌泥')}</text>`;
   },
   vascular(r) {
     let s = '';
@@ -808,7 +810,7 @@ const STEM = {
     let s = ground + `<path d="M100 130 L100 66 C102 52 112 44 120 46" stroke="#5d8a33" stroke-width="6" fill="none" stroke-linecap="round"/>`;
     s += `<path d="M96 128 L96 104 Q100 100 104 104 L104 128Z" fill="#2e2016"/>`;
     [[100, 84, 26], [101, 66, 22], [110, 52, 18]].forEach(([x, y, len]) => { s += leafAt(x, y, 65, len, '#6a9a3e') + leafAt(x, y - 2, 118, len, '#6a9a3e'); });
-    return s + `<text x="112" y="118" font-size="10" fill="#fff">莖基部黑褐</text>`;
+    return s + `<text x="112" y="118" font-size="10" fill="#fff">${tr('莖基部黑褐')}</text>`;
   },
 };
 
@@ -892,7 +894,7 @@ const BUGS = {
     s += `<ellipse cx="100" cy="84" rx="16" ry="22" fill="${col}" stroke="#4a7a2a"/><ellipse cx="100" cy="58" rx="9" ry="7" fill="${col}" stroke="#4a7a2a"/>`;
     s += `<circle cx="94" cy="55" r="2" fill="#7a1a1a"/><circle cx="106" cy="55" r="2" fill="#7a1a1a"/>`;
     s += `<path d="M92 98 L86 110 M108 98 L114 110" stroke="#355a1e" stroke-width="3.2" stroke-linecap="round"/>`;
-    return s + `<text x="120" y="112" font-size="9" fill="#2d3a24">腹管</text>`;
+    return s + `<text x="120" y="112" font-size="9" fill="#2d3a24">${tr('腹管')}</text>`;
   },
   whitefly() {
     let s = leafBg;
@@ -900,7 +902,7 @@ const BUGS = {
     s += `<path d="M100 50 C78 54 70 82 78 112 L100 104Z" fill="#fcfcf8" stroke="#cfcfc4"/><path d="M100 50 C122 54 130 82 122 112 L100 104Z" fill="#fcfcf8" stroke="#cfcfc4"/>`;
     s += `<ellipse cx="100" cy="76" rx="6" ry="20" fill="#e8d870" opacity=".55"/><ellipse cx="100" cy="46" rx="7" ry="6" fill="#efe5a0"/>`;
     s += `<circle cx="95" cy="45" r="2.2" fill="#b0201a"/><circle cx="105" cy="45" r="2.2" fill="#b0201a"/><path d="M96 41 L86 30 M104 41 L114 30" stroke="#c0b070" stroke-width="1"/>`;
-    return s + `<text x="20" y="140" font-size="9" fill="#2d3a24">淡黃色橢圓形為若蟲</text>`;
+    return s + `<text x="20" y="140" font-size="9" fill="#2d3a24">${tr('淡黃色橢圓形為若蟲')}</text>`;
   },
   thrips() {
     let s = leafBg;
@@ -915,7 +917,7 @@ const BUGS = {
     for (let y = 72; y < 126; y += 7) s += `<path d="M93 ${y} Q100 ${y + 2} 107 ${y}" stroke="#b8952e" stroke-width="1" fill="none"/>`;
     s += `<ellipse cx="100" cy="56" rx="8" ry="8" fill="#d8b43a"/><rect x="94" y="36" width="12" height="13" rx="4" fill="#d8b43a"/>`;
     s += `<path d="M97 37 L90 22 L86 12 M103 37 L110 22 L114 12" stroke="#9a8030" stroke-width="1.4" fill="none"/>`;
-    return s + `<path d="M140 132 L180 132" stroke="#2d3a24" stroke-width="1.5"/><text x="160" y="128" font-size="9" text-anchor="middle" fill="#2d3a24">約 1 mm</text>`;
+    return s + `<path d="M140 132 L180 132" stroke="#2d3a24" stroke-width="1.5"/><text x="160" y="128" font-size="9" text-anchor="middle" fill="#2d3a24">${tr('約 1 mm')}</text>`;
   },
   mite() {
     let s = leafBg;
@@ -968,7 +970,7 @@ const BUGS = {
       s += `<ellipse cx="${x}" cy="${y}" rx="6" ry="4" fill="#f0a63a" stroke="#c07a1a"/>`;
       s += `<path d="M${x + 4} ${y - 2} c4 -6 -2 -10 4 -16 c4 -4 0 -8 4 -12" stroke="#fff" stroke-width="1.3" fill="none"/>`;
     }
-    return s + `<text x="128" y="40" font-size="10" fill="#2d3a24">約 45° 斜角</text>`;
+    return s + `<text x="128" y="40" font-size="10" fill="#2d3a24">${tr('約 45° 斜角')}</text>`;
   },
   snail(o, r) {
     let s = `<rect x="0" y="108" width="200" height="42" fill="${C.water}" opacity=".7"/>`;
@@ -979,7 +981,7 @@ const BUGS = {
     let sp = '';
     for (let t = 0; t < 14; t += 0.25) { const R = 2.8 * t, a = t * 0.9; sp += `${t ? 'L' : 'M'}${f(78 + Math.cos(a) * R)} ${f(76 + Math.sin(a) * R)} `; }
     s += `<circle cx="78" cy="76" r="38" fill="#8a6a34" stroke="#5a4320"/><path d="${sp}" stroke="#5a4320" stroke-width="2" fill="none"/>`;
-    return s + `<text x="132" y="140" font-size="10" fill="#2a3a4a">粉紅色卵塊</text>`;
+    return s + `<text x="132" y="140" font-size="10" fill="#2a3a4a">${tr('粉紅色卵塊')}</text>`;
   },
   flea(o, r) {
     let s = leafBg;
@@ -999,7 +1001,7 @@ const BUGS = {
     for (const [x, y, a] of [[40, 108, 0], [130, 112, 1], [140, 40, 2]]) {
       s += `<path d="M${x} ${y} c8 -${6 + a} 16 ${6 + a} 24 0 s16 -${6 + a} 24 0" stroke="#bfb08e" stroke-width="2.4" fill="none" stroke-linecap="round"/>`;
     }
-    return s + `<text x="100" y="140" font-size="10" text-anchor="middle" fill="#5a4a30">雌蟲（洋梨形）與幼蟲</text>`;
+    return s + `<text x="100" y="140" font-size="10" text-anchor="middle" fill="#5a4a30">${tr('雌蟲（洋梨形）與幼蟲')}</text>`;
   },
   scale(o, r) {
     let s = leafBg + `<path d="M8 128 C60 110 130 72 194 34" stroke="#7a5a3a" stroke-width="12" fill="none" stroke-linecap="round"/>`;
@@ -1012,7 +1014,7 @@ const BUGS = {
       s += `<ellipse cx="${x}" cy="${y}" rx="8" ry="5" fill="#fbfbf6" stroke="#d8d8cc"/>`;
       for (let k = -3; k <= 3; k++) s += `<path d="M${x + k * 2.2} ${y + 4} l${k * 0.6} 4 M${x + k * 2.2} ${y - 4} l${k * 0.6} -4" stroke="#fbfbf6" stroke-width="1"/>`;
     }
-    return s + `<text x="20" y="40" font-size="9" fill="#2d3a24">褐色為介殼，白色為粉介殼蟲</text>`;
+    return s + `<text x="20" y="40" font-size="9" fill="#2d3a24">${tr('褐色為介殼，白色為粉介殼蟲')}</text>`;
   },
 };
 BUGS.melonfly = BUGS.fruitfly;
@@ -1084,11 +1086,11 @@ export function adaptIllus(spec, crop) {
 /** 依規格產生 SVG 字串；seed 用來讓同一條目的圖保持一致 */
 export function renderIllus(spec, seed = '') {
   const fn = KINDS[spec?.k];
-  if (!fn) return frame(`<text x="100" y="80" text-anchor="middle" font-size="14" fill="currentColor">（無示意圖）</text>`);
+  if (!fn) return frame(`<text x="100" y="80" text-anchor="middle" font-size="14" fill="currentColor">${tr('（無示意圖）')}</text>`);
   try {
     return fn(spec, `${seed}:${spec.k}:${spec.p || spec.t || spec.state || spec.type || ''}`);
   } catch (err) {
     console.error('示意圖繪製失敗', spec, err);
-    return frame(`<text x="100" y="80" text-anchor="middle" font-size="14" fill="currentColor">（示意圖錯誤）</text>`);
+    return frame(`<text x="100" y="80" text-anchor="middle" font-size="14" fill="currentColor">${tr('（示意圖錯誤）')}</text>`);
   }
 }

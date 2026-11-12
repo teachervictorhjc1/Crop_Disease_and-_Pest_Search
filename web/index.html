@@ -18,25 +18,29 @@
 <body>
   <header class="appbar">
     <div class="appbar-inner">
-      <a class="brand" href="#/" aria-label="回到首頁">
+      <a class="brand" href="#/" aria-label="回到首頁" data-i18n-label="回到首頁">
         <img src="icons/icon.svg" alt="" width="32" height="32">
-        <span>作物病蟲害檢索</span>
+        <span data-i18n="作物病蟲害檢索">作物病蟲害檢索</span>
       </a>
-      <button type="button" class="install" id="install" hidden>安裝 App</button>
+      <button type="button" class="install" id="install" hidden data-i18n="安裝 App">安裝 App</button>
+      <label class="lang-sel"><span aria-hidden="true">🌐</span>
+        <select id="lang" aria-label="語言 Language"></select>
+      </label>
     </div>
     <div class="search-wrap" id="search-wrap">
-      <input id="search" type="search" placeholder="搜尋：作物、病名、症狀，例如「番茄 黃化」" autocomplete="off" aria-label="搜尋">
+      <input id="search" type="search" placeholder="搜尋：作物、病名、症狀，例如「番茄 黃化」" autocomplete="off" aria-label="搜尋"
+        data-i18n-placeholder="搜尋：作物、病名、症狀，例如「番茄 黃化」" data-i18n-label="搜尋">
     </div>
   </header>
 
   <main id="view" class="view">
-    <div class="empty">載入中…</div>
+    <div class="empty">載入中… Loading…</div>
   </main>
 
-  <nav class="tabbar" aria-label="主要功能">
-    <a href="#/"><span aria-hidden="true">📖</span>瀏覽</a>
-    <a href="#/wizard"><span aria-hidden="true">🩺</span>症狀診斷</a>
-    <a href="#/about"><span aria-hidden="true">ℹ️</span>關於</a>
+  <nav class="tabbar" aria-label="主要功能" data-i18n-label="主要功能">
+    <a href="#/"><span aria-hidden="true">📖</span><span data-i18n="瀏覽">瀏覽</span></a>
+    <a href="#/wizard"><span aria-hidden="true">🩺</span><span data-i18n="症狀診斷">症狀診斷</span></a>
+    <a href="#/about"><span aria-hidden="true">ℹ️</span><span data-i18n="關於">關於</span></a>
   </nav>
 
   <noscript><p style="padding:16px">本 App 需要啟用 JavaScript。</p></noscript>

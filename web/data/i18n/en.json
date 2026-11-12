@@ -1,0 +1,1630 @@
+{
+ "crops": {
+  "rice": {
+   "name": "Rice"
+  },
+  "corn": {
+   "name": "Corn"
+  },
+  "potato": {
+   "name": "Potato"
+  },
+  "tomato": {
+   "name": "Tomato"
+  },
+  "pepper": {
+   "name": "Chili pepper / Sweet pepper"
+  },
+  "eggplant": {
+   "name": "Eggplant"
+  },
+  "crucifer": {
+   "name": "Crucifers (cabbage, Chinese cabbage, cauliflower, radish)"
+  },
+  "cucurbit": {
+   "name": "Cucurbits (cucumber, bitter gourd, watermelon, melon)"
+  },
+  "strawberry": {
+   "name": "Strawberry"
+  },
+  "citrus": {
+   "name": "Citrus"
+  },
+  "banana": {
+   "name": "Banana"
+  },
+  "mango": {
+   "name": "Mango"
+  },
+  "grape": {
+   "name": "Grape"
+  },
+  "papaya": {
+   "name": "Papaya"
+  },
+  "guava": {
+   "name": "Guava"
+  }
+ },
+ "types": {
+  "disease": {
+   "name": "Disease"
+  },
+  "pest": {
+   "name": "Pest"
+  },
+  "nutrient": {
+   "name": "Nutrient deficiency"
+  }
+ },
+ "parts": {
+  "leaf": {
+   "name": "Leaf"
+  },
+  "stem": {
+   "name": "Stem / Branch / Leaf sheath"
+  },
+  "fruit": {
+   "name": "Fruit"
+  },
+  "flower": {
+   "name": "Flower / Panicle"
+  },
+  "root": {
+   "name": "Root"
+  },
+  "whole": {
+   "name": "Whole plant"
+  }
+ },
+ "tags": {
+  "yellowing": {
+   "name": "Yellowing / fading"
+  },
+  "spots": {
+   "name": "Spots / lesions"
+  },
+  "mosaic": {
+   "name": "Mosaic / mottling"
+  },
+  "curling": {
+   "name": "Curling / crinkling / deformed"
+  },
+  "wilting": {
+   "name": "Wilting"
+  },
+  "scorch": {
+   "name": "Leaf edge / tip scorch"
+  },
+  "purple": {
+   "name": "Purplish red"
+  },
+  "powder": {
+   "name": "White powder / mold"
+  },
+  "rot": {
+   "name": "Rot / soft rot"
+  },
+  "holes": {
+   "name": "Holes / notches / feeding marks"
+  },
+  "mines": {
+   "name": "Winding tunnels (mines)"
+  },
+  "silvering": {
+   "name": "Silvery / brown scarring"
+  },
+  "webbing": {
+   "name": "Fine webbing"
+  },
+  "honeydew": {
+   "name": "Honeydew / black sooty mold"
+  },
+  "galls": {
+   "name": "Root galls"
+  },
+  "stunting": {
+   "name": "Stunting / stalled growth"
+  },
+  "drop": {
+   "name": "Flower / fruit drop"
+  },
+  "cracking": {
+   "name": "Cracking / split fruit / bumps"
+  },
+  "insects": {
+   "name": "Visible insects / eggs / snails"
+  }
+ },
+ "issues": {
+  "rice-blast": {
+   "name": "Rice blast",
+   "summary": "One of the most important fungal diseases of rice. It attacks leaves, stem nodes and the panicle neck; neck blast causes white, empty panicles and heavy yield loss.",
+   "symptoms": [
+    "Leaf blast: spindle-shaped (diamond-shaped) lesions on leaves with a grayish-white center and brown margin, often surrounded by a yellow halo.",
+    "In severe cases lesions merge and leaves die; plants become stunted and tillering is suppressed (locally called \"sitting blast\").",
+    "Neck blast: the panicle neck turns brown to dark brown, cutting off nutrient flow and causing white panicles or poor grain filling.",
+    "Node blast: stem nodes turn dark brown and break easily."
+   ],
+   "conditions": "Favored by temperatures of about 20–28°C, high relative humidity, prolonged cloudy and rainy weather, or long periods of leaf wetness. Fields with excessive nitrogen or dense planting are more severely affected. In Taiwan it occurs more often in the first crop season.",
+   "prevention": [
+    "Plant resistant varieties and use healthy seed (disinfect seed before sowing).",
+    "Apply nitrogen fertilizer sensibly; avoid excess nitrogen and late-season nitrogen top-dressing.",
+    "Transplant at a moderate density to keep the field well ventilated.",
+    "Remove infected rice straw and weeds in the field and on levees to reduce sources of initial infection."
+   ],
+   "control": [
+    "Start control at the first sign of disease (typical spindle-shaped leaf lesions). Watch the weather forecast and scout fields more often before and after rain.",
+    "Late booting to full heading is the key period for controlling neck blast.",
+    "Choose registered pesticides according to Taiwan's Plant Protection Manual and rotate products with different modes of action (FRAC codes) to delay resistance."
+   ],
+   "illus": [
+    {
+     "cap": "Spindle-shaped leaf spots: gray-white center, brown edge, yellow halo"
+    },
+    {
+     "cap": "Panicle neck turns dark brown, causing white panicles"
+    }
+   ],
+   "sci": "Pyricularia oryzae (= Magnaporthe oryzae)"
+  },
+  "rice-sheath-blight": {
+   "name": "Rice sheath blight",
+   "summary": "A soilborne fungal disease that attacks rice leaf sheaths and leaves. It can break out widely in hot, humid, densely planted fields and cause lodging.",
+   "symptoms": [
+    "Oval, gray-green, water-soaked lesions first appear on leaf sheaths near the water line.",
+    "As lesions enlarge, their centers turn grayish-white with brown margins, and several lesions join into a cloud-like pattern.",
+    "Lesions spread upward from the sheaths to the leaves; in severe cases whole plants die and lodge.",
+    "In high humidity, white fungal threads and brown sclerotia that look like rapeseed can be seen on the lesions."
+   ],
+   "conditions": "Hot and humid weather (about 28–32°C). Spreads most easily from peak tillering to booting. Worse with dense planting, excess nitrogen and long-term standing water. Sclerotia can survive in soil for many years.",
+   "prevention": [
+    "Plant at a reasonable density to keep air moving between rows and hills.",
+    "Avoid heavy nitrogen use and apply a moderate amount of extra potassium.",
+    "Drain and dry the field at the right time at the end of tillering to lower humidity.",
+    "After land preparation and flooding, skim off sclerotia and debris floating on the water."
+   ],
+   "control": [
+    "From the end of tillering, check the base of rice hills regularly and spray when the percentage of infected hills rises noticeably.",
+    "The spray must reach the leaf sheaths at the base of the plants.",
+    "Consider registered microbial products (e.g. Bacillus subtilis types), and rotate pesticides according to Taiwan's Plant Protection Manual."
+   ],
+   "illus": [
+    {
+     "cap": "Cloud-like lesions on leaf sheaths near the water line"
+    }
+   ]
+  },
+  "rice-bacterial-blight": {
+   "name": "Rice bacterial leaf blight",
+   "summary": "A bacterial disease that breaks out easily after typhoons and heavy rain wound the leaves. Leaves dry and turn white starting from the tips and edges.",
+   "symptoms": [
+    "Yellow-green, water-soaked streaks first appear at the leaf tip or leaf edge.",
+    "Lesions spread down along the leaf edge, forming yellowish-white to grayish-white dead areas with wavy margins.",
+    "In the early morning, yellow dew-like drops of bacterial ooze can be seen on lesions; they dry into small beads.",
+    "Infection at the seedling stage can cause sudden wilting of the whole plant (kresek)."
+   ],
+   "conditions": "Most likely after typhoons and heavy rain, when leaves have many wounds. Worse at about 25–30°C, with flooded fields and heavy nitrogen use. In Taiwan it is more common during the typhoon season of the second crop season.",
+   "prevention": [
+    "Plant resistant varieties.",
+    "Avoid applying nitrogen before and after typhoons.",
+    "Keep field drainage in good order and prevent irrigation water from flowing from diseased fields into healthy ones.",
+    "Remove host weeds on levees (such as Leersia hexandra) and infected plant debris."
+   ],
+   "control": [
+    "After typhoons or heavy rain, at the early stage of disease, apply registered pesticides for bacterial diseases (e.g. copper products).",
+    "Avoid working in the field while leaves are wet, to avoid spreading the bacteria."
+   ],
+   "illus": [
+    {
+     "cap": "Wavy yellowish-white lesions spreading down from leaf tip and edge"
+    }
+   ]
+  },
+  "late-blight": {
+   "name": "Late blight",
+   "summary": "An oomycete disease that spreads explosively in cool, humid weather. Under favorable conditions it can kill an entire field within a few days.",
+   "symptoms": [
+    "Large, irregular, dark green, water-soaked patches appear on leaves, quickly enlarging and turning brown-black.",
+    "In wet weather, a ring of white mold grows on the leaf underside around the edge of the lesion.",
+    "Dark brown lesions appear on stems and petioles, which break easily.",
+    "Tomato fruit develop greasy-looking, rough-surfaced, firm brown patches that usually do not go soft."
+   ],
+   "conditions": "Cool and humid: day and night temperatures of about 15–22°C, relative humidity above 90%, with fog, dew or continuous rain. In Taiwan it mostly occurs in winter and spring.",
+   "prevention": [
+    "Avoid planting tomato and potato in succession or next to each other.",
+    "Use healthy seed potatoes and seedlings.",
+    "Improve ventilation and avoid evening sprinkling that keeps leaves wet overnight.",
+    "In protected cultivation, ventilate and reduce humidity, and remove diseased plants as soon as they are found."
+   ],
+   "control": [
+    "Apply preventive sprays ahead of cool, rainy periods.",
+    "Spray immediately when lesions are found, and shorten the spray interval according to the weather.",
+    "Rotate registered pesticides with different modes of action (the pathogen easily develops resistance)."
+   ],
+   "illus": [
+    {
+     "cap": "Large water-soaked dark brown leaf patches with white mold at edges"
+    },
+    {
+     "cap": "Greasy, firm brown patches on fruit"
+    }
+   ]
+  },
+  "early-blight": {
+   "name": "Early blight",
+   "summary": "A common fungal disease of solanaceous crops. Lesions have distinct concentric rings (target-like) and spread upward from the lower, older leaves.",
+   "symptoms": [
+    "Brown, round to irregular lesions with distinct concentric rings first appear on lower, older leaves.",
+    "Tissue around the lesions turns yellow; in severe cases leaves yellow, wither and drop from the bottom of the plant upward.",
+    "Oval, brown lesions with rings appear on stems.",
+    "Sunken, dark brown lesions with rings appear on fruit near the stem end."
+   ],
+   "conditions": "Favored by warm (about 24–29°C), humid weather and heavy dew. More severe on weak plants, under nutrient shortage, or when plants carry a heavy fruit load.",
+   "prevention": [
+    "Rotate with non-solanaceous crops for 2–3 years.",
+    "Fertilize in a balanced way to keep plants vigorous.",
+    "Remove diseased lower leaves and take them out of the field.",
+    "Mulch the beds to reduce rain splashing soilborne spores onto leaves."
+   ],
+   "control": [
+    "Apply registered pesticides at the early stage of disease, making sure to cover leaf undersides and lower leaves.",
+    "Rotate pesticides with different modes of action."
+   ],
+   "illus": [
+    {
+     "cap": "Brown spots with concentric rings (target-like) and yellow halo"
+    },
+    {
+     "cap": "Spreads upward from the lower, older leaves"
+    }
+   ],
+   "cropNotes": {
+    "tomato": "Leaf spots with concentric rings; ringed lesions also form at the stem base (collar rot), and sunken black spots appear at the fruit stem end.",
+    "potato": "Angular leaf spots with concentric rings; sunken dark brown spots form on the tuber surface.",
+    "eggplant": "Brown leaf spots with concentric rings, mostly starting on the lower leaves."
+   }
+  },
+  "bacterial-wilt": {
+   "name": "Bacterial wilt",
+   "summary": "A soilborne bacterial disease of the vascular system. Plants suddenly wilt and die while the leaves are still green.",
+   "symptoms": [
+    "At first the top leaves wilt at midday and recover in the evening; within a few days the whole plant wilts and dies.",
+    "Leaves stay green while wilting, which is why it is called \"green wilt\" in Chinese.",
+    "The vascular tissue at the stem base turns brown.",
+    "Quick test: cut a piece of diseased stem and stand it in clean water; within a few minutes milky-white bacterial ooze streams from the cut end."
+   ],
+   "conditions": "Most severe in hot (about 30–35°C), humid weather with high soil moisture. Infection is more likely in continuously cropped fields, when roots are damaged by nematodes, or when cultivation injures the roots.",
+   "prevention": [
+    "Graft onto resistant rootstocks (e.g. tomato grafted onto resistant eggplant or tomato rootstock).",
+    "Rotating with paddy rice (paddy-upland rotation) greatly reduces the bacteria in the soil.",
+    "Choose well-drained fields and grow on raised beds.",
+    "Avoid injuring roots during cultivation, and disinfect field tools after use."
+   ],
+   "control": [
+    "There is currently no effective chemical treatment.",
+    "Pull up diseased plants with their roots as soon as they are found, take them out of the field and destroy them; lime can be spread in the planting hole.",
+    "Consider treating the soil with solarization, flooding, or registered biological products."
+   ],
+   "illus": [
+    {
+     "cap": "Whole plant wilts while leaves stay green"
+    },
+    {
+     "cap": "Cut stem in clean water releases milky-white bacterial ooze"
+    }
+   ],
+   "cropNotes": {
+    "tomato": "Whole plant wilts rapidly during the day and partly recovers at night; it dies within days while the leaves remain green.",
+    "potato": "The vascular ring of the tuber turns brown; when squeezed, milky-white ooze comes out of the eyes or cut surface.",
+    "pepper": "Plants suddenly wilt and the vascular tissue at the stem base turns brown; most severe in the hot, humid season.",
+    "eggplant": "Wilting starts on some branches; cut stems show browning and release bacterial ooze."
+   }
+  },
+  "tylcv": {
+   "name": "Tomato yellow leaf curl disease",
+   "summary": "A viral disease spread by the silverleaf whitefly. Plants infected early set almost no fruit, and losses can reach 100%.",
+   "symptoms": [
+    "New leaves are small, with yellow margins that curl upward into a cup shape.",
+    "Plants are severely stunted, with shortened internodes.",
+    "Many flowers drop after blooming and almost no fruit is set.",
+    "The earlier the infection, the greater the loss; with late infection, symptoms appear on the upper leaves."
+   ],
+   "conditions": "Spread in a persistent manner by the silverleaf whitefly (sweetpotato whitefly, Bemisia tabaci). Most severe in hot, dry summer and autumn weather when whitefly populations are high.",
+   "prevention": [
+    "Plant resistant (tolerant) varieties.",
+    "Raise seedlings in insect-proof net houses and use healthy seedlings.",
+    "Use insect-proof netting of 50 mesh or finer on protected structures.",
+    "Remove weeds and infected plant debris in and around the field; avoid planting after or next to whitefly hosts such as solanaceous crops and cucurbits."
+   ],
+   "control": [
+    "There is no pesticide that can cure a viral disease. Pull up diseased plants as soon as they are found, bag them, take them out of the field and destroy them.",
+    "Focus control on the vector, the silverleaf whitefly: monitor with yellow sticky cards and rotate registered insecticides (see \"Silverleaf whitefly\")."
+   ],
+   "illus": [
+    {
+     "cap": "New leaves small, with yellow edges curling upward"
+    },
+    {
+     "cap": "Stunted plant with short internodes (healthy plant on right)"
+    }
+   ],
+   "sci": "Tomato yellow leaf curl virus (TYLCV) and related begomoviruses"
+  },
+  "cucurbit-downy-mildew": {
+   "name": "Cucurbit downy mildew",
+   "summary": "One of the most common leaf diseases of cucurbits. Lesions are angular because they are bounded by leaf veins, with mold on the leaf underside.",
+   "symptoms": [
+    "Angular yellow lesions bounded by the leaf veins appear on the upper leaf surface.",
+    "In wet weather, gray-purple to black mold grows on the underside of the leaf beneath the lesions.",
+    "Later the lesions turn brown and dry; in severe cases the whole leaf dies.",
+    "It usually spreads upward from the lower leaves."
+   ],
+   "conditions": "Favored by high humidity, a film of water on leaves, large day-night temperature differences and temperatures of about 15–25°C. Severe in the spring and autumn rainy seasons and when dew is heavy.",
+   "prevention": [
+    "Plant tolerant varieties.",
+    "Use proper plant spacing, trellis and prune vines to improve air flow.",
+    "Use drip irrigation to avoid keeping leaves wet for long periods.",
+    "Remove infected old leaves and take them out of the field."
+   ],
+   "control": [
+    "Apply registered pesticides at the early stage of disease, alternating preventive and curative products.",
+    "Always make sure the spray reaches the leaf undersides."
+   ],
+   "illus": [
+    {
+     "cap": "Angular yellow spots bounded by leaf veins"
+    }
+   ]
+  },
+  "powdery-mildew": {
+   "name": "Powdery mildew",
+   "summary": "A fungal disease that makes leaves look dusted with flour. It does not need rain to develop and is very common in the dry season and in protected cultivation.",
+   "symptoms": [
+    "White powdery spots appear on upper and lower leaf surfaces and young stems, gradually spreading to cover the whole leaf.",
+    "Leaves turn yellow, curl and drop early.",
+    "Infected fruit have a rough surface, poor color, or crack.",
+    "On mango and grape, infected flower clusters drop their flowers and set fruit poorly."
+   ],
+   "conditions": "Can develop without a water film on leaves. Severe at about 20–30°C when air humidity is high but leaves are dry, and with low sunlight, poor ventilation or overcrowded plants.",
+   "prevention": [
+    "Plant resistant varieties.",
+    "Prune and train plants and plant at a reasonable density to maintain air flow and sunlight.",
+    "Avoid excess nitrogen.",
+    "Remove diseased leaves to reduce the source of infection."
+   ],
+   "control": [
+    "Apply registered pesticides at the early stage of disease, such as sulfur products, and rotate modes of action.",
+    "Consider registered materials such as mineral oil, potassium bicarbonate, or microbial products (e.g. Bacillus subtilis).",
+    "Watch for crop injury when using sulfur products in hot weather."
+   ],
+   "illus": [
+    {
+     "cap": "White powdery mold patches on the leaf surface"
+    }
+   ],
+   "cropNotes": {
+    "cucurbit": "Both leaf surfaces are covered with white powder, spreading upward from the lower leaves; worst in the dry season.",
+    "strawberry": "Leaf edges curl upward with white powder on the underside; fruit develop white powder and lose their shine.",
+    "grape": "Leaves, new shoots and berries are covered with white powder; berries develop net-like brown marks and crack easily.",
+    "mango": "Flower clusters and young fruit are covered with white powder, causing heavy flower and fruit drop.",
+    "pepper": "White powder on the leaf underside with yellowing on the upper surface above it; severe cases cause heavy leaf drop.",
+    "tomato": "Pale yellow spots on the upper leaf surface, with white powder on the underside or upper side; older leaves are affected first."
+   },
+   "sci": "Podosphaera spp., Erysiphe spp., Leveillula taurica, etc."
+  },
+  "anthracnose": {
+   "name": "Anthracnose",
+   "summary": "A fungal disease that attacks many kinds of fruit in hot, rainy weather. Infections are often latent, with lesions appearing only after harvest.",
+   "symptoms": [
+    "Irregular brown to black lesions appear on leaves; young leaves become twisted and deformed.",
+    "Infected mango flower clusters turn black and die, causing flower drop.",
+    "Round, sunken, dark brown lesions appear on fruit, often with concentric rings.",
+    "In wet weather, sticky orange-red (salmon-colored) spore masses form on the lesions.",
+    "Latent infection: lesions appear only during ripening after harvest."
+   ],
+   "conditions": "Severe in hot, rainy weather (about 25–30°C). Spores spread by rain splash and enter through wounds.",
+   "prevention": [
+    "Orchard sanitation: prune out diseased twigs and leaves and remove fallen fruit.",
+    "Bag the fruit (mango, guava, etc.).",
+    "Grow pepper and strawberry under rain shelters.",
+    "For mango, use post-harvest hot water treatment where suitable for the variety."
+   ],
+   "control": [
+    "Flowering, the young fruit stage, and before and after rain are the key control periods; apply registered pesticides and rotate them.",
+    "Strengthen control during strawberry nursery production so that infected plants are not transplanted to the field."
+   ],
+   "illus": [
+    {
+     "cap": "Sunken dark brown fruit spots with orange-red spores when wet"
+    },
+    {
+     "cap": "Irregular dark brown leaf spots"
+    }
+   ],
+   "cropNotes": {
+    "mango": "Ripe fruit develop black sunken spots that enlarge and rot; flower clusters turn black and die, worst when flowering in the rainy season.",
+    "pepper": "Water-soaked, sunken round spots on fruit, with black dots or orange-red spore masses arranged in concentric rings.",
+    "strawberry": "Dark brown sunken lesions on runners and petioles; when the crown is invaded the whole plant wilts (anthracnose crown rot). Most common in the nursery stage.",
+    "banana": "Dark brown sunken spots on ripe peel that enlarge rapidly after ripening treatment; the fruit stalk also rots.",
+    "papaya": "Water-soaked, round sunken spots on ripe fruit with orange-red spore masses in the center.",
+    "guava": "Dark brown sunken spots on fruit that rot; young shoots may die back.",
+    "grape": "Brown sunken spots on ripe berries with orange-red spore masses (ripe rot); berries shrivel."
+   }
+  },
+  "citrus-hlb": {
+   "name": "Citrus greening (Huanglongbing, HLB)",
+   "summary": "A phloem-limited bacterial disease spread by the Asian citrus psyllid. There is currently no cure, and it is the most serious threat to the citrus industry.",
+   "symptoms": [
+    "Leaves show asymmetrical yellow-green blotchy mottling (nutrient deficiency is usually symmetrical, which helps tell them apart).",
+    "New shoots on some branches turn yellow (yellow shoots).",
+    "Leaves become small and upright, similar to zinc deficiency.",
+    "Fruit are small and misshapen, color first at the stem end while the bottom stays green (\"upside-down coloring\", \"red nose\"); seeds are poorly developed and juice tastes bitter.",
+    "The tree declines year by year and eventually dies."
+   ],
+   "conditions": "Spread by the Asian citrus psyllid, and also through infected nursery trees or budwood. Spreads fastest during flushing when psyllid populations are high.",
+   "prevention": [
+    "Plant certified disease-free healthy nursery trees.",
+    "Strengthen psyllid control during flushing.",
+    "Remove orange jasmine (Murraya paniculata) around the orchard; it is an important psyllid host.",
+    "Inspect the orchard regularly and send suspected trees to a district agricultural research and extension station or a plant doctor for testing and diagnosis."
+   ],
+   "control": [
+    "There is no pesticide that can cure it. Confirmed infected trees should be dug out so they do not become a source of infection.",
+    "Control the Asian citrus psyllid together across the whole area (see \"Asian citrus psyllid\")."
+   ],
+   "illus": [
+    {
+     "cap": "Asymmetrical yellow-green blotchy mottling on leaves"
+    },
+    {
+     "cap": "Fruit colors at stem end, bottom stays green (upside-down color)"
+    }
+   ]
+  },
+  "citrus-canker": {
+   "name": "Citrus canker",
+   "summary": "A bacterial disease that forms raised, rough, corky lesions on leaves, twigs and fruit, spoiling fruit appearance and market value.",
+   "symptoms": [
+    "Small yellow spots first appear on leaves, twigs and fruit, then become raised, corky, rough-surfaced brown lesions.",
+    "Lesions have a yellow halo and are raised on both sides of the leaf.",
+    "Fruit lesions are only in the peel, but badly damage appearance.",
+    "In severe cases leaves and fruit drop."
+   ],
+   "conditions": "Most likely in hot, rainy weather and after typhoons when there are many wounds. Damage by the citrus leafminer creates more wounds and makes the disease worse. Lemon, grapefruit and pomelo (Wendan) are more susceptible.",
+   "prevention": [
+    "Set up windbreaks or windbreak netting to reduce wind injury.",
+    "Control citrus leafminer during flushing.",
+    "Prune out diseased twigs and leaves, clean up the orchard, and disinfect pruning tools after use."
+   ],
+   "control": [
+    "Apply registered pesticides (e.g. copper products) when new shoots emerge and before and after typhoons or heavy rain.",
+    "Watch for crop injury when using copper products in hot weather."
+   ],
+   "illus": [
+    {
+     "cap": "Raised corky lesions with a yellow halo"
+    },
+    {
+     "cap": "Rough, raised brown spots on the fruit peel"
+    }
+   ]
+  },
+  "banana-fusarium-wilt": {
+   "name": "Fusarium wilt of banana (Panama disease)",
+   "summary": "A soilborne vascular disease. The fungus can survive in soil for decades, making it a devastating disease for the banana industry.",
+   "symptoms": [
+    "Lower, older leaves turn yellow starting from the edges, gradually moving up to the upper leaves.",
+    "Leaves break at the base of the petiole, and dead leaves hang down around the pseudostem like a skirt.",
+    "The base of the pseudostem splits lengthwise.",
+    "Cutting the pseudostem or corm lengthwise or crosswise shows reddish-brown to dark brown vascular tissue."
+   ],
+   "conditions": "Spread through infected suckers, soil, farm machinery and irrigation water. The fungus's chlamydospores can survive in soil for decades. Worse in acidic, poorly drained soils.",
+   "prevention": [
+    "Use healthy tissue-culture plantlets.",
+    "Plant resistant (tolerant) varieties, such as \"Formosana\" bred by the Taiwan Banana Research Institute.",
+    "Rotation with paddy rice is an option.",
+    "Wash and disinfect farm machinery and boots before entering or leaving fields, to avoid carrying soil between areas.",
+    "Adjust soil pH and add more organic matter."
+   ],
+   "control": [
+    "There is no pesticide that can cure it.",
+    "Deal with diseased plants on the spot (e.g. kill them by herbicide injection or dig them out) and avoid moving infested soil.",
+    "Do not replant susceptible varieties in infested areas."
+   ],
+   "illus": [
+    {
+     "cap": "Old leaves yellow from edges; broken petioles hang like a skirt"
+    },
+    {
+     "cap": "Pseudostem cross-section with reddish-brown vascular tissue"
+    }
+   ],
+   "sci": "Fusarium oxysporum f. sp. cubense (Tropical Race 4, TR4)"
+  },
+  "gray-mold": {
+   "name": "Gray mold",
+   "summary": "A fungal disease that attacks flowers and fruit in cool, humid weather. Fruit go soft and rotten and grow a fuzzy gray mold.",
+   "symptoms": [
+    "Petals and sepals are attacked first and turn brown.",
+    "Pale brown, water-soaked lesions appear on fruit and quickly become soft and rotten.",
+    "A fuzzy gray mold grows on the affected areas and releases clouds of spores when touched.",
+    "Small white rings called \"ghost spots\" can be seen on tomato fruit."
+   ],
+   "conditions": "Severe in cool (about 15–23°C), humid weather, during long cloudy and rainy spells, and in poorly ventilated protected structures. Mostly occurs in winter and spring.",
+   "prevention": [
+    "Plant at a suitable density and remove old leaves and diseased fruit.",
+    "Lay plastic mulch to keep fruit from touching the soil.",
+    "Improve ventilation and reduce humidity in protected structures.",
+    "Avoid injuring fruit during harvest and field work."
+   ],
+   "control": [
+    "From flowering onward, apply registered pesticides preventively and rotate modes of action (the gray mold fungus develops resistance very easily).",
+    "Bag diseased fruit and take them out of the field."
+   ],
+   "illus": [
+    {
+     "cap": "Fruit soft rot with a layer of gray mold"
+    }
+   ],
+   "cropNotes": {
+    "strawberry": "Fruit develop brown soft rot covered with gray mold, usually starting at the calyx end or where the fruit touches the soil.",
+    "tomato": "Fruit grow gray mold or show small white-ringed \"ghost spots\"; when a stem lesion girdles the stem, the shoots above it wilt.",
+    "grape": "Berries inside the cluster turn brown, rot and are covered with gray mold; worst when it rains at ripening."
+   }
+  },
+  "crucifer-black-rot": {
+   "name": "Black rot of crucifers",
+   "summary": "A seedborne bacterial disease. The typical symptom is a V-shaped yellow lesion at the leaf edge.",
+   "symptoms": [
+    "V-shaped yellow lesions appear at the leaf edge, with the point toward the midrib.",
+    "Veins inside the lesion turn black.",
+    "As lesions enlarge, the leaf dries up.",
+    "Vascular tissue in the stem turns black; in severe cases the head rots."
+   ],
+   "conditions": "Carried on seed. The bacteria enter through water pores at the leaf edge and through wounds. Severe in hot, humid weather (about 25–30°C) and after typhoons and heavy rain.",
+   "prevention": [
+    "Use disease-free seed, or treat seed with hot water (e.g. about 50°C water for 25–30 minutes, adjusted for the crop).",
+    "Rotate with non-cruciferous crops for 2–3 years.",
+    "Remove infected plant debris.",
+    "Avoid sprinkler irrigation."
+   ],
+   "control": [
+    "Apply registered pesticides (e.g. copper products) at the early stage of disease.",
+    "Strengthen control after rain and typhoons."
+   ],
+   "illus": [
+    {
+     "cap": "V-shaped yellow lesion at leaf edge with blackened veins"
+    }
+   ]
+  },
+  "clubroot": {
+   "name": "Clubroot",
+   "summary": "A common root disease of crucifers in acidic soils. Roots develop large galls, and resting spores can survive in soil for more than 10 years.",
+   "symptoms": [
+    "Plants wilt during the day and recover in the morning and evening.",
+    "Growth is slow and leaves turn yellow.",
+    "Pulled-up plants show spindle-shaped or lumpy galls of various sizes on the roots.",
+    "Later the galls rot."
+   ],
+   "conditions": "Favored by acidic soil (pH below 6.5), poor drainage and soil temperatures of about 20–25°C. Resting spores can survive in soil for more than 10 years.",
+   "prevention": [
+    "Apply liming materials to raise soil pH to about 7.2.",
+    "Plant resistant varieties.",
+    "Use long rotations with non-cruciferous crops.",
+    "Use disease-free nursery soil and keep fields well drained.",
+    "Do not leave diseased roots in the field."
+   ],
+   "control": [
+    "Before transplanting, treat the soil with registered pesticides according to Taiwan's Plant Protection Manual.",
+    "Pull up diseased plants with their roots and take them out of the field."
+   ],
+   "illus": [
+    {
+     "cap": "Spindle-shaped or lumpy galls on roots"
+    },
+    {
+     "cap": "Daytime wilting and slow growth"
+    }
+   ]
+  },
+  "papaya-ringspot": {
+   "name": "Papaya ringspot",
+   "summary": "A viral disease spread by aphids. It causes mosaic on papaya leaves and ringspots on fruit, and is the main limiting factor in papaya production.",
+   "symptoms": [
+    "New leaves show yellow-green mosaic and become wrinkled and deformed; in severe cases leaves become thread-like.",
+    "Water-soaked, oily streaks appear on petioles and the trunk.",
+    "Concentric ringspots appear on the fruit surface.",
+    "Plants grow weakly, and yield and quality drop sharply."
+   ],
+   "conditions": "Spread by aphids in a non-persistent manner (an aphid can transmit the virus with a brief probe). Infection is likely near diseased plants or cucurbit crops.",
+   "prevention": [
+    "Grow in net houses to keep aphids out.",
+    "Use healthy seedlings.",
+    "Remove diseased plants as soon as they are found.",
+    "Keep distance from cucurbit fields, and plant tolerant varieties where available."
+   ],
+   "control": [
+    "There is no pesticide that can cure it; rely mainly on net-house cultivation and removal of diseased plants.",
+    "Because aphids transmit the virus in a non-persistent manner, insecticide sprays have limited effect in preventing transmission."
+   ],
+   "illus": [
+    {
+     "cap": "Yellow-green mosaic and wrinkling on new leaves"
+    },
+    {
+     "cap": "Concentric ringspots on the fruit surface"
+    }
+   ],
+   "sci": "Papaya ringspot virus (PRSV)"
+  },
+  "phytophthora-blight": {
+   "name": "Phytophthora blight",
+   "summary": "A common rainy-season oomycete disease spread by water. Infection at the stem base causes the whole plant to wilt, and fruit go soft and grow white mold.",
+   "symptoms": [
+    "Dark brown to black water-soaked lesions appear at the stem base; once they girdle the stem, the whole plant wilts and dies.",
+    "Fruit develop a water-soaked soft rot with white mold on the surface.",
+    "Large dark green water-soaked patches appear on leaves."
+   ],
+   "conditions": "Severe in hot, rainy weather and waterlogged soil. The pathogen's zoospores spread in water. Worse in continuously cropped fields.",
+   "prevention": [
+    "Grow on raised beds and improve drainage.",
+    "Lay plastic mulch to reduce muddy water splash.",
+    "Rotate with non-host crops and avoid flood irrigation."
+   ],
+   "control": [
+    "Apply registered pesticides preventively before the rainy season (drench the stem base and spray the plants).",
+    "Pull up diseased plants and take them out of the field."
+   ],
+   "illus": [
+    {
+     "cap": "Dark brown lesion at stem base; whole plant wilts"
+    },
+    {
+     "cap": "Water-soaked soft rot of fruit with white mold"
+    }
+   ],
+   "cropNotes": {
+    "pepper": "Dark brown constriction at the stem base and wilting of the whole plant; fruit develop water-soaked soft rot with white mold.",
+    "cucurbit": "Water-soaked constriction at the base of the vine; fruit touching the ground go soft and grow white mold.",
+    "eggplant": "Water-soaked brown lesions with white mold on fruit, and browning at the stem base."
+   }
+  },
+  "corn-southern-rust": {
+   "name": "Southern rust of corn",
+   "summary": "A fungal disease that occurs in hot, humid weather, covering leaves with orange, powdery spore pustules.",
+   "symptoms": [
+    "Dense, small, raised, round to oval, orange-yellow to orange-red spore pustules appear on the leaf surface.",
+    "When the leaf surface breaks open, rust-colored powder is released.",
+    "In severe cases leaves dry up early and kernels fill poorly."
+   ],
+   "conditions": "Favored by high temperature (about 27°C) and high humidity; mostly seen in summer and autumn crops. Spores can be carried long distances by wind.",
+   "prevention": [
+    "Plant resistant varieties.",
+    "Plant at the proper time.",
+    "Remove infected plant debris."
+   ],
+   "control": [
+    "Apply registered pesticides at the early stage of disease."
+   ],
+   "illus": [
+    {
+     "cap": "Dense, raised orange spore pustules"
+    }
+   ]
+  },
+  "grape-downy-mildew": {
+   "name": "Grape downy mildew",
+   "summary": "An oomycete disease that attacks grape leaves, flower clusters and young fruit in rainy weather. Oil spots appear on the upper leaf surface with white downy mold underneath.",
+   "symptoms": [
+    "Pale yellow, translucent, greasy spots (oil spots) appear on the upper leaf surface.",
+    "White, downy mold grows on the leaf underside beneath the spots.",
+    "Infected flower clusters and young fruit turn brown, shrivel and grow white mold.",
+    "Larger berries turn brown and shrivel; in severe cases leaves drop."
+   ],
+   "conditions": "Favored by rainy, humid weather and long periods of leaf wetness. More severe from spring flowering to the young fruit stage, and in autumn.",
+   "prevention": [
+    "Grow under rain shelters.",
+    "Prune to improve air flow.",
+    "Remove fallen leaves and diseased canes."
+   ],
+   "control": [
+    "Spray preventively before and after flowering and during the rainy season, rotating registered pesticides with different modes of action."
+   ],
+   "illus": [
+    {
+     "cap": "Yellow oil spots on top of leaf, white downy mold underneath"
+    },
+    {
+     "cap": "Young fruit turn brown, shrivel and grow white mold"
+    }
+   ]
+  },
+  "spodoptera-litura": {
+   "name": "Tobacco cutworm",
+   "summary": "A noctuid moth pest with an extremely wide host range; larvae feed heavily on leaves and fruit at night.",
+   "symptoms": [
+    "Larval color varies widely (grayish green to blackish brown), with a pair of black half-moon marks on the back of each segment.",
+    "Young larvae feed in groups on the leaf underside, eating the leaf tissue and leaving a transparent skin (window-like patches).",
+    "From the third instar they disperse and feed at night, chewing large notches in leaves; in severe cases only the veins remain.",
+    "They also bore into fruit. Eggs are laid in masses covered with yellowish-brown scales and hairs."
+   ],
+   "conditions": "Occurs year-round, with the highest populations in the hot summer and autumn; extremely wide host range.",
+   "prevention": [
+    "Use sex pheromone traps to monitor and to mass-trap male moths.",
+    "Remove egg masses and leaves with clusters of young larvae.",
+    "Clear weeds in and around the field; use insect-proof netting in protected cultivation."
+   ],
+   "control": [
+    "Control is most effective when larvae are young.",
+    "Biological products: Bacillus thuringiensis (Bt) and Spodoptera litura nucleopolyhedrovirus (SlNPV).",
+    "Rotate chemicals with different modes of action (IRAC codes) to avoid resistance; larvae are active at night, so spraying in the late afternoon or evening works better."
+   ],
+   "illus": [
+    {
+     "cap": "Larva with black half-moon marks on the back of each segment"
+    },
+    {
+     "cap": "Large notches in leaves; in severe cases only veins remain"
+    }
+   ],
+   "cropNotes": {
+    "crucifer": "Larvae feed in groups on the leaf underside, leaving a thin film; as they grow they disperse and chew large notches in leaves.",
+    "strawberry": "Larvae feed on leaves and fruit at night, leaving irregular feeding marks on the fruit surface.",
+    "corn": "Larvae bore into the whorl and ears; when the whorl leaves unfold, rows of holes and frass are visible."
+   }
+  },
+  "diamondback-moth": {
+   "name": "Diamondback moth",
+   "summary": "One of the most important pests of cruciferous vegetables; it very easily develops resistance to many pesticides.",
+   "symptoms": [
+    "Larvae are pale green and spindle-shaped; when disturbed they wriggle violently and drop down on a silk thread.",
+    "Larvae eat the leaf tissue and leave a transparent skin (\"windows\"); as they grow they chew holes.",
+    "Damage to the heart leaves can affect head formation.",
+    "Resting adults show a pale diamond-shaped pattern on the back."
+   ],
+   "conditions": "Populations are higher in the cool, dry period from autumn and winter to spring; easily develops resistance to many pesticides.",
+   "prevention": [
+    "Use sex pheromones to trap male moths.",
+    "Rotate with non-cruciferous crops and remove crop residues after harvest.",
+    "Grow under net houses.",
+    "Sprinkler irrigation can disturb adults and wash off larvae."
+   ],
+   "control": [
+    "Rotate registered pesticides with different modes of action (IRAC codes).",
+    "Use biological products such as Bacillus thuringiensis (Bt).",
+    "Protect natural enemies, such as the parasitoid wasp Cotesia vestalis."
+   ],
+   "illus": [
+    {
+     "cap": "Larva pale green and spindle-shaped"
+    },
+    {
+     "cap": "Leaf tissue eaten, leaving transparent \"windows\""
+    },
+    {
+     "cap": "Diamond pattern on the back of a resting adult"
+    }
+   ]
+  },
+  "aphids": {
+   "name": "Aphids",
+   "summary": "Small sap-sucking pests that cluster on young shoots, multiply extremely fast, and transmit many virus diseases.",
+   "symptoms": [
+    "They cluster on young leaves, shoot tips and leaf undersides; about 1–2 mm long, green, yellow, black or other colors, with a pair of cornicles (tubes) at the tip of the abdomen.",
+    "New leaves curl and crinkle, and growth stalls.",
+    "They secrete honeydew, which leads to sooty mold and blackened leaves.",
+    "They transmit many virus diseases, such as papaya ringspot virus and cucumber mosaic virus."
+   ],
+   "conditions": "Populations build up very quickly in the cool, dry season (autumn to spring); they reproduce by live birth without mating, at an astonishing rate. Worse when too much nitrogen fertilizer is applied.",
+   "prevention": [
+    "Use yellow sticky cards to monitor winged aphids.",
+    "Silver plastic mulch repels winged aphids.",
+    "Use insect-proof netting.",
+    "Protect natural enemies (lady beetles, lacewings, parasitoid wasps) and avoid excessive nitrogen fertilizer."
+   ],
+   "control": [
+    "For light infestations, wash them off with a strong water spray, or use registered narrow-range oils or soap products.",
+    "When populations are high, rotate registered pesticides and spray the leaf undersides and the growing tips."
+   ],
+   "illus": [
+    {
+     "cap": "Clustered under young leaves; a pair of cornicles at abdomen tip"
+    },
+    {
+     "cap": "Honeydew leads to sooty mold; leaves turn black"
+    }
+   ],
+   "cropNotes": {
+    "crucifer": "Cluster on leaf undersides and heart leaves; leaves curl and crinkle, and honeydew leads to sooty mold.",
+    "cucurbit": "Cluster on young leaves and growing points, causing leaf curl; transmit several cucurbit mosaic viruses.",
+    "citrus": "Feed on young shoots, causing new leaves to curl, and transmit citrus virus diseases.",
+    "papaya": "Direct damage is minor; the main harm is transmitting papaya ringspot virus.",
+    "potato": "Cluster on leaf undersides and young shoots; the main harm is transmitting potato virus diseases.",
+    "strawberry": "Cluster on new leaves and flower clusters, causing new leaves to curl, and transmit strawberry viruses."
+   },
+   "sci": "Aphis gossypii, Myzus persicae, etc."
+  },
+  "silverleaf-whitefly": {
+   "name": "Silverleaf whitefly",
+   "summary": "A very common sap-sucking pest in protected cultivation and in summer and autumn; besides sucking sap, it transmits virus diseases such as tomato yellow leaf curl virus.",
+   "symptoms": [
+    "Adults are about 1 mm, with white wings and a pale yellow body; at rest the wings form a roof shape. They fly up in swarms when a leaf is lightly touched.",
+    "Nymphs are flat and oval and stay fixed on the leaf underside.",
+    "Feeding causes leaf yellowing; cucurbit (e.g., pumpkin) leaves turn silvery white (silverleaf).",
+    "Tomato fruit ripens unevenly; honeydew causes sooty mold.",
+    "Transmits viruses such as tomato yellow leaf curl virus."
+   ],
+   "conditions": "Populations peak in the hot, dry summer and autumn, and occur year-round in protected cultivation; very wide host range.",
+   "prevention": [
+    "Use insect-proof netting of 50 mesh or finer.",
+    "Use yellow sticky cards to mass-trap adults.",
+    "Remove weeds and residues of the previous crop; keep nurseries separated from production fields.",
+    "Silver reflective mulch reduces adults settling on plants."
+   ],
+   "control": [
+    "Rotate registered pesticides with different modes of action, focusing on leaf undersides.",
+    "Registered microbial products such as Beauveria bassiana may be considered.",
+    "Protect natural enemies, such as small black lady beetles and parasitoid wasps."
+   ],
+   "illus": [
+    {
+     "cap": "Adult with white wings held roof-like at rest"
+    },
+    {
+     "cap": "Silvery white cucurbit leaves (silverleaf)"
+    }
+   ],
+   "cropNotes": {
+    "tomato": "The main harm is transmitting tomato yellow leaf curl virus; even a few adults can cause severe losses.",
+    "cucurbit": "Leaves of pumpkin and other cucurbits turn silvery white (silverleaf) and fruit is pale; also transmits viruses.",
+    "crucifer": "Clusters and feeds on leaf undersides; leaves fade, and honeydew leads to sooty mold."
+   },
+   "sci": "Bemisia tabaci (= B. argentifolii)"
+  },
+  "thrips": {
+   "name": "Thrips",
+   "summary": "Tiny rasping-sucking pests that hide in flowers and young buds, causing scarring on leaves and fruit skin; some species transmit viruses.",
+   "symptoms": [
+    "About 1 mm long, slender, yellow or dark brown, with long fringe hairs on the wing edges.",
+    "They rasp and suck the surface of leaves and fruit, leaving silvery or brown scars (silvering, browning).",
+    "New leaves crinkle and curl.",
+    "Fruit surface becomes rough, corky and deformed (e.g., brown skin on mango and grape, scarring on eggplant skin).",
+    "Some species transmit viruses of the genus Orthotospovirus (tomato spotted wilt virus group)."
+   ],
+   "conditions": "Severe in hot, dry weather; they hide inside flowers, new buds and on leaf undersides, are hard to control, and multiply quickly.",
+   "prevention": [
+    "Monitor with blue sticky cards (thrips prefer blue).",
+    "Remove weeds; use insect-proof netting and silver mulch.",
+    "Protect natural enemies, such as predatory mites and minute pirate bugs."
+   ],
+   "control": [
+    "Rotate registered pesticides; make sure the spray reaches flowers and growing buds.",
+    "Depending on populations, spray several times a few days apart to break the generation cycle."
+   ],
+   "illus": [
+    {
+     "cap": "Slender body; long fringe hairs on wing edges"
+    },
+    {
+     "cap": "Silvery or brown scars on leaves"
+    },
+    {
+     "cap": "Brown corky scars on fruit skin"
+    }
+   ],
+   "cropNotes": {
+    "cucurbit": "Attack growing points and young leaves, causing shrunken heart leaves and crinkled leaves; also transmit viruses.",
+    "pepper": "New leaves curl upward and become deformed; fruit surface shows brown scars and scabs.",
+    "eggplant": "Brown scars on the fruit surface, most obvious under the calyx; in severe cases the fruit surface is rough.",
+    "mango": "Attack flower panicles and young fruit, leaving brown corky scars on the fruit surface.",
+    "grape": "Brown scars on berry surfaces; leaves on new shoots crinkle.",
+    "citrus": "Ring-shaped silvery to brown scars around the stem end of young fruit, spoiling appearance.",
+    "strawberry": "Attack flowers and fruit; the fruit surface around the seeds turns brown and loses its shine."
+   },
+   "sci": "Thrips palmi, Scirtothrips dorsalis, Frankliniella occidentalis, etc."
+  },
+  "spider-mites": {
+   "name": "Spider mites",
+   "summary": "Tiny mites that explode in hot, dry weather; they cluster on leaf undersides sucking sap, causing dense pale speckles on leaves and fine webbing.",
+   "symptoms": [
+    "About 0.5 mm long, looking like tiny dots to the naked eye; the two-spotted spider mite has one dark spot on each side of the body.",
+    "They cluster and feed on the leaf underside, causing dense, tiny yellowish-white speckles (stippling) on the upper surface.",
+    "In severe cases leaves turn yellow-brown, dry up and drop.",
+    "At high populations, fine webbing appears on leaf undersides and between leaves."
+   ],
+   "conditions": "Severe in hot, dry weather; common in protected cultivation and the dry season. Outbreaks easily follow overuse of insecticides that kill natural enemies. They multiply fast and easily develop resistance.",
+   "prevention": [
+    "Release natural enemies, such as Neoseiulus fallacis and green lacewings (Mallada basalis).",
+    "Remove old lower leaves and weeds.",
+    "Keep humidity at a suitable level and avoid excessive dryness.",
+    "Avoid overuse of broad-spectrum insecticides."
+   ],
+   "control": [
+    "Use registered miticides and rotate modes of action (miticide resistance is a serious problem).",
+    "Spray the leaf undersides, and watch for effects of pesticides on natural enemies."
+   ],
+   "illus": [
+    {
+     "cap": "One dark spot on each side of the body (two-spotted)"
+    },
+    {
+     "cap": "Dense yellowish-white speckles and fine webbing"
+    }
+   ],
+   "cropNotes": {
+    "strawberry": "Cluster and feed on leaf undersides; leaves first show white speckles, then turn bronze-brown; numbers surge in hot, dry weather.",
+    "cucurbit": "Yellowish-white speckles on leaves; in severe cases leaves wither and yellow, with webbing.",
+    "papaya": "Leaves fade and yellow and drop early, affecting fruit development.",
+    "eggplant": "Leaves fade to grayish white; mites and fine webbing are visible on leaf undersides.",
+    "pepper": "Leaves fade and curl; in severe cases leaves drop.",
+    "tomato": "Leaves fade and yellow; in severe cases plants are webbed and leaves dry up.",
+    "citrus": "Grayish-white speckles on leaves, which lose their shine; fruit surface turns dull gray."
+   },
+   "sci": "Tetranychus urticae, Tetranychus kanzawai, etc."
+  },
+  "oriental-fruit-fly": {
+   "name": "Oriental fruit fly",
+   "summary": "One of the most important fruit tree pests in Taiwan; females lay eggs inside fruit, and the larvae (maggots) feed in the flesh, causing rot and fruit drop.",
+   "symptoms": [
+    "Adults are about 7–8 mm long, with a black thorax bearing a pair of yellow stripes and a black T-shaped mark on the abdomen.",
+    "Females pierce the fruit skin with the ovipositor to lay eggs, leaving small holes (sting marks) with discolored surroundings.",
+    "Larvae feed in the fruit flesh, causing fruit rot and early fruit drop."
+   ],
+   "conditions": "Occurs year-round, peaking in summer (about May–October); hosts include hundreds of fruit species.",
+   "prevention": [
+    "Bag the fruit.",
+    "Remove fallen and rotten fruit (bury deeply, or seal in bags and leave in the sun to kill the maggots); do not discard them carelessly.",
+    "Area-wide joint control works best."
+   ],
+   "control": [
+    "Use methyl eugenol (mixed with insecticide) to trap and kill males.",
+    "Use protein hydrolysate bait (attracts and kills both males and females).",
+    "Apply registered pesticides as spot sprays or bait sprays according to Taiwan's Plant Protection Manual."
+   ],
+   "illus": [
+    {
+     "cap": "Yellow stripes on thorax; black T mark on abdomen"
+    },
+    {
+     "cap": "Sting marks and rot on fruit"
+    }
+   ],
+   "cropNotes": {
+    "mango": "Damage is worst from the color-change stage onward; flesh rots around egg-laying holes and fruit drops early. Bagging is recommended.",
+    "guava": "Fruit can be attacked year-round; bagging is the most effective protection.",
+    "citrus": "The peel around egg-laying holes changes color early and softens, causing fruit drop.",
+    "papaya": "Mainly attacks ripe fruit; latex oozes from egg-laying holes and the flesh rots.",
+    "banana": "Mainly attacks overripe fruit; green fruit is seldom damaged. Harvesting early reduces losses."
+   }
+  },
+  "melon-fly": {
+   "name": "Melon fly",
+   "summary": "The main fruit pest of cucurbits; it lays eggs in young fruit, and the larvae bore into the flesh, causing rot and deformity.",
+   "symptoms": [
+    "Adults are yellowish brown, with brown bands on the wings and a brown spot at the wing tip.",
+    "Females lay eggs in young fruit, leaving sting marks and oozing gum on the fruit surface.",
+    "Larvae bore into the flesh, causing rot, deformity and fruit drop."
+   ],
+   "conditions": "Populations are high in warm seasons; cucurbits are most vulnerable at flowering and fruiting.",
+   "prevention": [
+    "Bag young fruit.",
+    "Remove damaged fruit.",
+    "Grow under net houses."
+   ],
+   "control": [
+    "Use Cue-lure to trap and kill males.",
+    "Use protein bait.",
+    "Apply registered pesticides according to Taiwan's Plant Protection Manual."
+   ],
+   "illus": [
+    {
+     "cap": "Brown wing bands and brown wing-tip spot"
+    },
+    {
+     "cap": "Egg-laying sting marks and rot on young fruit"
+    }
+   ],
+   "sci": "Zeugodacus cucurbitae (= Bactrocera cucurbitae)"
+  },
+  "fall-armyworm": {
+   "name": "Fall armyworm",
+   "summary": "A major pest that invaded Taiwan in 2019, mainly attacking corn whorls and ears.",
+   "symptoms": [
+    "The larval head has a distinct white inverted Y mark.",
+    "Near the tail end (8th abdominal segment), four black dots form a square on the back.",
+    "Feeds in the corn whorl, leaving many irregular holes and moist, sawdust-like frass.",
+    "Also bores into ears."
+   ],
+   "conditions": "In hot periods generations are short and reproduction is fast; adults are strong long-distance fliers.",
+   "prevention": [
+    "Check whorls regularly from the seedling stage for early detection.",
+    "Sow at the right time and in a synchronized way across the same area.",
+    "Monitor with sex pheromones, and remove weeds and crop residues from fields."
+   ],
+   "control": [
+    "Control is most effective when larvae are young (whorl stage); pour the spray solution into the whorl.",
+    "Rotate government-listed registered pesticides; biological products such as Bt can also be used."
+   ],
+   "illus": [
+    {
+     "cap": "White inverted Y on head; four black dots at tail"
+    },
+    {
+     "cap": "Many irregular holes and frass in the whorl"
+    }
+   ]
+  },
+  "brown-planthopper": {
+   "name": "Brown planthopper",
+   "summary": "A sap-sucking pest that clusters at the base of rice plants; high populations cause patches of plants to die in the field (hopperburn).",
+   "symptoms": [
+    "About 3–4 mm long and brown; clusters and feeds at the base of rice plants.",
+    "At high populations, plants yellow and wither from the bottom up.",
+    "Round patches of collapsed, dead plants appear in the field (hopperburn).",
+    "Transmits rice grassy stunt and rice ragged stunt diseases."
+   ],
+   "conditions": "Populations are high in hot, humid weather; mainly migrates in from overseas on air currents. Worse with excessive nitrogen and dense planting.",
+   "prevention": [
+    "Fertilize properly and avoid excessive nitrogen.",
+    "Plant at a suitable density to keep good airflow.",
+    "Choose resistant varieties.",
+    "When walking the field, part the rice hills and check the plant bases."
+   ],
+   "control": [
+    "Spray when populations increase; the spray must reach the plant bases.",
+    "Rotate registered pesticides."
+   ],
+   "illus": [
+    {
+     "cap": "Clustered at the base of rice plants"
+    },
+    {
+     "cap": "Round dead patches in the field (hopperburn)"
+    }
+   ]
+  },
+  "rice-leaffolder": {
+   "name": "Rice leaffolder",
+   "summary": "Larvae spin silk to fold rice leaves lengthwise into tubes and hide inside, eating the leaf tissue.",
+   "symptoms": [
+    "Larvae spin silk to fold leaves lengthwise into tubes and eat the leaf tissue inside.",
+    "Damaged leaves are left with white streaks of skin; many white folded leaves can be seen in the field.",
+    "Damage to the flag leaf affects yield."
+   ],
+   "conditions": "Worse in fields with excessive nitrogen and dark green leaves; mostly occurs in summer and autumn.",
+   "prevention": [
+    "Apply nitrogen fertilizer properly.",
+    "Protect natural enemies, such as parasitoid wasps and spiders."
+   ],
+   "control": [
+    "Spray when larvae are young.",
+    "Biological products such as Bacillus thuringiensis (Bt) can be used."
+   ],
+   "illus": [
+    {
+     "cap": "Leaf folded lengthwise into a tube, leaving white streaks"
+    }
+   ]
+  },
+  "asian-citrus-psyllid": {
+   "name": "Asian citrus psyllid",
+   "summary": "The vector of citrus greening (Huanglongbing); the new flush period is the key time for control.",
+   "symptoms": [
+    "Adults are about 3 mm; at rest they hold the head down and tail up, at about a 45-degree angle to the branch or leaf.",
+    "Nymphs are yellow-orange and flat, cluster on young shoots, and secrete white waxy threads.",
+    "New shoots curl and become deformed.",
+    "The greatest harm is transmitting citrus greening (Huanglongbing)."
+   ],
+   "conditions": "Populations surge during new flush; orange jasmine (Murraya paniculata) is an important host.",
+   "prevention": [
+    "Prune uniformly so new shoots flush at the same time, making control easier.",
+    "Remove orange jasmine around the orchard.",
+    "Monitor with yellow sticky cards."
+   ],
+   "control": [
+    "Apply registered pesticides at bud break (when new buds just emerge).",
+    "Area-wide joint control works best."
+   ],
+   "illus": [
+    {
+     "cap": "Adult rests at a 45-degree angle; nymphs have white wax"
+    }
+   ]
+  },
+  "leafminer": {
+   "name": "Leafminers",
+   "summary": "Larvae tunnel inside leaves, forming white winding mines.",
+   "symptoms": [
+    "Leaves show white, winding, snake-like mines with a black line of frass inside.",
+    "Female adults leave small white dots on the leaf surface when laying eggs or feeding.",
+    "In severe cases leaves dry up."
+   ],
+   "conditions": "Populations are high in warm, dry weather; common in protected cultivation.",
+   "prevention": [
+    "Use yellow sticky cards to trap adults.",
+    "Remove damaged leaves.",
+    "Remove weeds and use insect-proof netting."
+   ],
+   "control": [
+    "Rotate registered pesticides.",
+    "Protect natural enemies such as parasitoid wasps."
+   ],
+   "illus": [
+    {
+     "cap": "White winding mines with a black frass line inside"
+    }
+   ],
+   "sci": "Liriomyza sativae, Liriomyza trifolii, etc."
+  },
+  "golden-apple-snail": {
+   "name": "Golden apple snail",
+   "summary": "An invasive species that eats newly transplanted rice seedlings, leaving gaps in the stand.",
+   "symptoms": [
+    "Shell is yellowish brown to blackish brown.",
+    "Lays bright pink egg masses on field ridges, rice stems or the stems of aquatic plants.",
+    "Eats the base of seedlings, leaving missing plants."
+   ],
+   "conditions": "Very active when fields are flooded; seedlings are tender and most vulnerable from transplanting to early tillering.",
+   "prevention": [
+    "After transplanting, keep the water shallow or drain appropriately (shallow water limits snail movement and feeding).",
+    "Install mesh screens at water inlets.",
+    "Hand-pick snails and scrape off egg masses.",
+    "Dig snail-collecting ditches in the field and use larger seedlings."
+   ],
+   "control": [
+    "Use registered control materials (e.g., tea seed meal), and watch for effects on fish and other aquatic life."
+   ],
+   "illus": [
+    {
+     "cap": "Snail and bright pink egg masses"
+    }
+   ]
+  },
+  "flea-beetle": {
+   "name": "Striped flea beetle",
+   "summary": "A common small beetle on crucifers; adults chew dense small holes in leaves, and larvae damage roots in the soil.",
+   "symptoms": [
+    "Adults are about 2 mm, shiny black, with a curved yellow stripe on each wing cover; they jump away when disturbed.",
+    "Adults feed on leaves, leaving dense small round holes (like a shotgun blast).",
+    "Larvae damage roots in the soil; radish surfaces show tunnels and black spots."
+   ],
+   "conditions": "Severe with continuous cropping of crucifers and in hot, dry weather.",
+   "prevention": [
+    "Rotate with non-cruciferous crops.",
+    "Flood the field during land preparation to drown larvae and pupae in the soil.",
+    "Grow under net houses and use yellow sticky cards."
+   ],
+   "control": [
+    "Following Taiwan's Plant Protection Manual, treat the soil before sowing and spray at the seedling stage."
+   ],
+   "illus": [
+    {
+     "cap": "Black wing covers, each with a curved yellow stripe"
+    },
+    {
+     "cap": "Dense small round holes in leaves"
+    }
+   ]
+  },
+  "root-knot-nematode": {
+   "name": "Root-knot nematodes",
+   "summary": "Microscopic worms that parasitize roots, causing bead-like galls on roots and poor top growth.",
+   "symptoms": [
+    "Above ground, plants grow poorly, are stunted, have yellow leaves, and wilt at midday in hot weather.",
+    "Roots form galls of different sizes, often like strings of beads.",
+    "Unlike clubroot, nematode galls are swelling of the root tissue itself.",
+    "The root system shrinks, making secondary infections such as bacterial wilt and Fusarium wilt more likely."
+   ],
+   "conditions": "Severe in sandy soils, with continuous cropping, and in hot weather.",
+   "prevention": [
+    "Rotate with paddy rice (flooding).",
+    "Rotate with non-host crops, such as marigold or sunn hemp green manure.",
+    "Use disease-free seedlings.",
+    "In summer, cover the soil with plastic sheeting for solar sterilization (solarization), and add more organic matter."
+   ],
+   "control": [
+    "Before transplanting, use registered soil treatment pesticides or biological products."
+   ],
+   "illus": [
+    {
+     "cap": "Bead-like galls on roots"
+    },
+    {
+     "cap": "Nematode (microscope view, illustration)"
+    }
+   ],
+   "cropNotes": {
+    "tomato": "Roots form bead-like galls of various sizes; plants wilt during the day and grow poorly.",
+    "cucurbit": "Obvious root galls; plants are yellow and stunted, with small fruit.",
+    "banana": "Roots swell and deform; plants grow slowly, topple easily and bear small bunches.",
+    "papaya": "Root galls stall plant growth and cause yellow leaves.",
+    "guava": "Root galls with root rot; plants weaken, leaves yellow and drop early."
+   }
+  },
+  "scale-insects": {
+   "name": "Scale insects and mealybugs",
+   "summary": "Sap-sucking pests that stay fixed on branches, leaves and fruit, protected by a waxy shell; their honeydew leads to sooty mold.",
+   "symptoms": [
+    "Insects stay fixed on branches, leaves and fruit surfaces, covered with a waxy scale or white powdery wax (mealybugs).",
+    "Feeding causes branches and leaves to yellow and weakens the tree.",
+    "Honeydew leads to sooty mold, damaging fruit appearance."
+   ],
+   "conditions": "Severe with poor airflow and dense canopies; ants carry and protect scale insects.",
+   "prevention": [
+    "Prune to keep good airflow.",
+    "Cut out heavily infested branches.",
+    "Control ants.",
+    "Protect natural enemies (lady beetles, parasitoid wasps)."
+   ],
+   "control": [
+    "Spraying works best when nymphs hatch (before the waxy scale forms).",
+    "Registered mineral oil (narrow-range oil) can be used."
+   ],
+   "illus": [
+    {
+     "cap": "Scales and white mealybugs on a branch"
+    },
+    {
+     "cap": "Honeydew leads to sooty mold"
+    }
+   ],
+   "cropNotes": {
+    "citrus": "Fixed on leaves, branches and fruit while feeding; leave spots on the fruit surface and cause sooty mold.",
+    "mango": "Leaves and branches are covered with scales; the tree weakens and sooty mold develops."
+   },
+   "sci": "Diaspididae, Coccidae, Pseudococcidae, etc."
+  },
+  "def-n": {
+   "name": "Nitrogen (N) deficiency",
+   "summary": "The most common nutrient deficiency. Nitrogen moves easily inside the plant and is shifted from old leaves to new leaves, so the old leaves turn evenly yellow first.",
+   "symptoms": [
+    "Lower, older leaves turn evenly yellow first (veins included), then the yellowing gradually moves upward.",
+    "Plants are stunted, with few tillers or branches.",
+    "Leaves are small and thin.",
+    "Plants mature early and yields drop."
+   ],
+   "conditions": "Deficiency is common in sandy soils, soils low in organic matter, and after heavy rain leaches the soil. Applying large amounts of uncomposted, high C:N organic material (such as rice hulls or sawdust) causes nitrogen starvation.",
+   "prevention": [
+    "Fertilize in split applications based on soil analysis and crop needs.",
+    "Add more well-composted organic matter.",
+    "Grow legume green manure crops."
+   ],
+   "control": [
+    "Top-dress with a fast-acting nitrogen fertilizer (e.g. urea, ammonium sulfate).",
+    "Or spray a low-concentration urea solution on the leaves (about 0.3-0.5%).",
+    "Do not over-apply: too much nitrogen causes excessive leafy growth and attracts pests and diseases."
+   ],
+   "illus": [
+    {
+     "cap": "Old leaves evenly yellow (veins included)",
+     "tag": "Old leaves"
+    },
+    {
+     "cap": "Symptoms start on the lower, older leaves"
+    }
+   ],
+   "cropNotes": {
+    "rice": "Whole field looks pale yellow-green, lower leaves yellow first; few tillers, short plants, fewer panicles and fewer grains per panicle.",
+    "corn": "Lower leaves yellow in a V shape from the tip along the midrib, spreading toward the leaf base until the whole leaf dies back.",
+    "tomato": "Lower leaves evenly yellow, stems thin and hard, veins on the leaf underside may turn purple; few flowers, small fruit.",
+    "crucifer": "Outer leaves yellow and drop early; plants are small, heads small and loose.",
+    "cucurbit": "Old leaves yellow, vines thin and weak; few female flowers, fruit small and pale.",
+    "strawberry": "Old leaves yellow, then turn reddish brown; few runners, small plants, small fruit.",
+    "citrus": "Leaves evenly pale yellow, new shoots short and weak, more leaf drop, poor fruit set.",
+    "banana": "Leaves pale green, petioles and leaf sheaths slightly pinkish; new leaves emerge slowly and the spacing between leaves shortens."
+   }
+  },
+  "def-p": {
+   "name": "Phosphorus (P) deficiency",
+   "summary": "Plants are stunted with dark green leaves tinged purplish red; especially obvious in corn and tomato seedlings.",
+   "symptoms": [
+    "Plants are stunted and grow slowly.",
+    "Leaves are dark green; old leaves, stems or leaf undersides turn purplish red (anthocyanin buildup, especially obvious in corn).",
+    "Poor root development.",
+    "Flowering and fruiting are delayed."
+   ],
+   "conditions": "Deficiency is common in acidic soils (phosphorus fixed by iron and aluminum) or alkaline soils (phosphorus fixed by calcium); roots take up less phosphorus in cold weather.",
+   "prevention": [
+    "Apply phosphate fertilizer (e.g. superphosphate) as a basal dressing, placed close to the roots.",
+    "Adjust soil pH to about 6-7.",
+    "Add more organic matter."
+   ],
+   "control": [
+    "Top-dress with a water-soluble phosphate fertilizer, or spray monopotassium phosphate on the leaves.",
+    "In cold periods, raise soil temperature (e.g. with mulch)."
+   ],
+   "illus": [
+    {
+     "cap": "Dark green leaves, purplish red margins and undersides",
+     "tag": "Old leaves"
+    },
+    {
+     "cap": "Appears on lower leaves first"
+    }
+   ],
+   "cropNotes": {
+    "rice": "Leaves dark green, upright and narrow; few tillers; heading and maturity delayed.",
+    "corn": "Purplish red leaf tips and margins on young plants are the clearest sign; slow growth; more common in cool weather.",
+    "tomato": "Leaf undersides and veins turn purple; plants stunted; flowering and fruiting delayed.",
+    "strawberry": "Old leaves dark green tinged purplish red; slow growth, few flowers.",
+    "citrus": "Peel thick and coarse, large fruit core, little juice and high acidity."
+   }
+  },
+  "def-k": {
+   "name": "Potassium (K) deficiency",
+   "summary": "Margins and tips of old leaves yellow first and then scorch; fruit quality drops and stems lodge easily.",
+   "symptoms": [
+    "Margins and tips of lower, older leaves yellow first, then turn brown and scorched, while the leaf center stays green.",
+    "Small brown spots may appear on leaves.",
+    "Stems are thin and weak and lodge easily.",
+    "Fruit is small with poor color and low sugar (e.g. uneven ripening in tomato)."
+   ],
+   "conditions": "Deficiency is common in sandy soils and after heavy rain leaches the soil; large harvests remove a lot of potassium; excess calcium and magnesium compete with potassium uptake.",
+   "prevention": [
+    "Apply potassium fertilizer (e.g. potassium chloride, potassium sulfate) based on soil analysis.",
+    "Increase the rate during the fruiting stage."
+   ],
+   "control": [
+    "Top-dress with potassium fertilizer, or spray potassium sulfate or monopotassium phosphate on the leaves."
+   ],
+   "illus": [
+    {
+     "cap": "Leaf margins and tips yellow, then scorch",
+     "tag": "Old leaves"
+    },
+    {
+     "cap": "Starts on lower, older leaves"
+    }
+   ],
+   "cropNotes": {
+    "rice": "Small brown spots and scorching on tips and margins of lower leaves (bronzing); lodges easily, more disease.",
+    "corn": "Lower leaf margins scorched; stalks soft and prone to lodging; poor kernel fill at the ear tip.",
+    "potato": "Old leaves dark green with a bronze sheen, margins scorched; tubers small and poor quality.",
+    "tomato": "Old leaf margins scorched; uneven fruit color (green shoulders, blotchy ripening), bland flavor.",
+    "cucurbit": "Old leaf margins yellow and scorch; fruit sizes poorly, often misshapen with a narrow blossom end.",
+    "strawberry": "Old leaf margins scorched; fruit soft, lacking sweetness and flavor.",
+    "citrus": "Fruit small with thin peel that splits easily; leaves curl and crinkle.",
+    "banana": "Old leaf tips quickly yellow, turn orange-brown and bend downward; small bunches, short fingers.",
+    "grape": "Old leaf margins scorch in summer, leaf surface turns dark purplish brown; berries color poorly, low sugar."
+   }
+  },
+  "def-mg": {
+   "name": "Magnesium (Mg) deficiency",
+   "summary": "Old leaves yellow between the veins while the veins stay green, forming a clear green net pattern. Common when fruit load is heavy.",
+   "symptoms": [
+    "Lower, older leaves yellow between the veins while the veins stay green, forming a clear green net (herringbone) pattern.",
+    "In severe cases the yellow areas turn reddish brown or die.",
+    "Citrus leaves often keep an inverted V-shaped green area at the base."
+   ],
+   "conditions": "Deficiency is common in acidic sandy soils; heavy use of potassium fertilizer or ammonium nitrogen competes with magnesium uptake; a heavy fruit load drains large amounts of nutrients.",
+   "prevention": [
+    "Apply dolomitic lime (dolomite powder) to acidic soils.",
+    "Apply potassium fertilizer in balance and avoid excess."
+   ],
+   "control": [
+    "Spray magnesium sulfate on the leaves (about 1-2%) several times in a row.",
+    "Apply magnesium sulfate to the soil."
+   ],
+   "illus": [
+    {
+     "cap": "Yellowing between veins, veins stay green",
+     "tag": "Old leaves"
+    },
+    {
+     "cap": "Starts on lower, older leaves"
+    }
+   ],
+   "cropNotes": {
+    "corn": "Yellowish white stripes between the veins of lower leaves; veins stay green.",
+    "tomato": "Lower leaves yellow between the veins; most common with heavy fruit load and during fruit enlargement.",
+    "cucurbit": "Old leaves yellow between the veins, spreading inward from the margin; most obvious on heavily fruiting plants.",
+    "citrus": "Old leaves on fruiting shoots yellow on both sides of the midrib, leaving an inverted V-shaped green area at the base; worst on heavily fruiting branches.",
+    "banana": "Old leaves yellow from the margin toward the midrib, with green bands kept along both sides of the midrib; petioles may show purple mottling.",
+    "grape": "Old leaves yellow between the veins (white varieties) or turn reddish purple (red and black varieties); veins stay green."
+   }
+  },
+  "def-ca": {
+   "name": "Calcium (Ca) deficiency",
+   "summary": "Calcium moves poorly inside the plant, so symptoms appear on fruit and new leaves, e.g. tomato blossom-end rot and cabbage tipburn.",
+   "symptoms": [
+    "New tissue is affected first (calcium moves poorly).",
+    "On tomato and sweet pepper, the blossom end of the fruit first looks water-soaked, then turns dark brown and sunken (blossom-end rot).",
+    "Inner leaf margins of cabbage, Chinese cabbage and lettuce turn brown and scorched (heart rot, tipburn).",
+    "Growing points shrivel."
+   ],
+   "conditions": "A lack of calcium in the soil is often not the main cause. More often it is uneven water supply (big swings between wet and dry), fast transpiration in hot weather, or excess ammonium nitrogen or potassium competing with calcium, so calcium cannot reach the fruit and inner leaves. Root damage can also cause it.",
+   "prevention": [
+    "Keep soil moisture steady (mulching, drip irrigation).",
+    "Apply lime to acidic soils.",
+    "Avoid over-applying ammonium nitrogen and potassium fertilizer.",
+    "In greenhouses, ventilate well and manage temperature and humidity."
+   ],
+   "control": [
+    "At early fruit enlargement, spray a calcium product (e.g. calcium chloride, calcium nitrate) on the leaves and onto the fruit; watch the concentration to avoid spray injury.",
+    "Remove affected fruit."
+   ],
+   "illus": [
+    {
+     "cap": "Dark brown sunken blossom end on tomato (blossom-end rot)"
+    },
+    {
+     "cap": "Inner leaf margins scorched (tipburn)",
+     "tag": "New leaves"
+    }
+   ],
+   "cropNotes": {
+    "tomato": "Blossom-end rot: a water-soaked, brownish black sunken patch at the fruit tip (where the flower fell); common in drought or with uneven watering.",
+    "pepper": "Grayish white to brown sunken dry patches on the lower half or side of the fruit (blossom-end rot); common in hot, dry periods.",
+    "crucifer": "Inner leaf margins of heading Chinese cabbage and cabbage turn brown and scorched (heart rot, tipburn); the head looks normal outside and the damage only shows when cut open.",
+    "cucurbit": "Sunken black rot at the blossom end of watermelon and other fruit (blossom-end rot); new leaf margins dry and curl.",
+    "potato": "Brown spots or hollows inside tubers; terminal buds die.",
+    "strawberry": "New leaf tips scorched and crinkled (tipburn), sepal tips turn brown; common in hot weather with high transpiration, or when humidity is too high.",
+    "mango": "Flesh at the fruit tip softens early and looks water-soaked (soft nose), linked to low calcium in the fruit."
+   }
+  },
+  "def-fe": {
+   "name": "Iron (Fe) deficiency",
+   "summary": "Common in alkaline soils. New leaves turn yellowish white between the veins while the veins stay green in a fine net.",
+   "symptoms": [
+    "New leaves yellow between the veins first; veins stay green in a fine net pattern.",
+    "In severe cases whole new leaves turn yellowish white.",
+    "Old leaves are usually normal."
+   ],
+   "conditions": "Iron is poorly soluble in alkaline or calcareous soils (pH above about 7.5). It also occurs with poor drainage, excess phosphate fertilizer or too much manganese. Common in citrus, blueberry and others.",
+   "prevention": [
+    "Correct soil pH (e.g. apply sulfur powder or acidic organic matter).",
+    "Improve drainage.",
+    "Use alkaline-tolerant rootstocks."
+   ],
+   "control": [
+    "Spray chelated iron (e.g. Fe-EDTA) on the leaves several times in a row.",
+    "For soil application in alkaline soils, use Fe-EDDHA."
+   ],
+   "illus": [
+    {
+     "cap": "New leaves yellowish white between veins, fine green net",
+     "tag": "New leaves"
+    },
+    {
+     "cap": "Starts on upper, new leaves"
+    }
+   ],
+   "cropNotes": {
+    "rice": "Seedlings in upland fields or alkaline soils: new leaves yellowish white and striped, growth stops.",
+    "strawberry": "New leaves yellowish white with green veins; common when soil is alkaline, too wet or poorly drained.",
+    "citrus": "New leaves yellowish white between the veins with a green vein network; most common on alkaline or calcareous soils.",
+    "grape": "On calcareous soils, leaves on new shoots turn yellowish white; in severe cases leaf margins scorch and clusters develop poorly.",
+    "mango": "Leaves on new shoots turn yellowish white; more common on alkaline soils or when roots are damaged."
+   }
+  },
+  "def-b": {
+   "name": "Boron (B) deficiency",
+   "summary": "Growing points and reproductive organs are hit first, causing hollow stems, flower drop, cracked fruit and misshapen fruit.",
+   "symptoms": [
+    "Growing points shrivel and die; new leaves are misshapen, thick and brittle.",
+    "Cauliflower and cabbage stems turn hollow and brown inside (hollow stem); radish gets brown heart.",
+    "Flower drop and poor fruit set.",
+    "Fruit cracks and is misshapen (e.g. bumpy papaya fruit, hardened citrus peel)."
+   ],
+   "conditions": "Deficiency is common in sandy soils, after heavy rain leaches the soil, or in drought; heavy liming that raises pH can also cause it.",
+   "prevention": [
+    "Apply a moderate amount of borax or borate in the basal dressing.",
+    "Caution: the safe range for boron is very narrow, and too much easily causes toxicity."
+   ],
+   "control": [
+    "Spray boric acid or borax on the leaves around flowering (about 0.1-0.2%).",
+    "Never over-apply."
+   ],
+   "illus": [
+    {
+     "cap": "Growing point shrivels and dies"
+    },
+    {
+     "cap": "Fruit cracked and misshapen"
+    }
+   ],
+   "cropNotes": {
+    "corn": "Ears poorly filled, with missing kernels or irregular rows on the cob.",
+    "tomato": "Growing point dies, internodes shorten; fruit surface cracks or turns corky.",
+    "crucifer": "Cauliflower curds turn brown and stems are hollow (hollow stem); radish roots have brown heart inside.",
+    "strawberry": "New leaves crinkled and misshapen, leaf tips scorched; fruit small and misshapen with few seeds.",
+    "citrus": "Peel thickens and hardens, fruit misshapen, gummy brown spots in the peel and core.",
+    "grape": "Poor berry set, berries of mixed sizes in the same cluster (hens and chicks); short internodes on new shoots.",
+    "papaya": "Fruit surface bumpy and lumpy, often with hard lumps of congealed latex in the flesh; fruit drops easily."
+   }
+  },
+  "def-zn": {
+   "name": "Zinc (Zn) deficiency",
+   "summary": "New leaves are small and narrow, internodes short and clustered (little leaf), with mottled yellowing between the veins.",
+   "symptoms": [
+    "New leaves are small and narrow, internodes short, growing in clusters (little leaf, rosette).",
+    "Mottled yellowing between the veins.",
+    "Corn shows broad white bands at the base of new leaves (white bud).",
+    "Citrus leaves show yellow-green mottling; zinc deficiency mottling is symmetrical on both sides of the midrib, unlike the asymmetrical mottling of citrus greening (HLB)."
+   ],
+   "conditions": "Common in alkaline soils, with heavy phosphate fertilizer use (phosphorus competes with zinc), where topsoil has eroded, and in cold weather.",
+   "prevention": [
+    "Avoid over-applying phosphate fertilizer.",
+    "Apply zinc sulfate in the basal dressing."
+   ],
+   "control": [
+    "Spray zinc sulfate (about 0.2-0.5%) or chelated zinc on the leaves."
+   ],
+   "illus": [
+    {
+     "cap": "Small new leaves, short internodes, clustered growth"
+    },
+    {
+     "cap": "Mottled yellowing between veins (symmetrical)",
+     "tag": "New leaves"
+    }
+   ],
+   "cropNotes": {
+    "rice": "2-4 weeks after transplanting, brown spots appear on lower leaves, plants are stunted and tillering stops (commonly called rice leaf-shrink).",
+    "corn": "Broad white to pale yellow stripes on both sides of the base of new leaves on young plants (white bud); short internodes.",
+    "citrus": "Leaves on new shoots small and pointed, mottled yellow between the veins (little leaf); short internodes, bunched twigs.",
+    "mango": "New shoots with clusters of small leaves, short internodes; leaves small and thick."
+   }
+  },
+  "def-mn": {
+   "name": "Manganese (Mn) deficiency",
+   "summary": "New or middle leaves turn pale yellow between the veins, with green bands kept along the veins and blurry edges.",
+   "symptoms": [
+    "New or middle leaves turn pale yellow between the veins; veins and bands along both sides stay green.",
+    "The edges of the mottling are less sharp than with iron deficiency.",
+    "Sometimes tiny brown dead spots appear."
+   ],
+   "conditions": "Common in alkaline soils, soils with too much organic matter, and after over-liming.",
+   "prevention": [
+    "Avoid over-applying lime.",
+    "Keep soil pH in a suitable range."
+   ],
+   "control": [
+    "Spray manganese sulfate on the leaves (about 0.2-0.3%)."
+   ],
+   "illus": [
+    {
+     "cap": "Pale yellow between veins, green bands along veins",
+     "tag": "New leaves"
+    }
+   ],
+   "cropNotes": {
+    "citrus": "New leaves pale green between the veins, with wider dark green bands along both sides of the veins; yellowing is milder than with iron deficiency."
+   }
+  },
+  "def-s": {
+   "name": "Sulfur (S) deficiency",
+   "summary": "New leaves turn evenly yellow and look like nitrogen deficiency, but nitrogen deficiency starts on old leaves while sulfur deficiency starts on new leaves.",
+   "symptoms": [
+    "New leaves turn evenly yellow first (veins included).",
+    "Looks like nitrogen deficiency, but nitrogen deficiency appears on old leaves first.",
+    "Plants are stunted.",
+    "Crucifers and onion/garlic crops need a lot of sulfur and show it more easily."
+   ],
+   "conditions": "Deficiency is common in sandy soils and soils low in organic matter; long-term use of only high-analysis chemical fertilizers that contain no sulfur can also cause it.",
+   "prevention": [
+    "Use sulfur-containing fertilizers such as ammonium sulfate, potassium sulfate or gypsum.",
+    "Add more organic matter."
+   ],
+   "control": [
+    "Top-dress with ammonium sulfate or potassium sulfate."
+   ],
+   "illus": [
+    {
+     "cap": "New leaves evenly yellow",
+     "tag": "New leaves"
+    },
+    {
+     "cap": "Starts on upper, new leaves"
+    }
+   ],
+   "cropNotes": {
+    "rice": "Whole plant pale yellow, more obvious on new leaves; similar to nitrogen deficiency but new leaves yellow first.",
+    "crucifer": "Crucifers need a lot of sulfur; when deficient, new leaves yellow and get smaller, and leaf undersides may turn purplish red.",
+    "corn": "New leaves pale yellow with stripes; plants grow slowly."
+   }
+  }
+ }
+}

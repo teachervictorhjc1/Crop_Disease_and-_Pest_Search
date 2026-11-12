@@ -1,5 +1,6 @@
 // AI 拍照診斷：照片縮圖與呼叫 Supabase Edge Function
 import { CONFIG } from './config.js';
+import { t, lang } from './i18n.js';
 
 /** 是否已設定雲端（AI 診斷需要 Supabase Edge Function） */
 export const aiAvailable = () => Boolean(CONFIG.SUPABASE_URL && CONFIG.SUPABASE_ANON_KEY);
@@ -70,7 +71,7 @@ const ERRORS = {
   timeout: 'AI 回應逾時，請檢查網路後再試一次。',
   offline: '目前沒有網路，AI 拍照診斷需要連網。可先用下方的手動勾選。',
 };
-export const errorMessage = (code) => ERRORS[code] || 'AI 診斷暫時無法使用，請稍後再試。';
+export const errorMessage = (code) => t(ERRORS[code] || 'AI 診斷暫時無法使用，請稍後再試。');
 
 /**
  * 呼叫 AI 診斷
@@ -90,7 +91,8 @@ export async function aiDiagnose({ base64, mime, crop, note }) {
     res = await fetch(`${CONFIG.SUPABASE_URL.replace(/\/+$/, '')}/functions/v1/diagnose`, {
       method: 'POST',
       headers,
-      body: JSON.stringify({ image: base64, mime, crop: crop || '', note: note || '' }),
+      // lang：AI 回覆（觀察、理由、建議）使用的語言
+      body: JSON.stringify({ image: base64, mime, crop: crop || '', note: note || '', lang }),
       signal: ctrl.signal,
     });
   } catch (err) {

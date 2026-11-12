@@ -1,6 +1,6 @@
 // Service Worker：離線快取
 // 更新 App 檔案後請把 VERSION 加 1，讓使用者取得新版。
-const VERSION = 'v6';
+const VERSION = 'v7';
 const SHELL = `shell-${VERSION}`;
 const RUNTIME = `runtime-${VERSION}`;
 const PHOTOS = 'photos-v1';
@@ -15,6 +15,9 @@ const SHELL_FILES = [
   './js/photo.js',
   './js/expert-api.js',
   './js/expert.js',
+  './js/i18n.js',
+  './js/i18n-en.js',
+  './data/i18n/en.json',
   './js/config.js',
   './data/meta.json',
   './data/crops.json',

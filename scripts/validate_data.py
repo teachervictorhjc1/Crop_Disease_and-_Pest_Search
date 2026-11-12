@@ -10,6 +10,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -22,6 +23,59 @@ ILLUS_KINDS = {"leaf", "fruit", "plant", "stem", "roots", "bug"}
 
 def load(name: str):
     return json.loads((DATA / name).read_text(encoding="utf-8"))
+
+
+CJK = re.compile(r"[一-鿿]")
+JS = DATA.parent / "js"
+
+
+def ui_keys() -> set[str]:
+    """程式中 t('...') 使用到的介面文字（以中文原文為 key）"""
+    keys: set[str] = set()
+    for f in JS.glob("*.js"):
+        if f.name.startswith("i18n"):
+            continue
+        keys |= {m.group(1) for m in re.finditer(r"\bt\('((?:[^'\\]|\\.)*)'", f.read_text(encoding="utf-8"))}
+    photo = (JS / "photo.js").read_text(encoding="utf-8")
+    block = photo.split("const ERRORS = {", 1)[1].split("};", 1)[0]
+    keys |= set(re.findall(r":\s*'([^']*)'", block))
+    html = (DATA.parent / "index.html").read_text(encoding="utf-8")
+    keys |= set(re.findall(r'data-i18n(?:-placeholder|-label)?="([^"]*)"', html))
+    return keys
+
+
+def check_i18n(meta: dict, crops: list, issues: list) -> list[str]:
+    """檢查英文翻譯：介面文字是否齊全、資料翻譯是否與原資料對得上"""
+    errors: list[str] = []
+    en_js = (JS / "i18n-en.js").read_text(encoding="utf-8")
+    en_keys = set(re.findall(r"^\s*'((?:[^'\\]|\\.)*)':", en_js, re.M))
+    groups = {c["group"] for c in crops}
+    for k in sorted((ui_keys() | groups) - en_keys):
+        errors.append(f"[i18n] 介面文字缺少英文：{k}")
+
+    path = DATA / "i18n" / "en.json"
+    if not path.exists():
+        return errors + ["[i18n] 缺少 data/i18n/en.json"]
+    tr = json.loads(path.read_text(encoding="utf-8"))
+    for sec, items in (("crops", crops), ("types", meta["types"]), ("parts", meta["parts"]), ("tags", meta["tags"])):
+        for x in items:
+            if not tr.get(sec, {}).get(x["id"], {}).get("name"):
+                errors.append(f"[i18n] {sec}.{x['id']} 缺少英文名稱")
+    for it in issues:
+        iid, o = it["id"], tr.get("issues", {}).get(it["id"])
+        if not o:
+            errors.append(f"[i18n] 條目 {iid} 缺少英文翻譯")
+            continue
+        for k in ("symptoms", "prevention", "control"):
+            if len(o.get(k, [])) != len(it.get(k, [])):
+                errors.append(f"[i18n] {iid}.{k} 項目數與中文不同（修改中文後請同步更新翻譯）")
+        if len(o.get("illus", [])) != len(it.get("illus", [])):
+            errors.append(f"[i18n] {iid}.illus 數量與中文不同")
+        if set(o.get("cropNotes", {})) != set(it.get("cropNotes", {})):
+            errors.append(f"[i18n] {iid}.cropNotes 作物與中文不同")
+        if CJK.search(json.dumps(o, ensure_ascii=False)):
+            errors.append(f"[i18n] {iid} 的英文翻譯含有中文字")
+    return errors
 
 
 def main() -> int:
@@ -80,6 +134,8 @@ def main() -> int:
                 errors.append(f"[{iid}] 第 {n + 1} 張示意圖類型錯誤：{g.get('k')}")
             if not g.get("cap"):
                 errors.append(f"[{iid}] 第 {n + 1} 張示意圖缺少說明 cap")
+
+    errors += check_i18n(meta, crops, issues)
 
     counts = {t: sum(1 for i in issues if i.get("type") == t) for t in sorted(types)}
     print(f"作物 {len(crops)} 種；條目 {len(issues)} 筆：{counts}")

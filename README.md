@@ -16,6 +16,7 @@
 | 條目詳情 | 特徵示意圖、症狀、好發條件、預防與栽培管理、防治方法、相關條目。 |
 | 實拍照片 | 優先顯示專家建檔的照片（資料庫）；選定作物時只顯示該作物的照片。沒有時才從 Wikimedia Commons 搜尋，並標示作者與授權。 |
 | 專家建檔 | 專家登入後拍照／上傳（縮到 1024px），填寫作物、部位、症狀特徵（既有或自訂）與診斷（既有條目或自訂），照片以 CC BY 4.0 公開。網址：`#/expert`（關於頁有連結）。 |
+| 多國語言 | 右上角切換繁體中文／English（記住選擇；瀏覽器語言非中文時預設英文；網址加 `?lang=en` 可直接開英文版）。AI 拍照診斷也會用所選語言回覆。 |
 | 離線使用 | Service Worker 快取 App 與資料。 |
 
 目前收錄：**20 種病害、17 種蟲害、10 種營養缺乏**，涵蓋 15 類作物（水稻、玉米、馬鈴薯、番茄、辣椒、茄子、十字花科、瓜類、草莓、柑橘、香蕉、芒果、葡萄、木瓜、番石榴）。
@@ -32,9 +33,12 @@ web/                      ← 要部署的網站（純靜態）
   js/data.js              資料載入（Supabase 優先，失敗時改用 JSON）
   js/illus.js             特徵示意圖產生器（程式繪製 SVG）
   js/config.js            Supabase 連線設定
+  js/i18n.js              多國語言（語言切換、介面翻譯、資料翻譯合併）
+  js/i18n-en.js           英文介面文字
   data/meta.json          類別、部位、症狀特徵標籤
   data/crops.json         作物清單
   data/issues.json        病害／蟲害／營養缺乏條目（主要資料）
+  data/i18n/en.json       條目、作物、標籤的英文翻譯
   manifest.webmanifest    PWA 設定
   sw.js                   Service Worker（離線快取）
   icons/                  App 圖示
@@ -144,6 +148,14 @@ Gemini API key 只存在 Supabase Secrets，不會出現在前端或 git。
 2. `uv run scripts/validate_data.py` 驗證。
 3. 有使用 Supabase 時：`uv run scripts/build_seed_sql.py`，再到 SQL Editor 執行新的 `seed.sql`（可重複執行）。
 4. 修改了 App 檔案時，把 `web/sw.js` 裡的 `VERSION` 加 1，使用者才會拿到新版。
+
+### 多國語言
+
+- **介面文字**：程式中以 `t('中文原文')` 包住，英文寫在 `web/js/i18n-en.js`（key 為中文原文）。
+- **資料翻譯**：`web/data/i18n/en.json`，依條目 id 對應 `name`、`summary`、`symptoms`、`conditions`、`prevention`、`control`、`illus[].cap`、`cropNotes`。
+  `symptoms` 等陣列的項目數必須與中文相同；只在 Supabase 新增、尚未翻譯的條目會以中文顯示。
+- 修改中文資料或介面文字後，`uv run scripts/validate_data.py` 會列出缺少或對不上的英文翻譯。
+- 新增其他語言：在 `i18n.js` 的 `LANGS` 加一筆，並建立 `i18n-<語言>.js` 與 `data/i18n/<語言>.json`。
 
 ### 條目欄位
 

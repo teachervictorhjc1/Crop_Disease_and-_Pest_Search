@@ -1,5 +1,6 @@
 // 專家帳號登入與專家照片資料存取（直接呼叫 Supabase REST API，不需 SDK、不需建置）
 import { CONFIG } from './config.js';
+import { t } from './i18n.js';
 
 const BASE = () => CONFIG.SUPABASE_URL.replace(/\/+$/, '');
 const KEY = () => CONFIG.SUPABASE_ANON_KEY;
@@ -87,7 +88,7 @@ export async function getSession() {
 
 async function authHeaders(extra = {}) {
   const s = await getSession();
-  if (!s) throw new ApiError(401, '登入已過期，請重新登入');
+  if (!s) throw new ApiError(401, t('登入已過期，請重新登入。'));
   return { apikey: KEY(), Authorization: `Bearer ${s.access_token}`, ...extra };
 }
 
@@ -122,7 +123,7 @@ async function uploadObject(path, blob) {
   });
   if (!res.ok) {
     const data = await res.json().catch(() => ({}));
-    throw new ApiError(res.status, `照片上傳失敗：${data.message || data.error || res.status}`);
+    throw new ApiError(res.status, t('照片上傳失敗：') + (data.message || data.error || res.status));
   }
 }
 

@@ -62,6 +62,18 @@ img, svg { max-width: 100%; }
 .search-wrap { padding-top: 0; padding-bottom: 12px; }
 .brand { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 700; font-size: 1.15rem; }
 .brand img { border-radius: 8px; background: #fff2; }
+.appbar-inner .brand { margin-right: auto; }
+.lang-sel { display: flex; align-items: center; gap: 4px; color: #fff; font-size: .9rem; }
+.lang-sel select { border: 1px solid #fff9; background: #fff2; color: #fff; border-radius: 999px; padding: 5px 8px; font: inherit; font-size: .85rem; cursor: pointer; }
+.lang-sel option { color: #1f2a1a; }
+.install, .lang-sel select { white-space: nowrap; }
+@media (max-width: 520px) {
+  .brand { font-size: 1rem; gap: 8px; line-height: 1.2; }
+  .brand img { width: 28px; height: 28px; }
+  .install { padding: 5px 10px; font-size: .8rem; }
+  .lang-sel > span { display: none; }
+  .lang-sel select { padding: 4px 6px; font-size: .8rem; }
+}
 .install { border: 1px solid #fff9; background: #fff2; color: #fff; border-radius: 999px; padding: 6px 14px; font: inherit; font-size: .9rem; cursor: pointer; }
 #search {
   width: 100%; border: 0; border-radius: 12px; padding: 12px 14px;
@@ -283,7 +295,7 @@ figcaption .example { color: var(--muted); font-size: .85em; margin-left: 4px; }
   display: flex; flex-direction: column; align-items: center; gap: 1px;
   padding: 8px 0 7px; text-decoration: none; color: var(--muted); font-size: .78rem; min-height: 56px;
 }
-.tabbar a span { font-size: 1.3rem; line-height: 1.2; }
+.tabbar a span[aria-hidden] { font-size: 1.3rem; line-height: 1.2; }
 .tabbar a.active { color: var(--brand); font-weight: 700; }
 
 @media (min-width: 900px) {
