@@ -291,7 +291,7 @@
     "en": "Powdery mildew",
     "sci": "Podosphaera spp.、Erysiphe spp.、Leveillula taurica 等",
     "type": "disease",
-    "crops": ["cucurbit", "strawberry", "grape", "mango", "pepper", "tomato", "goldenberry"],
+    "crops": ["cucurbit", "strawberry", "grape", "mango", "pepper", "tomato", "goldenberry", "chrysanthemum"],
     "parts": ["leaf", "stem", "fruit", "flower"],
     "tags": ["powder", "yellowing", "curling", "drop"],
     "summary": "葉面像撒了一層麵粉的真菌病害，不需下雨也能發生，乾季及設施栽培很常見。",
@@ -325,7 +325,8 @@
       "mango": "花穗及幼果覆白粉，造成大量落花、落果。",
       "pepper": "葉背出現白粉、葉面相對位置黃化，嚴重時大量落葉。",
       "tomato": "葉面出現淡黃色斑，葉背或葉面長白粉，老葉先發生。",
-      "goldenberry": "葉面及葉背出現白色粉狀黴斑，嚴重時葉片黃化提早掉落，影響果實充實。"
+      "goldenberry": "葉面及葉背出現白色粉狀黴斑，嚴重時葉片黃化提早掉落，影響果實充實。",
+      "chrysanthemum": "葉片兩面長出白粉，多從下位葉開始；乾燥季節及設施栽培較常見，嚴重時葉片黃化枯萎。"
     }
   },
   {
@@ -482,7 +483,7 @@
     "en": "Gray mold",
     "sci": "Botrytis cinerea",
     "type": "disease",
-    "crops": ["strawberry", "tomato", "grape", "goldenberry"],
+    "crops": ["strawberry", "tomato", "grape", "goldenberry", "chrysanthemum"],
     "parts": ["fruit", "flower", "leaf"],
     "tags": ["rot", "powder"],
     "summary": "低溫高濕時危害花與果實的真菌病害，果實軟腐並長出灰色毛絨狀黴層。",
@@ -504,7 +505,7 @@
       "病果裝袋帶離田區。"
     ],
     "illus": [
-      { "k": "fruit", "fruit": "strawberry", "p": "mold", "cap": "果實軟腐並長出灰色黴層" }
+      { "k": "fruit", "fruit": "strawberry", "p": "mold", "cap": "花或果實軟腐並長出灰色黴層" }
     ],
     "photoQuery": "Botrytis cinerea strawberry",
     "related": ["anthracnose"],
@@ -512,7 +513,8 @@
       "strawberry": "果實出現褐色軟腐並覆灰色黴層，多從花萼端或接觸土面處開始。",
       "tomato": "果實長灰黴，或出現白色小圈的「鬼斑」；莖部病斑環繞時，上方枝葉萎凋。",
       "grape": "果房內果粒褐腐並覆灰黴，成熟期遇雨最嚴重。",
-      "goldenberry": "多由凋謝花瓣或宿萼侵入，宿萼內的果實腐爛並長出灰色黴層；採收期多雨、宿萼不易乾燥時最嚴重。"
+      "goldenberry": "多由凋謝花瓣或宿萼侵入，宿萼內的果實腐爛並長出灰色黴層；採收期多雨、宿萼不易乾燥時最嚴重。",
+      "chrysanthemum": "開花期遇冷涼多濕，花瓣出現褐色水浸狀斑並長出灰黴，花朵腐爛；採收後未及時乾燥也會發生。"
     }
   },
   {
@@ -752,12 +754,80 @@
     "related": ["bacterial-wilt", "root-knot-nematode"]
   },
   {
+    "id": "chrysanthemum-white-rust",
+    "name": "菊花白銹病",
+    "en": "Chrysanthemum white rust",
+    "sci": "Puccinia horiana",
+    "type": "disease",
+    "crops": ["chrysanthemum"],
+    "parts": ["leaf"],
+    "tags": ["spots", "yellowing"],
+    "summary": "菊花最重要的病害之一，葉背長出隆起的白色至淡褐色孢子堆，冷涼多濕時傳播快速。",
+    "symptoms": [
+      "葉面出現淡黃綠色小斑點，稍微凹陷。",
+      "斑點對應的葉背長出隆起、蠟狀的白色至淡粉紅色膿疱（孢子堆），老化後轉為淡褐色。",
+      "病斑多時葉片黃化、捲曲枯死，由下位葉往上蔓延。",
+      "嚴重時影響開花數量與花朵品質。"
+    ],
+    "conditions": "氣溫約 17–24°C、高濕或葉面長時間濕潤時容易發生，孢子需要水膜才能發芽。主要靠帶病的母株與插穗遠距離傳播，田間則藉風雨擴散。",
+    "prevention": [
+      "使用健康母株與插穗，不從發病田區取穗。",
+      "適當株距、保持通風，避免傍晚灑水使葉面長時間潮濕。",
+      "定期巡田，摘除病葉並帶離田區銷毀。",
+      "採收後清除殘株，減少下一期的感染源。"
+    ],
+    "control": [
+      "發病初期即開始防治，噴藥時著重葉背。",
+      "依《植物保護手冊》選用登記藥劑，並輪替不同作用機制（FRAC 代碼）的藥劑。",
+      "杭菊為食用花茶，用藥前請查詢《植物保護手冊》確認藥劑已登記於杭菊（菊花），並嚴守安全採收期。"
+    ],
+    "illus": [
+      { "k": "leaf", "shape": "chrys", "p": "whiterust", "cap": "葉面淡黃斑點，葉背長出白色隆起孢子堆" }
+    ],
+    "photoQuery": "Puccinia horiana",
+    "related": ["chrysanthemum-leaf-spot", "powdery-mildew"]
+  },
+  {
+    "id": "chrysanthemum-leaf-spot",
+    "name": "菊花葉斑病（黑斑病）",
+    "en": "Chrysanthemum Septoria leaf spot",
+    "sci": "Septoria chrysanthemella、Septoria obesa",
+    "type": "disease",
+    "crops": ["chrysanthemum"],
+    "parts": ["leaf"],
+    "tags": ["spots", "yellowing"],
+    "summary": "杭菊常見的真菌性葉部病害，下位葉出現黑褐色病斑，多雨季節由下往上擴展，造成大量枯葉。",
+    "symptoms": [
+      "下位葉先出現圓形至不規則形病斑，初期褐色，後轉為黑褐色，周圍常有黃暈。",
+      "病斑上可見細小黑點（柄子殼）。",
+      "病斑擴大癒合後葉片黃化枯死，枯葉常掛在莖上不脫落，並由下往上蔓延。",
+      "嚴重時植株只剩上部少數葉片，影響開花與產量。"
+    ],
+    "conditions": "溫暖多雨時最嚴重，梅雨及颱風季節容易大發生。孢子藉雨水飛濺傳播，密植、通風不良及靠近地面的葉片容易發病；病菌可在罹病殘株上存活。",
+    "prevention": [
+      "使用健康插穗。",
+      "畦面敷蓋，減少雨水把土中病菌濺到葉片上。",
+      "適當株距，摘除下位老葉與病葉，保持通風。",
+      "採收後清園，避免連作。"
+    ],
+    "control": [
+      "梅雨季前及發病初期開始防治。",
+      "依《植物保護手冊》選用登記藥劑，並輪替不同作用機制（FRAC 代碼）的藥劑。",
+      "杭菊為食用花茶，用藥前請查詢《植物保護手冊》確認藥劑已登記於杭菊（菊花），並嚴守安全採收期。"
+    ],
+    "illus": [
+      { "k": "leaf", "shape": "chrys", "p": "spots", "color": "#2e2218", "n": 7, "r": 7, "halo": true, "irregular": true, "cap": "黑褐色病斑，周圍有黃暈，由下位葉開始" }
+    ],
+    "photoQuery": "Septoria chrysanthemi leaf spot",
+    "related": ["chrysanthemum-white-rust", "early-blight"]
+  },
+  {
     "id": "spodoptera-litura",
     "name": "斜紋夜蛾（斜紋夜盜蟲）",
     "en": "Tobacco cutworm",
     "sci": "Spodoptera litura",
     "type": "pest",
-    "crops": ["crucifer", "tomato", "pepper", "eggplant", "cucurbit", "strawberry", "corn", "potato", "goldenberry"],
+    "crops": ["crucifer", "tomato", "pepper", "eggplant", "cucurbit", "strawberry", "corn", "potato", "goldenberry", "chrysanthemum"],
     "parts": ["leaf", "fruit"],
     "tags": ["holes", "insects"],
     "summary": "寄主範圍極廣的夜蛾類害蟲，幼蟲夜間大量取食葉片與果實。",
@@ -788,7 +858,8 @@
       "crucifer": "幼蟲群聚葉背啃食成薄膜狀，長大後分散，把葉片吃成大缺刻。",
       "strawberry": "幼蟲夜間取食葉片與果實，果實表面出現不規則食痕。",
       "corn": "幼蟲鑽食心葉與果穗，心葉展開後可見成排孔洞與蟲糞。",
-      "goldenberry": "幼蟲取食葉片造成大缺刻，也會咬破宿萼取食果實。"
+      "goldenberry": "幼蟲取食葉片造成大缺刻，也會咬破宿萼取食果實。",
+      "chrysanthemum": "幼蟲夜間取食葉片與花朵，造成葉片缺刻及花朵殘缺。"
     }
   },
   {
@@ -797,7 +868,7 @@
     "en": "Cotton bollworm (tomato fruitworm)",
     "sci": "Helicoverpa armigera",
     "type": "pest",
-    "crops": ["goldenberry", "tomato", "pepper", "eggplant", "corn"],
+    "crops": ["goldenberry", "tomato", "pepper", "eggplant", "corn", "chrysanthemum"],
     "parts": ["fruit", "flower", "leaf"],
     "tags": ["holes", "insects"],
     "summary": "雜食性夜蛾，幼蟲鑽食花蕾與果實，蛀孔處有蟲糞並引起腐爛，一隻幼蟲可連續危害多個果實。",
@@ -819,7 +890,7 @@
     ],
     "illus": [
       { "k": "bug", "t": "caterpillar", "color": "#7d8c3e", "cap": "幼蟲體側有淡色縱帶，體色多變" },
-      { "k": "fruit", "fruit": "tomato", "p": "bore", "cap": "果實上的圓形蛀孔與蟲糞" }
+      { "k": "fruit", "fruit": "tomato", "p": "bore", "cap": "果實或花朵上的蛀孔與蟲糞" }
     ],
     "photoQuery": "Helicoverpa armigera larva",
     "related": ["spodoptera-litura", "fall-armyworm"],
@@ -827,7 +898,8 @@
       "goldenberry": "幼蟲咬破宿萼鑽入取食果實，宿萼外常只看到小孔，剝開才發現果實已被蛀食腐爛。",
       "tomato": "青果、紅果都會被蛀食，蛀孔附近有蟲糞，果實容易腐爛。",
       "pepper": "幼蟲從果蒂附近鑽入果實內部取食，被害果腐爛掉落。",
-      "corn": "幼蟲取食雌穗花絲與果穗頂端的籽粒。"
+      "corn": "幼蟲取食雌穗花絲與果穗頂端的籽粒。",
+      "chrysanthemum": "幼蟲鑽食花苞與花朵，可見蛀孔與蟲糞，直接造成採收量損失。"
     }
   },
   {
@@ -872,7 +944,7 @@
     "en": "Aphids",
     "sci": "Aphis gossypii、Myzus persicae 等",
     "type": "pest",
-    "crops": ["cucurbit", "pepper", "eggplant", "tomato", "crucifer", "citrus", "papaya", "strawberry", "potato", "goldenberry"],
+    "crops": ["cucurbit", "pepper", "eggplant", "tomato", "crucifer", "citrus", "papaya", "strawberry", "potato", "goldenberry", "chrysanthemum"],
     "parts": ["leaf", "stem", "flower"],
     "tags": ["curling", "honeydew", "insects", "stunting"],
     "summary": "群聚在嫩芽刺吸汁液的小型害蟲，繁殖極快，並會傳播多種病毒病。",
@@ -906,7 +978,8 @@
       "papaya": "直接危害較輕，主要危害是傳播木瓜輪點病毒。",
       "potato": "群聚葉背與嫩梢，主要危害是傳播馬鈴薯病毒病害。",
       "strawberry": "群聚新葉與花序，造成新葉捲縮，並傳播草莓病毒。",
-      "goldenberry": "群聚於嫩梢與葉背吸汁，新葉捲縮並沾滿蜜露；也會傳播病毒病。"
+      "goldenberry": "群聚於嫩梢與葉背吸汁，新葉捲縮並沾滿蜜露；也會傳播病毒病。",
+      "chrysanthemum": "菊小長管蚜等群聚在嫩梢、花梗與花苞上吸汁，造成嫩葉捲縮、花朵發育不良，並分泌蜜露。"
     }
   },
   {
@@ -957,7 +1030,7 @@
     "en": "Thrips",
     "sci": "Thrips palmi、Scirtothrips dorsalis、Frankliniella occidentalis 等",
     "type": "pest",
-    "crops": ["cucurbit", "pepper", "eggplant", "mango", "grape", "citrus", "strawberry", "goldenberry"],
+    "crops": ["cucurbit", "pepper", "eggplant", "mango", "grape", "citrus", "strawberry", "goldenberry", "chrysanthemum"],
     "parts": ["leaf", "flower", "fruit"],
     "tags": ["silvering", "curling", "cracking", "insects"],
     "summary": "體型極小、藏在花與嫩芽中的銼吸式害蟲，造成葉片與果皮擦傷，部分種類會傳播病毒。",
@@ -993,7 +1066,8 @@
       "grape": "果粒表面出現褐色擦痕，新梢葉片皺縮。",
       "citrus": "幼果果蒂周圍出現環狀銀白至褐色疤痕，影響外觀。",
       "strawberry": "危害花與果實，果面種子周圍褐化、失去光澤。",
-      "goldenberry": "危害嫩葉、花及幼果，葉片出現銀白色擦痕並皺縮，宿萼與果皮留下褐色疤痕。"
+      "goldenberry": "危害嫩葉、花及幼果，葉片出現銀白色擦痕並皺縮，宿萼與果皮留下褐色疤痕。",
+      "chrysanthemum": "危害嫩葉與花朵，葉片出現銀白色擦痕，花瓣出現褐色斑點與畸形，影響乾花品質；部分種類可傳播番茄斑萎病毒。"
     }
   },
   {
@@ -1002,7 +1076,7 @@
     "en": "Spider mites",
     "sci": "Tetranychus urticae、Tetranychus kanzawai 等",
     "type": "pest",
-    "crops": ["strawberry", "cucurbit", "papaya", "eggplant", "pepper", "tomato", "citrus", "goldenberry"],
+    "crops": ["strawberry", "cucurbit", "papaya", "eggplant", "pepper", "tomato", "citrus", "goldenberry", "chrysanthemum"],
     "parts": ["leaf"],
     "tags": ["webbing", "yellowing", "spots", "insects"],
     "summary": "高溫乾燥時爆發的微小蟎類，群聚葉背吸汁，葉面出現密集褪色小點並結細絲網。",
@@ -1037,7 +1111,8 @@
       "pepper": "葉片褪色、捲曲，嚴重時落葉。",
       "tomato": "葉片褪色黃化，嚴重時植株結網、葉片乾枯。",
       "citrus": "葉面出現灰白小點並失去光澤，果實表面變灰暗。",
-      "goldenberry": "高溫乾燥時在葉背危害，葉面出現密集黃白色小點，嚴重時葉片黃褐並結細網。"
+      "goldenberry": "高溫乾燥時在葉背危害，葉面出現密集黃白色小點，嚴重時葉片黃褐並結細網。",
+      "chrysanthemum": "高溫乾燥時在葉背危害，葉面密生黃白色小點，嚴重時葉片枯黃並結網。"
     }
   },
   {
@@ -1248,7 +1323,7 @@
     "en": "Leafminers",
     "sci": "Liriomyza sativae、Liriomyza trifolii 等",
     "type": "pest",
-    "crops": ["tomato", "cucurbit", "crucifer", "pepper", "eggplant", "goldenberry"],
+    "crops": ["tomato", "cucurbit", "crucifer", "pepper", "eggplant", "goldenberry", "chrysanthemum"],
     "parts": ["leaf"],
     "tags": ["mines", "insects"],
     "summary": "幼蟲在葉片內潛食，形成白色蛇行隧道。",
@@ -1273,7 +1348,8 @@
     "photoQuery": "Liriomyza leaf mine",
     "related": ["silverleaf-whitefly"],
     "cropNotes": {
-      "goldenberry": "葉片出現白色彎曲隧道，幼苗期受害較嚴重，影響光合作用與生長。"
+      "goldenberry": "葉片出現白色彎曲隧道，幼苗期受害較嚴重，影響光合作用與生長。",
+      "chrysanthemum": "葉片出現白色彎曲隧道，嚴重時葉片乾枯，影響植株生長。"
     }
   },
   {
@@ -1381,7 +1457,7 @@
     "en": "Root-knot nematodes",
     "sci": "Meloidogyne spp.",
     "type": "pest",
-    "crops": ["tomato", "cucurbit", "pepper", "eggplant", "banana", "papaya", "guava", "goldenberry"],
+    "crops": ["tomato", "cucurbit", "pepper", "eggplant", "banana", "papaya", "guava", "goldenberry", "chrysanthemum"],
     "parts": ["root", "whole"],
     "tags": ["galls", "wilting", "stunting", "yellowing"],
     "summary": "寄生在根部的微小線蟲，根部形成串珠狀瘤腫，地上部生長不良。",
@@ -1413,7 +1489,8 @@
       "banana": "根部腫大變形，植株生長慢、易倒伏，果串小。",
       "papaya": "根部腫瘤造成植株生長停滯、葉片黃化。",
       "guava": "根部腫瘤並伴隨根腐，植株衰弱、葉片黃化提早落葉。",
-      "goldenberry": "根部形成大小不一的根瘤，植株生長衰弱、葉片黃化，並容易併發萎凋病與青枯病。"
+      "goldenberry": "根部形成大小不一的根瘤，植株生長衰弱、葉片黃化，並容易併發萎凋病與青枯病。",
+      "chrysanthemum": "根部形成根瘤，植株矮化、葉片黃化，開花數減少。"
     }
   },
   {

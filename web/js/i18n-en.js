@@ -17,6 +17,7 @@ export const EN = {
   '糧食作物': 'Field crops',
   '蔬菜': 'Vegetables',
   '果樹與果品': 'Fruit crops',
+  '特用作物': 'Specialty crops',
 
   // 瀏覽
   '多數作物': 'Most crops',

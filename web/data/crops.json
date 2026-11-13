@@ -14,5 +14,6 @@
   { "id": "grape", "name": "葡萄", "en": "Grape", "group": "果樹與果品", "emoji": "🍇", "sort": 24 },
   { "id": "papaya", "name": "木瓜", "en": "Papaya", "group": "果樹與果品", "emoji": "🍈", "sort": 25 },
   { "id": "guava", "name": "番石榴", "en": "Guava", "group": "果樹與果品", "emoji": "🍐", "sort": 26 },
-  { "id": "goldenberry", "name": "燈籠果", "en": "Goldenberry", "group": "果樹與果品", "emoji": "🏮", "sort": 27 }
+  { "id": "goldenberry", "name": "燈籠果", "en": "Goldenberry", "group": "果樹與果品", "emoji": "🏮", "sort": 27 },
+  { "id": "chrysanthemum", "name": "杭菊", "en": "Hangju chrysanthemum", "group": "特用作物", "emoji": "🌼", "sort": 30 }
 ]

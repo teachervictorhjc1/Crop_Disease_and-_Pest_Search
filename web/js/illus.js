@@ -106,6 +106,15 @@ const LEAF = {
     margin: (x, y) => ((x - 100) / 64) ** 2 + ((y - 74) / 54) ** 2 > 0.5,
     box: [24, 18, 176, 128],
   },
+  // 羽狀深裂葉（菊花）
+  chrys: {
+    d: 'M100 132 C84 132 50 118 36 98 C30 88 50 84 76 84 C56 78 34 66 40 52 C46 40 70 44 80 44 C76 30 86 14 100 10 C114 14 124 30 120 44 C130 44 154 40 160 52 C166 66 144 78 124 84 C150 84 170 88 164 98 C150 118 116 132 100 132 Z',
+    veins: () => 'M100 132 L100 16 M100 116 Q70 112 42 98 M100 116 Q130 112 158 98 M100 78 Q74 64 46 54 M100 78 Q126 64 154 54',
+    stalk: `<path d="M100 131 L100 146" stroke="${C.stalk}" stroke-width="3.5" stroke-linecap="round"/>`,
+    inside: (x, y) => ((x - 100) / 54) ** 2 + ((y - 74) / 58) ** 2 < 0.8,
+    margin: (x, y) => ((x - 100) / 54) ** 2 + ((y - 74) / 58) ** 2 > 0.45,
+    box: [40, 14, 160, 130],
+  },
   // 披針形（芒果）
   lance: {
     d: 'M100 8 C126 28 134 66 128 98 C123 118 110 130 100 134 C90 130 77 118 72 98 C66 66 74 28 100 8 Z',
@@ -328,6 +337,21 @@ const LEAF_PATTERNS = {
         `<path d="${veins}" stroke="#1d1a14" stroke-width="1.4" fill="none" stroke-linecap="round"/>`,
     };
   },
+  // 白銹病：葉面淡黃斑，葉背（右側放大圓）白色隆起孢子堆
+  whiterust(L, r) {
+    let over = '';
+    for (const [x, y] of pts(L, r, 9, 16)) {
+      over += `<circle cx="${f(x)}" cy="${f(y)}" r="${f(4 + r() * 2.5)}" fill="#e3e48a" opacity=".9"/>`;
+    }
+    let pust = '';
+    for (const [dx, dy] of [[-8, -6], [6, -9], [-2, 4], [9, 5], [-10, 9]]) {
+      pust += `<circle cx="${174 + dx}" cy="${98 + dy}" r="3.6" fill="#f6f2e2" stroke="#c9bf9a" stroke-width=".8"/>`;
+    }
+    return {
+      over,
+      outside: `<circle cx="174" cy="98" r="19" fill="#93bf73" stroke="#3f7d2b"/>${pust}<text x="174" y="128" font-size="9" text-anchor="middle" fill="currentColor">${tr('葉背')}</text>`,
+    };
+  },
   // 銹病：密集橙色孢子堆
   rust(L, r) {
     let over = '';
@@ -495,6 +519,19 @@ function leafSVG(o, seed) {
 /* 果實                                                                */
 /* ------------------------------------------------------------------ */
 
+/** 菊花花朵輪廓：n 片圓頭舌狀花瓣，R 為花瓣尖端半徑、r0 為花瓣基部半徑 */
+function flowerPath(cx, cy, n, R, r0) {
+  const P = (rad, a) => `${f(cx + Math.cos(a) * rad)} ${f(cy + Math.sin(a) * rad)}`;
+  const h = Math.PI / n;
+  let d = `M${P(r0, -h)}`;
+  for (let i = 0; i < n; i++) {
+    const a = (i / n) * Math.PI * 2;
+    d += ` C${P(R * 0.85, a - h * 0.9)} ${P(R * 1.02, a - h * 0.5)} ${P(R, a)}`;
+    d += ` C${P(R * 1.02, a + h * 0.5)} ${P(R * 0.85, a + h * 0.9)} ${P(r0, a + h)}`;
+  }
+  return d + 'Z';
+}
+
 const ell = (cx, cy, rx, ry) => `M${cx - rx} ${cy} a${rx} ${ry} 0 1 0 ${rx * 2} 0 a${rx} ${ry} 0 1 0 ${-rx * 2} 0Z`;
 
 const FRUIT = {
@@ -508,6 +545,8 @@ const FRUIT = {
   eggplant: { d: 'M86 36 C64 50 56 94 72 122 C86 144 126 142 138 118 C150 92 130 54 114 40 C106 33 94 32 86 36Z', color: '#4e2160', hi: '#9361ad', top: 'calyx', ty: 38, tx: 100 },
   guava: { d: 'M100 32 C126 32 150 54 150 86 C150 116 128 134 100 134 C72 134 50 116 50 86 C50 54 74 32 100 32Z', color: '#9cc04e', hi: '#e2eea0', top: 'stem', ty: 32 },
   goldenberry: { d: ell(100, 88, 40, 39), color: '#e89a1c', hi: '#ffd25a', top: 'husk', husk: true },
+  // 杭菊：白色舌狀花瓣、黃色花心的花朵
+  chrysanthemum: { d: flowerPath(100, 78, 18, 62, 30), color: '#ece6d2', hi: '#ffffff', top: 'none', disc: true },
   banana: { d: 'M34 58 C62 98 132 106 174 66 C180 62 186 66 182 74 C146 124 62 122 28 68 C25 62 30 55 34 58Z', color: '#e2c43a', hi: '#f6ea94', top: 'bstem' },
 };
 
@@ -609,6 +648,7 @@ function fruitTop(F, name) {
     }
     return s + `<path d="M${x} ${y} L${x + 2} ${y - 12}" stroke="#3f8a2a" stroke-width="4" stroke-linecap="round"/>`;
   }
+  if (F.top === 'none') return '';
   if (F.top === 'husk') return `<path d="M100 52 C100 40 104 30 112 22" stroke="#8a7a4a" stroke-width="3" fill="none" stroke-linecap="round"/><ellipse cx="100" cy="51" rx="9" ry="4" fill="#b49a5c"/>`;
   if (F.top === 'pstem') return `<path d="M100 38 C100 26 106 18 116 14" stroke="#3f8a2a" stroke-width="5" fill="none" stroke-linecap="round"/><ellipse cx="100" cy="38" rx="20" ry="6" fill="#4f9a38"/>`;
   if (F.top === 'side') return `<path d="M20 78 L6 72" stroke="#3f8a2a" stroke-width="5" stroke-linecap="round"/>`;
@@ -671,6 +711,14 @@ function fruitSVG(o, seed) {
   let deco = '';
   if (F.pores) for (let i = 0; i < 40; i++) deco += `<circle cx="${f(60 + r() * 80)}" cy="${f(40 + r() * 84)}" r=".8" fill="#00000022"/>`;
   if (F.seeds) for (let i = 0; i < 26; i++) deco += `<ellipse cx="${f(68 + r() * 64)}" cy="${f(52 + r() * 70)}" rx="1.4" ry="2" fill="#f4d35e"/>`;
+  if (F.disc) {
+    for (let i = 0; i < 18; i++) {
+      const a = (i / 18) * Math.PI * 2;
+      deco += `<path d="M${f(100 + Math.cos(a) * 24)} ${f(78 + Math.sin(a) * 24)} L${f(100 + Math.cos(a) * 54)} ${f(78 + Math.sin(a) * 54)}" stroke="#d8d0b4" stroke-width="1"/>`;
+    }
+    deco += `<circle cx="100" cy="78" r="18" fill="#e8b62a" stroke="#c08e14"/>`;
+    for (let i = 0; i < 16; i++) deco += `<circle cx="${f(92 + r() * 16)}" cy="${f(70 + r() * 16)}" r="1.1" fill="#a87410"/>`;
+  }
   if (F.stripes) for (const y of [62, 72, 82, 92]) deco += `<path d="M24 ${y} Q100 ${y + (y - 77) * 0.25} 176 ${y}" stroke="#a7d07e" stroke-width="2.5" fill="none" opacity=".75"/>`;
   const lesion = (FRUIT_LESIONS[o.p] || (() => ''))(F, r, o, o.fruit);
   const body = (F.husk ? huskBehind() : '') + `<path d="${d}" fill="url(#${gid})" stroke="#00000033"/>` +
@@ -1087,6 +1135,7 @@ const CROP_STYLE = {
   papaya: { leaf: 'lobed', fruit: 'papaya' },
   guava: { leaf: 'broad', fruit: 'guava' },
   goldenberry: { leaf: 'broad', fruit: 'goldenberry' },
+  chrysanthemum: { leaf: 'chrys', fruit: 'chrysanthemum' },
 };
 // 這些葉片圖樣的位置是針對特定葉形設計的，不換葉形
 const SHAPE_FIXED = new Set(['curl', 'margin-blight', 'v-lesion', 'rolled', 'spindle', 'oilspot', 'blotchy']);

@@ -47,6 +47,9 @@
   },
   "goldenberry": {
    "name": "Goldenberry (cape gooseberry)"
+  },
+  "chrysanthemum": {
+   "name": "Hangju chrysanthemum (tea chrysanthemum)"
   }
  },
  "types": {
@@ -415,7 +418,8 @@
     "mango": "Flower clusters and young fruit are covered with white powder, causing heavy flower and fruit drop.",
     "pepper": "White powder on the leaf underside with yellowing on the upper surface above it; severe cases cause heavy leaf drop.",
     "tomato": "Pale yellow spots on the upper leaf surface, with white powder on the underside or upper side; older leaves are affected first.",
-    "goldenberry": "White powdery patches on both leaf surfaces; severe infection yellows the leaves and makes them drop early, reducing fruit fill."
+    "goldenberry": "White powdery patches on both leaf surfaces; severe infection yellows the leaves and makes them drop early, reducing fruit fill.",
+    "chrysanthemum": "White powder grows on both leaf surfaces, usually starting on lower leaves; more common in the dry season and under cover, and severe cases yellow and wither the leaves."
    },
    "sci": "Podosphaera spp., Erysiphe spp., Leveillula taurica, etc."
   },
@@ -570,14 +574,15 @@
    ],
    "illus": [
     {
-     "cap": "Fruit soft rot with a layer of gray mold"
+     "cap": "Flowers or fruit rot and grow a layer of gray mold"
     }
    ],
    "cropNotes": {
     "strawberry": "Fruit develop brown soft rot covered with gray mold, usually starting at the calyx end or where the fruit touches the soil.",
     "tomato": "Fruit grow gray mold or show small white-ringed \"ghost spots\"; when a stem lesion girdles the stem, the shoots above it wilt.",
     "grape": "Berries inside the cluster turn brown, rot and are covered with gray mold; worst when it rains at ripening.",
-    "goldenberry": "Infection usually starts from faded petals or the husk; fruit inside the husk rots and grows gray mold. Worst when harvest time is rainy and husks stay wet."
+    "goldenberry": "Infection usually starts from faded petals or the husk; fruit inside the husk rots and grows gray mold. Worst when harvest time is rainy and husks stay wet.",
+    "chrysanthemum": "When flowering meets cool, humid weather, petals get brown water-soaked spots and gray mold and the flowers rot; it also occurs when harvested flowers are not dried promptly."
    }
   },
   "crucifer-black-rot": {
@@ -778,6 +783,61 @@
     }
    ]
   },
+  "chrysanthemum-white-rust": {
+   "name": "Chrysanthemum white rust",
+   "summary": "One of the most important chrysanthemum diseases. Raised white to pale brown spore pustules form on leaf undersides, and it spreads fast in cool, humid weather.",
+   "symptoms": [
+    "Small, slightly sunken pale yellow-green spots appear on the upper leaf surface.",
+    "Under each spot, raised waxy white to pale pink pustules (spore masses) form on the leaf underside, turning pale brown as they age.",
+    "With many spots, leaves yellow, curl and die, spreading from the lower leaves upward.",
+    "Severe infection reduces flower number and quality."
+   ],
+   "conditions": "Develops easily at about 17–24°C with high humidity or long leaf wetness; spores need a film of water to germinate. It spreads over long distances on infected stock plants and cuttings, and within fields by wind and rain.",
+   "prevention": [
+    "Use healthy stock plants and cuttings, and never take cuttings from infected fields.",
+    "Space plants properly for airflow, and avoid evening watering that keeps leaves wet.",
+    "Scout regularly; remove diseased leaves and destroy them off the field.",
+    "Clear crop debris after harvest to reduce infection for the next crop."
+   ],
+   "control": [
+    "Start control at the first sign of disease, spraying the leaf undersides thoroughly.",
+    "Choose registered pesticides from the Plant Protection Manual and rotate modes of action (FRAC codes).",
+    "Hangju is used as a herbal tea; check the Plant Protection Manual that a product is registered for chrysanthemum before use, and strictly follow the pre-harvest interval."
+   ],
+   "illus": [
+    {
+     "cap": "Pale yellow spots on top; raised white spore pustules underneath"
+    }
+   ]
+  },
+  "chrysanthemum-leaf-spot": {
+   "name": "Chrysanthemum Septoria leaf spot",
+   "sci": "Septoria chrysanthemella, Septoria obesa",
+   "summary": "A common fungal leaf disease of Hangju. Dark brown spots appear on lower leaves and climb the plant in rainy seasons, killing many leaves.",
+   "symptoms": [
+    "Round to irregular spots appear on lower leaves first, brown at first and later dark brown to black, often with a yellow halo.",
+    "Tiny black dots (pycnidia) can be seen in the spots.",
+    "Spots enlarge and merge until leaves yellow and die; dead leaves often hang on the stem, and the disease moves upward.",
+    "In severe cases only a few upper leaves remain, reducing flowering and yield."
+   ],
+   "conditions": "Worst in warm, rainy weather, with outbreaks in the plum-rain and typhoon seasons. Spores spread by rain splash; dense plantings, poor airflow and leaves near the ground are most affected. The fungus survives on infected crop debris.",
+   "prevention": [
+    "Use healthy cuttings.",
+    "Mulch the beds to reduce rain splashing soilborne spores onto leaves.",
+    "Space plants properly and remove old lower leaves and diseased leaves to keep airflow.",
+    "Clear the field after harvest and avoid continuous cropping."
+   ],
+   "control": [
+    "Start control before the plum-rain season and at the first sign of disease.",
+    "Choose registered pesticides from the Plant Protection Manual and rotate modes of action (FRAC codes).",
+    "Hangju is used as a herbal tea; check the Plant Protection Manual that a product is registered for chrysanthemum before use, and strictly follow the pre-harvest interval."
+   ],
+   "illus": [
+    {
+     "cap": "Dark brown spots with yellow halos, starting on lower leaves"
+    }
+   ]
+  },
   "spodoptera-litura": {
    "name": "Tobacco cutworm",
    "summary": "A noctuid moth pest with an extremely wide host range; larvae feed heavily on leaves and fruit at night.",
@@ -810,7 +870,8 @@
     "crucifer": "Larvae feed in groups on the leaf underside, leaving a thin film; as they grow they disperse and chew large notches in leaves.",
     "strawberry": "Larvae feed on leaves and fruit at night, leaving irregular feeding marks on the fruit surface.",
     "corn": "Larvae bore into the whorl and ears; when the whorl leaves unfold, rows of holes and frass are visible.",
-    "goldenberry": "Larvae chew large notches in leaves and can bite through the husk to eat the fruit."
+    "goldenberry": "Larvae chew large notches in leaves and can bite through the husk to eat the fruit.",
+    "chrysanthemum": "Larvae feed on leaves and flowers at night, leaving notched leaves and ragged flowers."
    }
   },
   "helicoverpa-armigera": {
@@ -837,14 +898,15 @@
      "cap": "Larva with a pale side stripe; body color varies"
     },
     {
-     "cap": "Round bore holes and frass on the fruit"
+     "cap": "Bore holes and frass on fruit or flowers"
     }
    ],
    "cropNotes": {
     "goldenberry": "Larvae bite through the husk to bore into the fruit; often only a small hole shows on the husk, and the eaten, rotting fruit is found only when the husk is peeled open.",
     "tomato": "Both green and ripe fruit are bored; frass sits near the holes and fruit rots easily.",
     "pepper": "Larvae enter the fruit near the stem end and feed inside; damaged fruit rots and drops.",
-    "corn": "Larvae feed on the silks and on kernels at the tip of the ear."
+    "corn": "Larvae feed on the silks and on kernels at the tip of the ear.",
+    "chrysanthemum": "Larvae bore into flower buds and open flowers, leaving holes and frass and directly reducing the harvest."
    }
   },
   "diamondback-moth": {
@@ -915,7 +977,8 @@
     "papaya": "Direct damage is minor; the main harm is transmitting papaya ringspot virus.",
     "potato": "Cluster on leaf undersides and young shoots; the main harm is transmitting potato virus diseases.",
     "strawberry": "Cluster on new leaves and flower clusters, causing new leaves to curl, and transmit strawberry viruses.",
-    "goldenberry": "Colonies on shoot tips and leaf undersides make new leaves curl and sticky with honeydew; they also spread virus diseases."
+    "goldenberry": "Colonies on shoot tips and leaf undersides make new leaves curl and sticky with honeydew; they also spread virus diseases.",
+    "chrysanthemum": "Aphids such as the chrysanthemum aphid cluster on shoot tips, flower stalks and buds, curling young leaves, stunting flowers and leaving honeydew."
    },
    "sci": "Aphis gossypii, Myzus persicae, etc."
   },
@@ -996,7 +1059,8 @@
     "grape": "Brown scars on berry surfaces; leaves on new shoots crinkle.",
     "citrus": "Ring-shaped silvery to brown scars around the stem end of young fruit, spoiling appearance.",
     "strawberry": "Attack flowers and fruit; the fruit surface around the seeds turns brown and loses its shine.",
-    "goldenberry": "Feeds on young leaves, flowers and young fruit; leaves show silvery scars and crinkle, and the husk and fruit skin get brown scars."
+    "goldenberry": "Feeds on young leaves, flowers and young fruit; leaves show silvery scars and crinkle, and the husk and fruit skin get brown scars.",
+    "chrysanthemum": "Feeds on young leaves and flowers; leaves get silvery scars and petals get brown flecks and deform, lowering dried-flower quality. Some species transmit tomato spotted wilt virus."
    },
    "sci": "Thrips palmi, Scirtothrips dorsalis, Frankliniella occidentalis, etc."
   },
@@ -1036,7 +1100,8 @@
     "pepper": "Leaves fade and curl; in severe cases leaves drop.",
     "tomato": "Leaves fade and yellow; in severe cases plants are webbed and leaves dry up.",
     "citrus": "Grayish-white speckles on leaves, which lose their shine; fruit surface turns dull gray.",
-    "goldenberry": "In hot, dry weather they feed on leaf undersides, leaving dense pale stippling on the upper surface; heavy infestations turn leaves yellow-brown with fine webbing."
+    "goldenberry": "In hot, dry weather they feed on leaf undersides, leaving dense pale stippling on the upper surface; heavy infestations turn leaves yellow-brown with fine webbing.",
+    "chrysanthemum": "In hot, dry weather they feed on leaf undersides, leaving dense pale stippling; heavy infestations turn leaves yellow and dry with webbing."
    },
    "sci": "Tetranychus urticae, Tetranychus kanzawai, etc."
   },
@@ -1234,7 +1299,8 @@
    ],
    "sci": "Liriomyza sativae, Liriomyza trifolii, etc.",
    "cropNotes": {
-    "goldenberry": "Winding white tunnels in the leaves; seedlings suffer most, with reduced photosynthesis and growth."
+    "goldenberry": "Winding white tunnels in the leaves; seedlings suffer most, with reduced photosynthesis and growth.",
+    "chrysanthemum": "Winding white tunnels in the leaves; heavy damage dries the leaves and slows plant growth."
    }
   },
   "golden-apple-snail": {
@@ -1352,7 +1418,8 @@
     "banana": "Roots swell and deform; plants grow slowly, topple easily and bear small bunches.",
     "papaya": "Root galls stall plant growth and cause yellow leaves.",
     "guava": "Root galls with root rot; plants weaken, leaves yellow and drop early.",
-    "goldenberry": "Galls of various sizes form on the roots; plants weaken and leaves yellow, and Fusarium wilt and bacterial wilt follow more easily."
+    "goldenberry": "Galls of various sizes form on the roots; plants weaken and leaves yellow, and Fusarium wilt and bacterial wilt follow more easily.",
+    "chrysanthemum": "Galls form on the roots; plants are stunted, leaves yellow and fewer flowers are produced."
    }
   },
   "scale-insects": {
