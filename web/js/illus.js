@@ -507,6 +507,7 @@ const FRUIT = {
   cucurbit: { d: ell(100, 80, 80, 30), color: '#4c8c3a', hi: '#8fc06a', top: 'side', stripes: true },
   eggplant: { d: 'M86 36 C64 50 56 94 72 122 C86 144 126 142 138 118 C150 92 130 54 114 40 C106 33 94 32 86 36Z', color: '#4e2160', hi: '#9361ad', top: 'calyx', ty: 38, tx: 100 },
   guava: { d: 'M100 32 C126 32 150 54 150 86 C150 116 128 134 100 134 C72 134 50 116 50 86 C50 54 74 32 100 32Z', color: '#9cc04e', hi: '#e2eea0', top: 'stem', ty: 32 },
+  goldenberry: { d: ell(100, 88, 40, 39), color: '#e89a1c', hi: '#ffd25a', top: 'husk', husk: true },
   banana: { d: 'M34 58 C62 98 132 106 174 66 C180 62 186 66 182 74 C146 124 62 122 28 68 C25 62 30 55 34 58Z', color: '#e2c43a', hi: '#f6ea94', top: 'bstem' },
 };
 
@@ -581,6 +582,15 @@ const FRUIT_LESIONS = {
     return `<ellipse cx="100" cy="117" rx="31" ry="15" fill="#6a4a2a"/><ellipse cx="100" cy="119" rx="25" ry="11" fill="#2f1f12"/>` +
       `<path d="M84 117 q8 -3 16 0 t16 0" stroke="#4d3520" stroke-width="1.2" fill="none"/>`;
   },
+  // 蛀孔與蟲糞（夜蛾類幼蟲鑽食）
+  bore(F, r) {
+    let s = '';
+    for (const [x, y, R] of [[88, 76, 6], [122, 100, 5]]) {
+      s += `<path d="${blob(x, y, R + 6, r, 9, 0.5)}" fill="#7a4a22" opacity=".75"/><circle cx="${x}" cy="${y}" r="${R}" fill="#2b1a0b"/>`;
+      for (let i = 0; i < 6; i++) s += `<circle cx="${f(x - 4 + r() * 10)}" cy="${f(y + R + 2 + r() * 9)}" r="${f(1.3 + r() * 1.2)}" fill="#3a2a14"/>`;
+    }
+    return s;
+  },
   crack() {
     return `<g stroke-linecap="round" fill="none">` +
       `<path d="M100 40 C92 56 86 70 76 82 M100 40 C108 58 120 66 128 84 M100 40 C100 60 102 80 98 98" stroke="#7a3a1a" stroke-width="3.2"/>` +
@@ -599,10 +609,25 @@ function fruitTop(F, name) {
     }
     return s + `<path d="M${x} ${y} L${x + 2} ${y - 12}" stroke="#3f8a2a" stroke-width="4" stroke-linecap="round"/>`;
   }
+  if (F.top === 'husk') return `<path d="M100 52 C100 40 104 30 112 22" stroke="#8a7a4a" stroke-width="3" fill="none" stroke-linecap="round"/><ellipse cx="100" cy="51" rx="9" ry="4" fill="#b49a5c"/>`;
   if (F.top === 'pstem') return `<path d="M100 38 C100 26 106 18 116 14" stroke="#3f8a2a" stroke-width="5" fill="none" stroke-linecap="round"/><ellipse cx="100" cy="38" rx="20" ry="6" fill="#4f9a38"/>`;
   if (F.top === 'side') return `<path d="M20 78 L6 72" stroke="#3f8a2a" stroke-width="5" stroke-linecap="round"/>`;
   if (F.top === 'bstem') return `<path d="M32 60 L18 46" stroke="#7a6a2a" stroke-width="7" stroke-linecap="round"/><path d="M180 70 l6 2" stroke="#3b2a1a" stroke-width="4" stroke-linecap="round"/>`;
   return `<path d="M${x} ${y + 2} L${x + 3} ${y - 10}" stroke="#6b4a2a" stroke-width="3.5" stroke-linecap="round"/><path d="M${x + 3} ${y - 8} C${x + 16} ${y - 18} ${x + 30} ${y - 12} ${x + 34} ${y - 4} C${x + 20} ${y - 2} ${x + 10} ${y - 4} ${x + 3} ${y - 8}Z" fill="#4f9a38"/>`;
+}
+
+/** 燈籠果剝開的宿萼（紙質燈籠外殼），畫在果實後方 */
+function huskBehind() {
+  let s = '';
+  for (const a of [-160, -120, -60, -20, 160, 20]) {
+    const t = (a * Math.PI) / 180;
+    const tx = 100 + Math.cos(t) * 84, ty = 56 + Math.sin(t) * 48;
+    const lx = 100 + Math.cos(t - 0.4) * 50, ly = 56 + Math.sin(t - 0.4) * 32;
+    const rx = 100 + Math.cos(t + 0.4) * 50, ry = 56 + Math.sin(t + 0.4) * 32;
+    s += `<path d="M100 54 Q${f(lx)} ${f(ly)} ${f(tx)} ${f(ty)} Q${f(rx)} ${f(ry)} 100 54Z" fill="#e7d6a6" stroke="#b49a5c" stroke-width="1.2"/>` +
+      `<path d="M100 54 L${f(tx)} ${f(ty)}" stroke="#c2a868" stroke-width="1"/>`;
+  }
+  return s;
 }
 
 function grapeSVG(o, seed) {
@@ -648,7 +673,7 @@ function fruitSVG(o, seed) {
   if (F.seeds) for (let i = 0; i < 26; i++) deco += `<ellipse cx="${f(68 + r() * 64)}" cy="${f(52 + r() * 70)}" rx="1.4" ry="2" fill="#f4d35e"/>`;
   if (F.stripes) for (const y of [62, 72, 82, 92]) deco += `<path d="M24 ${y} Q100 ${y + (y - 77) * 0.25} 176 ${y}" stroke="#a7d07e" stroke-width="2.5" fill="none" opacity=".75"/>`;
   const lesion = (FRUIT_LESIONS[o.p] || (() => ''))(F, r, o, o.fruit);
-  const body = `<path d="${d}" fill="url(#${gid})" stroke="#00000033"/>` +
+  const body = (F.husk ? huskBehind() : '') + `<path d="${d}" fill="url(#${gid})" stroke="#00000033"/>` +
     `<g clip-path="url(#${clip})">${deco}${lesion}<ellipse cx="78" cy="58" rx="14" ry="8" fill="#ffffff" opacity=".22"/></g>` +
     fruitTop(F, o.fruit);
   return frame(body, `<clipPath id="${clip}"><path d="${d}"/></clipPath>${grad}`, o.tag);
@@ -994,6 +1019,19 @@ const BUGS = {
     s += `<path d="M95 35 L82 14 M105 35 L118 14" stroke="#2a2a2a" stroke-width="1.6"/><ellipse cx="92" cy="80" rx="5" ry="12" fill="#ffffff" opacity=".12"/>`;
     return s;
   },
+  ladybird(o, r) {
+    let s = leafBg;
+    for (const [x, y] of [[40, 52], [160, 108], [44, 112]]) s += `<path d="${blob(x, y, 12, r, 8, 0.6)}" fill="#eef2d6" stroke="#c9d39a"/>`;
+    s += legs(82, 86, -1, 3, 20, '#3a2a1a', 14) + legs(118, 86, 1, 3, 20, '#3a2a1a', 14);
+    s += `<ellipse cx="100" cy="46" rx="14" ry="9" fill="#d98a3a" stroke="#9a5a24"/>`;
+    s += `<ellipse cx="100" cy="90" rx="34" ry="40" fill="#d9822e" stroke="#9a5a24" stroke-width="1.5"/><path d="M100 52 L100 130" stroke="#7a4418" stroke-width="1.4"/>`;
+    // 每片翅鞘 14 個黑斑，共 28 個
+    for (const [dx, dy] of [[8, 64], [20, 68], [12, 78], [26, 82], [6, 90], [18, 92], [29, 98], [10, 104], [22, 108], [14, 118], [24, 120], [6, 76], [17, 84], [6, 116]]) {
+      s += `<circle cx="${100 - dx}" cy="${dy}" r="2.8" fill="#1e1410"/><circle cx="${100 + dx}" cy="${dy}" r="2.8" fill="#1e1410"/>`;
+    }
+    s += `<ellipse cx="86" cy="74" rx="7" ry="14" fill="#ffffff" opacity=".15"/><path d="M95 39 L86 26 M105 39 L114 26" stroke="#3a2a1a" stroke-width="1.5"/>`;
+    return s;
+  },
   nematode() {
     let s = `<rect x="6" y="6" width="188" height="138" rx="10" fill="#e9e1cf"/>`;
     s += `<circle cx="100" cy="75" r="62" fill="none" stroke="#c9bda2" stroke-width="2"/>`;
@@ -1048,13 +1086,14 @@ const CROP_STYLE = {
   grape: { leaf: 'lobed', fruit: 'grape' },
   papaya: { leaf: 'lobed', fruit: 'papaya' },
   guava: { leaf: 'broad', fruit: 'guava' },
+  goldenberry: { leaf: 'broad', fruit: 'goldenberry' },
 };
 // 這些葉片圖樣的位置是針對特定葉形設計的，不換葉形
 const SHAPE_FIXED = new Set(['curl', 'margin-blight', 'v-lesion', 'rolled', 'spindle', 'oilspot', 'blotchy']);
 // 這些果實病徵只在特定作物上出現，其他作物不換果實（改為「以○○為例」）
 const FRUIT_LESION_CROPS = {
   'blossom-end': new Set(['tomato', 'pepper', 'eggplant', 'cucurbit']),
-  crack: new Set(['tomato', 'citrus']),
+  crack: new Set(['tomato', 'citrus', 'goldenberry']),
   hlb: new Set(['citrus']),
 };
 // 這些植株狀態是特定作物專用，不換成禾本科型態

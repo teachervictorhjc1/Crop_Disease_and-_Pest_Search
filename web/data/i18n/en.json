@@ -44,6 +44,9 @@
   },
   "guava": {
    "name": "Guava"
+  },
+  "goldenberry": {
+   "name": "Goldenberry (cape gooseberry)"
   }
  },
  "types": {
@@ -282,7 +285,8 @@
    "cropNotes": {
     "tomato": "Leaf spots with concentric rings; ringed lesions also form at the stem base (collar rot), and sunken black spots appear at the fruit stem end.",
     "potato": "Angular leaf spots with concentric rings; sunken dark brown spots form on the tuber surface.",
-    "eggplant": "Brown leaf spots with concentric rings, mostly starting on the lower leaves."
+    "eggplant": "Brown leaf spots with concentric rings, mostly starting on the lower leaves.",
+    "goldenberry": "Brown spots with concentric rings appear on older leaves; the papery husk can also get brown spots, and severe cases cause heavy leaf drop."
    }
   },
   "bacterial-wilt": {
@@ -318,7 +322,8 @@
     "tomato": "Whole plant wilts rapidly during the day and partly recovers at night; it dies within days while the leaves remain green.",
     "potato": "The vascular ring of the tuber turns brown; when squeezed, milky-white ooze comes out of the eyes or cut surface.",
     "pepper": "Plants suddenly wilt and the vascular tissue at the stem base turns brown; most severe in the hot, humid season.",
-    "eggplant": "Wilting starts on some branches; cut stems show browning and release bacterial ooze."
+    "eggplant": "Wilting starts on some branches; cut stems show browning and release bacterial ooze.",
+    "goldenberry": "Wilting starts at shoot tips or on some branches and the vascular tissue at the stem base turns brown; in hot seasons it often spreads through whole patches of continuously cropped fields."
    }
   },
   "tylcv": {
@@ -409,7 +414,8 @@
     "grape": "Leaves, new shoots and berries are covered with white powder; berries develop net-like brown marks and crack easily.",
     "mango": "Flower clusters and young fruit are covered with white powder, causing heavy flower and fruit drop.",
     "pepper": "White powder on the leaf underside with yellowing on the upper surface above it; severe cases cause heavy leaf drop.",
-    "tomato": "Pale yellow spots on the upper leaf surface, with white powder on the underside or upper side; older leaves are affected first."
+    "tomato": "Pale yellow spots on the upper leaf surface, with white powder on the underside or upper side; older leaves are affected first.",
+    "goldenberry": "White powdery patches on both leaf surfaces; severe infection yellows the leaves and makes them drop early, reducing fruit fill."
    },
    "sci": "Podosphaera spp., Erysiphe spp., Leveillula taurica, etc."
   },
@@ -570,7 +576,8 @@
    "cropNotes": {
     "strawberry": "Fruit develop brown soft rot covered with gray mold, usually starting at the calyx end or where the fruit touches the soil.",
     "tomato": "Fruit grow gray mold or show small white-ringed \"ghost spots\"; when a stem lesion girdles the stem, the shoots above it wilt.",
-    "grape": "Berries inside the cluster turn brown, rot and are covered with gray mold; worst when it rains at ripening."
+    "grape": "Berries inside the cluster turn brown, rot and are covered with gray mold; worst when it rains at ripening.",
+    "goldenberry": "Infection usually starts from faded petals or the husk; fruit inside the husk rots and grows gray mold. Worst when harvest time is rainy and husks stay wet."
    }
   },
   "crucifer-black-rot": {
@@ -741,6 +748,36 @@
     }
    ]
   },
+  "goldenberry-fusarium-wilt": {
+   "name": "Goldenberry Fusarium wilt",
+   "summary": "A soilborne fungal disease of the vascular system and one of the most important diseases of goldenberry. Plants yellow from the bottom up, wilt and die.",
+   "symptoms": [
+    "Lower leaves yellow first, often on only one side of the plant or on some branches, then it gradually moves upward.",
+    "Plants wilt at midday and recover in the morning and evening; later the whole plant wilts and dies.",
+    "Cutting open the stem base shows brown vascular tissue; unlike bacterial wilt, a cut stem in clean water releases no milky ooze.",
+    "Fruit stays small, colors early or drops."
+   ],
+   "conditions": "More common with soil temperatures around 25–30°C, acidic soil and poor drainage. The fungus survives for years in the soil as chlamydospores and spreads with infected seedlings, contaminated soil, irrigation water and tools; worse in continuously cropped fields or when roots are damaged by nematodes.",
+   "prevention": [
+    "Use healthy seedlings raised in disease-free growing media.",
+    "Avoid continuous cropping; rotate with paddy rice or non-solanaceous crops.",
+    "Grow on raised beds with good drainage; lime acidic soils to adjust pH.",
+    "Control root-knot nematodes, avoid injuring roots during cultivation, and disinfect tools after use."
+   ],
+   "control": [
+    "Pull up diseased plants with their roots as soon as they are found, take them out of the field and destroy them.",
+    "There is no effective curative chemical; consider treating the soil with solarization, flooding or registered biological products (such as Trichoderma).",
+    "Few pesticides are registered for goldenberry; check the Plant Protection Manual to confirm a product is registered for goldenberry before use."
+   ],
+   "illus": [
+    {
+     "cap": "Lower leaves yellow first, then it spreads upward and the plant wilts"
+    },
+    {
+     "cap": "Cross-section of the stem base with browned vascular tissue"
+    }
+   ]
+  },
   "spodoptera-litura": {
    "name": "Tobacco cutworm",
    "summary": "A noctuid moth pest with an extremely wide host range; larvae feed heavily on leaves and fruit at night.",
@@ -772,7 +809,42 @@
    "cropNotes": {
     "crucifer": "Larvae feed in groups on the leaf underside, leaving a thin film; as they grow they disperse and chew large notches in leaves.",
     "strawberry": "Larvae feed on leaves and fruit at night, leaving irregular feeding marks on the fruit surface.",
-    "corn": "Larvae bore into the whorl and ears; when the whorl leaves unfold, rows of holes and frass are visible."
+    "corn": "Larvae bore into the whorl and ears; when the whorl leaves unfold, rows of holes and frass are visible.",
+    "goldenberry": "Larvae chew large notches in leaves and can bite through the husk to eat the fruit."
+   }
+  },
+  "helicoverpa-armigera": {
+   "name": "Cotton bollworm (tomato fruitworm)",
+   "summary": "A polyphagous moth whose larvae bore into flower buds and fruit, leaving frass at the holes and causing rot; one larva can damage several fruits in turn.",
+   "symptoms": [
+    "Larval color varies widely (green, tan to dark brown), with a pale stripe along each side and small bristles on the body.",
+    "Young larvae feed on tender leaves and flower buds, then bore into fruit, leaving round holes with frass.",
+    "Damaged fruit rots and drops easily; larvae often move on to attack several fruits.",
+    "Adults are medium-sized tan moths with a kidney-shaped mark in the middle of the forewing."
+   ],
+   "conditions": "Present year-round, with higher numbers in spring and autumn. It has a wide host range and moves in easily from nearby corn or tomato fields.",
+   "prevention": [
+    "Remove and destroy damaged and fallen fruit to reduce sources of the pest.",
+    "Monitor and trap adults with sex pheromone traps.",
+    "Use insect nets and protect natural enemies such as parasitic wasps."
+   ],
+   "control": [
+    "Once larvae are inside the fruit, sprays hardly reach them; control from egg hatch to the young larval stage.",
+    "Registered biological products such as Bt can be used; choose registered pesticides from the Plant Protection Manual and rotate modes of action (IRAC codes)."
+   ],
+   "illus": [
+    {
+     "cap": "Larva with a pale side stripe; body color varies"
+    },
+    {
+     "cap": "Round bore holes and frass on the fruit"
+    }
+   ],
+   "cropNotes": {
+    "goldenberry": "Larvae bite through the husk to bore into the fruit; often only a small hole shows on the husk, and the eaten, rotting fruit is found only when the husk is peeled open.",
+    "tomato": "Both green and ripe fruit are bored; frass sits near the holes and fruit rots easily.",
+    "pepper": "Larvae enter the fruit near the stem end and feed inside; damaged fruit rots and drops.",
+    "corn": "Larvae feed on the silks and on kernels at the tip of the ear."
    }
   },
   "diamondback-moth": {
@@ -842,7 +914,8 @@
     "citrus": "Feed on young shoots, causing new leaves to curl, and transmit citrus virus diseases.",
     "papaya": "Direct damage is minor; the main harm is transmitting papaya ringspot virus.",
     "potato": "Cluster on leaf undersides and young shoots; the main harm is transmitting potato virus diseases.",
-    "strawberry": "Cluster on new leaves and flower clusters, causing new leaves to curl, and transmit strawberry viruses."
+    "strawberry": "Cluster on new leaves and flower clusters, causing new leaves to curl, and transmit strawberry viruses.",
+    "goldenberry": "Colonies on shoot tips and leaf undersides make new leaves curl and sticky with honeydew; they also spread virus diseases."
    },
    "sci": "Aphis gossypii, Myzus persicae, etc."
   },
@@ -879,7 +952,8 @@
    "cropNotes": {
     "tomato": "The main harm is transmitting tomato yellow leaf curl virus; even a few adults can cause severe losses.",
     "cucurbit": "Leaves of pumpkin and other cucurbits turn silvery white (silverleaf) and fruit is pale; also transmits viruses.",
-    "crucifer": "Clusters and feeds on leaf undersides; leaves fade, and honeydew leads to sooty mold."
+    "crucifer": "Clusters and feeds on leaf undersides; leaves fade, and honeydew leads to sooty mold.",
+    "goldenberry": "Large numbers of adults and nymphs on leaf undersides; honeydew leads to sooty mold, and they can spread begomoviruses that cause leaf yellowing and curling."
    },
    "sci": "Bemisia tabaci (= B. argentifolii)"
   },
@@ -921,7 +995,8 @@
     "mango": "Attack flower panicles and young fruit, leaving brown corky scars on the fruit surface.",
     "grape": "Brown scars on berry surfaces; leaves on new shoots crinkle.",
     "citrus": "Ring-shaped silvery to brown scars around the stem end of young fruit, spoiling appearance.",
-    "strawberry": "Attack flowers and fruit; the fruit surface around the seeds turns brown and loses its shine."
+    "strawberry": "Attack flowers and fruit; the fruit surface around the seeds turns brown and loses its shine.",
+    "goldenberry": "Feeds on young leaves, flowers and young fruit; leaves show silvery scars and crinkle, and the husk and fruit skin get brown scars."
    },
    "sci": "Thrips palmi, Scirtothrips dorsalis, Frankliniella occidentalis, etc."
   },
@@ -960,7 +1035,8 @@
     "eggplant": "Leaves fade to grayish white; mites and fine webbing are visible on leaf undersides.",
     "pepper": "Leaves fade and curl; in severe cases leaves drop.",
     "tomato": "Leaves fade and yellow; in severe cases plants are webbed and leaves dry up.",
-    "citrus": "Grayish-white speckles on leaves, which lose their shine; fruit surface turns dull gray."
+    "citrus": "Grayish-white speckles on leaves, which lose their shine; fruit surface turns dull gray.",
+    "goldenberry": "In hot, dry weather they feed on leaf undersides, leaving dense pale stippling on the upper surface; heavy infestations turn leaves yellow-brown with fine webbing."
    },
    "sci": "Tetranychus urticae, Tetranychus kanzawai, etc."
   },
@@ -1156,7 +1232,10 @@
      "cap": "White winding mines with a black frass line inside"
     }
    ],
-   "sci": "Liriomyza sativae, Liriomyza trifolii, etc."
+   "sci": "Liriomyza sativae, Liriomyza trifolii, etc.",
+   "cropNotes": {
+    "goldenberry": "Winding white tunnels in the leaves; seedlings suffer most, with reduced photosynthesis and growth."
+   }
   },
   "golden-apple-snail": {
    "name": "Golden apple snail",
@@ -1208,6 +1287,38 @@
     }
    ]
   },
+  "epilachna-beetle": {
+   "name": "28-spotted ladybird",
+   "summary": "A plant-eating ladybird whose adults and larvae scrape off leaf tissue, leaving net-like or windowpane feeding marks; a common pest of solanaceous crops.",
+   "symptoms": [
+    "Adults are dome-shaped, about 6–8 mm long, orange-yellow to reddish brown with 28 black spots on the wing covers, finely hairy and not shiny.",
+    "Larvae are yellow and oval with branched spines on the back.",
+    "Adults and larvae scrape leaf tissue from the underside, leaving only the skin as translucent stripes that later dry and break into net-like holes.",
+    "In severe cases only the veins remain, and fruit surfaces are scraped too."
+   ],
+   "conditions": "Active from spring to autumn, with high numbers in warm weather; adults overwinter in field-edge weeds (such as wild solanaceous plants) and crop debris.",
+   "prevention": [
+    "Remove solanaceous weeds and crop debris around the field.",
+    "Scout regularly, hand-pick adults and remove the yellow egg clusters from leaf undersides.",
+    "Grow under net houses."
+   ],
+   "control": [
+    "When numbers are high, choose registered pesticides from the Plant Protection Manual, spray the leaf undersides thoroughly and rotate modes of action."
+   ],
+   "illus": [
+    {
+     "cap": "Orange-brown wing covers with 28 black spots and fine hairs"
+    },
+    {
+     "cap": "Scraped leaf tissue forms windowpane feeding marks"
+    }
+   ],
+   "cropNotes": {
+    "goldenberry": "Leaves are scraped into a net-like pattern, with young leaves hit hardest; the husk is scraped too.",
+    "eggplant": "Eggplant is attacked most often; leaves are covered with net-like feeding marks and scraped fruit skin leaves brown scars.",
+    "potato": "Leaves are scraped into a net-like pattern; severe damage makes plants yellow and die early, reducing tuber growth."
+   }
+  },
   "root-knot-nematode": {
    "name": "Root-knot nematodes",
    "summary": "Microscopic worms that parasitize roots, causing bead-like galls on roots and poor top growth.",
@@ -1240,7 +1351,8 @@
     "cucurbit": "Obvious root galls; plants are yellow and stunted, with small fruit.",
     "banana": "Roots swell and deform; plants grow slowly, topple easily and bear small bunches.",
     "papaya": "Root galls stall plant growth and cause yellow leaves.",
-    "guava": "Root galls with root rot; plants weaken, leaves yellow and drop early."
+    "guava": "Root galls with root rot; plants weaken, leaves yellow and drop early.",
+    "goldenberry": "Galls of various sizes form on the roots; plants weaken and leaves yellow, and Fusarium wilt and bacterial wilt follow more easily."
    }
   },
   "scale-insects": {
@@ -1461,7 +1573,8 @@
     "cucurbit": "Sunken black rot at the blossom end of watermelon and other fruit (blossom-end rot); new leaf margins dry and curl.",
     "potato": "Brown spots or hollows inside tubers; terminal buds die.",
     "strawberry": "New leaf tips scorched and crinkled (tipburn), sepal tips turn brown; common in hot weather with high transpiration, or when humidity is too high.",
-    "mango": "Flesh at the fruit tip softens early and looks water-soaked (soft nose), linked to low calcium in the fruit."
+    "mango": "Flesh at the fruit tip softens early and looks water-soaked (soft nose), linked to low calcium in the fruit.",
+    "goldenberry": "Fruit cracks easily, new leaves curl and growing points are damaged; more obvious when soil moisture swings sharply."
    }
   },
   "def-fe": {
@@ -1532,7 +1645,8 @@
     "strawberry": "New leaves crinkled and misshapen, leaf tips scorched; fruit small and misshapen with few seeds.",
     "citrus": "Peel thickens and hardens, fruit misshapen, gummy brown spots in the peel and core.",
     "grape": "Poor berry set, berries of mixed sizes in the same cluster (hens and chicks); short internodes on new shoots.",
-    "papaya": "Fruit surface bumpy and lumpy, often with hard lumps of congealed latex in the flesh; fruit drops easily."
+    "papaya": "Fruit surface bumpy and lumpy, often with hard lumps of congealed latex in the flesh; fruit drops easily.",
+    "goldenberry": "More cracked and misshapen fruit; shoot growing points die back and internodes shorten."
    }
   },
   "def-zn": {

@@ -142,7 +142,7 @@
     "en": "Early blight",
     "sci": "Alternaria solani",
     "type": "disease",
-    "crops": ["tomato", "potato", "eggplant"],
+    "crops": ["tomato", "potato", "eggplant", "goldenberry"],
     "parts": ["leaf", "stem", "fruit"],
     "tags": ["spots", "yellowing"],
     "summary": "茄科常見的真菌病害，病斑具有明顯的同心輪紋（靶心狀），由下位老葉往上蔓延。",
@@ -172,7 +172,8 @@
     "cropNotes": {
       "tomato": "葉片同心輪紋斑；莖基部也會出現輪紋病斑（領腐），果實蒂部凹陷黑斑。",
       "potato": "葉片出現有稜角的同心輪紋斑；薯塊表面形成凹陷暗褐色斑。",
-      "eggplant": "葉片出現褐色同心輪紋斑，多從下位葉開始。"
+      "eggplant": "葉片出現褐色同心輪紋斑，多從下位葉開始。",
+      "goldenberry": "老葉出現具同心輪紋的褐色病斑，宿萼（燈籠外殼）也可能出現褐斑，嚴重時大量落葉。"
     }
   },
   {
@@ -181,7 +182,7 @@
     "en": "Bacterial wilt",
     "sci": "Ralstonia solanacearum",
     "type": "disease",
-    "crops": ["tomato", "pepper", "eggplant", "potato"],
+    "crops": ["tomato", "pepper", "eggplant", "potato", "goldenberry"],
     "parts": ["whole", "stem", "root"],
     "tags": ["wilting"],
     "summary": "土壤傳播的細菌性維管束病害，植株會在葉片仍保持綠色時突然萎凋死亡。",
@@ -213,7 +214,8 @@
       "tomato": "白天整株急速萎凋、夜間稍恢復，數日後枯死但葉片仍保持綠色。",
       "potato": "薯塊維管束環褐變，擠壓時芽眼或切面會流出乳白色菌泥。",
       "pepper": "植株突然萎凋，莖基部維管束褐變；高溫多濕季節最嚴重。",
-      "eggplant": "植株從部分枝條開始萎凋，切開莖部可見褐變並溢出菌泥。"
+      "eggplant": "植株從部分枝條開始萎凋，切開莖部可見褐變並溢出菌泥。",
+      "goldenberry": "植株從頂梢或部分分枝開始萎凋，莖基部維管束褐變；高溫季節的連作田常成片發生。"
     }
   },
   {
@@ -289,7 +291,7 @@
     "en": "Powdery mildew",
     "sci": "Podosphaera spp.、Erysiphe spp.、Leveillula taurica 等",
     "type": "disease",
-    "crops": ["cucurbit", "strawberry", "grape", "mango", "pepper", "tomato"],
+    "crops": ["cucurbit", "strawberry", "grape", "mango", "pepper", "tomato", "goldenberry"],
     "parts": ["leaf", "stem", "fruit", "flower"],
     "tags": ["powder", "yellowing", "curling", "drop"],
     "summary": "葉面像撒了一層麵粉的真菌病害，不需下雨也能發生，乾季及設施栽培很常見。",
@@ -322,7 +324,8 @@
       "grape": "葉、新梢及果粒覆白粉，果粒表面形成網狀褐斑，容易裂果。",
       "mango": "花穗及幼果覆白粉，造成大量落花、落果。",
       "pepper": "葉背出現白粉、葉面相對位置黃化，嚴重時大量落葉。",
-      "tomato": "葉面出現淡黃色斑，葉背或葉面長白粉，老葉先發生。"
+      "tomato": "葉面出現淡黃色斑，葉背或葉面長白粉，老葉先發生。",
+      "goldenberry": "葉面及葉背出現白色粉狀黴斑，嚴重時葉片黃化提早掉落，影響果實充實。"
     }
   },
   {
@@ -479,7 +482,7 @@
     "en": "Gray mold",
     "sci": "Botrytis cinerea",
     "type": "disease",
-    "crops": ["strawberry", "tomato", "grape"],
+    "crops": ["strawberry", "tomato", "grape", "goldenberry"],
     "parts": ["fruit", "flower", "leaf"],
     "tags": ["rot", "powder"],
     "summary": "低溫高濕時危害花與果實的真菌病害，果實軟腐並長出灰色毛絨狀黴層。",
@@ -508,7 +511,8 @@
     "cropNotes": {
       "strawberry": "果實出現褐色軟腐並覆灰色黴層，多從花萼端或接觸土面處開始。",
       "tomato": "果實長灰黴，或出現白色小圈的「鬼斑」；莖部病斑環繞時，上方枝葉萎凋。",
-      "grape": "果房內果粒褐腐並覆灰黴，成熟期遇雨最嚴重。"
+      "grape": "果房內果粒褐腐並覆灰黴，成熟期遇雨最嚴重。",
+      "goldenberry": "多由凋謝花瓣或宿萼侵入，宿萼內的果實腐爛並長出灰色黴層；採收期多雨、宿萼不易乾燥時最嚴重。"
     }
   },
   {
@@ -713,12 +717,47 @@
     "related": ["cucurbit-downy-mildew", "powdery-mildew"]
   },
   {
+    "id": "goldenberry-fusarium-wilt",
+    "name": "燈籠果萎凋病",
+    "en": "Goldenberry Fusarium wilt",
+    "sci": "Fusarium oxysporum f. sp. physali",
+    "type": "disease",
+    "crops": ["goldenberry"],
+    "parts": ["whole", "stem", "root"],
+    "tags": ["wilting", "yellowing"],
+    "summary": "土壤傳播的真菌性維管束病害，是燈籠果最重要的病害之一，植株由下而上黃化、萎凋死亡。",
+    "symptoms": [
+      "下位葉先黃化，常只出現在植株一側或部分分枝，再逐漸向上擴展。",
+      "植株中午萎凋、早晚恢復，後期全株萎凋枯死。",
+      "剖開莖基部可見維管束褐變；與青枯病不同，病莖插入清水不會流出乳白色菌泥。",
+      "果實變小、提早轉色或掉落。"
+    ],
+    "conditions": "土溫約 25–30°C、土壤偏酸、排水不良時較常發生。病菌以厚膜孢子在土中存活多年，可藉病苗、帶菌土壤、灌溉水與農具傳播；連作田或根部受線蟲危害時更嚴重。",
+    "prevention": [
+      "使用健康種苗，以無病介質育苗。",
+      "避免連作，與水稻或非茄科作物輪作。",
+      "採用高畦、保持排水良好；酸性土壤可施用石灰調整酸鹼值。",
+      "防治根瘤線蟲、避免中耕傷根，農具使用後消毒。"
+    ],
+    "control": [
+      "發現病株立即連根拔除，帶離田區銷毀。",
+      "目前沒有有效的治療藥劑，可評估太陽能消毒、浸水處理或已登記的生物製劑（如木黴菌）處理土壤。",
+      "燈籠果的登記藥劑有限，用藥前請先查詢《植物保護手冊》確認已登記於燈籠果。"
+    ],
+    "illus": [
+      { "k": "plant", "state": "old", "cap": "下位葉先黃化，再向上擴展並萎凋" },
+      { "k": "stem", "p": "vascular", "cap": "莖基部橫切面，維管束褐變" }
+    ],
+    "photoQuery": "Fusarium wilt Physalis peruviana",
+    "related": ["bacterial-wilt", "root-knot-nematode"]
+  },
+  {
     "id": "spodoptera-litura",
     "name": "斜紋夜蛾（斜紋夜盜蟲）",
     "en": "Tobacco cutworm",
     "sci": "Spodoptera litura",
     "type": "pest",
-    "crops": ["crucifer", "tomato", "pepper", "eggplant", "cucurbit", "strawberry", "corn", "potato"],
+    "crops": ["crucifer", "tomato", "pepper", "eggplant", "cucurbit", "strawberry", "corn", "potato", "goldenberry"],
     "parts": ["leaf", "fruit"],
     "tags": ["holes", "insects"],
     "summary": "寄主範圍極廣的夜蛾類害蟲，幼蟲夜間大量取食葉片與果實。",
@@ -748,7 +787,47 @@
     "cropNotes": {
       "crucifer": "幼蟲群聚葉背啃食成薄膜狀，長大後分散，把葉片吃成大缺刻。",
       "strawberry": "幼蟲夜間取食葉片與果實，果實表面出現不規則食痕。",
-      "corn": "幼蟲鑽食心葉與果穗，心葉展開後可見成排孔洞與蟲糞。"
+      "corn": "幼蟲鑽食心葉與果穗，心葉展開後可見成排孔洞與蟲糞。",
+      "goldenberry": "幼蟲取食葉片造成大缺刻，也會咬破宿萼取食果實。"
+    }
+  },
+  {
+    "id": "helicoverpa-armigera",
+    "name": "番茄夜蛾（棉鈴蟲）",
+    "en": "Cotton bollworm (tomato fruitworm)",
+    "sci": "Helicoverpa armigera",
+    "type": "pest",
+    "crops": ["goldenberry", "tomato", "pepper", "eggplant", "corn"],
+    "parts": ["fruit", "flower", "leaf"],
+    "tags": ["holes", "insects"],
+    "summary": "雜食性夜蛾，幼蟲鑽食花蕾與果實，蛀孔處有蟲糞並引起腐爛，一隻幼蟲可連續危害多個果實。",
+    "symptoms": [
+      "幼蟲體色變化大（綠、黃褐至暗褐），體側有淡色縱帶，體表有小刺毛。",
+      "幼齡幼蟲取食嫩葉與花蕾，之後鑽入果實取食，果實上留下圓形蛀孔與蟲糞。",
+      "被害果實容易腐爛、掉落；幼蟲常轉移危害多個果實。",
+      "成蟲為黃褐色中型蛾，前翅中央有腎形斑。"
+    ],
+    "conditions": "全年可見，春、秋兩季密度較高；寄主範圍廣，鄰近玉米、番茄等田區時容易移入。",
+    "prevention": [
+      "摘除被害果與落果並銷毀，減少田間蟲源。",
+      "利用性費洛蒙誘蟲器監測及誘殺成蟲。",
+      "設置防蟲網，並保護寄生蜂等天敵。"
+    ],
+    "control": [
+      "幼蟲鑽入果實後藥劑難以接觸，應在卵孵化至幼齡幼蟲期防治。",
+      "可使用已登記的蘇力菌等生物性藥劑；依《植物保護手冊》選用登記藥劑，並輪替不同作用機制（IRAC 代碼）的藥劑。"
+    ],
+    "illus": [
+      { "k": "bug", "t": "caterpillar", "color": "#7d8c3e", "cap": "幼蟲體側有淡色縱帶，體色多變" },
+      { "k": "fruit", "fruit": "tomato", "p": "bore", "cap": "果實上的圓形蛀孔與蟲糞" }
+    ],
+    "photoQuery": "Helicoverpa armigera larva",
+    "related": ["spodoptera-litura", "fall-armyworm"],
+    "cropNotes": {
+      "goldenberry": "幼蟲咬破宿萼鑽入取食果實，宿萼外常只看到小孔，剝開才發現果實已被蛀食腐爛。",
+      "tomato": "青果、紅果都會被蛀食，蛀孔附近有蟲糞，果實容易腐爛。",
+      "pepper": "幼蟲從果蒂附近鑽入果實內部取食，被害果腐爛掉落。",
+      "corn": "幼蟲取食雌穗花絲與果穗頂端的籽粒。"
     }
   },
   {
@@ -793,7 +872,7 @@
     "en": "Aphids",
     "sci": "Aphis gossypii、Myzus persicae 等",
     "type": "pest",
-    "crops": ["cucurbit", "pepper", "eggplant", "tomato", "crucifer", "citrus", "papaya", "strawberry", "potato"],
+    "crops": ["cucurbit", "pepper", "eggplant", "tomato", "crucifer", "citrus", "papaya", "strawberry", "potato", "goldenberry"],
     "parts": ["leaf", "stem", "flower"],
     "tags": ["curling", "honeydew", "insects", "stunting"],
     "summary": "群聚在嫩芽刺吸汁液的小型害蟲，繁殖極快，並會傳播多種病毒病。",
@@ -826,7 +905,8 @@
       "citrus": "危害嫩梢使新葉捲曲，並傳播柑橘病毒病害。",
       "papaya": "直接危害較輕，主要危害是傳播木瓜輪點病毒。",
       "potato": "群聚葉背與嫩梢，主要危害是傳播馬鈴薯病毒病害。",
-      "strawberry": "群聚新葉與花序，造成新葉捲縮，並傳播草莓病毒。"
+      "strawberry": "群聚新葉與花序，造成新葉捲縮，並傳播草莓病毒。",
+      "goldenberry": "群聚於嫩梢與葉背吸汁，新葉捲縮並沾滿蜜露；也會傳播病毒病。"
     }
   },
   {
@@ -835,7 +915,7 @@
     "en": "Silverleaf whitefly",
     "sci": "Bemisia tabaci（= B. argentifolii）",
     "type": "pest",
-    "crops": ["tomato", "cucurbit", "pepper", "eggplant", "crucifer"],
+    "crops": ["tomato", "cucurbit", "pepper", "eggplant", "crucifer", "goldenberry"],
     "parts": ["leaf"],
     "tags": ["yellowing", "honeydew", "insects", "silvering"],
     "summary": "設施及夏秋季極常見的刺吸式害蟲，除了吸汁外，還會傳播番茄黃化捲葉病毒等病毒病。",
@@ -867,7 +947,8 @@
     "cropNotes": {
       "tomato": "主要危害是傳播番茄黃化捲葉病毒，少量成蟲就可能造成嚴重損失。",
       "cucurbit": "南瓜等瓜類葉片呈銀白色（銀葉症），果實色淡；也會傳播病毒。",
-      "crucifer": "群聚葉背吸食，葉片褪色，並分泌蜜露引發煤煙病。"
+      "crucifer": "群聚葉背吸食，葉片褪色，並分泌蜜露引發煤煙病。",
+      "goldenberry": "葉背聚集大量成蟲與若蟲，蜜露誘發煤煙病；也可能傳播雙生病毒造成葉片黃化捲曲。"
     }
   },
   {
@@ -876,7 +957,7 @@
     "en": "Thrips",
     "sci": "Thrips palmi、Scirtothrips dorsalis、Frankliniella occidentalis 等",
     "type": "pest",
-    "crops": ["cucurbit", "pepper", "eggplant", "mango", "grape", "citrus", "strawberry"],
+    "crops": ["cucurbit", "pepper", "eggplant", "mango", "grape", "citrus", "strawberry", "goldenberry"],
     "parts": ["leaf", "flower", "fruit"],
     "tags": ["silvering", "curling", "cracking", "insects"],
     "summary": "體型極小、藏在花與嫩芽中的銼吸式害蟲，造成葉片與果皮擦傷，部分種類會傳播病毒。",
@@ -911,7 +992,8 @@
       "mango": "危害花穗與幼果，果實表面出現褐色木栓化擦痕。",
       "grape": "果粒表面出現褐色擦痕，新梢葉片皺縮。",
       "citrus": "幼果果蒂周圍出現環狀銀白至褐色疤痕，影響外觀。",
-      "strawberry": "危害花與果實，果面種子周圍褐化、失去光澤。"
+      "strawberry": "危害花與果實，果面種子周圍褐化、失去光澤。",
+      "goldenberry": "危害嫩葉、花及幼果，葉片出現銀白色擦痕並皺縮，宿萼與果皮留下褐色疤痕。"
     }
   },
   {
@@ -920,7 +1002,7 @@
     "en": "Spider mites",
     "sci": "Tetranychus urticae、Tetranychus kanzawai 等",
     "type": "pest",
-    "crops": ["strawberry", "cucurbit", "papaya", "eggplant", "pepper", "tomato", "citrus"],
+    "crops": ["strawberry", "cucurbit", "papaya", "eggplant", "pepper", "tomato", "citrus", "goldenberry"],
     "parts": ["leaf"],
     "tags": ["webbing", "yellowing", "spots", "insects"],
     "summary": "高溫乾燥時爆發的微小蟎類，群聚葉背吸汁，葉面出現密集褪色小點並結細絲網。",
@@ -954,7 +1036,8 @@
       "eggplant": "葉片褪色呈灰白，葉背可見蟎體與細絲。",
       "pepper": "葉片褪色、捲曲，嚴重時落葉。",
       "tomato": "葉片褪色黃化，嚴重時植株結網、葉片乾枯。",
-      "citrus": "葉面出現灰白小點並失去光澤，果實表面變灰暗。"
+      "citrus": "葉面出現灰白小點並失去光澤，果實表面變灰暗。",
+      "goldenberry": "高溫乾燥時在葉背危害，葉面出現密集黃白色小點，嚴重時葉片黃褐並結細網。"
     }
   },
   {
@@ -1165,7 +1248,7 @@
     "en": "Leafminers",
     "sci": "Liriomyza sativae、Liriomyza trifolii 等",
     "type": "pest",
-    "crops": ["tomato", "cucurbit", "crucifer", "pepper", "eggplant"],
+    "crops": ["tomato", "cucurbit", "crucifer", "pepper", "eggplant", "goldenberry"],
     "parts": ["leaf"],
     "tags": ["mines", "insects"],
     "summary": "幼蟲在葉片內潛食，形成白色蛇行隧道。",
@@ -1188,7 +1271,10 @@
       { "k": "leaf", "p": "mines", "cap": "白色蛇行隧道，內有黑色蟲糞線" }
     ],
     "photoQuery": "Liriomyza leaf mine",
-    "related": ["silverleaf-whitefly"]
+    "related": ["silverleaf-whitefly"],
+    "cropNotes": {
+      "goldenberry": "葉片出現白色彎曲隧道，幼苗期受害較嚴重，影響光合作用與生長。"
+    }
   },
   {
     "id": "golden-apple-snail",
@@ -1253,12 +1339,49 @@
     "related": ["diamondback-moth"]
   },
   {
+    "id": "epilachna-beetle",
+    "name": "二十八星瓢蟲",
+    "en": "28-spotted ladybird",
+    "sci": "Henosepilachna vigintioctopunctata",
+    "type": "pest",
+    "crops": ["goldenberry", "eggplant", "potato", "tomato"],
+    "parts": ["leaf", "fruit"],
+    "tags": ["holes", "insects"],
+    "summary": "植食性瓢蟲，成蟲與幼蟲刮食葉肉，留下網狀或天窗狀食痕，是茄科作物常見害蟲。",
+    "symptoms": [
+      "成蟲半球形，體長約 6–8 mm，橙黃至紅褐色，翅鞘上共有 28 個黑斑，體表有細毛、沒有光澤。",
+      "幼蟲黃色、橢圓形，背上有分枝狀棘刺。",
+      "成蟲與幼蟲在葉背刮食葉肉、只留表皮，形成半透明的條紋狀食痕，之後乾枯破裂成網狀孔洞。",
+      "嚴重時葉片只剩葉脈，也會刮食果實表面。"
+    ],
+    "conditions": "春季至秋季發生，溫暖時密度高；成蟲可在田邊雜草（如野生茄科植物）與作物殘株中越冬。",
+    "prevention": [
+      "清除田區周邊的茄科雜草與殘株。",
+      "定期巡田，人工捕殺成蟲並摘除葉背的黃色卵塊。",
+      "網室栽培。"
+    ],
+    "control": [
+      "族群密度高時依《植物保護手冊》選用登記藥劑，著重噴施葉背，並輪替不同作用機制的藥劑。"
+    ],
+    "illus": [
+      { "k": "bug", "t": "ladybird", "cap": "橙褐色翅鞘共 28 個黑斑，體表有細毛" },
+      { "k": "leaf", "p": "holes", "style": "window", "cap": "刮食葉肉形成天窗狀食痕" }
+    ],
+    "photoQuery": "Henosepilachna vigintioctopunctata",
+    "related": ["flea-beetle", "spodoptera-litura"],
+    "cropNotes": {
+      "goldenberry": "葉片被刮食成網狀，嫩葉受害較重，也會刮食宿萼。",
+      "eggplant": "茄子最常受害，葉片布滿網狀食痕，果皮被刮食後留下褐色疤痕。",
+      "potato": "葉片被刮食成網狀，嚴重時植株提早枯黃，影響薯塊肥大。"
+    }
+  },
+  {
     "id": "root-knot-nematode",
     "name": "根瘤線蟲",
     "en": "Root-knot nematodes",
     "sci": "Meloidogyne spp.",
     "type": "pest",
-    "crops": ["tomato", "cucurbit", "pepper", "eggplant", "banana", "papaya", "guava"],
+    "crops": ["tomato", "cucurbit", "pepper", "eggplant", "banana", "papaya", "guava", "goldenberry"],
     "parts": ["root", "whole"],
     "tags": ["galls", "wilting", "stunting", "yellowing"],
     "summary": "寄生在根部的微小線蟲，根部形成串珠狀瘤腫，地上部生長不良。",
@@ -1289,7 +1412,8 @@
       "cucurbit": "根部腫瘤明顯，植株黃化矮小、果實小。",
       "banana": "根部腫大變形，植株生長慢、易倒伏，果串小。",
       "papaya": "根部腫瘤造成植株生長停滯、葉片黃化。",
-      "guava": "根部腫瘤並伴隨根腐，植株衰弱、葉片黃化提早落葉。"
+      "guava": "根部腫瘤並伴隨根腐，植株衰弱、葉片黃化提早落葉。",
+      "goldenberry": "根部形成大小不一的根瘤，植株生長衰弱、葉片黃化，並容易併發萎凋病與青枯病。"
     }
   },
   {
@@ -1534,7 +1658,8 @@
       "cucurbit": "西瓜等果實尾部凹陷黑腐（尻腐），新葉邊緣枯捲。",
       "potato": "薯塊內部出現褐斑或空心，頂芽壞死。",
       "strawberry": "新葉葉尖焦枯、皺縮（葉燒），花萼尖端褐變；高溫、蒸散旺盛或濕度過高時常見。",
-      "mango": "果頂果肉提早軟化、呈水浸狀（軟鼻），與果實鈣含量偏低有關。"
+      "mango": "果頂果肉提早軟化、呈水浸狀（軟鼻），與果實鈣含量偏低有關。",
+      "goldenberry": "果實容易裂果，新葉捲曲、生長點受損；土壤乾濕變化劇烈時更明顯。"
     }
   },
   {
@@ -1614,7 +1739,8 @@
       "strawberry": "新葉皺縮畸形、葉尖焦枯，果實小而畸形、種子少。",
       "citrus": "果皮增厚硬化、果實畸形，果皮與果心有膠狀褐斑。",
       "grape": "結實不良，同一串果粒大小不一（大小粒），新梢節間短。",
-      "papaya": "果實表面凹凸不平、呈瘤狀畸形，果肉中常有乳汁凝結的硬塊，容易落果。"
+      "papaya": "果實表面凹凸不平、呈瘤狀畸形，果肉中常有乳汁凝結的硬塊，容易落果。",
+      "goldenberry": "裂果與畸形果增加，新梢生長點枯死、節間縮短。"
     }
   },
   {
