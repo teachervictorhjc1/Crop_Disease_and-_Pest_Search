@@ -218,6 +218,8 @@ export const EN = {
   '罹病株': 'Diseased',
   '健康株': 'Healthy',
   '生長點壞死': 'Dead growing tip',
+  '心葉枯萎': 'Dead spear leaf',
+  '長口吻': 'Long snout',
   '小葉簇生': 'Rosetted small leaves',
   '穗頸變黑': 'Blackened neck',
   '水面': 'Water',

@@ -273,9 +273,11 @@ const LEAF_PATTERNS = {
         over += `<circle cx="${f(x)}" cy="${f(y)}" r="${f(R * 0.45)}" fill="#7d5a2e"/>`;
         for (let i = 0; i < 4; i++) over += `<circle cx="${f(x + (r() - 0.5) * R)}" cy="${f(y + (r() - 0.5) * R)}" r=".7" fill="#5a3a18"/>`;
       } else {
+        // edge：病斑外緣顏色（例如灰白中心、褐色邊緣）
+        const stroke = o.edge ? ` stroke="${o.edge}" stroke-width="1.8"` : '';
         over += o.irregular
-          ? `<path d="${blob(x, y, R, r, 8, 0.6)}" fill="${color}"/>`
-          : `<circle cx="${f(x)}" cy="${f(y)}" r="${f(R)}" fill="${color}"/>`;
+          ? `<path d="${blob(x, y, R, r, 8, 0.6)}" fill="${color}"${stroke}/>`
+          : `<circle cx="${f(x)}" cy="${f(y)}" r="${f(R)}" fill="${color}"${stroke}/>`;
       }
       if (o.rings) for (let k = 1; k <= 3; k++) over += `<circle cx="${f(x)}" cy="${f(y)}" r="${f((R * k) / 3.4)}" fill="none" stroke="#2e1b0d" stroke-width=".8"/>`;
     }
@@ -336,6 +338,17 @@ const LEAF_PATTERNS = {
         `<path d="M162 70 Q148 80 132 81 Q148 86 160 96 Z" fill="#b58a3a"/>` +
         `<path d="${veins}" stroke="#1d1a14" stroke-width="1.4" fill="none" stroke-linecap="round"/>`,
     };
+  },
+  // 縱向條狀食痕（椰子紅胸葉蟲）：沿葉脈方向的褐色條紋
+  streak(L, r) {
+    let over = '';
+    const [x0, y0, x1, y1] = L.box;
+    for (let k = 0; k < 7; k++) {
+      const y = y0 + 4 + r() * (y1 - y0 - 8), x = x0 + r() * (x1 - x0) * 0.6, len = 30 + r() * 50;
+      over += `<path d="M${f(x)} ${f(y)} L${f(Math.min(x + len, x1))} ${f(y + (r() - 0.5) * 2)}" stroke="#8a6438" stroke-width="3.2" stroke-linecap="round"/>` +
+        `<path d="M${f(x + 2)} ${f(y)} L${f(Math.min(x + len, x1) - 2)} ${f(y)}" stroke="#d9c896" stroke-width="1" stroke-linecap="round"/>`;
+    }
+    return { over };
   },
   // 白銹病：葉面淡黃斑，葉背（右側放大圓）白色隆起孢子堆
   whiterust(L, r) {
@@ -545,6 +558,7 @@ const FRUIT = {
   eggplant: { d: 'M86 36 C64 50 56 94 72 122 C86 144 126 142 138 118 C150 92 130 54 114 40 C106 33 94 32 86 36Z', color: '#4e2160', hi: '#9361ad', top: 'calyx', ty: 38, tx: 100 },
   guava: { d: 'M100 32 C126 32 150 54 150 86 C150 116 128 134 100 134 C72 134 50 116 50 86 C50 54 74 32 100 32Z', color: '#9cc04e', hi: '#e2eea0', top: 'stem', ty: 32 },
   goldenberry: { d: ell(100, 88, 40, 39), color: '#e89a1c', hi: '#ffd25a', top: 'husk', husk: true },
+  coconut: { d: 'M100 30 C132 32 150 62 148 92 C146 120 124 136 100 136 C76 136 54 120 52 92 C50 62 68 32 100 30Z', color: '#5a9630', hi: '#a8d06a', top: 'calyx', ty: 32 },
   // 杭菊：白色舌狀花瓣、黃色花心的花朵
   chrysanthemum: { d: flowerPath(100, 78, 18, 62, 30), color: '#ece6d2', hi: '#ffffff', top: 'none', disc: true },
   banana: { d: 'M34 58 C62 98 132 106 174 66 C180 62 186 66 182 74 C146 124 62 122 28 68 C25 62 30 55 34 58Z', color: '#e2c43a', hi: '#f6ea94', top: 'bstem' },
@@ -750,8 +764,42 @@ function grassPlant(cx, scale, colorAt) {
   return s;
 }
 
+/**
+ * 棕櫚植株（椰子）：樹幹＋羽狀葉；colorAt(0) 為最下方老葉、colorAt(4) 為中央心葉
+ * spearDown：心葉褐變下垂（芽腐病、紅棕象鼻蟲）
+ */
+function palmPlant(cx, scale, colorAt, spearDown = false) {
+  const top = 130 - 60 * scale;
+  let s = `<path d="M${cx} 130 Q${f(cx - 4 * scale)} ${f((130 + top) / 2)} ${cx} ${f(top)}" stroke="#8a6a44" stroke-width="${f(10 * scale + 1)}" fill="none" stroke-linecap="round"/>`;
+  for (let y = 126; y > top + 4; y -= 7 * scale) s += `<path d="M${f(cx - 5 * scale)} ${f(y)} l${f(10 * scale)} -2" stroke="#6a4e30" stroke-width="1"/>`;
+  // 羽狀葉：中軸為二次曲線，小葉沿中軸下垂
+  const frond = (side, L, lift, drop, col) => {
+    const x0 = cx, y0 = top, cxq = cx + side * L * 0.5, cyq = top - L * lift, x1 = cx + side * L, y1 = top + L * drop;
+    let p = `<path d="M${x0} ${f(y0)} Q${f(cxq)} ${f(cyq)} ${f(x1)} ${f(y1)}" stroke="${col}" stroke-width="${f(2.2 * scale + 0.6)}" fill="none"/>`;
+    for (let k = 1; k <= 9; k++) {
+      const t = k / 10;
+      const px = (1 - t) ** 2 * x0 + 2 * (1 - t) * t * cxq + t * t * x1;
+      const py = (1 - t) ** 2 * y0 + 2 * (1 - t) * t * cyq + t * t * y1;
+      const ll = (12 - k * 0.6) * scale;
+      p += `<path d="M${f(px)} ${f(py)} l${f(side * ll * 0.35)} ${f(ll)} M${f(px)} ${f(py)} l${f(-side * ll * 0.2)} ${f(ll * 0.9)}" stroke="${col}" stroke-width="${f(1.6 * scale + 0.4)}" stroke-linecap="round"/>`;
+    }
+    return p;
+  };
+  // 由老到新：0 最下垂、3 較上舉
+  [[76, 0.05, 0.62], [74, 0.3, 0.32], [66, 0.5, 0.08], [52, 0.75, -0.12]].forEach(([L, lift, drop], i) => {
+    for (const side of [-1, 1]) s += frond(side, L * scale, lift, drop, colorAt(i));
+  });
+  // 中央心葉（未展開的劍狀葉）
+  const sc = colorAt(4);
+  s += spearDown
+    ? `<path d="M${cx} ${f(top)} Q${f(cx + 6 * scale)} ${f(top - 26 * scale)} ${f(cx + 20 * scale)} ${f(top - 10 * scale)}" stroke="${sc}" stroke-width="${f(5 * scale + 1)}" fill="none" stroke-linecap="round"/>`
+    : `<path d="M${cx} ${f(top)} L${f(cx + 1)} ${f(top - 40 * scale)}" stroke="${sc}" stroke-width="${f(5 * scale + 1)}" stroke-linecap="round"/>`;
+  return s;
+}
+
 function basicPlant(cx, scale, colorAt, droop = 0, form = '') {
   if (form === 'grass') return grassPlant(cx, scale, colorAt);
+  if (form === 'palm') return palmPlant(cx, scale, colorAt);
   const levels = [118, 98, 78, 58, 40];
   let s = `<path d="M${cx} 130 L${cx} ${f(130 - 100 * scale)}" stroke="#4d8a2e" stroke-width="${f(4 * scale + 1)}" stroke-linecap="round"/>`;
   levels.forEach((y0, i) => {
@@ -790,6 +838,11 @@ const PLANT_STATES = {
   tipdie(o) {
     return basicPlant(100, 1, (i) => (i === 4 ? '#7a5a2a' : i === 3 ? '#a5b04a' : C.leaf), 0, o.form) +
       `<circle cx="100" cy="30" r="6" fill="#4a2e18"/><text x="114" y="26" font-size="11" fill="currentColor">${tr('生長點壞死')}</text>`;
+  },
+  // 棕櫚心葉枯萎下垂（芽腐病、紅棕象鼻蟲）
+  crowndie() {
+    return palmPlant(100, 1, (i) => (i === 4 ? '#7a4a22' : i === 3 ? '#b49a3a' : C.leaf), true) +
+      `<text x="128" y="40" font-size="11" fill="currentColor">${tr('心葉枯萎')}</text>`;
   },
   rosette() {
     let s = `<path d="M100 130 L100 52" stroke="#4d8a2e" stroke-width="5" stroke-linecap="round"/>`;
@@ -1067,6 +1120,33 @@ const BUGS = {
     s += `<path d="M95 35 L82 14 M105 35 L118 14" stroke="#2a2a2a" stroke-width="1.6"/><ellipse cx="92" cy="80" rx="5" ry="12" fill="#ffffff" opacity=".12"/>`;
     return s;
   },
+  // 椰子紅胸葉蟲：細長扁平，前胸紅褐、翅鞘黑褐
+  hispine(o, r) {
+    let s = leafBg;
+    for (let k = 0; k < 5; k++) {
+      const y = 30 + r() * 90, x = 20 + r() * 40;
+      s += `<path d="M${f(x)} ${f(y)} l${f(30 + r() * 30)} 0" stroke="#a88a58" stroke-width="3" stroke-linecap="round"/>`;
+    }
+    s += legs(92, 80, -1, 3, 16, '#3a2a1a', 16) + legs(108, 80, 1, 3, 16, '#3a2a1a', 16);
+    s += `<path d="M100 100 m-11 -36 h22 v58 q0 14 -11 16 q-11 -2 -11 -16Z" fill="#2a1e18" stroke="#120c08"/>`;
+    s += `<path d="M100 66 L100 136" stroke="#4a3a2e" stroke-width="1"/>`;
+    for (const x of [93, 107]) s += `<path d="M${x} 70 L${x} 128" stroke="#3e2e24" stroke-width=".8" stroke-dasharray="2 2"/>`;
+    s += `<rect x="90" y="46" width="20" height="18" rx="5" fill="#b8481e" stroke="#7a2e12"/>`;
+    s += `<ellipse cx="100" cy="40" rx="6" ry="6" fill="#2a1e18"/><path d="M97 36 L90 12 M103 36 L110 12" stroke="#2a1e18" stroke-width="2.4" stroke-linecap="round"/>`;
+    return s;
+  },
+  // 紅棕象鼻蟲：紅褐色、長口吻、前胸背板有黑斑
+  weevil() {
+    let s = leafBg;
+    s += legs(84, 92, -1, 3, 24, '#3a1a0e', 18) + legs(116, 92, 1, 3, 24, '#3a1a0e', 18);
+    s += `<ellipse cx="100" cy="100" rx="25" ry="32" fill="#9a3a18" stroke="#5a1e0a"/>`;
+    for (const dx of [-14, -7, 0, 7, 14]) s += `<path d="M${100 + dx} 76 Q${100 + dx * 1.15} 100 ${100 + dx * 0.8} 126" stroke="#6a2410" stroke-width="1.1" fill="none"/>`;
+    s += `<ellipse cx="100" cy="60" rx="18" ry="16" fill="#b8481e" stroke="#5a1e0a"/>`;
+    for (const [x, y, R] of [[100, 54, 4], [92, 64, 2.6], [108, 64, 2.6], [100, 68, 2]]) s += `<circle cx="${x}" cy="${y}" r="${R}" fill="#1e0e08"/>`;
+    s += `<ellipse cx="100" cy="42" rx="6" ry="5" fill="#2a120a"/><path d="M100 40 Q101 26 100 10" stroke="#2a120a" stroke-width="4" fill="none" stroke-linecap="round"/>`;
+    s += `<path d="M100 22 L88 22 L84 14 M100 22 L112 22 L116 14" stroke="#2a120a" stroke-width="1.6" fill="none"/>`;
+    return s + `<text x="128" y="20" font-size="9" fill="#2d3a24">${tr('長口吻')}</text>`;
+  },
   ladybird(o, r) {
     let s = leafBg;
     for (const [x, y] of [[40, 52], [160, 108], [44, 112]]) s += `<path d="${blob(x, y, 12, r, 8, 0.6)}" fill="#eef2d6" stroke="#c9d39a"/>`;
@@ -1136,6 +1216,7 @@ const CROP_STYLE = {
   guava: { leaf: 'broad', fruit: 'guava' },
   goldenberry: { leaf: 'broad', fruit: 'goldenberry' },
   chrysanthemum: { leaf: 'chrys', fruit: 'chrysanthemum' },
+  coconut: { leaf: 'grass', fruit: 'coconut', plant: 'palm' },
 };
 // 這些葉片圖樣的位置是針對特定葉形設計的，不換葉形
 const SHAPE_FIXED = new Set(['curl', 'margin-blight', 'v-lesion', 'rolled', 'spindle', 'oilspot', 'blotchy']);

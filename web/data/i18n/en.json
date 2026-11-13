@@ -48,6 +48,9 @@
   "goldenberry": {
    "name": "Goldenberry (cape gooseberry)"
   },
+  "coconut": {
+   "name": "Dwarf coconut"
+  },
   "chrysanthemum": {
    "name": "Hangju chrysanthemum (tea chrysanthemum)"
   }
@@ -838,6 +841,58 @@
     }
    ]
   },
+  "coconut-gray-blight": {
+   "name": "Coconut gray leaf blight",
+   "sci": "Pestalotiopsis palmarum (= Pestalotia palmarum)",
+   "summary": "A common leaf disease of coconut. Leaflets of older fronds get spots with gray-white centers and brown edges, and large areas of leaf dry out in severe cases.",
+   "symptoms": [
+    "Small yellow spots appear on leaflets and enlarge into long oval lesions with gray-white centers and dark brown edges.",
+    "Tiny black dots (acervuli) are scattered on the lesions.",
+    "As lesions merge, leaflets dry from the tip inward and look blighted.",
+    "Mostly on lower, older fronds; worse on weak plants and those short of potassium."
+   ],
+   "conditions": "Common in hot, humid weather. Spores spread by wind and rain and enter through wounds or weakened tissue; poorly nourished (especially potassium-deficient) and poorly drained plants suffer most.",
+   "prevention": [
+    "Fertilize in balance, paying special attention to potassium.",
+    "Cut off badly diseased old fronds and destroy them off the field.",
+    "Improve drainage and avoid overcrowding."
+   ],
+   "control": [
+    "At the first sign of disease, choose registered pesticides from the Plant Protection Manual and rotate modes of action (FRAC codes).",
+    "Few pesticides are registered for coconut; check the Plant Protection Manual that a product is registered for coconut before use, and follow the pre-harvest interval."
+   ],
+   "illus": [
+    {
+     "cap": "Lesions with gray-white centers and dark brown edges on leaflets"
+    }
+   ]
+  },
+  "coconut-bud-rot": {
+   "name": "Coconut bud rot",
+   "summary": "An oomycete disease of the coconut growing point. Once the spear leaf rots the palm cannot produce new fronds, and without prompt action the whole palm dies.",
+   "symptoms": [
+    "The first sign is the unopened central spear leaf fading and wilting; it pulls out easily.",
+    "Tissue at the spear base and growing point turns into a foul-smelling soft rot.",
+    "Surrounding fronds yellow and droop from the inside out, and immature nuts drop.",
+    "After the growing point dies only old fronds remain, and finally the palm dies."
+   ],
+   "conditions": "Common in rainy, humid seasons and after typhoons. The pathogen spreads by rain splash and enters near the growing point; wounded palms and water pooling in the crown make it worse.",
+   "prevention": [
+    "Check spear leaves closely after typhoons and heavy rain.",
+    "Improve orchard drainage and avoid water standing in the crown.",
+    "Remove diseased palms early to reduce sources of infection."
+   ],
+   "control": [
+    "When found early, cut away rotten tissue back to healthy tissue, then treat the wound and the area around the growing point with registered pesticides from the Plant Protection Manual.",
+    "Palms whose growing point has rotted cannot recover; cut them down and destroy them.",
+    "Few pesticides are registered for coconut; check the Plant Protection Manual that a product is registered for coconut before use, and follow the pre-harvest interval."
+   ],
+   "illus": [
+    {
+     "cap": "Central spear leaf turns brown, rots and droops"
+    }
+   ]
+  },
   "spodoptera-litura": {
    "name": "Tobacco cutworm",
    "summary": "A noctuid moth pest with an extremely wide host range; larvae feed heavily on leaves and fruit at night.",
@@ -1451,9 +1506,67 @@
    ],
    "cropNotes": {
     "citrus": "Fixed on leaves, branches and fruit while feeding; leave spots on the fruit surface and cause sooty mold.",
-    "mango": "Leaves and branches are covered with scales; the tree weakens and sooty mold develops."
+    "mango": "Leaves and branches are covered with scales; the tree weakens and sooty mold develops.",
+    "coconut": "Coconut scale and other species cluster on leaf undersides; leaves get yellow spots and gradually yellow, whole fronds can dry out in severe cases, and nuts may be infested too."
    },
    "sci": "Diaspididae, Coccidae, Pseudococcidae, etc."
+  },
+  "coconut-hispine-beetle": {
+   "name": "Coconut hispine beetle",
+   "summary": "An invasive pest of coconut and other palms. Adults and larvae hide inside the unopened spear leaf to feed; when the leaf opens it shows brown streaks and dries out as if scorched.",
+   "symptoms": [
+    "Adults are about 8–10 mm long, slender and flat, with a reddish-brown pronotum and blackish-brown wing covers.",
+    "Larvae are flat and pale yellowish white, with a pair of pincer-like projections at the tail.",
+    "Adults and larvae scrape the leaflet surface inside the unopened spear leaf, leaving brown streaks parallel to the veins.",
+    "When the spear opens, leaflets turn brown, curl and dry; in severe cases the whole crown looks scorched, and young palms stop growing or die."
+   ],
+   "conditions": "Present year-round, with worse damage in hot, dry weather; young palms and dwarf coconuts are hit hardest. Adults fly poorly, so long-distance spread is mainly on infested seedlings.",
+   "prevention": [
+    "Do not bring in infested seedlings from affected areas; check the spear leaf of new seedlings.",
+    "Check spear leaves regularly; cut off and destroy badly damaged leaves.",
+    "Biological control can be supported by releasing natural enemies such as parasitic wasps."
+   ],
+   "control": [
+    "When numbers are high, choose registered pesticides from the Plant Protection Manual; the spray must reach inside the unopened spear leaf to work.",
+    "Few pesticides are registered for coconut; check the Plant Protection Manual that a product is registered for coconut before use, and follow the pre-harvest interval."
+   ],
+   "illus": [
+    {
+     "cap": "Slender, flat adult with a reddish-brown pronotum and blackish-brown wing covers"
+    },
+    {
+     "cap": "Brown feeding streaks running parallel to the leaflet veins"
+    }
+   ]
+  },
+  "red-palm-weevil": {
+   "name": "Red palm weevil",
+   "summary": "One of the most destructive pests of palms. Larvae bore inside the trunk and growing point, out of sight, so palms are often beyond saving by the time damage is noticed.",
+   "symptoms": [
+    "Adults are about 3 cm long and reddish brown, with a long slender snout and black spots on the pronotum.",
+    "Larvae are creamy white, legless and plump with a reddish-brown head, and bore inside the trunk.",
+    "Holes appear on the trunk or at the base of leaf stalks, oozing brown, fermented-smelling liquid with chewed fibers; larvae can sometimes be heard feeding when listening close to the trunk.",
+    "The spear leaf yellows and wilts; finally the growing point rots, the crown collapses and the palm dies."
+   ],
+   "conditions": "Present year-round. Pruning cuts, mechanical wounds and wounds made by other pests attract adults to lay eggs. Untreated infested palms become a source of weevils for nearby palms.",
+   "prevention": [
+    "Avoid wounding palms and protect cuts after pruning.",
+    "Monitor and trap adults with aggregation pheromone traps.",
+    "Regularly check trunks and leaf-stalk bases for holes and oozing liquid."
+   ],
+   "control": [
+    "Cut down badly infested palms early and chop up or destroy the trunk so adults cannot emerge and spread; report to the local agricultural research station or plant quarantine authority when needed.",
+    "Palms in the early stage of attack can be treated with registered pesticides from the Plant Protection Manual.",
+    "Few pesticides are registered for coconut; check the Plant Protection Manual that a product is registered for coconut before use, and follow the pre-harvest interval."
+   ],
+   "illus": [
+    {
+     "cap": "Reddish-brown adult with a long snout and black spots on the pronotum"
+    },
+    {
+     "cap": "Spear leaf yellows and wilts, and finally the crown collapses"
+    }
+   ]
   },
   "def-n": {
    "name": "Nitrogen (N) deficiency",
@@ -1492,7 +1605,8 @@
     "cucurbit": "Old leaves yellow, vines thin and weak; few female flowers, fruit small and pale.",
     "strawberry": "Old leaves yellow, then turn reddish brown; few runners, small plants, small fruit.",
     "citrus": "Leaves evenly pale yellow, new shoots short and weak, more leaf drop, poor fruit set.",
-    "banana": "Leaves pale green, petioles and leaf sheaths slightly pinkish; new leaves emerge slowly and the spacing between leaves shortens."
+    "banana": "Leaves pale green, petioles and leaf sheaths slightly pinkish; new leaves emerge slowly and the spacing between leaves shortens.",
+    "coconut": "The whole canopy turns evenly pale yellow, starting on older fronds; new fronds are smaller and appear more slowly."
    }
   },
   "def-p": {
@@ -1566,7 +1680,8 @@
     "strawberry": "Old leaf margins scorched; fruit soft, lacking sweetness and flavor.",
     "citrus": "Fruit small with thin peel that splits easily; leaves curl and crinkle.",
     "banana": "Old leaf tips quickly yellow, turn orange-brown and bend downward; small bunches, short fingers.",
-    "grape": "Old leaf margins scorch in summer, leaf surface turns dark purplish brown; berries color poorly, low sugar."
+    "grape": "Old leaf margins scorch in summer, leaf surface turns dark purplish brown; berries color poorly, low sugar.",
+    "coconut": "Older fronds show yellow-orange spots and scorched leaflet tips first, and lower fronds die early; fewer, smaller nuts and more nut drop. Coconut has a very high potassium demand."
    }
   },
   "def-mg": {
@@ -1601,7 +1716,8 @@
     "cucurbit": "Old leaves yellow between the veins, spreading inward from the margin; most obvious on heavily fruiting plants.",
     "citrus": "Old leaves on fruiting shoots yellow on both sides of the midrib, leaving an inverted V-shaped green area at the base; worst on heavily fruiting branches.",
     "banana": "Old leaves yellow from the margin toward the midrib, with green bands kept along both sides of the midrib; petioles may show purple mottling.",
-    "grape": "Old leaves yellow between the veins (white varieties) or turn reddish purple (red and black varieties); veins stay green."
+    "grape": "Old leaves yellow between the veins (white varieties) or turn reddish purple (red and black varieties); veins stay green.",
+    "coconut": "Leaflet tips of older fronds turn yellow while the parts near the midrib stay green, with a sharp boundary; common on sandy, heavily leached soils."
    }
   },
   "def-ca": {
@@ -1713,7 +1829,8 @@
     "citrus": "Peel thickens and hardens, fruit misshapen, gummy brown spots in the peel and core.",
     "grape": "Poor berry set, berries of mixed sizes in the same cluster (hens and chicks); short internodes on new shoots.",
     "papaya": "Fruit surface bumpy and lumpy, often with hard lumps of congealed latex in the flesh; fruit drops easily.",
-    "goldenberry": "More cracked and misshapen fruit; shoot growing points die back and internodes shorten."
+    "goldenberry": "More cracked and misshapen fruit; shoot growing points die back and internodes shorten.",
+    "coconut": "New fronds emerge with leaflets stuck together, crumpled or hooked (\"hook leaf\"); severe cases deform the spear leaf and reduce nut set."
    }
   },
   "def-zn": {
