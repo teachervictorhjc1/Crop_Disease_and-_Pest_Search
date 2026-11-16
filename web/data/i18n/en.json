@@ -51,6 +51,9 @@
   "coconut": {
    "name": "Dwarf coconut"
   },
+  "durian": {
+   "name": "Durian"
+  },
   "chrysanthemum": {
    "name": "Hangju chrysanthemum (tea chrysanthemum)"
   }
@@ -462,7 +465,8 @@
     "banana": "Dark brown sunken spots on ripe peel that enlarge rapidly after ripening treatment; the fruit stalk also rots.",
     "papaya": "Water-soaked, round sunken spots on ripe fruit with orange-red spore masses in the center.",
     "guava": "Dark brown sunken spots on fruit that rot; young shoots may die back.",
-    "grape": "Brown sunken spots on ripe berries with orange-red spore masses (ripe rot); berries shrivel."
+    "grape": "Brown sunken spots on ripe berries with orange-red spore masses (ripe rot); berries shrivel.",
+    "durian": "Irregular brown lesions start at leaf tips or margins and spread into leaf blight with leaf drop; young shoots may die back. Brown lesions can also appear on fruit."
    }
   },
   "citrus-hlb": {
@@ -890,6 +894,37 @@
    "illus": [
     {
      "cap": "Central spear leaf turns brown, rots and droops"
+    }
+   ]
+  },
+  "durian-phytophthora": {
+   "name": "Durian Phytophthora disease (patch canker, fruit rot)",
+   "summary": "The most important disease of durian. It can attack roots, trunk, branches, leaves and fruit. Patches on the lower trunk ooze gum (patch canker); once a canker girdles the trunk, the whole tree dies.",
+   "symptoms": [
+    "Water-soaked, dark brown patches appear on the bark of the lower trunk or main branches, oozing reddish-brown droplets of gum.",
+    "Scraping off the bark shows reddish-brown to blackish-brown rotten tissue with a sharp edge against healthy tissue.",
+    "When roots rot, leaves lose their shine, yellow and drop heavily, and branches die back from the top.",
+    "Fruit usually shows water-soaked brown lesions starting at the tip or where it touches the ground; white mycelium grows in wet weather, and the fruit rots and drops early."
+   ],
+   "conditions": "Most common in the rainy season, in hot, humid weather and in poorly drained orchards. The pathogen survives in soil and spreads by rain splash, running water and infected planting material, entering through roots, trunk wounds and fruit near the ground.",
+   "prevention": [
+    "Choose well-drained sites and plant on raised beds or mounds so water does not stand around the trunk.",
+    "Use healthy planting material; keep mulch and weeds away from the trunk base.",
+    "Prune low-hanging branches to reduce soil splashing onto the trunk and fruit.",
+    "Check the trunk base regularly for gum oozing and discolored bark."
+   ],
+   "control": [
+    "When a trunk lesion is found, scrape away diseased tissue back to healthy tissue and paint the wound with registered pesticides from the Plant Protection Manual; remove the scraped tissue from the orchard and destroy it.",
+    "Registered products such as phosphorous acid (phosphite) from the Plant Protection Manual can be applied as a drench or trunk injection to raise the tree's resistance.",
+    "Collect and destroy diseased fallen fruit so it does not become the next source of infection.",
+    "Few pesticides are registered for durian; check the Plant Protection Manual that a product is registered for durian before use, and follow the pre-harvest interval."
+   ],
+   "illus": [
+    {
+     "cap": "Dark brown patch on the lower trunk oozing reddish-brown gum"
+    },
+    {
+     "cap": "Water-soaked brown rot on the fruit, with white mycelium in wet weather"
     }
    ]
   },
@@ -1507,7 +1542,8 @@
    "cropNotes": {
     "citrus": "Fixed on leaves, branches and fruit while feeding; leave spots on the fruit surface and cause sooty mold.",
     "mango": "Leaves and branches are covered with scales; the tree weakens and sooty mold develops.",
-    "coconut": "Coconut scale and other species cluster on leaf undersides; leaves get yellow spots and gradually yellow, whole fronds can dry out in severe cases, and nuts may be infested too."
+    "coconut": "Coconut scale and other species cluster on leaf undersides; leaves get yellow spots and gradually yellow, whole fronds can dry out in severe cases, and nuts may be infested too.",
+    "durian": "Mealybugs often hide on fruit stalks and between the spines, sucking sap while ants carry and protect them; honeydew leads to sooty mold that blackens the fruit surface and spoils its appearance."
    },
    "sci": "Diaspididae, Coccidae, Pseudococcidae, etc."
   },
@@ -1565,6 +1601,64 @@
     },
     {
      "cap": "Spear leaf yellows and wilts, and finally the crown collapses"
+    }
+   ]
+  },
+  "durian-psyllid": {
+   "name": "Durian psyllid",
+   "summary": "A psyllid that attacks durian flushes. Nymphs cluster on young leaves, suck sap and produce masses of white waxy threads, so young leaves curl, turn brown and drop. Young trees suffer most.",
+   "symptoms": [
+    "Clusters of flat, pale yellow-green nymphs on young leaves, surrounded by white, cottony, curly waxy threads.",
+    "Adults are about 3 mm long with clear wings, and jump and fly off when disturbed.",
+    "Attacked young leaves curl and crinkle, develop brown scorched patches and finally drop heavily, so new shoots cannot grow normally.",
+    "Honeydew leads to sooty mold, covering the leaf surface with a black layer."
+   ],
+   "conditions": "Mainly occurs during flushing; the more young leaves, the larger the population. Worse in the dry season and on young trees and nursery plants. Found mainly in Southeast Asia and may be brought in on infested planting material.",
+   "prevention": [
+    "Do not bring in planting material from infested areas; check the young leaves of new plants carefully.",
+    "Encourage even flushing across the orchard to shorten the young-leaf period and reduce damage.",
+    "Check young leaves closely during flushing; cut off and destroy heavily infested shoots."
+   ],
+   "control": [
+    "When nymphs are dense on new shoots, use registered pesticides from the Plant Protection Manual, making sure the spray covers the young leaves.",
+    "Few pesticides are registered for durian; check the Plant Protection Manual that a product is registered for durian before use, and follow the pre-harvest interval."
+   ],
+   "illus": [
+    {
+     "cap": "Nymphs cluster on young leaves, covered with white curly waxy threads"
+    },
+    {
+     "cap": "Honeydew leads to sooty mold, covering the leaf with a black layer"
+    }
+   ]
+  },
+  "durian-fruit-borer": {
+   "name": "Durian fruit borer (yellow peach moth)",
+   "summary": "Larvae bore into durian fruit between the spines and feed in the rind and flesh, pushing frass out of the holes. Infested fruit rots and drops easily and loses its market value.",
+   "symptoms": [
+    "Adults are medium-sized moths with yellow wings covered in many small black spots.",
+    "Larvae are pale reddish brown to pale pink with rows of small dark brown bumps on the back, growing to about 2.5 cm.",
+    "Holes appear between the spines, with brown frass bound by silk piled at the openings, often with gum oozing.",
+    "The rind and flesh are eaten out and rot around the holes, and fruit drops early; larvae often enter where two fruits touch."
+   ],
+   "conditions": "Occurs from fruit development to ripening. Adults lay eggs at night between the spines or where fruits touch. Damage is worse when fruits hang touching each other and the orchard is untidy. The host range is wide, so the moth moves between many fruit trees.",
+   "prevention": [
+    "Thin fruit so fruits do not touch, leaving larvae fewer places to hide.",
+    "Bag fruit (with net bags) during fruit development.",
+    "Collect and destroy bored fallen fruit and clear alternative host shrubs around the orchard.",
+    "Monitor adults with black-light traps or sex pheromone traps."
+   ],
+   "control": [
+    "Use registered pesticides from the Plant Protection Manual before larvae bore into the fruit; once inside, pesticides work poorly.",
+    "When a hole is found, push a thin wire into it to kill the larva and clear the frass from the opening.",
+    "Few pesticides are registered for durian; check the Plant Protection Manual that a product is registered for durian before use, and follow the pre-harvest interval."
+   ],
+   "illus": [
+    {
+     "cap": "Pale reddish-brown larva with rows of dark brown bumps on the back"
+    },
+    {
+     "cap": "Bore holes between the spines with brown frass piled at the openings"
     }
    ]
   },
@@ -1681,7 +1775,8 @@
     "citrus": "Fruit small with thin peel that splits easily; leaves curl and crinkle.",
     "banana": "Old leaf tips quickly yellow, turn orange-brown and bend downward; small bunches, short fingers.",
     "grape": "Old leaf margins scorch in summer, leaf surface turns dark purplish brown; berries color poorly, low sugar.",
-    "coconut": "Older fronds show yellow-orange spots and scorched leaflet tips first, and lower fronds die early; fewer, smaller nuts and more nut drop. Coconut has a very high potassium demand."
+    "coconut": "Older fronds show yellow-orange spots and scorched leaflet tips first, and lower fronds die early; fewer, smaller nuts and more nut drop. Coconut has a very high potassium demand.",
+    "durian": "Old leaf margins and tips scorch; potassium shortage during fruit development gives small fruit with poorer flesh quality and flavor. Demand is high during fruiting, so top-dress with potassium in time."
    }
   },
   "def-mg": {
@@ -1830,7 +1925,8 @@
     "grape": "Poor berry set, berries of mixed sizes in the same cluster (hens and chicks); short internodes on new shoots.",
     "papaya": "Fruit surface bumpy and lumpy, often with hard lumps of congealed latex in the flesh; fruit drops easily.",
     "goldenberry": "More cracked and misshapen fruit; shoot growing points die back and internodes shorten.",
-    "coconut": "New fronds emerge with leaflets stuck together, crumpled or hooked (\"hook leaf\"); severe cases deform the spear leaf and reduce nut set."
+    "coconut": "New fronds emerge with leaflets stuck together, crumpled or hooked (\"hook leaf\"); severe cases deform the spear leaf and reduce nut set.",
+    "durian": "Poor flowering and fruit set with more fruit drop; fruit is misshapen or segments develop incompletely; new leaves are small and crinkled."
    }
   },
   "def-zn": {

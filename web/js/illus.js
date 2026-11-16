@@ -547,6 +547,17 @@ function flowerPath(cx, cy, n, R, r0) {
 
 const ell = (cx, cy, rx, ry) => `M${cx - rx} ${cy} a${rx} ${ry} 0 1 0 ${rx * 2} 0 a${rx} ${ry} 0 1 0 ${-rx * 2} 0Z`;
 
+/** 外緣帶尖刺的橢圓（榴槤果實輪廓）：n 根刺，刺高 h */
+function spikyPath(cx, cy, rx, ry, n, h) {
+  let d = '';
+  for (let i = 0; i < n; i++) {
+    const a0 = (i / n) * Math.PI * 2, a1 = ((i + 0.5) / n) * Math.PI * 2;
+    d += `${i ? ' L' : 'M'}${f(cx + Math.cos(a0) * rx)} ${f(cy + Math.sin(a0) * ry)}`;
+    d += ` L${f(cx + Math.cos(a1) * (rx + h))} ${f(cy + Math.sin(a1) * (ry + h))}`;
+  }
+  return d + 'Z';
+}
+
 const FRUIT = {
   tomato: { d: ell(100, 82, 52, 46), color: '#d83a2a', hi: '#f37a5c', top: 'calyx', ty: 38 },
   citrus: { d: ell(100, 82, 47, 46), color: '#ef9a2c', hi: '#ffcb6a', top: 'stem', ty: 36, pores: true },
@@ -559,6 +570,8 @@ const FRUIT = {
   guava: { d: 'M100 32 C126 32 150 54 150 86 C150 116 128 134 100 134 C72 134 50 116 50 86 C50 54 74 32 100 32Z', color: '#9cc04e', hi: '#e2eea0', top: 'stem', ty: 32 },
   goldenberry: { d: ell(100, 88, 40, 39), color: '#e89a1c', hi: '#ffd25a', top: 'husk', husk: true },
   coconut: { d: 'M100 30 C132 32 150 62 148 92 C146 120 124 136 100 136 C76 136 54 120 52 92 C50 62 68 32 100 30Z', color: '#5a9630', hi: '#a8d06a', top: 'calyx', ty: 32 },
+  // 榴槤：外緣與果面布滿錐狀硬刺，頂端粗短木質果柄
+  durian: { d: spikyPath(100, 88, 50, 46, 30, 6), color: '#7f9a3a', hi: '#c9cf6e', top: 'dstem', ty: 42, spikes: true },
   // 杭菊：白色舌狀花瓣、黃色花心的花朵
   chrysanthemum: { d: flowerPath(100, 78, 18, 62, 30), color: '#ece6d2', hi: '#ffffff', top: 'none', disc: true },
   banana: { d: 'M34 58 C62 98 132 106 174 66 C180 62 186 66 182 74 C146 124 62 122 28 68 C25 62 30 55 34 58Z', color: '#e2c43a', hi: '#f6ea94', top: 'bstem' },
@@ -663,6 +676,7 @@ function fruitTop(F, name) {
     return s + `<path d="M${x} ${y} L${x + 2} ${y - 12}" stroke="#3f8a2a" stroke-width="4" stroke-linecap="round"/>`;
   }
   if (F.top === 'none') return '';
+  if (F.top === 'dstem') return `<path d="M${x} ${y + 2} L${x + 2} ${y - 22}" stroke="#6b5a32" stroke-width="8" stroke-linecap="round"/><ellipse cx="${x}" cy="${y + 1}" rx="9" ry="4" fill="#7a6a3a"/>`;
   if (F.top === 'husk') return `<path d="M100 52 C100 40 104 30 112 22" stroke="#8a7a4a" stroke-width="3" fill="none" stroke-linecap="round"/><ellipse cx="100" cy="51" rx="9" ry="4" fill="#b49a5c"/>`;
   if (F.top === 'pstem') return `<path d="M100 38 C100 26 106 18 116 14" stroke="#3f8a2a" stroke-width="5" fill="none" stroke-linecap="round"/><ellipse cx="100" cy="38" rx="20" ry="6" fill="#4f9a38"/>`;
   if (F.top === 'side') return `<path d="M20 78 L6 72" stroke="#3f8a2a" stroke-width="5" stroke-linecap="round"/>`;
@@ -724,6 +738,17 @@ function fruitSVG(o, seed) {
   }
   let deco = '';
   if (F.pores) for (let i = 0; i < 40; i++) deco += `<circle cx="${f(60 + r() * 80)}" cy="${f(40 + r() * 84)}" r=".8" fill="#00000022"/>`;
+  if (F.spikes) {
+    // 果面錐狀刺：交錯排列的小三角形
+    for (let row = 0; row < 9; row++) {
+      for (let col = 0; col < 10; col++) {
+        const x = 52 + col * 10.5 + (row % 2) * 5, y = 46 + row * 10;
+        if (((x - 100) / 46) ** 2 + ((y - 88) / 42) ** 2 > 1) continue;
+        deco += `<path d="M${f(x - 4)} ${f(y + 3)} L${f(x)} ${f(y - 4)} L${f(x + 4)} ${f(y + 3)}Z" fill="#5f7a26" stroke="#4a5e1c" stroke-width=".6"/>` +
+          `<path d="M${f(x - 1.5)} ${f(y + 1)} L${f(x)} ${f(y - 2)}" stroke="#d6dc8a" stroke-width=".8"/>`;
+      }
+    }
+  }
   if (F.seeds) for (let i = 0; i < 26; i++) deco += `<ellipse cx="${f(68 + r() * 64)}" cy="${f(52 + r() * 70)}" rx="1.4" ry="2" fill="#f4d35e"/>`;
   if (F.disc) {
     for (let i = 0; i < 18; i++) {
@@ -938,6 +963,18 @@ const STEM = {
     [[100, 84, 26], [101, 66, 22], [110, 52, 18]].forEach(([x, y, len]) => { s += leafAt(x, y, 65, len, '#6a9a3e') + leafAt(x, y - 2, 118, len, '#6a9a3e'); });
     return s + `<text x="112" y="118" font-size="10" fill="#fff">${tr('莖基部黑褐')}</text>`;
   },
+  // 樹幹基部病斑流膠（榴槤疫病／幹腐病）
+  gummosis(r) {
+    let s = ground + `<path d="M74 150 L80 6 L120 6 L126 150Z" fill="#8a6a48" stroke="#5a4028"/>`;
+    for (const x of [86, 94, 102, 110, 118]) s += `<path d="M${x} 10 Q${x - 2} 60 ${x + 1} 100 T${x} 146" stroke="#6e5236" stroke-width="1" fill="none"/>`;
+    s += `<path d="${blob(100, 98, 17, r, 9, 0.35, 0.95, 1.7)}" fill="#4a2a18" opacity=".92"/>`;
+    s += `<path d="${blob(100, 98, 9, r, 8, 0.3, 0.9, 1.5)}" fill="#7a3418" opacity=".8"/>`;
+    for (const [x, y] of [[92, 74], [106, 84], [96, 104], [110, 110], [90, 118]]) {
+      s += `<path d="M${x} ${y} c-4 6 -4 10 0 11 c4 -1 4 -5 0 -11Z" fill="#b0401c" stroke="#6a1e0a" stroke-width=".7"/>`;
+    }
+    return s + `<text x="132" y="96" font-size="10" fill="currentColor">${tr('流膠')}</text>` +
+      `<path d="M130 93 L114 90" stroke="currentColor" stroke-width="1"/>`;
+  },
 };
 
 function stemSVG(o, seed) {
@@ -1120,6 +1157,18 @@ const BUGS = {
     s += `<path d="M95 35 L82 14 M105 35 L118 14" stroke="#2a2a2a" stroke-width="1.6"/><ellipse cx="92" cy="80" rx="5" ry="12" fill="#ffffff" opacity=".12"/>`;
     return s;
   },
+  // 榴槤木蝨：若蟲群聚在嫩葉上，分泌大量白色捲曲蠟絲
+  durianpsyllid(o, r) {
+    let s = leafBg;
+    for (const [x, y] of [[62, 70], [84, 92], [112, 66], [132, 96], [104, 112], [70, 112]]) {
+      for (let k = 0; k < 5; k++) {
+        const a = -1.4 + (k - 2) * 0.35 + (r() - 0.5) * 0.2, L = 14 + r() * 10;
+        s += `<path d="M${x} ${y} q${f(Math.cos(a) * L * 0.5 + 4)} ${f(Math.sin(a) * L * 0.5)} ${f(Math.cos(a) * L)} ${f(Math.sin(a) * L)}" stroke="#fbfbf6" stroke-width="1.6" fill="none" stroke-linecap="round"/>`;
+      }
+      s += `<ellipse cx="${x}" cy="${y}" rx="6" ry="4.2" fill="#d8d46a" stroke="#9a9a3a"/><circle cx="${x - 5}" cy="${y}" r="1.2" fill="#a02a1a"/>`;
+    }
+    return s + `<text x="148" y="40" font-size="10" fill="#2d3a24">${tr('白色蠟絲')}</text>`;
+  },
   // 椰子紅胸葉蟲：細長扁平，前胸紅褐、翅鞘黑褐
   hispine(o, r) {
     let s = leafBg;
@@ -1217,6 +1266,7 @@ const CROP_STYLE = {
   goldenberry: { leaf: 'broad', fruit: 'goldenberry' },
   chrysanthemum: { leaf: 'chrys', fruit: 'chrysanthemum' },
   coconut: { leaf: 'grass', fruit: 'coconut', plant: 'palm' },
+  durian: { leaf: 'lance', fruit: 'durian' },
 };
 // 這些葉片圖樣的位置是針對特定葉形設計的，不換葉形
 const SHAPE_FIXED = new Set(['curl', 'margin-blight', 'v-lesion', 'rolled', 'spindle', 'oilspot', 'blotchy']);

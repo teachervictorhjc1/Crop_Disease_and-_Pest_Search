@@ -335,7 +335,7 @@
     "en": "Anthracnose",
     "sci": "Colletotrichum spp.",
     "type": "disease",
-    "crops": ["mango", "pepper", "strawberry", "banana", "papaya", "guava", "grape"],
+    "crops": ["mango", "pepper", "strawberry", "banana", "papaya", "guava", "grape", "durian"],
     "parts": ["fruit", "leaf", "flower"],
     "tags": ["spots", "rot", "drop"],
     "summary": "高溫多雨時危害多種果實的真菌病害，常有潛伏感染，採收後才出現病斑。",
@@ -370,7 +370,8 @@
       "banana": "成熟果皮出現黑褐色凹陷斑，催熟後迅速擴大，果柄也會腐爛。",
       "papaya": "成熟果實出現水浸狀圓形凹陷斑，中央有橙紅色孢子堆。",
       "guava": "果實出現黑褐色凹陷斑並腐爛，嫩梢可能枯死。",
-      "grape": "成熟果粒出現褐色凹陷斑，上有橙紅色孢子堆（晚腐病），果粒乾縮。"
+      "grape": "成熟果粒出現褐色凹陷斑，上有橙紅色孢子堆（晚腐病），果粒乾縮。",
+      "durian": "葉片由葉尖或葉緣出現不規則褐色病斑，擴大後成為葉枯並落葉，嫩梢可能枯死；果實上也會出現褐色病斑。"
     }
   },
   {
@@ -885,6 +886,42 @@
     ],
     "photoQuery": "Phytophthora palmivora coconut bud rot",
     "related": ["red-palm-weevil", "coconut-gray-blight"]
+  },
+  {
+    "id": "durian-phytophthora",
+    "name": "榴槤疫病（幹腐病、果腐病）",
+    "en": "Durian Phytophthora disease (patch canker, fruit rot)",
+    "sci": "Phytophthora palmivora",
+    "type": "disease",
+    "crops": ["durian"],
+    "parts": ["stem", "fruit", "root", "whole"],
+    "tags": ["rot", "spots", "wilting", "yellowing", "drop"],
+    "summary": "榴槤最重要的病害，可危害根、樹幹、枝條、葉片與果實。樹幹基部出現流膠的病斑（幹腐病），病斑繞幹一圈後整株枯死。",
+    "symptoms": [
+      "樹幹基部或主枝樹皮出現水浸狀暗褐色病斑，表面滲出紅褐色膠狀液滴（流膠）。",
+      "刮開樹皮可見內部組織呈紅褐色至黑褐色腐爛，與健康組織界線明顯。",
+      "根部腐爛時，葉片失去光澤、黃化並大量落葉，枝條由上往下枯死。",
+      "果實多由果頂或接觸地面處出現水浸狀褐色病斑，潮濕時長出白色菌絲，果實腐爛、提早掉落。"
+    ],
+    "conditions": "雨季、高溫多濕及排水不良的果園最常發生；病菌存活在土壤中，隨雨水飛濺、流水與帶菌苗木傳播，由根部、樹幹傷口及近地面的果實侵入。",
+    "prevention": [
+      "選擇排水良好的園地，採高畦或築土丘種植，避免樹基積水。",
+      "使用健康種苗；覆蓋物與雜草不要緊貼樹幹基部。",
+      "修剪下垂近地的枝條，減少雨水將土壤病菌濺到樹幹與果實。",
+      "定期檢查樹幹基部是否有流膠、樹皮變色。"
+    ],
+    "control": [
+      "發現樹幹病斑時，刮除病部至健康組織，再依《植物保護手冊》以登記藥劑塗抹傷口；刮下的組織帶離果園銷毀。",
+      "可依《植物保護手冊》選用登記的亞磷酸等藥劑，以灌注或樹幹注射提高植株抵抗力。",
+      "撿除罹病落果並銷毀，避免成為下一次感染源。",
+      "榴槤的登記藥劑很少，用藥前請先查詢《植物保護手冊》確認已登記於榴槤，並遵守安全採收期。"
+    ],
+    "illus": [
+      { "k": "stem", "p": "gummosis", "cap": "樹幹基部暗褐色病斑，滲出紅褐色膠液" },
+      { "k": "fruit", "fruit": "durian", "p": "whitemold", "cap": "果實水浸狀褐色腐爛，潮濕時長白色菌絲" }
+    ],
+    "photoQuery": "Phytophthora palmivora durian patch canker",
+    "related": ["anthracnose", "phytophthora-blight"]
   },
   {
     "id": "spodoptera-litura",
@@ -1564,7 +1601,7 @@
     "en": "Scale insects and mealybugs",
     "sci": "盾介殼蟲科、介殼蟲科、粉介殼蟲科等",
     "type": "pest",
-    "crops": ["citrus", "mango", "papaya", "guava", "coconut"],
+    "crops": ["citrus", "mango", "papaya", "guava", "coconut", "durian"],
     "parts": ["leaf", "stem", "fruit"],
     "tags": ["honeydew", "yellowing", "insects"],
     "summary": "固著在枝葉及果實上刺吸的害蟲，外有蠟殼保護，分泌蜜露誘發煤煙病。",
@@ -1593,7 +1630,8 @@
     "cropNotes": {
       "citrus": "固著在葉、枝及果實上吸食，果面留下斑點，並引發煤煙病。",
       "mango": "葉片與枝條布滿介殼，樹勢衰弱，並引發煤煙病。",
-      "coconut": "椰子盾介殼蟲等群聚在葉背吸汁，葉片出現黃斑並逐漸黃化，嚴重時整片葉枯黃，果實也會被寄生。"
+      "coconut": "椰子盾介殼蟲等群聚在葉背吸汁，葉片出現黃斑並逐漸黃化，嚴重時整片葉枯黃，果實也會被寄生。",
+      "durian": "粉介殼蟲常躲在果柄及果刺之間吸汁，螞蟻會幫忙搬運與保護；分泌的蜜露誘發煤煙病，使果面變黑、外觀變差。"
     }
   },
   {
@@ -1662,6 +1700,74 @@
     ],
     "photoQuery": "Rhynchophorus ferrugineus",
     "related": ["coconut-bud-rot", "coconut-hispine-beetle"]
+  },
+  {
+    "id": "durian-psyllid",
+    "name": "榴槤木蝨",
+    "en": "Durian psyllid",
+    "sci": "Allocarsidara malayensis（= Tenaphalara malayensis）",
+    "type": "pest",
+    "crops": ["durian"],
+    "parts": ["leaf"],
+    "tags": ["insects", "curling", "honeydew", "drop"],
+    "summary": "專門危害榴槤嫩梢的木蝨，若蟲群聚在嫩葉上吸汁並分泌大量白色蠟絲，造成嫩葉捲曲、褐化並脫落，幼樹受害最嚴重。",
+    "symptoms": [
+      "嫩葉上可見群聚的淡黃綠色扁平若蟲，周圍覆蓋白色棉絮狀、捲曲的蠟絲。",
+      "成蟲體長約 3 mm，翅透明，受驚擾時會跳躍飛起。",
+      "受害嫩葉捲曲、皺縮，出現褐色焦枯，最後大量脫落，新梢無法正常生長。",
+      "分泌的蜜露誘發煤煙病，葉面覆蓋一層黑色黴。"
+    ],
+    "conditions": "主要發生在抽新梢期，嫩葉越多族群越大；乾季及幼齡植株、苗圃中發生較嚴重。主要分布在東南亞，可能隨帶蟲苗木傳入。",
+    "prevention": [
+      "不從發生地區引進帶蟲苗木，新種苗先仔細檢查嫩葉。",
+      "讓全園新梢整齊抽出，縮短嫩葉期以減少危害。",
+      "抽梢期加強巡查嫩葉，剪除群聚危害的嫩梢並銷毀。"
+    ],
+    "control": [
+      "嫩梢上若蟲密度高時，依《植物保護手冊》選用登記藥劑，噴藥需涵蓋嫩葉。",
+      "榴槤的登記藥劑很少，用藥前請先查詢《植物保護手冊》確認已登記於榴槤，並遵守安全採收期。"
+    ],
+    "illus": [
+      { "k": "bug", "t": "durianpsyllid", "cap": "若蟲群聚在嫩葉上，覆蓋白色捲曲蠟絲" },
+      { "k": "leaf", "shape": "lance", "p": "sooty", "cap": "蜜露誘發煤煙病，葉面覆蓋黑色黴" }
+    ],
+    "photoQuery": "Allocarsidara malayensis durian psyllid",
+    "related": ["scale-insects", "durian-fruit-borer"]
+  },
+  {
+    "id": "durian-fruit-borer",
+    "name": "桃蛀螟（榴槤果實螟）",
+    "en": "Durian fruit borer (yellow peach moth)",
+    "sci": "Conogethes punctiferalis",
+    "type": "pest",
+    "crops": ["durian"],
+    "parts": ["fruit"],
+    "tags": ["insects", "holes", "rot", "drop"],
+    "summary": "幼蟲從果刺之間蛀入榴槤果實，在果皮及果肉內取食，蛀孔排出蟲糞，果實容易腐爛、掉落，失去商品價值。",
+    "symptoms": [
+      "成蟲為中型蛾，翅膀黃色，上面散布許多黑色小斑點。",
+      "幼蟲淡紅褐色至淡粉紅色，體背有成排的黑褐色小毛瘤，體長可達約 2.5 cm。",
+      "果刺之間出現蛀孔，孔口堆積褐色蟲糞並以絲黏連，常伴隨流膠。",
+      "果皮下與果肉被蛀食，蛀孔附近腐爛，果實提早掉落；常見兩顆果實相接觸處被蛀入。"
+    ],
+    "conditions": "果實發育期至成熟期都會發生，成蟲在夜間產卵於果刺間或果實相接觸處；果實成串相碰、園區雜亂時危害較重。寄主範圍很廣，可在多種果樹之間移動。",
+    "prevention": [
+      "疏果，避免果實相互接觸，減少幼蟲藏身處。",
+      "可在果實發育期套袋（網袋）保護果實。",
+      "撿除被蛀食的落果並銷毀，清除園區周邊寄主雜木。",
+      "利用黑光燈或性費洛蒙誘蟲器監測成蟲發生。"
+    ],
+    "control": [
+      "在幼蟲蛀入果實前依《植物保護手冊》選用登記藥劑，蛀入後藥劑效果有限。",
+      "發現蛀孔時，可用細鐵絲伸入蛀孔刺殺幼蟲，並清除孔口蟲糞。",
+      "榴槤的登記藥劑很少，用藥前請先查詢《植物保護手冊》確認已登記於榴槤，並遵守安全採收期。"
+    ],
+    "illus": [
+      { "k": "bug", "t": "caterpillar", "color": "#d4a090", "marks": true, "cap": "幼蟲淡紅褐色，體背有成排黑褐色毛瘤" },
+      { "k": "fruit", "fruit": "durian", "p": "bore", "cap": "果刺間的蛀孔，孔口堆積褐色蟲糞" }
+    ],
+    "photoQuery": "Conogethes punctiferalis durian",
+    "related": ["durian-psyllid", "durian-phytophthora"]
   },
   {
     "id": "def-n",
@@ -1788,7 +1894,8 @@
       "citrus": "果實小、果皮薄容易裂果，葉片捲曲皺縮。",
       "banana": "老葉葉尖迅速黃化轉橙褐色並向下彎折，果串小、果指短。",
       "grape": "夏季老葉葉緣焦枯，葉面變暗紫褐色，果粒著色差、糖度低。",
-      "coconut": "老葉先出現黃橙色斑點並由小葉尖端焦枯，下層葉片提早枯垂；結果數減少、果實變小且容易落果。椰子需鉀量很高。"
+      "coconut": "老葉先出現黃橙色斑點並由小葉尖端焦枯，下層葉片提早枯垂；結果數減少、果實變小且容易落果。椰子需鉀量很高。",
+      "durian": "老葉葉緣與葉尖焦枯；果實發育期缺鉀時果實小、果肉品質與風味變差。結果期需鉀量大，應適時追施鉀肥。"
     }
   },
   {
@@ -1954,7 +2061,8 @@
       "grape": "結實不良，同一串果粒大小不一（大小粒），新梢節間短。",
       "papaya": "果實表面凹凸不平、呈瘤狀畸形，果肉中常有乳汁凝結的硬塊，容易落果。",
       "goldenberry": "裂果與畸形果增加，新梢生長點枯死、節間縮短。",
-      "coconut": "新抽出的葉片小葉黏連不展開、皺縮或呈鉤狀（鉤葉），嚴重時心葉畸形、結果減少。"
+      "coconut": "新抽出的葉片小葉黏連不展開、皺縮或呈鉤狀（鉤葉），嚴重時心葉畸形、結果減少。",
+      "durian": "開花著果不良、落果增加，果實畸形或果瓣發育不完整；新葉小而皺縮。"
     }
   },
   {

@@ -16,5 +16,6 @@
   { "id": "guava", "name": "番石榴", "en": "Guava", "group": "果樹與果品", "emoji": "🍐", "sort": 26 },
   { "id": "goldenberry", "name": "燈籠果", "en": "Goldenberry", "group": "果樹與果品", "emoji": "🏮", "sort": 27 },
   { "id": "coconut", "name": "矮種椰子", "en": "Dwarf coconut", "group": "果樹與果品", "emoji": "🥥", "sort": 28 },
+  { "id": "durian", "name": "榴槤", "en": "Durian", "group": "果樹與果品", "emoji": "🟢", "sort": 29 },
   { "id": "chrysanthemum", "name": "杭菊", "en": "Hangju chrysanthemum", "group": "特用作物", "emoji": "🌼", "sort": 30 }
 ]
